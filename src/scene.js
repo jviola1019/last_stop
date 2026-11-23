@@ -101,7 +101,7 @@ function room(c,type,x,y,w,h,time,level){const cfg=CARRIAGES[type];rr(c,x,y,w,h,
   // Window frames and warm door at the far end.
   rr(c,x+w-36,y+28,25,54,9,'#acc4c4','#a1846d',3);line(c,x+w-24,y+29,x+w-24,y+78,'#d9c19a',2);
 }
-function carriage(c,x,ground,car,time,index,selected){const cfg=CARRIAGES[car.type],w=252,h=175;const y=ground-h;
+function carriage(c,x,ground,car,time,index,selected,decor=[]){const cfg=CARRIAGES[car.type],w=252,h=175;const y=ground-h;
   rr(c,x+1,y-13,w-2,15,7,'#354f56','#c09b68',2);
   // Panel and sides frame the open dollhouse room.
   rr(c,x,y,w,h+9,10,'#3a5960','#e1bd8e',2.5);
@@ -114,6 +114,10 @@ function carriage(c,x,ground,car,time,index,selected){const cfg=CARRIAGES[car.ty
     const xx=x+34+p*((w-66)/(Math.max(1,cfg.people-1)))+Math.sin(time*.3+p*13+index)*3;
     tinyPerson(c,xx,y+88,p+index*3,time,.70,car.type==='cafe'&&p===0);
   }
+  for(let crew=0;crew<car.staff;crew++)tinyPerson(c,x+86+crew*66,y+95,18+crew+index*3,time,.68,true);
+  if(decor.includes('flowers')){for(let k=0;k<3;k++){rr(c,x+24+k*88,y+137,23,6,2,'#b17a60');circle(c,x+36+k*88,y+132,7,'#e1b4a3');circle(c,x+29+k*88,y+132,5,'#6d9b73')}}
+  if(decor.includes('lanterns')){for(let k=0;k<5;k++){line(c,x+20+k*49,y+1,x+20+k*49,y+17,'#d4c69e',1);circle(c,x+20+k*49,y+20,4,'#fff1b3','#a98157',1)}}
+  if(decor.includes('pennants')){for(let k=0;k<11;k++){line(c,x+4+k*23,y-17,x+27+k*23,y-17,'#e0c695',1);path(c,[x+7+k*23,y-17,x+20+k*23,y-17,x+13+k*23,y-6],k%2?'#bf957a':'#e4c67a')}}
   text(c,cfg.name.toUpperCase(),x+19,y+160,10,'#f0dec1','sans-serif','left','700');
   rr(c,x+w-45,y+148,34,15,6,'#e9ca92');text(c,'LV '+car.level,x+w-28,y+159,9,'#4b4b3f','sans-serif','center','700');
   rr(c,x+5,ground+8,w-10,19,4,'#273d43');wheels(c,x+4,ground+18,w-8,time);

@@ -20,6 +20,11 @@ export const DESTINATIONS = [
   {id:'coastnight',name:'Lantern Quay',subtitle:'Seaside lamplight',biome:'coast',accent:'#497b87',postcard:'The Last Lantern',description:'Evening ferries float past the sleeping port.'},
   {id:'highlands',name:'Whistling Ridge',subtitle:'The old mountains',biome:'mountain',accent:'#687e72',postcard:'High Country',description:'Stone bridges ring above the cloudbanks.'}
 ];
+export const DECOR = [
+  {id:'lanterns',name:'Amber Lanterns',cost:390,glyph:'✧',desc:'A warm light outside every room after dusk.'},
+  {id:'flowers',name:'Window Planters',cost:680,glyph:'✿',desc:'Little flower boxes brighten the entire train.'},
+  {id:'pennants',name:'Festival Pennants',cost:1100,glyph:'⚑',desc:'Tiny celebratory flags dance above the carriage roofs.'}
+];
 export const PAINTS = [
   {id:'midnight',name:'Midnight Blue',color:'#344857',cost:0,stampCost:0},
   {id:'copper',name:'Old Copper',color:'#98613e',cost:450,stampCost:0},
