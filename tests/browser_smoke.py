@@ -39,11 +39,26 @@ with sync_playwright() as p:
   page.locator('[data-shop-tab="paints"]').click();assert page.get_by_role('heading',name='Old Copper').is_visible()
   page.locator('[data-tab="journal"]').click();assert page.get_by_text('Letters from the line.').is_visible()
   page.locator('[data-tab="route"]').click();assert page.get_by_text('Bellweather Bay').count()>0
-  page.locator('[data-tab="train"]').click();page.screenshot(path=str(root/'docs'/f'{name}-played.png'))
+  page.locator('[data-tab="train"]').click()
+  assert page.locator('[data-action="hire"]').count()==1
+  page.locator('#settings-btn').click()
+  loaded=json.loads(page.evaluate('localStorage.getItem("everline-save-v3")'))
+  loaded['coins']=5000
+  page.locator('#import-text').fill(json.dumps(loaded))
+  page.locator('#import-btn').click()
+  page.locator('[data-action="hire"]').click()
+  assert '(1/2)' in page.locator('#inspector').inner_text()
+  page.locator('[data-tab="shop"]').click()
+  page.locator('[data-shop-tab="decor"]').click()
+  assert page.get_by_role('heading',name='Amber Lanterns').is_visible()
+  page.locator('[data-action="decor"][data-type="lanterns"]').click()
+  assert json.loads(page.evaluate('localStorage.getItem("everline-save-v3")'))['decor']==['lanterns']
+  page.locator('[data-tab="train"]').click()
+  page.screenshot(path=str(root/'docs'/f'{name}-played.png'))
   assert 'LEVEL 2' in page.locator('#inspector').inner_text(),page.locator('#inspector').inner_text()
   dimensions=page.evaluate('''() => ({scrollW:document.documentElement.scrollWidth,viewport:innerWidth,canvasW:document.getElementById('scene').width,gameH:document.querySelector('.vista').getBoundingClientRect().height})''')
   assert dimensions['scrollW']<=size[0],dimensions
-  saved=page.evaluate('localStorage.getItem("everline-save-v3")');assert saved and json.loads(saved)['cars'][0]['level']==2
+  saved=page.evaluate('localStorage.getItem("everline-save-v3")');assert saved and json.loads(saved)['cars'][0]['level']==2 and json.loads(saved)['cars'][0]['staff']==1
   result.append(dict(viewport=name,width=size[0],height=size[1],saved=True,panelNavigation=True,canvas=dimensions,errors=errors))
   print('PASSED',name,dimensions)
   ctx.close()

@@ -1,4 +1,4 @@
-# Implementation ledger — v1
+# Implementation ledger — v1.1
 
 | Feature | Status | Evidence / notes |
 | --- | --- | --- |
@@ -7,6 +7,7 @@
 | Eight buildable carriage designs | Built | `src/data.js`, `src/economy.js` |
 | Collect, 12 upgrades, carriage rearrangement, adjacency | Built | Atomic actions in economy module |
 | Route of eight biomes, fare bonuses and postcards | Built | Destination sequence and station timer |
+| Residents, up to 2 per carriage, and train-wide visible decorations | Built | Hire and cosmetic purchases in economy and UI |
 | Rare claimable sightings | Built | Seeded events and event UI |
 | Achievements, Journal, stamps, locomotive liveries | Built | Static unlock tables and whitelisted rewards |
 | Eight-hour offline earnings, save import/export | Built | Versioned/local validation, `offlineCredit()` |
@@ -21,8 +22,8 @@ No Node dependencies are required for runtime; source is ES modules with JSDoc/T
 
 ## Local verification — 2026-11-23
 
-- `npm test`: **13 of 13 passed** (including construction, atomic purchases, frame-independence, import validation, offline cap, and progression).
+- `npm test`: **15 of 15 passed** (including construction, atomic purchases, frame-independence, import validation, offline cap, and progression).
 - `npm run check`: **passed** using global TypeScript 5.8.3 `checkJs`.
 - `npm run build`: **passed**, outputs `dist/` with seven files and no third-party runtime dependencies.
-- Chromium via Python Playwright: **passed desktop 1440×900, mobile 390×844, compact 320×650**. Interacted with collect, upgrade, tutorial, Shop, Journal, Route; checked local save contents. No page JavaScript exceptions, no horizontal overflow. Screenshots: `docs/{desktop,iphone,small}-{initial,played}.png`.
+- Chromium via Python Playwright: **passed desktop 1440×900, mobile 390×844, compact 320×650**. Interacted with collect, upgrade, hire resident, buy decoration, tutorial, Shop, Journal, Route; checked local save contents. No page JavaScript exceptions, no horizontal overflow. Screenshots: `docs/{desktop,iphone,small}-{initial,played}.png`.
 - Browser navigation to `file://` and `http://127.0.0.1` was blocked by this container's administrator. The verified browser harness therefore assembled same-source ECMAScript modules as `data:` imports in an `about:blank` page, with a localStorage shim. **A full HTTP-hosted, cross-reload E2E run is still pending**; CI build and unit tests are reproducible without browser dependencies.

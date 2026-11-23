@@ -12,14 +12,14 @@
 
 - **Collect** deposits passenger earnings in your wallet; automatic income continues as the train runs.
 - **Tap a carriage** to upgrade or move it; swipe / drag to see the rest of the train.
-- **Shop** builds new rooms, unlocks station improvements and paints the locomotive.
+- **Shop** builds new rooms, buys visual train decorations, unlocks station improvements and paints the locomotive. Hire carriage residents directly from the Train inspector.
 - **Journal** has postcards, achievements, passengers' sightings, and journey history. Route shows the eight destinations.
 - **Keyboard**: arrows select rooms, Space collects, keys 1–4 change navigation sections.
 - **Settings** exports/imports JSON save, lets you opt into subtle audio, and offers reduced-motion or reset options.
 
 ## Gameplay
 
-Starts with one locomotive, sleeper, café, 160 coins and 42 coins available to collect. Every carriage earns coins according to its level; most have visible improvements at levels 2, 3 and 6. The train automatically reaches a station around every 85 seconds before upgrades, awards fares, earns the first postcard for a destination, and may spot a rare visitor. Unvisited stations unlock new cars. Neighboring carriage combinations provide optional 12% revenue bonuses. Offline accrual is capped to eight hours per absence; accumulated earnings are collected at the player's convenience.
+Starts with one locomotive, sleeper, café, 160 coins and 42 coins available to collect. Every carriage earns coins according to its level; most have visible improvements at levels 2, 3 and 6. The train automatically reaches a station around every 85 seconds before upgrades, awards fares, earns the first postcard for a destination, and may spot a rare visitor. Unvisited stations unlock new cars. You can hire up to two residents per carriage, with each resident visibly appearing inside and adding 18% to that room’s earnings. Train-wide lanterns, flower boxes, and bunting can be purchased as decorations. Neighboring carriage combinations provide optional 12% revenue bonuses. Offline accrual is capped to eight hours per absence; accumulated earnings are collected at the player's convenience.
 
 ## Technical foundation
 
