@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#213e48" />
+  <meta name="description" content="LAST STOP: THE EVERLINE — an illustrated idle train journey. Build tiny worlds on rails." />
+  <link rel="icon" type="image/svg+xml" href="./assets/icon.svg" />
+  <title>LAST STOP · THE EVERLINE</title>
+  <link rel="stylesheet" href="./src/style.css" />
+</head>
+<body>
+<div id="app" class="shell">
+  <header class="topbar">
+    <div class="brandmark" aria-hidden="true"><span>✳</span><i>27</i></div>
+    <div class="wordmark"><div class="eyebrow">A LITTLE WORLD ON RAILS</div><h1>LAST STOP <span>THE EVERLINE</span></h1></div>
+    <div class="top-actions"><button id="sound-btn" class="icon-button" title="Toggle sound" aria-label="Toggle subtle sound effects">♪</button><button id="settings-btn" class="icon-button" title="Game settings" aria-label="Open settings">⚙</button></div>
+  </header>
+  <section class="resource-bar" aria-label="Your resources">
+    <div class="resource"><span class="resource-symbol coin-symbol">✦</span><div><small>COINS</small><strong id="coins">160</strong></div></div>
+    <button class="collect-button" id="collect-button"><span class="collect-icon">⬡</span><span>COLLECT</span><b id="pending">+0</b></button>
+    <div class="resource stamp-resource"><span class="resource-symbol stamp-symbol">▧</span><div><small>POSTCARD STAMPS</small><strong id="stamps">0</strong></div></div>
+    <div class="resource rate-resource"><span class="resource-symbol">◷</span><div><small>PER MINUTE</small><strong id="rate">0</strong></div></div>
+  </section>
+  <section class="game-body" aria-label="Your Everline railway game">
+    <div class="vista">
+      <div class="world-caption"><span class="live-dot"></span><span id="biome-caption">THROUGH WILLOWMERE WOODS</span><span class="caption-separator">/</span><span id="weather-caption">CLEAR SKIES</span></div>
+      <canvas id="scene" role="img" aria-label="Illustrated moving train with accessible carriage controls below. Drag horizontally to explore carriages." tabindex="0"></canvas>
+      <div class="location-marker"><span class="tiny-flag">⚑</span><span><small>NEXT DESTINATION</small><b id="next-destination">Bellweather Bay</b></span></div>
+      <div class="station-meter"><div class="station-meter-heading"><span id="route-status">ON THE OPEN RAIL</span><span id="eta">NEXT STOP IN 01:25</span></div><div class="track"><div class="track-fill" id="station-bar"></div></div></div>
+      <div id="event-button-wrapper" class="event-button-wrapper hidden"><button id="event-button" class="event-button">✦ A curious sighting! <span>Claim +1 stamp</span></button></div>
+      <div class="view-hint" id="view-hint">↔ DRAG TO EXPLORE</div>
+    </div>
+    <aside class="inspector" id="inspector" aria-label="Selected carriage details"></aside>
+  </section>
+  <section class="bottom-panel" id="bottom-panel" aria-label="Shop and journal content" hidden></section>
+  <nav class="bottom-nav" aria-label="Main game navigation">
+    <button class="tab active" data-tab="train" aria-current="page"><span class="nav-icon">▤</span><span>TRAIN</span></button>
+    <button class="tab" data-tab="shop"><span class="nav-icon">✣</span><span>SHOP</span></button>
+    <div class="rail-seal" aria-hidden="true">E<span>✦</span></div>
+    <button class="tab" data-tab="journal"><span class="nav-icon">▣</span><span>JOURNAL</span></button>
+    <button class="tab" data-tab="route"><span class="nav-icon">⌁</span><span>ROUTE</span></button>
+  </nav>
+  <div id="toast" role="status" aria-live="polite" class="toast" aria-atomic="true"></div>
+  <div id="tutorial" class="tutorial hidden" role="status" aria-live="polite"></div>
+  <dialog id="modal"><div id="modal-content"></div><form method="dialog"><button class="modal-close">CLOSE ✕</button></form></dialog>
+</div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
