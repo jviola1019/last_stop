@@ -88,7 +88,24 @@ export class LivingScene {
     // Gentle 6-minute day/night cycle and biome-dependent atmospheric motifs.
     const twilight=(Math.sin(this.t/175)*.5+.5);
     c.fillStyle='#182242';c.globalAlpha=twilight*.17;c.fillRect(0,0,w,h*.85);c.globalAlpha=1;
-    const snowy=['snow','mountain'].includes(['forest','coast','snow','desert','city','valley','coast','mountain'][st.stage%8]);
+    const region=st.activeRegion||'heartland';const snowy=['highland','frontier','beyond'].includes(region);const tint={coast:'#356e9d',highland:'#7198b8',desert:'#a9733b',metropolis:'#574081',frontier:'#3c8d87',archipelago:'#315f9a',beyond:'#864989'}[region];if(tint){c.fillStyle=tint;c.globalAlpha=.17;c.fillRect(0,0,w,h*.92);c.globalAlpha=1;}
+    // Locally generated regional weather motifs: geometry is tied to the route,
+    // not a decorative animation independent of simulation state.
+    if(region==='archipelago'||region==='coast'){
+      c.save();c.globalAlpha=.28;c.strokeStyle='#fff3d6';c.lineWidth=2;
+      for(let j=0;j<8;j++){let x=(j*176+(this.motion?this.t*20:0))%Math.max(1,w),y=h*(.28+(j%3)*.09);c.beginPath();c.moveTo(x-12,y+3);c.quadraticCurveTo(x,y-8,x+12,y+3);c.stroke();}c.restore();
+    }
+    if(region==='desert'){
+      c.save();c.globalAlpha=.23;c.strokeStyle='#fbe4af';c.lineWidth=1.5;
+      for(let j=0;j<14;j++){const x=(j*127+(this.motion?this.t*37:0))%Math.max(1,w),y=h*(.31+(j%5)*.04);c.beginPath();c.moveTo(x-22,y);c.quadraticCurveTo(x,y-5,x+22,y);c.stroke()}c.restore();
+    }
+    if(region==='metropolis'){
+      c.save();c.globalAlpha=.23;for(let j=0;j<19;j++){const x=j*w/19,y=h*.31+Math.sin(j*9)*17;c.fillStyle=j%3?'#fbca8a':'#c4e4ed';c.fillRect(x,y,2.2,4);c.fillRect(x+7,y+11,2.2,4)}c.restore();
+    }
+    if(region==='frontier'||region==='beyond'){
+      c.save();c.globalAlpha=.14;c.strokeStyle=region==='frontier'?'#93efbd':'#f9b8f3';c.lineWidth=Math.max(4,w*.009);
+      for(let j=0;j<3;j++){c.beginPath();for(let x=0;x<=w;x+=12){const y=h*(.16+j*.025)+Math.sin(x/w*9+j*2+(this.motion?this.t*.35:0))*h*.032;x===0?c.moveTo(x,y):c.lineTo(x,y)}c.stroke()}c.restore();
+    }
     if(snowy&&this.motion){c.fillStyle='#fffcdf';for(let j=0;j<45;j++){const x=((j*127.3+this.t*(9+j%4))%w),y=((j*81.7+this.t*(16+j%4))%(h*.77));c.globalAlpha=.35+(j%3)*.13;c.beginPath();c.arc(x,y,1+j%2,0,7);c.fill()}c.globalAlpha=1}
     if(this.motion){c.globalAlpha=.1;c.fillStyle='#fff3d0';for(let j=0;j<11;j++){const x=(j*211+this.t*(8+j%3))%w,y=70+(j*67)%(Math.max(100,h*.4));c.beginPath();c.ellipse(x,y,10+j%5*7,3+j%3*3,0,0,7);c.fill()}c.globalAlpha=1}
   }

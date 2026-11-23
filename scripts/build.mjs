@@ -2,4 +2,5 @@ import {rm,mkdir,copyFile,readdir,stat} from 'node:fs/promises';import path from
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),dist=path.join(root,'dist');await rm(dist,{recursive:true,force:true});
 async function copyDir(source,target){await mkdir(target,{recursive:true});for(const item of await readdir(source)){const inp=path.join(source,item),out=path.join(target,item);if((await stat(inp)).isDirectory())await copyDir(inp,out);else await copyFile(inp,out)}}
 await copyDir(path.join(root,'src'),path.join(dist,'src'));await mkdir(path.join(dist,'assets'),{recursive:true});for(const name of ['icon.svg','world.webp','car-engine.png','car-sleeper.png','car-cafe.png','car-garden.png','car-arcade.png','car-observatory.png'])await copyFile(path.join(root,'assets',name),path.join(dist,'assets',name));for(const name of ['index.html','manifest.webmanifest','sw.js'])await copyFile(path.join(root,name),path.join(dist,name));
-console.log('Built complete static art-driven game at dist/. No runtime network services required.');
+await import('./build-singlefile.mjs');await copyFile(path.join(root,'THE_EVERLINE_PLAY_OFFLINE.html'),path.join(dist,'THE_EVERLINE_PLAY_OFFLINE.html'));
+console.log('Built full static game and current standalone offline edition at dist/.');

@@ -2,7 +2,7 @@
 
 # LAST STOP: THE EVERLINE — Illustrated Railway Edition
 
-**Version 3.0 · Illustrated, functional idle train game**
+**Version 2.0 · Illustrated, functional idle train game**
 
 A dramatic art-led rebuild based on the original *Sunset Journey on the Everline* reference scene. The train is a series of **individual illustrated room sprites**, not a pre-rendered picture with fake buttons. An independent clock advances the idle economy, while Canvas 2D renders locomotive movement, changing lights, weather, wheel spokes, smoke, resident movement and room decorations.
 
@@ -22,7 +22,7 @@ npm run verify
 # Copy dist/ to a web host, including GitHub Pages.
 ```
 
-The downloadable v3 ZIP includes a **single-file, self-contained desktop browser edition** (`THE_EVERLINE_PLAY_OFFLINE.html`) with all game images and scripts embedded. Double-click it in a modern browser; save-file export is available if local storage is restricted by the `file://` origin.
+The ZIP also includes a **single-file, self-contained desktop browser edition** (`THE_EVERLINE_PLAY_OFFLINE.html`) with all game images and scripts embedded. Double-click it in a modern browser; save-file export is available if local storage is restricted by the `file://` origin.
 
 ## The actual controls
 
@@ -53,6 +53,13 @@ The downloadable v3 ZIP includes a **single-file, self-contained desktop browser
 The game is visual and cross-device. A Windows executable only changes the *distribution container*; it does not improve illustration quality. The main target is an installable Progressive Web App. The same frontend can later be packaged via Tauri v2 for Windows (`src-tauri` included) without maintaining a second game engine. Building a genuine Windows installer requires Windows/Rust/WebView2 prerequisites and has **not** been verified here.
 
 See `docs/STATUS.md`, `docs/QA.md`, `docs/BALANCE.md`, and `docs/ART_DIRECTION.md` for evidence, constraints and art direction.
-## v3 visual regression evidence
 
-See [`docs/TYPOGRAPHY_QA.md`](docs/TYPOGRAPHY_QA.md) for the font pairing, measured 44px target areas, and four device viewport checks. GitHub Actions builds the source and separately generates a **fresh** standalone `THE_EVERLINE_PLAY_OFFLINE.html` inside the Pages deployment artifact. From the repository itself, regenerate it using `node scripts/build-singlefile.mjs`.
+---
+
+## v4 · Railway chapters, residents, and persistent saves
+
+This release preserves the original illustrated train but makes its economy and exploration materially deeper. Eight railway regions contain sixteen destinations. Every region has a precise lifetime-stop, train-length, and Postcard Stamp unlock gate. Players can freely revisit unlocked lines. The Shop shows all room unlock gates, a new **Stamp Works** tab and three permanent souvenir projects. Named crew members have dream jobs that influence actual carriage earnings; satisfaction now changes rate and passenger fares. An optional **New Timetable** (20 carriages, three unlocked regions) resets the current train in exchange for a permanent +16% income bonus while keeping discoveries and collectibles.
+
+**On-device save behavior:** the game automatically stores a validated version-4 save in the current browser's `localStorage` plus three rotating local recovery snapshots. Existing v3 saves are migrated rather than wiped. Saves are scoped to an origin and browser profile, not synchronized to other devices. Clearing browsing data can delete them; **Settings → Export Save** is the recommended portable backup, and Import Save can restore it on another device. Eight-hour offline earnings remain capped, and stations do not advance during offline credit. Opening multiple tabs triggers a warning to prevent a stale tab silently overwriting progress.
+
+Production code has **no runtime package dependencies**. Run `npm run verify`, `node scripts/balance.mjs`, `python tests/browser_art_smoke.py`, and `node scripts/build-singlefile.mjs` after changing the economy. See `docs/MASTER_EXECUTION_PROMPT.md`, `docs/BALANCE.md`, `docs/STATUS.md`, and `AGENTS.md` for conventions, limitations, and the formal acceptance plan.

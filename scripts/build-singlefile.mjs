@@ -5,7 +5,7 @@ const urls={};for(const name of assetNames){const b=await read('assets/'+name);u
 const modules=new Map();async function moduleUrl(file){if(modules.has(file))return modules.get(file);let text=(await read('src/'+file)).toString();
  if(file==='art.js')text=text.replace("const src=n=>new URL('../assets/'+n,import.meta.url).href;","const src=n=>window.__assetUrls[n];");
  if(file==='main.js')text=text.replace("const path=name=>new URL('../assets/'+name,import.meta.url).href;","const path=name=>window.__assetUrls[name];");
- for(const dep of ['data.js','economy.js','art.js'])if(dep!==file&&text.includes(`'./${dep}'`))text=text.replaceAll(`'./${dep}'`,`'${await moduleUrl(dep)}'`);
+ for(const dep of ['data.js','economy.js','art.js','save.js'])if(dep!==file&&text.includes(`'./${dep}'`))text=text.replaceAll(`'./${dep}'`,`'${await moduleUrl(dep)}'`);
  const res='data:text/javascript;base64,'+Buffer.from(text).toString('base64');modules.set(file,res);return res}
 let html=(await read('index.html')).toString(),css=(await read('src/style.css')).toString();css=css.replaceAll("url('../assets/world.webp')",`url("${urls['world.webp']}")`);
 html=html.replace(/<link rel="stylesheet"[^>]*>/,'<style>'+css+'</style>').replace(/<link rel="manifest"[^>]*>/,'');

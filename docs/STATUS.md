@@ -1,41 +1,27 @@
-# Verified status — Illustrated Railway v3.0
+# Everline v4 — implemented vs validated
 
-## Completed locally
+## Implemented
+- Regional chapter progression: **8 regions**, **16 destinations/postcards**; stops + carriage-count + paid Stamp gates; repeat visits are free
+- Slower eight-carriage-category unlock curve and explicit gate messages
+- Economy: satisfaction affects revenue and fares, named residents/dream roles affect earnings, wall-time accrual with cent carry independent of tick cadence
+- Stamp projects: Postcard Gallery, Concierge Academy, Souvenir Counter; permanent paid bonuses; milestone stamps every 18 station arrivals
+- Optional new timetable: 20 cars + 3 regions, +16% permanent revenue/season (maximum 10), preserves progress categories documented in prompt
+- Save version 4: migrates v3, validates imports, rotating 3-backup local snapshots with checksum, conflict warning for multiple tabs, export/import/reset/recover
+- Region-driven painted atmospheric color/motifs, existing original illustrated room sprites and v3 typography preserved
+- Self-contained offline HTML and GitHub Pages static build; no third-party production runtime packages
 
-- [x] Rebuilt UI hierarchy around the specific prior illustrative reference
-- [x] Extracted real reusable rendered carriage artwork; no network image URLs at runtime
-- [x] Train renders from actual owned-carriage state and resizes for desktop, tablet, phone
-- [x] Purchase / upgrade / hire / rearrange / decorate / coin collection
-- [x] Journals, postcard stamps, destination arrivals, 3-step optional tutorial
-- [x] Version 3 save validation, import/export, eight-hour offline cap, recovery
-- [x] Optional reduced motion; accessible button names; pointer and arrow-key selection
-- [x] Original royalty-free reference artwork packaged with the user project
-- [x] PWA manifest and service-worker source; cross-device static build
-- [x] Zero third-party production dependencies
-- [x] Type-check, 15 economic unit tests, build, four Chromium emulated viewports
-- [x] Browser smoke: collect, upgrade, tutorial, shop, journal, settings, save reload, buy car, hire and buy decoration
-- [x] Active-play progression simulation at 1m / 10m / 1h / 1d / 7d
+## Executed locally in the build session
+- `npm run verify`: TypeScript check of JavaScript sources, **27 unit tests**, static build — passed
+- `python tests/browser_art_smoke.py`: Chromium at desktop 1440×900, tablet 820×1180, phone 390×844, compact 320×650 — passed after testing actual route unlock, Stamp project, resident purchase, save reload, Shop, Journal and original tutorial
+- `node scripts/balance.mjs`: 1m, 10m, 1h, 1d, 7d, 30d deterministic active/casual policy simulations — completed
+- Source file sanitizer/validator: save import rejects invalid negative currencies, unknown residents/carriage identities, corrupted envelope checksums, duplicate IDs and unsupported schema versions
 
-## What was *not* verified
-
-- Direct HTTP browser navigation or public GitHub Pages release: the environment blocks browser loopback navigation; the browser test harness uses the exact source modules and base64-embedded image bytes.
-- Physical iPhone/Android devices, WebKit/Safari, Firefox or touch-inertia feel on hardware.
-- A Windows `.exe`: a Tauri v2 scaffold is included, but no Rust/Cargo toolchain or Windows builder was available.
-- PWA home-screen install on a physical iPhone or service-worker update under deployed HTTPS.
-- Public GitHub Pages release must be checked after the v2 pull request is merged and its deployment workflow completes.
-
-## Known limits
-
-- 25-carriage cap and maximum room level 12 are deliberate performance / number-scale limits; "endless" means a recurring idle route, not infinite wagons in this release.
-- The eight unique postcards will be discovered within the first several routes for active players; later collection depends on rare sightings, achievements and train expansion.
-- Source art is painted into flattened layers. Other biomes use shared backdrop with atmospheric changes rather than eight fully illustrated environments.
-- Offline income is locally computed. On a backend-free game, users can deliberately edit their system clock or source; this is not a competitive server-authoritative economy.
-
-## v3 visual acceptance
-
-- [x] Branded serif / interface sans typography hierarchy
-- [x] SVG railway controls instead of placeholder symbols
-- [x] Four Chromium viewports: no clipped labels, 44px controls, no inspector/nav collisions
-- [x] Redesigned shop catalogue and responsive mobile carriage ticket
-- [x] Local single-file offline build regenerated
-- [ ] Physical Safari/mobile-device and live Pages browser acceptance
+## Known limits — not hidden
+- 25 carriages is a performance and economy cap, not an infinitely long physical consist. New timetables are voluntary; old progress is preserved by migration.
+- Region scenery currently reuses the hand-painted world asset with distinct layered color and weather motifs, not 8 independent large art panoramas.
+- Real-player long-term retention and enjoyment are not established by economic simulation.
+- Browser saves remain local per origin+browser. No cloud account sync; clearing browser data can remove all backups. Users can manually export/import across devices.
+- A checksum protects against accidental corruption, not player cheating. Browser clock manipulation remains possible in an offline-only economy.
+- Physical iPhone/Safari, Android, Firefox and direct live Pages browser acceptance are not claimed without separate tests.
+- No Windows executable compiled. The existing Tauri scaffold remains optional.
+- Attempted direct HTTP navigation to local preview using Chromium: `net::ERR_BLOCKED_BY_ADMINISTRATOR`. The four-viewport browser tests therefore use production-source ES modules and bundled asset bytes injected into a local document, as disclosed in the browser test header. This is useful interaction evidence but not an independent network deployment test.
