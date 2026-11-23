@@ -17,7 +17,7 @@ def module(name):
  text=(root/'src'/name).read_text()
  if name=='art.js':text=text.replace("const src=n=>new URL('../assets/'+n,import.meta.url).href;","const src=n=>window.__assetUrls[n];")
  if name=='main.js':text=text.replace("const path=name=>new URL('../assets/'+name,import.meta.url).href;","const path=name=>window.__assetUrls[name];")
- for dep in ['data.js','economy.js','art.js']:
+ for dep in ['data.js','economy.js','art.js','save.js']:
   if dep!=name and f"'./{dep}'" in text:text=text.replace(f"'./{dep}'",f"'{module(dep)}'")
  urls[name]='data:text/javascript;base64,'+base64.b64encode(text.encode()).decode()
  return urls[name]
@@ -44,11 +44,12 @@ with sync_playwright() as p:
   canvas=page.locator('#world');pix=canvas.evaluate('(el)=>{const ctx=el.getContext("2d");return Array.from(ctx.getImageData(Math.floor(el.width/2),Math.floor(el.height/2),1,1).data)}')
   assert max(pix[:3])>12 and pix[3]==255,(name,pix)
   page.screenshot(path=str(root/'docs'/f'{name}-scene.png'),full_page=True)
-  # Real computed-layout geometry: validate 44px targets, clipping and overlap.
+  # Real computed-layout geometry: check interactive touch targets, clipped labels,
+  # inspector/navigation collision, brand hierarchy and scroll overflow.
   layout=page.evaluate("""() => {
     const box = sel => {const e=document.querySelector(sel),r=e.getBoundingClientRect();
       return {x:r.x,y:r.y,w:r.width,h:r.height,right:r.right,bottom:r.bottom,
-        font:getComputedStyle(e).fontFamily,fontSize:getComputedStyle(e).fontSize};};
+        font:getComputedStyle(e).fontFamily, fontSize:getComputedStyle(e).fontSize};};
     const targets=[...document.querySelectorAll('#collect,#settings,.nav-choice,.upgrade,.secondary-tools button')].map(e=>{
       const r=e.getBoundingClientRect();return {label:e.getAttribute('aria-label')||e.textContent.trim(),w:r.width,h:r.height};
     });
@@ -72,19 +73,22 @@ with sync_playwright() as p:
   page.locator('[data-page="shop"]').click();assert page.locator('#drawer').is_visible();assert page.locator('.purchase-card').count()==8
   if name in ('desktop','iphone'):page.screenshot(path=str(root/'docs'/f'{name}-shop.png'),full_page=True)
   page.locator('[data-shop-page="paint"]').click();assert page.get_by_text('Old Copper').count()>=1
-  page.locator('#close-drawer').click();page.locator('[data-page="journal"]').click();assert page.locator('.postcard').count()==8
-  page.locator('[data-journal-page="achievements"]').click();assert page.locator('.sticker').count()==9
+  page.locator('#close-drawer').click();page.locator('[data-page="journal"]').click();assert page.locator('.postcard').count()==16
+  page.locator('[data-journal-page="achievements"]').click();assert page.locator('.sticker').count()==12
   page.locator('#close-drawer').click();page.locator('#settings').click();assert page.locator('#settings-dialog').is_visible()
   page.locator('[data-settings-action="export"]').click();page.locator('#close-settings').click()
   # Canvas can be controlled without a mouse or touch.
   page.locator('#world').focus();page.keyboard.press('ArrowRight');assert page.evaluate('window.__EVERLINE_DIAGNOSTICS__().selected')==1
-  saved=page.evaluate("localStorage.getItem('everline-save-v3')")
-  assert saved and json.loads(saved)['cars'][0]['level']==2
+  saved=page.evaluate("localStorage.getItem('everline-save-v4')")
+  assert saved and json.loads(json.loads(saved)['payload'])['cars'][0]['level']==2
   # A new runtime is hydrated from the serialized save, then performs genuine purchases.
-  prep=json.loads(saved);prep['coins']=15000;prep['stops']=8;prep['lastTime']=int(__import__('time').time()*1000)
+  prep=json.loads(json.loads(saved)['payload']);prep['coins']=15000;prep['stamps']=15;prep['stops']=8;prep['totalStops']=8;prep['lastTime']=int(__import__('time').time()*1000)
+  payload=json.dumps(prep,separators=(',',':'),ensure_ascii=False);h=2166136261
+  for ch in payload:h=((h^ord(ch))*16777619)&0xffffffff
+  prep_envelope=json.dumps({'schema':1,'checksum':f'{h:08x}','payload':payload})
   new_page=context.new_page();new_errors=[];new_page.on('pageerror',lambda error:new_errors.append(str(error)))
   new_page.set_content(html,wait_until='domcontentloaded');new_page.add_style_tag(content=css)
-  new_page.evaluate("""(save) => {const m=new Map([['everline-save-v3',save]]);Object.defineProperty(window,'localStorage',{value:{getItem:k=>m.get(k)||null,setItem:(k,v)=>m.set(k,String(v)),removeItem:k=>m.delete(k)}})}""",json.dumps(prep))
+  new_page.evaluate("""(save) => {const m=new Map([['everline-save-v4',save]]);Object.defineProperty(window,'localStorage',{value:{getItem:k=>m.get(k)||null,setItem:(k,v)=>m.set(k,String(v)),removeItem:k=>m.delete(k)}})}""",prep_envelope)
   new_page.evaluate('(a)=>window.__assetUrls=a',images)
   new_page.evaluate('(s)=>{const m=document.createElement("script");m.type="module";m.src=s;document.body.appendChild(m)}',script)
   new_page.wait_for_timeout(650)
@@ -97,7 +101,23 @@ with sync_playwright() as p:
   assert new_page.evaluate('window.__EVERLINE_DIAGNOSTICS__().cars[2].staff')==1
   new_page.locator('[data-page="shop"]').click();new_page.locator('[data-shop-page="decoration"]').click()
   new_page.locator('[data-action="decor"][data-type="flowers"]').click()
-  assert 'flowers' in json.loads(new_page.evaluate("localStorage.getItem('everline-save-v3')"))['decor']
+  assert 'flowers' in json.loads(json.loads(new_page.evaluate("localStorage.getItem('everline-save-v4')"))['payload'])['decor']
+  new_page.locator('#close-drawer').click()
+  # New route chapter, stamp purchase and saving are real UI actions.
+  new_page.locator('[data-page="journal"]').click()
+  new_page.locator('[data-journal-page="route"]').click()
+  assert new_page.locator('.region-ticket').count()==8
+  new_page.locator('[data-action="unlock-region"][data-type="coast"]').click()
+  assert new_page.evaluate('window.__EVERLINE_DIAGNOSTICS__().region')=='coast'
+  assert 'coast' in new_page.evaluate('window.__EVERLINE_DIAGNOSTICS__().regions')
+  if name in ('desktop','iphone'):new_page.screenshot(path=str(root/'docs'/f'{name}-regions.png'),full_page=True)
+  new_page.locator('#close-drawer').click()
+  new_page.locator('[data-page="shop"]').click()
+  new_page.locator('[data-shop-page="stampworks"]').click()
+  assert new_page.locator('[data-action="stamp-project"]').count()==3
+  new_page.locator('[data-action="stamp-project"][data-type="postcards"]').click()
+  saved_new=json.loads(json.loads(new_page.evaluate("localStorage.getItem('everline-save-v4')"))['payload'])
+  assert saved_new['stampProjects']==['postcards'], saved_new['stampProjects']
   new_page.locator('#close-drawer').click()
   if name in ('desktop','iphone'):new_page.screenshot(path=str(root/'docs'/f'{name}-expanded.png'),full_page=True)
   assert not new_errors,(name,new_errors)

@@ -1,107 +1,66 @@
-import { CARRIAGES,DESTINATIONS,ACHIEVEMENTS,PAINTS,DECOR,TYPE_ORDER,MAX_OFFLINE_SECONDS,MAX_CARRIAGES } from './data.js';
-const clamp = (n, min, max)=>Math.min(max,Math.max(min,n));
-const integer = (n,min=0,max=1e12)=>Number.isFinite(n)?Math.trunc(clamp(n,min,max)):min;
-const money = (n)=>Number.isFinite(n)?Math.round(clamp(n,0,1e12)*100)/100:0;
-export const initialState = (now=Date.now())=>({
-  version:3,seed:38619,coins:160,pending:42,stamps:0,lifetime:0,stage:0,stops:0,lastTime:now,
-  stationProgress:0,eventProgress:0,events:0,trainPaint:'midnight',ownedPaints:['midnight'],decor:[],
-  stationBoost:0,collectBoost:0,comfort:0,selected:0,
-  cars:[{id:1,type:'sleeper',level:1,staff:0},{id:2,type:'cafe',level:1,staff:0}],
-  seen:['willow'],postcards:[],sightings:[],achievements:[],log:[],tutorial:0,
-  lastOffline:0
+import {CARRIAGES,DESTINATIONS,REGIONS,RESIDENTS,STAMP_PROJECTS,ACHIEVEMENTS,PAINTS,DECOR,SIGHTINGS,TYPE_ORDER,MAX_OFFLINE_SECONDS,MAX_CARRIAGES} from './data.js';
+const clamp=(n,lo,hi)=>Math.min(hi,Math.max(lo,n));
+const integer=(n,min=0,max=1e12)=>Number.isFinite(n)?Math.trunc(clamp(n,min,max)):min;
+const money=n=>Number.isFinite(n)?Math.round(clamp(n,0,1e12)*100)/100:0;
+export const initialState=(now=Date.now())=>({
+ version:4,seed:38619,coins:160,pending:42,stamps:0,lifetime:0,stage:0,stops:0,totalStops:0,lastTime:now,
+ stationProgress:0,eventProgress:0,incomeRemainder:0,events:0,trainPaint:'midnight',ownedPaints:['midnight'],decor:[],
+ stationBoost:0,collectBoost:0,comfort:0,selected:0,regionsUnlocked:['heartland'],activeRegion:'heartland',
+ stampProjects:[],legacyCount:0,hires:0,seasonBest:2,
+ cars:[{id:1,type:'sleeper',level:1,staff:0,crew:[]},{id:2,type:'cafe',level:1,staff:0,crew:[]}],
+ seen:['willow'],postcards:[],sightings:[],achievements:[],log:[],tutorial:0,lastOffline:0
 });
 export function randomStep(seed){const next=(Math.imul(seed,1664525)+1013904223)>>>0;return [next,next/4294967296]}
-export const carCost=(state,type)=> Math.round(CARRIAGES[type].cost*Math.pow(1.95,Math.max(0,state.cars.length-2)));
-export const upgradeCost=(car)=>Math.round((55+CARRIAGES[car.type].cost*.20)*Math.pow(2.40,car.level-1));
-export function capacity(state){return state.cars.reduce((s,c)=>s+CARRIAGES[c.type].people+(c.level>=4?1:0)+c.staff,0)}
-export function satisfaction(state){const types=new Set(state.cars.map(c=>c.type));return Math.min(100,65+state.comfort*5+types.size*3+Math.floor(state.cars.reduce((a,b)=>a+b.level,0)/6));}
-export function hourlyRate(state){return Math.round(incomeRate(state)*3600)}
-export function incomeRate(state){return state.cars.reduce((sum,car,index)=>{
-  const val=CARRIAGES[car.type].rate*Math.pow(1.27,car.level-1);
-  // Complementary neighbor pairings provide a small, optional reward for rearrangement.
-  const neighbors=[state.cars[index-1]?.type,state.cars[index+1]?.type];
-  const synergy=(car.type==='cafe'&&neighbors.includes('library'))||(car.type==='garden'&&neighbors.includes('sleeper'))||(car.type==='diner'&&neighbors.includes('observatory'));
-  return sum+val*(synergy?1.12:1)*(1+car.staff*.18);
-},0)*(1+state.comfort*.06)}
-export function canBuild(state,type){return Object.hasOwn(CARRIAGES,type) && state.cars.length<MAX_CARRIAGES && state.stops>=CARRIAGES[type].unlock && state.coins>=carCost(state,type)}
-export function buildCar(state,type){if(!canBuild(state,type))return {ok:false,reason:'Not yet affordable or unlocked.'};
-  const price=carCost(state,type);state.coins=money(state.coins-price);state.cars.push({id:Math.max(...state.cars.map(c=>c.id))+1,type,level:1,staff:0});
-  state.selected=state.cars.length-1;record(state,'A new '+CARRIAGES[type].name+' joined the Everline.');checkAchievements(state);return {ok:true,cost:price};}
-export function upgradeCar(state,id){const c=state.cars.find(c=>c.id===id);if(!c||c.level>=12)return {ok:false,reason:'This carriage is fully upgraded.'};
-  const cost=upgradeCost(c);if(state.coins+1e-7<cost)return {ok:false,reason:'Not enough coins.'};state.coins=money(state.coins-cost);c.level++;record(state,CARRIAGES[c.type].name+' is now level '+c.level+'.');checkAchievements(state);return {ok:true,cost};}
-export const hireCost=(car)=>Math.round((110+CARRIAGES[car.type].cost*.26)*Math.pow(1.85,car.staff));
-export function hireResident(state,id){const car=state.cars.find(c=>c.id===id);if(!car||car.staff>=2)return false;const cost=hireCost(car);if(state.coins<cost)return false;state.coins=money(state.coins-cost);car.staff++;record(state,`A new resident joined the ${CARRIAGES[car.type].name}.`);checkAchievements(state);return true;}
-export function buyDecor(state,id){const decor=DECOR.find(x=>x.id===id);if(!decor||state.decor.includes(id)||state.coins<decor.cost)return false;state.coins=money(state.coins-decor.cost);state.decor.push(id);record(state,`Decorated the train with ${decor.name}.`);return true;}
-export function moveCar(state,id,direction){const a=state.cars.findIndex(c=>c.id===id),b=a+direction;if(a<0||b<0||b>=state.cars.length)return false;
-  [state.cars[a],state.cars[b]]=[state.cars[b],state.cars[a]];state.selected=b;return true;}
-export function collect(state){if(state.pending<.01)return 0;const amount=money(state.pending);state.coins=money(state.coins+amount);state.lifetime=money(state.lifetime+amount);state.pending=0;checkAchievements(state);return amount;}
-export function tick(state,seconds,{offline=false}={}){if(!Number.isFinite(seconds)||seconds<=0)return {earned:0,arrivals:[],sighting:null};
-  const elapsed=clamp(seconds,0,offline?MAX_OFFLINE_SECONDS:MAX_OFFLINE_SECONDS), earned=money(incomeRate(state)*elapsed);
-  state.pending=money(state.pending+earned);const arrivals=[];let sighting=null;
-  if(!offline){
-    state.stationProgress+=elapsed;state.eventProgress+=elapsed;
-    const duration=Math.max(38,85-state.stationBoost*8);
-    let iterations=0;
-    while(state.stationProgress>=duration && iterations++<100){state.stationProgress-=duration;arrivals.push(arrive(state));}
-    if(state.eventProgress>=170){state.eventProgress%=170;const [seed,rand]=randomStep(state.seed);state.seed=seed;state.events++;sighting={...SIGHTING_BY_INDEX(Math.floor(rand*5)),created:Date.now()};}
-  }
-  return {earned,arrivals,sighting};}
-import {SIGHTINGS} from './data.js';
-function SIGHTING_BY_INDEX(i){return SIGHTINGS[i]||SIGHTINGS[0]}
-export function arrive(state){state.stops++;state.stage=state.stops%DESTINATIONS.length;
-  const destination=DESTINATIONS[state.stage];
-  const fare=Math.round((27+state.cars.length*15+Math.floor(capacity(state)*1.1))*(1+state.stationBoost*.2));
-  state.coins=money(state.coins+fare);state.lifetime=money(state.lifetime+fare);
-  const isNew=!state.seen.includes(destination.id);if(isNew)state.seen.push(destination.id);
-  if(!state.postcards.includes(destination.id)){state.postcards.push(destination.id);state.stamps+=1;}
-  record(state,`Arrived in ${destination.name} · +${fare} fares${isNew?' · new postcard!':''}`);
-  checkAchievements(state);
-  return {destination,fare,isNew};}
-export function claimSighting(state,id){if(!SIGHTINGS.some(x=>x.id===id)||state.sightings.includes(id))return false;
-  state.sightings.push(id);
-  state.stamps+=1;state.coins=money(state.coins+35);state.lifetime=money(state.lifetime+35);
-  record(state,'A little wonder! +1 Stamp · +35 coins');checkAchievements(state);return true;}
-export function buyTrainUpgrade(state,type){if(type==='station'){
- const cost=Math.round(440*Math.pow(2,state.stationBoost));if(state.stationBoost>=4||state.coins<cost)return false;
- state.coins=money(state.coins-cost);state.stationBoost++;record(state,'Faster journeys unlocked.');return true;
- }if(type==='comfort'){
- const cost=Math.round(300*Math.pow(2,state.comfort));if(state.comfort>=5||state.coins<cost)return false;
- state.coins=money(state.coins-cost);state.comfort++;record(state,'Comfier journeys, happier passengers.');return true;
- }return false;}
-export const trainUpgradeCost=(state,type)=>type==='station'?Math.round(440*Math.pow(2,state.stationBoost)):Math.round(300*Math.pow(2,state.comfort));
-export function buyPaint(state,id){const p=PAINTS.find(x=>x.id===id);if(!p)return false;
- if(state.ownedPaints.includes(id)){state.trainPaint=id;return true;}
- if(state.coins<p.cost||state.stamps<p.stampCost)return false;
- state.coins=money(state.coins-p.cost);state.stamps-=p.stampCost;state.ownedPaints.push(id);state.trainPaint=id;record(state,p.name+' locomotive livery applied.');return true;}
-export function checkAchievements(state){for(const a of ACHIEVEMENTS){if(state.achievements.includes(a.id))continue;
- const yes= a.id==='hello'?state.lifetime>0:a.id==='upgrade'?state.cars.some(c=>c.level>1):a.id==='newcar'?state.cars.length>=4:a.id==='fivecars'?state.cars.length>=5:a.id==='station'?state.stops>=1:a.id==='traveler'?capacity(state)>=20:a.id==='threecards'?state.postcards.length>=3:a.id==='sighting'?state.sightings.length>=1:a.id==='grand'?state.lifetime>=1e4:false;
- if(yes){state.achievements.push(a.id);state.stamps+=a.reward;record(state,'Achievement: '+a.title+' · +'+a.reward+' stamps');}
- }}
-export function record(state,msg){state.log.unshift({text:String(msg).slice(0,160),stop:state.stops});state.log=state.log.slice(0,25)}
-export function formatCoins(n){if(n>=1e9)return (n/1e9).toFixed(2)+'b';if(n>=1e6)return(n/1e6).toFixed(2)+'m';if(n>=1e4)return (n/1e3).toFixed(1)+'k';return Math.floor(n).toLocaleString('en-US')}
-export function offlineCredit(state,now=Date.now()){const diff=Math.max(0,(now-state.lastTime)/1000);const credited=Math.min(MAX_OFFLINE_SECONDS,diff);const result=tick(state,credited,{offline:true});state.lastTime=now;state.lastOffline=credited>3?money(result.earned):0;return state.lastOffline;}
+export const carCost=(s,type)=>Object.hasOwn(CARRIAGES,type)?Math.round(CARRIAGES[type].cost*Math.pow(1.95,Math.max(0,s.cars.length-2))):Infinity;
+export const upgradeCost=car=>Math.round((55+CARRIAGES[car.type].cost*.2)*Math.pow(2.40,car.level-1));
+export const hireCost=car=>Math.round((110+CARRIAGES[car.type].cost*.26)*Math.pow(1.85,car.staff));
+export function nextResident(s){const [next,value]=randomStep((s.seed^Math.imul(s.hires+1,7919))>>>0);return RESIDENTS[(next+Math.floor(value*13))%RESIDENTS.length]}
+export function capacity(s){return s.cars.reduce((n,c)=>n+CARRIAGES[c.type].people+(c.level>=4?1:0)+c.staff,0)}
+export function satisfaction(s){const types=new Set(s.cars.map(c=>c.type));const dream=s.cars.reduce((n,c)=>n+(c.crew||[]).filter(p=>p.dream===c.type).length,0);return clamp(65+s.comfort*5+types.size*3+Math.floor(s.cars.reduce((n,c)=>n+c.level,0)/6)+dream*2,0,100)}
+export function incomeRate(s){const passengerFactor=0.82+satisfaction(s)*0.002;const bonus=(1+s.legacyCount*.16)*(1+(s.stampProjects.includes('postcards')?s.regionsUnlocked.length*.02:0));return s.cars.reduce((sum,c,i)=>{
+ const neighbors=[s.cars[i-1]?.type,s.cars[i+1]?.type];const synergy=(c.type==='cafe'&&neighbors.includes('library'))||(c.type==='garden'&&neighbors.includes('sleeper'))||(c.type==='diner'&&neighbors.includes('observatory'));
+ const dream=(c.crew||[]).filter(p=>p.dream===c.type).length;
+ return sum+CARRIAGES[c.type].rate*Math.pow(1.27,c.level-1)*(synergy?1.12:1)*(1+c.staff*.18+dream*.10+(s.stampProjects.includes('concierge')?c.staff*.05:0));
+ },0)*(1+s.comfort*.06)*passengerFactor*bonus}
+export const hourlyRate=s=>Math.round(incomeRate(s)*3600);
+export function carriageGate(s,type){const c=CARRIAGES[type];if(!c)return {ok:false,reason:'Unknown carriage'};if(s.cars.length>=MAX_CARRIAGES)return {ok:false,reason:'Train is at its 25-carriage limit'};if(s.stops<c.unlock)return {ok:false,reason:`Reach ${c.unlock} stops (${s.stops}/${c.unlock})`};if(s.cars.length<c.minCars)return {ok:false,reason:`Own ${c.minCars} carriages first`};return {ok:true,reason:''}}
+export function canBuild(s,type){return carriageGate(s,type).ok&&s.coins>=carCost(s,type)}
+export function buildCar(s,type){const gate=carriageGate(s,type);if(!gate.ok)return {ok:false,reason:gate.reason};const price=carCost(s,type);if(s.coins<price)return {ok:false,reason:'Not enough coins'};s.coins=money(s.coins-price);s.cars.push({id:Math.max(...s.cars.map(c=>c.id))+1,type,level:1,staff:0,crew:[]});s.selected=s.cars.length-1;s.seasonBest=Math.max(s.seasonBest,s.cars.length);record(s,'A new '+CARRIAGES[type].name+' joined the Everline.');checkAchievements(s);return {ok:true,cost:price}}
+export function upgradeCar(s,id){const c=s.cars.find(c=>c.id===id);if(!c||c.level>=12)return {ok:false,reason:'This carriage is fully upgraded.'};const price=upgradeCost(c);if(s.coins<price)return {ok:false,reason:'Not enough coins.'};s.coins=money(s.coins-price);c.level++;record(s,CARRIAGES[c.type].name+' is now level '+c.level+'.');checkAchievements(s);return {ok:true,cost:price}}
+export function hireResident(s,id){const c=s.cars.find(c=>c.id===id);if(!c||c.staff>=2)return false;const cost=hireCost(c);if(s.coins<cost)return false;const p=nextResident(s);s.coins=money(s.coins-cost);c.staff++;c.crew=(c.crew||[]).concat([{id:s.hires+1,name:p.name,dream:p.dream,craft:p.craft}]);s.hires++;record(s,`${p.name} joined ${CARRIAGES[c.type].name}${p.dream===c.type?' · dream job!':''}`);checkAchievements(s);return true}
+export function buyDecor(s,id){const d=DECOR.find(x=>x.id===id);if(!d||s.decor.includes(id)||s.coins<d.cost)return false;s.coins=money(s.coins-d.cost);s.decor.push(id);record(s,'Decorated the train with '+d.name+'.');return true}
+export function moveCar(s,id,d){const a=s.cars.findIndex(c=>c.id===id),b=a+d;if(a<0||b<0||b>=s.cars.length)return false;[s.cars[a],s.cars[b]]=[s.cars[b],s.cars[a]];s.selected=b;return true}
+export function collect(s){if(s.pending<.01)return 0;const amount=money(s.pending);s.coins=money(s.coins+amount);s.lifetime=money(s.lifetime+amount);s.pending=0;checkAchievements(s);return amount}
+export function routeStops(s){return DESTINATIONS.filter(d=>d.region===s.activeRegion)}
+export function nextDestination(s){const options=routeStops(s);return options[(s.stops+1)%options.length]||DESTINATIONS[0]}
+export function regionGate(s,id){const r=REGIONS.find(x=>x.id===id);if(!r)return {ok:false,reason:'Unknown region'};if(s.regionsUnlocked.includes(id))return {ok:true,reason:'Already unlocked'};if(s.totalStops<r.stops)return {ok:false,reason:`Reach ${r.stops} lifetime stops (${s.totalStops}/${r.stops})`};if(s.cars.length<r.cars)return {ok:false,reason:`Build ${r.cars} carriages (${s.cars.length}/${r.cars})`};if(s.stamps<r.stamps)return {ok:false,reason:`Collect ${r.stamps} Stamps (${s.stamps}/${r.stamps})`};return {ok:true,reason:''}}
+export function unlockRegion(s,id){const r=REGIONS.find(x=>x.id===id);if(!r||s.regionsUnlocked.includes(id)||!regionGate(s,id).ok)return false;s.stamps-=r.stamps;s.regionsUnlocked.push(id);s.activeRegion=id;s.stage=0;record(s,`New route open: ${r.name} · ${r.stamps} stamps`);checkAchievements(s);return true}
+export function travelRegion(s,id){if(!s.regionsUnlocked.includes(id)||!REGIONS.some(r=>r.id===id))return false;s.activeRegion=id;s.stage=0;return true}
+export function buyStampProject(s,id){const p=STAMP_PROJECTS.find(x=>x.id===id);if(!p||s.stampProjects.includes(id)||s.stamps<p.cost)return false;s.stamps-=p.cost;s.stampProjects.push(id);record(s,`Stamp project complete: ${p.name}`);return true}
+export function tick(s,seconds,{offline=false}={}){if(!Number.isFinite(seconds)||seconds<=0)return {earned:0,arrivals:[],sighting:null};const elapsed=clamp(seconds,0,MAX_OFFLINE_SECONDS);const exactCents=incomeRate(s)*elapsed*100+s.incomeRemainder;const earnedCents=Math.floor(exactCents+1e-7);const earned=earnedCents/100;s.incomeRemainder=clamp(exactCents-earnedCents,0,0.99999999);s.pending=money(s.pending+earned);const arrivals=[];let sighting=null;
+ if(!offline){s.stationProgress+=elapsed;s.eventProgress+=elapsed;const duration=Math.max(38,85-s.stationBoost*8);let iterations=0;while(s.stationProgress>=duration&&iterations++<100){s.stationProgress-=duration;arrivals.push(arrive(s));}if(s.eventProgress>=170){s.eventProgress%=170;const [seed,rand]=randomStep(s.seed);s.seed=seed;s.events++;sighting={...SIGHTINGS[Math.floor(rand*SIGHTINGS.length)],created:Date.now()};}}
+ return {earned,arrivals,sighting}}
+export function arrive(s){const d=nextDestination(s);s.stops++;s.totalStops++;s.stage=s.stops%Math.max(1,routeStops(s).length);let fare=Math.round((27+s.cars.length*15+Math.floor(capacity(s)*1.1))*(1+s.stationBoost*.2)*(0.85+satisfaction(s)*.002)*(s.stampProjects.includes('souvenirs')?1.2:1));s.coins=money(s.coins+fare);s.lifetime=money(s.lifetime+fare);const isNew=!s.seen.includes(d.id);if(isNew)s.seen.push(d.id);if(!s.postcards.includes(d.id)){s.postcards.push(d.id);s.stamps++}if(s.totalStops%18===0){s.stamps++;record(s,'Milestone: 18 more stations · +1 Stamp')}record(s,`Arrived in ${d.name} · +${fare} fares${isNew?' · new postcard!':''}`);checkAchievements(s);return {destination:d,fare,isNew}}
+export function claimSighting(s,id){if(!SIGHTINGS.some(x=>x.id===id)||s.sightings.includes(id))return false;s.sightings.push(id);s.stamps++;s.coins=money(s.coins+35);s.lifetime=money(s.lifetime+35);record(s,'A little wonder! +1 Stamp · +35 coins');checkAchievements(s);return true}
+export function buyTrainUpgrade(s,type){if(type==='station'){const price=Math.round(440*Math.pow(2,s.stationBoost));if(s.stationBoost>=4||s.coins<price)return false;s.coins=money(s.coins-price);s.stationBoost++;record(s,'Faster journeys unlocked.');return true}if(type==='comfort'){const price=Math.round(300*Math.pow(2,s.comfort));if(s.comfort>=5||s.coins<price)return false;s.coins=money(s.coins-price);s.comfort++;record(s,'Comfier journeys, happier passengers.');return true}return false}
+export const trainUpgradeCost=(s,type)=>type==='station'?Math.round(440*Math.pow(2,s.stationBoost)):Math.round(300*Math.pow(2,s.comfort));
+export function buyPaint(s,id){const p=PAINTS.find(x=>x.id===id);if(!p)return false;if(s.ownedPaints.includes(id)){s.trainPaint=id;return true}if(s.coins<p.cost||s.stamps<p.stampCost)return false;s.coins=money(s.coins-p.cost);s.stamps-=p.stampCost;s.ownedPaints.push(id);s.trainPaint=id;record(s,p.name+' locomotive livery applied.');return true}
+export function canStartSeason(s){return s.cars.length>=20&&s.regionsUnlocked.length>=3&&s.legacyCount<10}
+export function startSeason(s){if(!canStartSeason(s))return false;const next=initialState(s.lastTime);const keep=['seed','stamps','lifetime','totalStops','seen','postcards','sightings','achievements','ownedPaints','trainPaint','decor','regionsUnlocked','stampProjects','events','hires','seasonBest'];for(const k of keep)next[k]=structuredClone(s[k]);next.legacyCount=s.legacyCount+1;next.activeRegion=s.activeRegion;next.tutorial=3;next.log=[...s.log].slice(0,12);Object.assign(s,next);record(s,`Season ${s.legacyCount+1} begins · permanent +${s.legacyCount*16}% earning bonus`);checkAchievements(s);return true}
+export function checkAchievements(s){for(const a of ACHIEVEMENTS){if(s.achievements.includes(a.id))continue;const yes=a.id==='hello'?s.lifetime>0:a.id==='upgrade'?s.cars.some(c=>c.level>1):a.id==='newcar'?s.cars.length>=4:a.id==='fivecars'?s.cars.length>=5:a.id==='station'?s.totalStops>=1:a.id==='traveler'?capacity(s)>=20:a.id==='threecards'?s.postcards.length>=3:a.id==='sighting'?s.sightings.length>=1:a.id==='grand'?s.lifetime>=1e4:a.id==='routes'?s.regionsUnlocked.length>=3:a.id==='magnate'?s.cars.length>=20:a.id==='season'?s.legacyCount>=1:false;if(yes){s.achievements.push(a.id);s.stamps+=a.reward;record(s,'Achievement: '+a.title+' · +'+a.reward+' stamps')}}}
+export function record(s,msg){s.log.unshift({text:String(msg).slice(0,160),stop:s.totalStops});s.log=s.log.slice(0,25)}
+export function formatCoins(n){if(n>=1e9)return(n/1e9).toFixed(2)+'b';if(n>=1e6)return(n/1e6).toFixed(2)+'m';if(n>=1e4)return(n/1e3).toFixed(1)+'k';return Math.floor(n).toLocaleString('en-US')}
+export function offlineCredit(s,now=Date.now()){const seconds=Math.max(0,(now-s.lastTime)/1000);const earned=tick(s,Math.min(MAX_OFFLINE_SECONDS,seconds),{offline:true}).earned;s.lastTime=now;s.lastOffline=seconds>3?money(earned):0;return s.lastOffline}
 export function validateState(raw,now=Date.now()){
- if(!raw||typeof raw!=='object'||Array.isArray(raw)||raw.version!==3)throw new Error('Unsupported save version');
- const s=initialState(now);
- const types=TYPE_ORDER, cars=Array.isArray(raw.cars)?raw.cars:[];
- if(cars.length<2||cars.length>MAX_CARRIAGES)throw new Error('Invalid number of carriages');
- const ids=new Set();s.cars=cars.map(c=>{if(!c||typeof c!=='object'||!types.includes(c.type))throw new Error('Unknown carriage');
- const id=integer(c.id,1,1e9),level=integer(c.level,1,12);if(ids.has(id))throw new Error('Duplicate carriage ID');ids.add(id);return {id,type:c.type,level,staff:integer(c.staff,0,2)};});
- const bounded=(key,max=1e12)=>{if(typeof raw[key]!=='number'||!Number.isFinite(raw[key])||raw[key]<0||raw[key]>max)throw new Error('Invalid '+key);return raw[key];};
- for(const k of ['coins','pending','lifetime'])s[k]=money(bounded(k));
- for(const k of ['stamps','stops','stationBoost','comfort','seed','events'])s[k]=integer(bounded(k,k==='seed'?4294967295:1e7),0,k==='stationBoost'?4:k==='comfort'?5:1e7);
- s.seed=(s.seed>>>0)||38619;s.stops=integer(s.stops,0,1e7);s.stage=s.stops%DESTINATIONS.length;
- for(const k of ['stationProgress','eventProgress'])s[k]=clamp(bounded(k,1e9),0,k==='stationProgress'?85:170);
- s.lastTime=typeof raw.lastTime==='number'&&Number.isFinite(raw.lastTime)?clamp(raw.lastTime,0,now+1e4):now;
- s.selected=integer(raw.selected,0,s.cars.length-1);s.tutorial=integer(raw.tutorial,0,3);
+ if(!raw||typeof raw!=='object'||Array.isArray(raw)||![3,4].includes(raw.version))throw new Error('Unsupported save version');const s=initialState(now),legacy=raw.version===3;
  const allowed=(items,valid,max)=>Array.isArray(items)?[...new Set(items.filter(v=>typeof v==='string'&&valid.includes(v)))].slice(0,max):[];
- s.decor=allowed(raw.decor,DECOR.map(d=>d.id),DECOR.length);
- s.seen=allowed(raw.seen,DESTINATIONS.map(d=>d.id),DESTINATIONS.length);if(!s.seen.length)s.seen=['willow'];
- s.postcards=allowed(raw.postcards,DESTINATIONS.map(d=>d.id),DESTINATIONS.length);
- s.sightings=allowed(raw.sightings,SIGHTINGS.map(v=>v.id),SIGHTINGS.length);
- s.achievements=allowed(raw.achievements,ACHIEVEMENTS.map(v=>v.id),ACHIEVEMENTS.length);
- s.ownedPaints=allowed(raw.ownedPaints,PAINTS.map(p=>p.id),PAINTS.length);if(!s.ownedPaints.includes('midnight'))s.ownedPaints.unshift('midnight');
- s.trainPaint=s.ownedPaints.includes(raw.trainPaint)?raw.trainPaint:'midnight';
- s.log=Array.isArray(raw.log)?raw.log.slice(0,25).filter(x=>x&&typeof x.text==='string').map(x=>({text:x.text.slice(0,160),stop:integer(x.stop,0,1e7)})):[];
- return s;
-}
+ const bounded=(key,max=1e12,defaultValue=0)=>{const v=raw[key];if(v===undefined&&legacy)return defaultValue;if(typeof v!=='number'||!Number.isFinite(v)||v<0||v>max)throw new Error('Invalid '+key);return v};
+ const cars=Array.isArray(raw.cars)?raw.cars:[];if(cars.length<2||cars.length>MAX_CARRIAGES)throw new Error('Invalid number of carriages');const ids=new Set();s.cars=cars.map(c=>{if(!c||typeof c!=='object'||!TYPE_ORDER.includes(c.type))throw new Error('Unknown carriage');const id=integer(c.id,1,1e9),level=integer(c.level,1,12),staff=integer(c.staff,0,2);if(ids.has(id)||!Number.isInteger(c.id)||c.id<1)throw new Error('Duplicate or invalid carriage ID');ids.add(id);const crew=Array.isArray(c.crew)?c.crew.slice(0,staff).filter(p=>p&&typeof p.name==='string'&&TYPE_ORDER.includes(p.dream)).map(p=>({id:integer(p.id,0,1e8),name:p.name.slice(0,30),dream:p.dream,craft:String(p.craft||'Crew').slice(0,30)})):[];return {id,type:c.type,level,staff,crew}});
+ for(const k of ['coins','pending','lifetime'])s[k]=money(bounded(k));for(const k of ['stamps','stops','stationBoost','comfort','seed','events'])s[k]=integer(bounded(k,k==='seed'?4294967295:1e7),0,k==='stationBoost'?4:k==='comfort'?5:k==='seed'?4294967295:1e7);
+ s.totalStops=integer(bounded('totalStops',1e7,s.stops),0,1e7);s.totalStops=Math.max(s.stops,s.totalStops);
+ s.hires=integer(bounded('hires',1e7,0),0,1e7);s.legacyCount=integer(bounded('legacyCount',10,0),0,10);s.seasonBest=integer(bounded('seasonBest',25,s.cars.length),2,MAX_CARRIAGES);
+ s.regionsUnlocked=allowed(raw.regionsUnlocked,REGIONS.map(r=>r.id),REGIONS.length);if(!s.regionsUnlocked.includes('heartland'))s.regionsUnlocked.unshift('heartland');s.activeRegion=s.regionsUnlocked.includes(raw.activeRegion)?raw.activeRegion:'heartland';s.stampProjects=allowed(raw.stampProjects,STAMP_PROJECTS.map(x=>x.id),STAMP_PROJECTS.length);
+ s.seed=(s.seed>>>0)||38619;s.stage=s.stops%Math.max(1,routeStops(s).length);
+ for(const k of ['stationProgress','eventProgress'])s[k]=clamp(bounded(k,1e9),0,k==='stationProgress'?85:170);s.incomeRemainder=clamp(bounded('incomeRemainder',1,0),0,.99999999);
+ s.lastTime=typeof raw.lastTime==='number'&&Number.isFinite(raw.lastTime)?clamp(raw.lastTime,0,now+10000):now;s.selected=integer(raw.selected,0,s.cars.length-1);s.tutorial=integer(raw.tutorial,0,3);
+ s.decor=allowed(raw.decor,DECOR.map(d=>d.id),DECOR.length);s.seen=allowed(raw.seen,DESTINATIONS.map(d=>d.id),DESTINATIONS.length);if(!s.seen.length)s.seen=['willow'];s.postcards=allowed(raw.postcards,DESTINATIONS.map(d=>d.id),DESTINATIONS.length);s.sightings=allowed(raw.sightings,SIGHTINGS.map(v=>v.id),SIGHTINGS.length);s.achievements=allowed(raw.achievements,ACHIEVEMENTS.map(v=>v.id),ACHIEVEMENTS.length);s.ownedPaints=allowed(raw.ownedPaints,PAINTS.map(p=>p.id),PAINTS.length);if(!s.ownedPaints.includes('midnight'))s.ownedPaints.unshift('midnight');s.trainPaint=s.ownedPaints.includes(raw.trainPaint)?raw.trainPaint:'midnight';s.log=Array.isArray(raw.log)?raw.log.slice(0,25).filter(x=>x&&typeof x.text==='string').map(x=>({text:x.text.slice(0,160),stop:integer(x.stop,0,1e7)})):[];return s}

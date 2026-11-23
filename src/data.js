@@ -1,54 +1,91 @@
-// All gameplay content is static, locally authored, and never fetched from external services.
+// Authored, offline-first content. All mechanical constraints live with the simulation.
 export const CARRIAGES = Object.freeze({
-  sleeper: {name:'Sleeper',label:'Restful rooms',icon:'moon',cost:220,rate:1.45,color:'#8c5773',accent:'#f5caa1',people:3,unlock:0,desc:'A snug place to dream between stations.'},
-  cafe: {name:'Café',label:'Coffee & company',icon:'cup',cost:285,rate:2.1,color:'#aa7649',accent:'#ffe0a5',people:4,unlock:0,desc:'Hot drinks and warm conversations.'},
-  garden: {name:'Glasshouse',label:'A little wilderness',icon:'leaf',cost:420,rate:2.8,color:'#557c68',accent:'#b7d8a9',people:3,unlock:1,desc:'A travelling forest under glass.'},
-  library: {name:'Library',label:'Books & quiet',icon:'book',cost:650,rate:3.7,color:'#6c7295',accent:'#ecd5a3',people:3,unlock:2,desc:'The stories are always moving.'},
-  diner: {name:'Dining Car',label:'The midnight special',icon:'fork',cost:1020,rate:5.2,color:'#af664f',accent:'#f0ca93',people:5,unlock:3,desc:'A three-course journey through the countryside.'},
-  arcade: {name:'Arcade',label:'Play all the way',icon:'star',cost:1650,rate:7.7,color:'#7a6095',accent:'#f2bf74',people:4,unlock:4,desc:'Little victories, big grins.'},
-  workshop: {name:'Workshop',label:'The busy little makers',icon:'gear',cost:2450,rate:10.1,color:'#698293',accent:'#edc78f',people:3,unlock:5,desc:'Every journey needs a little tinkering.'},
-  observatory: {name:'Observatory',label:'Above the clouds',icon:'sparkle',cost:3700,rate:14.5,color:'#476b81',accent:'#badfe0',people:3,unlock:6,desc:'The universe has the best window seats.'}
+ sleeper:{name:'Sleeper',label:'Restful rooms',icon:'moon',cost:220,rate:1.45,color:'#8c5773',accent:'#f5caa1',people:3,unlock:0,minCars:2,desc:'A snug place to dream between stations.'},
+ cafe:{name:'Café',label:'Coffee & company',icon:'cup',cost:285,rate:2.1,color:'#aa7649',accent:'#ffe0a5',people:4,unlock:0,minCars:2,desc:'Hot drinks and warm conversations.'},
+ garden:{name:'Glasshouse',label:'A little wilderness',icon:'leaf',cost:420,rate:2.8,color:'#557c68',accent:'#b7d8a9',people:3,unlock:2,minCars:2,desc:'A travelling forest under glass.'},
+ library:{name:'Library',label:'Books & quiet',icon:'book',cost:650,rate:3.7,color:'#6c7295',accent:'#ecd5a3',people:3,unlock:6,minCars:3,desc:'The stories are always moving.'},
+ diner:{name:'Dining Car',label:'The midnight special',icon:'fork',cost:1020,rate:5.2,color:'#af664f',accent:'#f0ca93',people:5,unlock:14,minCars:4,desc:'A three-course journey through the countryside.'},
+ arcade:{name:'Arcade',label:'Play all the way',icon:'star',cost:1650,rate:7.7,color:'#7a6095',accent:'#f2bf74',people:4,unlock:30,minCars:5,desc:'Little victories, big grins.'},
+ workshop:{name:'Workshop',label:'The busy little makers',icon:'gear',cost:2450,rate:10.1,color:'#698293',accent:'#edc78f',people:3,unlock:65,minCars:7,desc:'Every journey needs a little tinkering.'},
+ observatory:{name:'Observatory',label:'Above the clouds',icon:'sparkle',cost:3700,rate:14.5,color:'#476b81',accent:'#badfe0',people:3,unlock:120,minCars:9,desc:'The universe has the best window seats.'}
 });
-export const TYPE_ORDER = Object.keys(CARRIAGES);
-export const DESTINATIONS = [
-  {id:'willow',name:'Willowmere',subtitle:'Forest & fern country',biome:'forest',accent:'#527d64',postcard:'The Green Mile',description:'A station tucked beneath enormous sleeping trees.'},
-  {id:'harbor',name:'Bellweather Bay',subtitle:'The salt-air coast',biome:'coast',accent:'#568f9c',postcard:'A Sea of Windows',description:'Seagulls escort the train over a glittering causeway.'},
-  {id:'alpine',name:'Cloudpine Pass',subtitle:'Above the snowline',biome:'snow',accent:'#7398a9',postcard:'Snow on the Roof',description:'Ice crystals shine on the station clock.'},
-  {id:'desert',name:'Saffron Flats',subtitle:'Ochre sand & sunshine',biome:'desert',accent:'#b78654',postcard:'Golden Hour',description:'An amber platform with a thousand-mile view.'},
-  {id:'city',name:'Lumen Junction',subtitle:'The city of tomorrow',biome:'city',accent:'#737ca1',postcard:'After Dark',description:'A hundred apartment lights blink hello.'},
-  {id:'valley',name:'Rosewater Vale',subtitle:'Fields of flowers',biome:'valley',accent:'#9c8263',postcard:'Wildflower Day',description:'Where every platform is a garden.'},
-  {id:'coastnight',name:'Lantern Quay',subtitle:'Seaside lamplight',biome:'coast',accent:'#497b87',postcard:'The Last Lantern',description:'Evening ferries float past the sleeping port.'},
-  {id:'highlands',name:'Whistling Ridge',subtitle:'The old mountains',biome:'mountain',accent:'#687e72',postcard:'High Country',description:'Stone bridges ring above the cloudbanks.'}
+export const TYPE_ORDER=Object.keys(CARRIAGES);
+export const REGIONS=Object.freeze([
+ {id:'heartland',name:'The Green Line',subtitle:'Fern valleys & sleepy towns',stops:0,cars:2,stamps:0,accent:'#88ad8a',biome:'forest'},
+ {id:'coast',name:'Saltwind Coast',subtitle:'Harbors & lantern-lit quays',stops:8,cars:3,stamps:2,accent:'#79b6c0',biome:'coast'},
+ {id:'highland',name:'Cloudpine Highlands',subtitle:'Snow, cliffs & stone bridges',stops:35,cars:5,stamps:6,accent:'#a3b3cc',biome:'snow'},
+ {id:'desert',name:'Golden Expanse',subtitle:'Desert light & copper canyons',stops:110,cars:8,stamps:12,accent:'#edbd78',biome:'desert'},
+ {id:'metropolis',name:'Lumen Corridor',subtitle:'Electric cities after dark',stops:400,cars:12,stamps:18,accent:'#ac9ecb',biome:'city'},
+ {id:'frontier',name:'The Far Horizon',subtitle:'Aurora stations & starlit ice',stops:1200,cars:17,stamps:26,accent:'#accfd4',biome:'aurora'},
+ {id:'archipelago',name:'Moonstone Isles',subtitle:'Moonlit sea bridges & island rails',stops:8000,cars:22,stamps:55,accent:'#9dc0ca',biome:'coast'},
+ {id:'beyond',name:'Beyond the Last Bridge',subtitle:'The edge of the painted map',stops:23000,cars:25,stamps:95,accent:'#d4b6db',biome:'mountain'}
+]);
+export const DESTINATIONS=[
+ {id:'willow',region:'heartland',name:'Willowmere',subtitle:'Forest & fern country',biome:'forest',accent:'#527d64',postcard:'The Green Mile',description:'A station tucked beneath enormous sleeping trees.'},
+ {id:'valley',region:'heartland',name:'Rosewater Vale',subtitle:'Fields of flowers',biome:'valley',accent:'#9c8263',postcard:'Wildflower Day',description:'Where every platform is a garden.'},
+ {id:'harbor',region:'coast',name:'Bellweather Bay',subtitle:'The salt-air coast',biome:'coast',accent:'#568f9c',postcard:'A Sea of Windows',description:'Seagulls escort the train over a glittering causeway.'},
+ {id:'coastnight',region:'coast',name:'Lantern Quay',subtitle:'Seaside lamplight',biome:'coast',accent:'#497b87',postcard:'The Last Lantern',description:'Evening ferries float past the sleeping port.'},
+ {id:'alpine',region:'highland',name:'Cloudpine Pass',subtitle:'Above the snowline',biome:'snow',accent:'#7398a9',postcard:'Snow on the Roof',description:'Ice crystals shine on the station clock.'},
+ {id:'highlands',region:'highland',name:'Whistling Ridge',subtitle:'The old mountains',biome:'mountain',accent:'#687e72',postcard:'High Country',description:'Stone bridges ring above the cloudbanks.'},
+ {id:'desert',region:'desert',name:'Saffron Flats',subtitle:'Ochre sand & sunshine',biome:'desert',accent:'#b78654',postcard:'Golden Hour',description:'An amber platform with a thousand-mile view.'},
+ {id:'canyon',region:'desert',name:'Copper Canyon',subtitle:'Wind-carved sandstone',biome:'desert',accent:'#be7756',postcard:'Red Rock Rails',description:'The railway threads between copper-colored canyon walls.'},
+ {id:'city',region:'metropolis',name:'Lumen Junction',subtitle:'The city of tomorrow',biome:'city',accent:'#737ca1',postcard:'After Dark',description:'A hundred apartment lights blink hello.'},
+ {id:'neon',region:'metropolis',name:'Neon Harbor',subtitle:'Skyline above the water',biome:'city',accent:'#8965a6',postcard:'Electric Tides',description:'Elevated track winds among glowing platforms.'},
+ {id:'aurora',region:'frontier',name:'Aurora Point',subtitle:'The northern lights',biome:'aurora',accent:'#7095a7',postcard:'Green Night',description:'Ribbons of color shimmer above a silent station.'},
+ {id:'astral',region:'frontier',name:'Starfall Terminus',subtitle:'Beyond the last map',biome:'aurora',accent:'#618caa',postcard:'Farther Still',description:'An observatory waits at the edge of the known rails.'},
+ {id:'moonstone',region:'archipelago',name:'Moonstone Pier',subtitle:'Pearl-blue sea mist',biome:'coast',accent:'#8daab7',postcard:'Moon on the Water',description:'A lighthouse guides the train through midnight sea bridges.'},
+ {id:'isle',region:'archipelago',name:'Tideglass Island',subtitle:'Sunken gardens',biome:'coast',accent:'#5d92a5',postcard:'Salt & Stardust',description:'Coral-colored houses perch above the glittering tide.'},
+ {id:'beyond',region:'beyond',name:'The Last Bridge',subtitle:'The final map fold',biome:'mountain',accent:'#bb9bbf',postcard:'The Bridge Beyond',description:'A railway viaduct curves past the far edge of the atlas.'},
+ {id:'cloud',region:'beyond',name:'Cloud Archive',subtitle:'The station of stories',biome:'aurora',accent:'#c6a6b8',postcard:'Everywhere At Once',description:'An old clock keeps time beneath a sky of stars.'}
 ];
-export const DECOR = [
-  {id:'lanterns',name:'Amber Lanterns',cost:390,glyph:'✧',desc:'A warm light outside every room after dusk.'},
-  {id:'flowers',name:'Window Planters',cost:680,glyph:'✿',desc:'Little flower boxes brighten the entire train.'},
-  {id:'pennants',name:'Festival Pennants',cost:1100,glyph:'⚑',desc:'Tiny celebratory flags dance above the carriage roofs.'}
+export const RESIDENTS=Object.freeze([
+ {name:'Mira',dream:'cafe',craft:'Barista'}, {name:'Theo',dream:'sleeper',craft:'Porter'},
+ {name:'Pippa',dream:'garden',craft:'Botanist'}, {name:'Jun',dream:'library',craft:'Librarian'},
+ {name:'Nell',dream:'diner',craft:'Chef'}, {name:'Ezra',dream:'arcade',craft:'Gamekeeper'},
+ {name:'Bea',dream:'workshop',craft:'Mechanic'}, {name:'Orion',dream:'observatory',craft:'Stargazer'},
+ {name:'Luca',dream:'garden',craft:'Florist'}, {name:'Faye',dream:'cafe',craft:'Baker'},
+ {name:'Kit',dream:'diner',craft:'Host'}, {name:'Ada',dream:'workshop',craft:'Inventor'},
+ {name:'Ivy',dream:'library',craft:'Storyteller'}, {name:'Rowan',dream:'sleeper',craft:'Conductor'},
+ {name:'Sol',dream:'observatory',craft:'Navigator'}, {name:'Iris',dream:'arcade',craft:'Artist'}
+]);
+export const STAMP_PROJECTS=Object.freeze([
+ {id:'postcards',name:'Postcard Gallery',cost:3,desc:'Each region passport stamp now gives your train a permanent +2% earning bonus.'},
+ {id:'concierge',name:'Concierge Academy',cost:7,desc:'All hired residents earn an additional +5% each.'},
+ {id:'souvenirs',name:'Souvenir Counter',cost:10,desc:'Station fares increase by 20%.'}
+]);
+export const DECOR=[
+ {id:'lanterns',name:'Amber Lanterns',cost:390,glyph:'✧',desc:'A warm light outside every room after dusk.'},
+ {id:'flowers',name:'Window Planters',cost:680,glyph:'✿',desc:'Little flower boxes brighten the entire train.'},
+ {id:'pennants',name:'Festival Pennants',cost:1100,glyph:'⚑',desc:'Tiny celebratory flags dance above the carriage roofs.'}
 ];
-export const PAINTS = [
-  {id:'midnight',name:'Midnight Blue',color:'#344857',cost:0,stampCost:0},
-  {id:'copper',name:'Old Copper',color:'#98613e',cost:450,stampCost:0},
-  {id:'sage',name:'Forest Sage',color:'#507867',cost:1050,stampCost:0},
-  {id:'plum',name:'Night Plum',color:'#745b7d',cost:0,stampCost:7}
+export const PAINTS=[
+ {id:'midnight',name:'Midnight Blue',color:'#344857',cost:0,stampCost:0},
+ {id:'copper',name:'Old Copper',color:'#98613e',cost:450,stampCost:0},
+ {id:'sage',name:'Forest Sage',color:'#507867',cost:1050,stampCost:0},
+ {id:'plum',name:'Night Plum',color:'#745b7d',cost:0,stampCost:7}
 ];
-export const SIGHTINGS = [
-  {id:'fox',name:'Moonlit Fox',emoji:'✦',text:'A fox raced alongside the Everline.'},
-  {id:'whale',name:'Silver Whale',emoji:'◈',text:'A distant whale surfaced by the rails.'},
-  {id:'balloon',name:'Wayward Balloon',emoji:'✧',text:'A striped balloon floated past the dining car.'},
-  {id:'comet',name:'Falling Star',emoji:'★',text:'A falling star kept pace with the train.'},
-  {id:'owl',name:'Clockwork Owl',emoji:'✦',text:'A curious owl landed on the signal box.'}
+export const SIGHTINGS=[
+ {id:'fox',name:'Moonlit Fox',emoji:'✦',text:'A fox raced alongside the Everline.'},
+ {id:'whale',name:'Silver Whale',emoji:'◈',text:'A distant whale surfaced by the rails.'},
+ {id:'balloon',name:'Wayward Balloon',emoji:'✧',text:'A striped balloon floated past the dining car.'},
+ {id:'comet',name:'Falling Star',emoji:'★',text:'A falling star kept pace with the train.'},
+ {id:'owl',name:'Clockwork Owl',emoji:'✦',text:'A curious owl landed on the signal box.'}
 ];
-export const ACHIEVEMENTS = [
-  {id:'hello',title:'All Aboard',detail:'Collect your first earnings.',reward:1},
-  {id:'upgrade',title:'A Fresh Coat',detail:'Upgrade any carriage.',reward:1},
-  {id:'newcar',title:'Making Room',detail:'Build your fourth carriage.',reward:1},
-  {id:'fivecars',title:'A Longer Story',detail:'Own five carriages.',reward:2},
-  {id:'station',title:'Next Stop!',detail:'Arrive at a new station.',reward:1},
-  {id:'traveler',title:'People Person',detail:'Carry twenty passengers.',reward:2},
-  {id:'threecards',title:'Dear Diary',detail:'Discover three unique postcards.',reward:2},
-  {id:'sighting',title:'Look Outside!',detail:'Collect a rare scenery sighting.',reward:1},
-  {id:'grand',title:'The Grand Tour',detail:'Reach 10,000 lifetime coins.',reward:3}
+export const ACHIEVEMENTS=[
+ {id:'hello',title:'All Aboard',detail:'Collect your first earnings.',reward:1},
+ {id:'upgrade',title:'A Fresh Coat',detail:'Upgrade any carriage.',reward:1},
+ {id:'newcar',title:'Making Room',detail:'Build your fourth carriage.',reward:1},
+ {id:'fivecars',title:'A Longer Story',detail:'Own five carriages.',reward:2},
+ {id:'station',title:'Next Stop!',detail:'Arrive at a new station.',reward:1},
+ {id:'traveler',title:'People Person',detail:'Carry twenty passengers.',reward:2},
+ {id:'threecards',title:'Dear Diary',detail:'Discover three unique postcards.',reward:2},
+ {id:'sighting',title:'Look Outside!',detail:'Collect a rare scenery sighting.',reward:1},
+ {id:'grand',title:'The Grand Tour',detail:'Reach 10,000 lifetime coins.',reward:3},
+ {id:'routes',title:'Beyond the Valley',detail:'Unlock three railway regions.',reward:3},
+ {id:'magnate',title:'All Your Carriages',detail:'Build 20 carriages.',reward:5},
+ {id:'season',title:'A Timetable Renewed',detail:'Begin a new railway season.',reward:5}
 ];
-export const STORAGE_KEY = 'everline-save-v3';
-export const MAX_OFFLINE_SECONDS = 8 * 60 * 60;
-export const MAX_CARRIAGES = 25;
+export const STORAGE_KEY='everline-save-v4';
+export const LEGACY_STORAGE_KEY='everline-save-v3';
+export const MAX_OFFLINE_SECONDS=8*60*60;
+export const MAX_CARRIAGES=25;
