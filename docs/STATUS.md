@@ -1,4 +1,4 @@
-# Verified status — Living Diorama v2.0
+# Verified status — Illustrated Railway v3.0
 
 ## Completed locally
 
@@ -30,3 +30,12 @@
 - The eight unique postcards will be discovered within the first several routes for active players; later collection depends on rare sightings, achievements and train expansion.
 - Source art is painted into flattened layers. Other biomes use shared backdrop with atmospheric changes rather than eight fully illustrated environments.
 - Offline income is locally computed. On a backend-free game, users can deliberately edit their system clock or source; this is not a competitive server-authoritative economy.
+
+## v3 visual acceptance
+
+- [x] Branded serif / interface sans typography hierarchy
+- [x] SVG railway controls instead of placeholder symbols
+- [x] Four Chromium viewports: no clipped labels, 44px controls, no inspector/nav collisions
+- [x] Redesigned shop catalogue and responsive mobile carriage ticket
+- [x] Local single-file offline build regenerated
+- [ ] Physical Safari/mobile-device and live Pages browser acceptance
