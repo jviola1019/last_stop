@@ -37,3 +37,7 @@ The browser harness transparently replaces relative module and asset URLs with b
 - Local save data can be edited with developer tools. Without a server, user tampering is unavoidable. There is no financial exposure or competitive leaderboard.
 - The service worker only caches same-origin GET requests. No elevated Tauri permissions are requested.
 - HTTP request smuggling, login brute force, server-side injection, JWT, CORS and SQL attacks are inapplicable: this release has no server, database or authentication paths.
+
+## v3 computed-layout regression
+
+The Chromium smoke test now verifies real 44px hit targets, inspector-navigation separation, non-overlapping tutorial, room-label font stack, label overflow and document width at four viewports. Refer to `TYPOGRAPHY_QA.md` for the measured dimensions and screenshot review.
