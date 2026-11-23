@@ -2,7 +2,7 @@
 
 # LAST STOP: THE EVERLINE — Illustrated Railway Edition
 
-**Version 2.0 · Illustrated, functional idle train game**
+**Version 3.0 · Illustrated, functional idle train game**
 
 A dramatic art-led rebuild based on the original *Sunset Journey on the Everline* reference scene. The train is a series of **individual illustrated room sprites**, not a pre-rendered picture with fake buttons. An independent clock advances the idle economy, while Canvas 2D renders locomotive movement, changing lights, weather, wheel spokes, smoke, resident movement and room decorations.
 
@@ -22,7 +22,7 @@ npm run verify
 # Copy dist/ to a web host, including GitHub Pages.
 ```
 
-The ZIP also includes a **single-file, self-contained desktop browser edition** (`THE_EVERLINE_PLAY_OFFLINE.html`) with all game images and scripts embedded. Double-click it in a modern browser; save-file export is available if local storage is restricted by the `file://` origin.
+The downloadable v3 ZIP includes a **single-file, self-contained desktop browser edition** (`THE_EVERLINE_PLAY_OFFLINE.html`) with all game images and scripts embedded. Double-click it in a modern browser; save-file export is available if local storage is restricted by the `file://` origin.
 
 ## The actual controls
 
@@ -50,6 +50,9 @@ The ZIP also includes a **single-file, self-contained desktop browser edition** 
 
 ## Why it is not an `.exe` by default
 
-The game is visual and cross-device. A Windows executable only changes the *distribution container*; it does not improve illustration quality. The main target is an installable Progressive Web App. The same frontend can later be packaged via Tauri v3 for Windows (`src-tauri` included) without maintaining a second game engine. Building a genuine Windows installer requires Windows/Rust/WebView2 prerequisites and has **not** been verified here.
+The game is visual and cross-device. A Windows executable only changes the *distribution container*; it does not improve illustration quality. The main target is an installable Progressive Web App. The same frontend can later be packaged via Tauri v2 for Windows (`src-tauri` included) without maintaining a second game engine. Building a genuine Windows installer requires Windows/Rust/WebView2 prerequisites and has **not** been verified here.
 
 See `docs/STATUS.md`, `docs/QA.md`, `docs/BALANCE.md`, and `docs/ART_DIRECTION.md` for evidence, constraints and art direction.
+## v3 visual regression evidence
+
+See [`docs/TYPOGRAPHY_QA.md`](docs/TYPOGRAPHY_QA.md) for the font pairing, measured 44px target areas, and four device viewport checks. GitHub Actions builds the source and separately generates a **fresh** standalone `THE_EVERLINE_PLAY_OFFLINE.html` inside the Pages deployment artifact. From the repository itself, regenerate it using `node scripts/build-singlefile.mjs`.
