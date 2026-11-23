@@ -1,4 +1,6 @@
-# LAST STOP: THE EVERLINE — Living Diorama Edition
+> **Visual refresh · v3.0** — The art-driven railway interface now has a defined serif/sans typography system, original railway iconography, 44px interaction minimums, a compact responsive carriage ticket, and measured four-viewport layout checks. See [`docs/TYPOGRAPHY_QA.md`](docs/TYPOGRAPHY_QA.md).
+
+# LAST STOP: THE EVERLINE — Illustrated Railway Edition
 
 **Version 2.0 · Illustrated, functional idle train game**
 
@@ -48,6 +50,6 @@ The ZIP also includes a **single-file, self-contained desktop browser edition** 
 
 ## Why it is not an `.exe` by default
 
-The game is visual and cross-device. A Windows executable only changes the *distribution container*; it does not improve illustration quality. The main target is an installable Progressive Web App. The same frontend can later be packaged via Tauri v2 for Windows (`src-tauri` included) without maintaining a second game engine. Building a genuine Windows installer requires Windows/Rust/WebView2 prerequisites and has **not** been verified here.
+The game is visual and cross-device. A Windows executable only changes the *distribution container*; it does not improve illustration quality. The main target is an installable Progressive Web App. The same frontend can later be packaged via Tauri v3 for Windows (`src-tauri` included) without maintaining a second game engine. Building a genuine Windows installer requires Windows/Rust/WebView2 prerequisites and has **not** been verified here.
 
 See `docs/STATUS.md`, `docs/QA.md`, `docs/BALANCE.md`, and `docs/ART_DIRECTION.md` for evidence, constraints and art direction.
