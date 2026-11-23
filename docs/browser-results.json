@@ -20,7 +20,15 @@
     "build_hire_decor": "passed",
     "keyboard": "passed",
     "errors": [],
-    "horizontal_overflow": false
+    "horizontal_overflow": false,
+    "visual_version": "3.0",
+    "layout_audit": {
+      "min_hit_target_css_px": 44,
+      "inspector_nav_gap_css_px": 301.8,
+      "label_clipping": false,
+      "horizontal_overflow": false,
+      "all_checks_passed": true
+    }
   },
   {
     "viewport": "tablet",
@@ -43,7 +51,15 @@
     "build_hire_decor": "passed",
     "keyboard": "passed",
     "errors": [],
-    "horizontal_overflow": false
+    "horizontal_overflow": false,
+    "visual_version": "3.0",
+    "layout_audit": {
+      "min_hit_target_css_px": 44,
+      "inspector_nav_gap_css_px": 4,
+      "label_clipping": false,
+      "horizontal_overflow": false,
+      "all_checks_passed": true
+    }
   },
   {
     "viewport": "iphone",
@@ -66,7 +82,15 @@
     "build_hire_decor": "passed",
     "keyboard": "passed",
     "errors": [],
-    "horizontal_overflow": false
+    "horizontal_overflow": false,
+    "visual_version": "3.0",
+    "layout_audit": {
+      "min_hit_target_css_px": 44,
+      "inspector_nav_gap_css_px": 4,
+      "label_clipping": false,
+      "horizontal_overflow": false,
+      "all_checks_passed": true
+    }
   },
   {
     "viewport": "small",
@@ -89,6 +113,14 @@
     "build_hire_decor": "passed",
     "keyboard": "passed",
     "errors": [],
-    "horizontal_overflow": false
+    "horizontal_overflow": false,
+    "visual_version": "3.0",
+    "layout_audit": {
+      "min_hit_target_css_px": 44,
+      "inspector_nav_gap_css_px": 4,
+      "label_clipping": false,
+      "horizontal_overflow": false,
+      "all_checks_passed": true
+    }
   }
 ]

@@ -24,6 +24,10 @@ jobs:
       - run: npm ci
       - run: npm install --no-save --package-lock=false --ignore-scripts typescript@5.8.3
       - run: npm run verify
+      - name: Build standalone offline edition for Pages
+        run: |
+          node scripts/build-singlefile.mjs
+          cp THE_EVERLINE_PLAY_OFFLINE.html dist/THE_EVERLINE_PLAY_OFFLINE.html
       - uses: actions/upload-artifact@v4
         with:
           name: everline-website
