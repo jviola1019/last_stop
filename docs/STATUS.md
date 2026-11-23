@@ -11,7 +11,7 @@
 - Self-contained offline HTML and GitHub Pages static build; no third-party production runtime packages
 
 ## Executed locally in the build session
-- `npm run verify`: TypeScript check of JavaScript sources, **26 unit tests**, static build — passed
+- `npm run verify`: TypeScript check of JavaScript sources, **27 unit tests**, static build — passed
 - `python tests/browser_art_smoke.py`: Chromium at desktop 1440×900, tablet 820×1180, phone 390×844, compact 320×650 — passed after testing actual route unlock, Stamp project, resident purchase, save reload, Shop, Journal and original tutorial
 - `node scripts/balance.mjs`: 1m, 10m, 1h, 1d, 7d, 30d deterministic active/casual policy simulations — completed
 - Source file sanitizer/validator: save import rejects invalid negative currencies, unknown residents/carriage identities, corrupted envelope checksums, duplicate IDs and unsupported schema versions

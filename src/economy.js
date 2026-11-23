@@ -17,11 +17,15 @@ export const hireCost=car=>Math.round((110+CARRIAGES[car.type].cost*.26)*Math.po
 export function nextResident(s){const [next,value]=randomStep((s.seed^Math.imul(s.hires+1,7919))>>>0);return RESIDENTS[(next+Math.floor(value*13))%RESIDENTS.length]}
 export function capacity(s){return s.cars.reduce((n,c)=>n+CARRIAGES[c.type].people+(c.level>=4?1:0)+c.staff,0)}
 export function satisfaction(s){const types=new Set(s.cars.map(c=>c.type));const dream=s.cars.reduce((n,c)=>n+(c.crew||[]).filter(p=>p.dream===c.type).length,0);return clamp(65+s.comfort*5+types.size*3+Math.floor(s.cars.reduce((n,c)=>n+c.level,0)/6)+dream*2,0,100)}
-export function incomeRate(s){const passengerFactor=0.82+satisfaction(s)*0.002;const bonus=(1+s.legacyCount*.16)*(1+(s.stampProjects.includes('postcards')?s.regionsUnlocked.length*.02:0));return s.cars.reduce((sum,c,i)=>{
- const neighbors=[s.cars[i-1]?.type,s.cars[i+1]?.type];const synergy=(c.type==='cafe'&&neighbors.includes('library'))||(c.type==='garden'&&neighbors.includes('sleeper'))||(c.type==='diner'&&neighbors.includes('observatory'));
+export function carIncomeRate(s,index){const c=s.cars[index];if(!c)return 0;
+ const neighbors=[s.cars[index-1]?.type,s.cars[index+1]?.type];const synergy=(c.type==='cafe'&&neighbors.includes('library'))||(c.type==='garden'&&neighbors.includes('sleeper'))||(c.type==='diner'&&neighbors.includes('observatory'));
  const dream=(c.crew||[]).filter(p=>p.dream===c.type).length;
- return sum+CARRIAGES[c.type].rate*Math.pow(1.27,c.level-1)*(synergy?1.12:1)*(1+c.staff*.18+dream*.10+(s.stampProjects.includes('concierge')?c.staff*.05:0));
- },0)*(1+s.comfort*.06)*passengerFactor*bonus}
+ const staffFactor=(1+c.staff*.18+dream*.10+(s.stampProjects.includes('concierge')?c.staff*.05:0));
+ const happiness=0.82+satisfaction(s)*0.002;
+ const legacy=(1+s.legacyCount*.16)*(1+(s.stampProjects.includes('postcards')?s.regionsUnlocked.length*.02:0));
+ return CARRIAGES[c.type].rate*Math.pow(1.27,c.level-1)*(synergy?1.12:1)*staffFactor*(1+s.comfort*.06)*happiness*legacy;
+}
+export function incomeRate(s){return s.cars.reduce((sum,_c,i)=>sum+carIncomeRate(s,i),0)}
 export const hourlyRate=s=>Math.round(incomeRate(s)*3600);
 export function carriageGate(s,type){const c=CARRIAGES[type];if(!c)return {ok:false,reason:'Unknown carriage'};if(s.cars.length>=MAX_CARRIAGES)return {ok:false,reason:'Train is at its 25-carriage limit'};if(s.stops<c.unlock)return {ok:false,reason:`Reach ${c.unlock} stops (${s.stops}/${c.unlock})`};if(s.cars.length<c.minCars)return {ok:false,reason:`Own ${c.minCars} carriages first`};return {ok:true,reason:''}}
 export function canBuild(s,type){return carriageGate(s,type).ok&&s.coins>=carCost(s,type)}
