@@ -1,15 +1,15 @@
-# Economy validation
+# Economy balance — deterministic 7-day evaluation
 
-Baseline: starting sleeper earns 1.45 coins/second, café earns 2.1 coins/second. Combined income is **3.55 coins/second**, or **213 coins/minute**, before upgrades or adjacency effects. The starter wallet contains 160 coins and 42 pending coins; one first-level sleeper upgrade costs 99. A third sleeper costs 220, meaning players can reasonably expand in the opening minute.
+A local scripted active player collects each minute and purchases the best immediately affordable income-per-coin action (room, upgrade or resident). Station arrivals continue every 85 simulated seconds. This is a **stress-test policy**, not a prediction of human engagement.
 
-| Elapsed real time | Passive income (no upgrades) | Offline accrual rule | Design interpretation |
-| --- | ---: | --- | --- |
-| 1 minute | 213 | full | First collectible income, immediate upgrade viable |
-| 10 minutes | 2,130 | full | Several carriages affordable; station fares add bonuses when active |
-| 1 hour | 12,780 | full | Advance multiple levels and purchase mid-game cars |
-| 1 day away | 102,240 | capped at 8h | Optional return without punishment for not playing daily |
-| 7 days away | 102,240 | capped at 8h | Same cap as one day; no exponential runaway |
+| Elapsed | Train cars | Total room levels | Coins on hand | Current passive coins/min |
+|---|---:|---:|---:|---:|
+| 1 minute | 3 | 3 | 130 | 339 |
+| 10 minutes | 4 | 10 | 3,613 | 750 |
+| 1 hour | 7 | 48 | 18,124 | 4,705 |
+| 1 day | 18 | 216 | 3,266,380 | 34,671 |
+| 7 days | 23 | 276 | 74,608,270 | 42,872 |
 
-These values are an **unchanged starter train** scenario, not a prediction of player behavior. Income changes with purchases, upgrade levels (+42% base income per level), room adjacency (+12% conditional bonus), hired residents (+18% room income per person, maximum two), and comfort (+6% train-wide per level). Station fares and postcards are only simulated while the game is active; offline accrual deliberately does **not** generate unlimited stops or rare events.
+The cost curves in `src/economy.js` now use 1.95× cost growth per added carriage, 2.40× upgrade costs per level, and 1.27× income per level. This avoids reaching the full 25-room level cap on day one. Early upgrade costs (99 coins for the sleeper) and the one-minute collect loop remain accessible.
 
-No costs are randomized. Carriage purchase prices increase by 24% for each carriage beyond the starting pair; type base costs range from 220 to 3,700. Prices are evaluated once and deducted only after the funds/unlock checks pass. Eight destinations create a small collectibles circuit. Experience should reward quick interactions, but full prestige/long-form progression is not implemented in v1.
+**Limitations of modeled balance:** The purchase policy acts every minute and ignores cosmetics/locomotive upgrades; playing less frequently slows progression. A seven-day absence earns **only eight hours** of bounded offline coins and does not advance 7 days of stations. All monetary values are in-game coins.

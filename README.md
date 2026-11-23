@@ -1,49 +1,53 @@
-# LAST STOP: THE EVERLINE
+# LAST STOP: THE EVERLINE — Living Diorama Edition
 
-**A little world on rails.** An original illustrated, endless idle train game that runs in any modern browser. Works on iPhone, tablets and desktops. No accounts, ads, external requests, loot boxes, or microtransactions.
+**Version 2.0 · Illustrated, functional idle train game**
 
-## Play locally
+A dramatic art-led rebuild based on the original *Sunset Journey on the Everline* reference scene. The train is a series of **individual illustrated room sprites**, not a pre-rendered picture with fake buttons. An independent clock advances the idle economy, while Canvas 2D renders locomotive movement, changing lights, weather, wheel spokes, smoke, resident movement and room decorations.
 
-- `node scripts/serve.mjs` then open `http://127.0.0.1:4173`.
-- `npm ci && npm run verify` validates economic tests and produces static `dist/` ready for hosting. `npm run dev` runs the local server.
-- Open the deployed GitHub Pages URL when the Pages workflow has completed and Pages source is set to **GitHub Actions** in repository settings.
+## Run it
 
-## Controls
+Requirements: Node.js 20+ (no runtime dependencies and no third-party npm installs).
 
-- **Collect** deposits passenger earnings in your wallet; automatic income continues as the train runs.
-- **Tap a carriage** to upgrade or move it; swipe / drag to see the rest of the train.
-- **Shop** builds new rooms, buys visual train decorations, unlocks station improvements and paints the locomotive. Hire carriage residents directly from the Train inspector.
-- **Journal** has postcards, achievements, passengers' sightings, and journey history. Route shows the eight destinations.
-- **Keyboard**: arrows select rooms, Space collects, keys 1–4 change navigation sections.
-- **Settings** exports/imports JSON save, lets you opt into subtle audio, and offers reduced-motion or reset options.
+```bash
+npm run dev
+# Open http://127.0.0.1:4173
+```
 
-## Gameplay
+To build files for any static website:
 
-Starts with one locomotive, sleeper, café, 160 coins and 42 coins available to collect. Every carriage earns coins according to its level; most have visible improvements at levels 2, 3 and 6. The train automatically reaches a station around every 85 seconds before upgrades, awards fares, earns the first postcard for a destination, and may spot a rare visitor. Unvisited stations unlock new cars. You can hire up to two residents per carriage, with each resident visibly appearing inside and adding 18% to that room’s earnings. Train-wide lanterns, flower boxes, and bunting can be purchased as decorations. Neighboring carriage combinations provide optional 12% revenue bonuses. Offline accrual is capped to eight hours per absence; accumulated earnings are collected at the player's convenience.
+```bash
+npm run verify
+# Copy dist/ to a web host, including GitHub Pages.
+```
 
-## Technical foundation
+The ZIP also includes a **single-file, self-contained desktop browser edition** (`THE_EVERLINE_PLAY_OFFLINE.html`) with all game images and scripts embedded. Double-click it in a modern browser; save-file export is available if local storage is restricted by the `file://` origin.
 
-**No external packages at runtime.** ES2022 modules + a Canvas 2D layered illustration engine and accessible HTML controls. Node 20+ needed only for local preview / testing. No backend, no external images/fonts, and no client secrets. Content is wholly original generated from Canvas drawing operations. `src/economy.js` uses wall-clock time, bounded progress, seeded sightings, and independent testable pure-ish economic functions. Savings use a fixed-schema whitelist at import and a versioned localStorage key. Files can be served directly from `dist/`.
+## The actual controls
 
-The user requested a Vite/TypeScript/PixiJS preference. Those packages were not installed in the available offline container. This build deliberately chooses zero-dependency ES modules and TypeScript's `checkJs` static checks to ensure the deliverable is runnable and testable instead of shipping unverified dependencies. Visuals are native procedural illustrations, not imported concept art.
+- **Collect:** press `+` beside the coin balance to transfer pending earnings.
+- **Upgrade:** press the gold Upgrade button for the active room.
+- **Explore:** drag / swipe the train or focus the canvas and press left/right arrow keys to select a room. Clicking any room changes its inspector.
+- **Build:** open Shop > Carriages. The new carriage appears as an individual painted wagon in the moving scene.
+- **Hire:** the secondary resident button adds an animated person and increases earnings.
+- **Rearrange:** the inspector arrows change a room's physical position and neighbor bonuses.
+- **Decorate:** purchase window planters, amber lanterns and pennants. The scene reflects ownership.
+- **Collect memories:** reach stations, earn stamps, discover postcards, earn achievements and tap rare sightings.
+- **Personalize:** use Settings to reduce animation, export/import validated saves or intentionally reset progress.
 
-## Files
+## Technical structure
 
-- `src/data.js` — content catalog and unlocks
-- `src/economy.js` — deterministic economics, saves, purchases
-- `src/scene.js` — carriage artwork, scenery, animation, parallax, touch gestures
-- `src/main.js` — UI, keyboard, local persistence
-- `src/style.css` — responsive presentation
-- `tests/*.test.mjs` — economic regression coverage
-- `scripts/build.mjs` — static build
-- `scripts/serve.mjs` — development server
-- `.github/workflows/pages.yml` — GitHub Pages Actions deployment
-- `docs/STATUS.md`, `docs/PROJECT_RULES.md` — evidence and conventions
+- `src/art.js`: illustrated canvas world, train textures, responsive camera, touch and keyboard selection, weather, decorated carriages and animation
+- `src/economy.js`: bounded state transitions, atomic purchases, income, arrivals, seeded random events and offline credit
+- `src/main.js`: DOM controls and accessibility, modal menus, real-time HUD, save import/export and renderer wiring
+- `src/data.js`: independently owned train and travel content
+- `assets/source-reference.png`: user's reference illustration, retained for reproducible sprite extraction
+- `scripts/make_art.py` and `scripts/clean_world.py`: deterministic sprite extraction and compositing from reference
+- `tests/economy.test.mjs` and `tests/browser_art_smoke.py`: economy and real Chromium interaction tests
+- `src-tauri/`: **optional, unbuilt Windows wrapper scaffold**, not a compiled `.exe`
+- `.github/workflows/pages.yml`: GitHub Actions build, test and Pages deployment workflow
 
-## Security and privacy
+## Why it is not an `.exe` by default
 
-Only localStorage; external HTTP requests are not used. All economic mutations check caps and funds; saves are serialized whitelists; import text is capped, JSON parsed, and validated. Never load arbitrary assets from saves. The game has no server-side secrets or third-party analytics.
+The game is visual and cross-device. A Windows executable only changes the *distribution container*; it does not improve illustration quality. The main target is an installable Progressive Web App. The same frontend can later be packaged via Tauri v2 for Windows (`src-tauri` included) without maintaining a second game engine. Building a genuine Windows installer requires Windows/Rust/WebView2 prerequisites and has **not** been verified here.
 
-## Deployment
-
-Push the implementation branch and open a PR against `main`. After review and merge, GitHub Actions uploads `dist` and requests a Pages deployment. Set **Settings → Pages → Build and deployment → Source → GitHub Actions** once. The published URL will normally be `https://jviola1019.github.io/last_stop/` after a successful workflow, but should not be treated as live until verified.
+See `docs/STATUS.md`, `docs/QA.md`, `docs/BALANCE.md`, and `docs/ART_DIRECTION.md` for evidence, constraints and art direction.

@@ -1,6 +1,7 @@
-node_modules/
 dist/
-playwright-report/
-test-results/
+node_modules/
+target/
+src-tauri/target/
 .DS_Store
 *.log
+coverage/

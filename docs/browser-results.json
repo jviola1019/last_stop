@@ -1,44 +1,94 @@
 [
   {
     "viewport": "desktop",
-    "width": 1440,
-    "height": 900,
-    "saved": true,
-    "panelNavigation": true,
-    "canvas": {
-      "scrollW": 1440,
-      "viewport": 1440,
-      "canvasW": 1120,
-      "gameH": 665
-    },
-    "errors": []
+    "size": [
+      1440,
+      900
+    ],
+    "canvas_pixel": [
+      126,
+      71,
+      46,
+      255
+    ],
+    "screenshots": "docs/desktop-scene.png",
+    "tutorial": "passed",
+    "shop": "passed",
+    "journal": "passed",
+    "settings": "passed",
+    "save_reload": "passed",
+    "build_hire_decor": "passed",
+    "keyboard": "passed",
+    "errors": [],
+    "horizontal_overflow": false
+  },
+  {
+    "viewport": "tablet",
+    "size": [
+      820,
+      1180
+    ],
+    "canvas_pixel": [
+      66,
+      46,
+      31,
+      255
+    ],
+    "screenshots": "docs/tablet-scene.png",
+    "tutorial": "passed",
+    "shop": "passed",
+    "journal": "passed",
+    "settings": "passed",
+    "save_reload": "passed",
+    "build_hire_decor": "passed",
+    "keyboard": "passed",
+    "errors": [],
+    "horizontal_overflow": false
   },
   {
     "viewport": "iphone",
-    "width": 390,
-    "height": 844,
-    "saved": true,
-    "panelNavigation": true,
-    "canvas": {
-      "scrollW": 390,
-      "viewport": 390,
-      "canvasW": 390,
-      "gameH": 454
-    },
-    "errors": []
+    "size": [
+      390,
+      844
+    ],
+    "canvas_pixel": [
+      246,
+      190,
+      150,
+      255
+    ],
+    "screenshots": "docs/iphone-scene.png",
+    "tutorial": "passed",
+    "shop": "passed",
+    "journal": "passed",
+    "settings": "passed",
+    "save_reload": "passed",
+    "build_hire_decor": "passed",
+    "keyboard": "passed",
+    "errors": [],
+    "horizontal_overflow": false
   },
   {
     "viewport": "small",
-    "width": 320,
-    "height": 650,
-    "saved": true,
-    "panelNavigation": true,
-    "canvas": {
-      "scrollW": 320,
-      "viewport": 320,
-      "canvasW": 320,
-      "gameH": 291
-    },
-    "errors": []
+    "size": [
+      320,
+      650
+    ],
+    "canvas_pixel": [
+      53,
+      30,
+      16,
+      255
+    ],
+    "screenshots": "docs/small-scene.png",
+    "tutorial": "passed",
+    "shop": "passed",
+    "journal": "passed",
+    "settings": "passed",
+    "save_reload": "passed",
+    "build_hire_decor": "passed",
+    "keyboard": "passed",
+    "errors": [],
+    "horizontal_overflow": false
   }
 ]
