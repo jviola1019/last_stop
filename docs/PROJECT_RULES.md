@@ -1,9 +1,11 @@
-# EVERLINE project conventions
+# Project conventions
 
-- **Source of truth**: `src/economy.js` owns deterministic game and economic state; `src/scene.js` never changes resources. Do not calculate income in animation ticks.
-- **Game art**: original Canvas 2D primitives; no third-party asset licenses, external requests, image-only mockups, or asset pipeline surprises.
-- **Save data**: version 3, validated by `validateState`, imported with an explicit whitelist. No merging untrusted object prototypes; no `eval`, dangerous HTML injection, analytics, or APIs.
-- **Interaction**: all economic actions validate funds and caps. DOM `innerHTML` may contain ONLY program-authored constants or escaped whitelisted strings.
-- **Accessibility**: semantic buttons, labels, keyboard alternatives, 44px mobile hit targets, system reduced-motion support.
-- **Review checkpoints**: logic tests, browser functionality, visual screenshots, local reload, security review, balance projections, and GitHub Actions checks.
-- **No fake work**: keep a factual `STATUS.md` log. Do not claim browser environments or remote deployments that were not observed.
+1. Never make income depend on frame duration or animation speed. All economy mutations belong in `src/economy.js`.
+2. A renderer draws the actual carriage list; avoid static screenshots masquerading as game state.
+3. No third-party runtime scripts, remote textures, paid goods, premium currencies or secret keys.
+4. Validation precedes every save import and every player purchase; never `eval` imported data.
+5. All visible text is legible in the 320px layout. Buttons should be at least 44px high when interaction is essential.
+6. Respect `prefers-reduced-motion` and the game's local animation setting.
+7. Run `npm run verify`, the Chromium source harness, and visual screenshot inspection before proposing a release.
+8. Never claim Windows `.exe`, Pages deployment, WebKit, iPhone hardware or PWA installation validation without actual evidence.
+9. Treat the user's original reference illustration as project material; do not claim third-party stock photography.

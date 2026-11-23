@@ -1,5 +1,5 @@
-import {rm,mkdir,copyFile,readFile} from 'node:fs/promises';import path from 'node:path';import {fileURLToPath} from 'node:url';
-const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),dist=path.join(root,'dist');
-await rm(dist,{recursive:true,force:true});await mkdir(path.join(dist,'src'),{recursive:true});await mkdir(path.join(dist,'assets'),{recursive:true});
-for(const file of ['index.html','src/main.js','src/economy.js','src/data.js','src/scene.js','src/style.css','assets/icon.svg'])await copyFile(path.join(root,file),path.join(dist,file));
-const html=await readFile(path.join(dist,'index.html'),'utf8');if(!html.includes('src/main.js'))throw Error('Missing application script');console.log('Static production build: dist/ (7 files, zero third-party dependencies).');
+import {rm,mkdir,copyFile,readdir,stat} from 'node:fs/promises';import path from 'node:path';import{fileURLToPath}from'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),dist=path.join(root,'dist');await rm(dist,{recursive:true,force:true});
+async function copyDir(source,target){await mkdir(target,{recursive:true});for(const item of await readdir(source)){const inp=path.join(source,item),out=path.join(target,item);if((await stat(inp)).isDirectory())await copyDir(inp,out);else await copyFile(inp,out)}}
+await copyDir(path.join(root,'src'),path.join(dist,'src'));await mkdir(path.join(dist,'assets'),{recursive:true});for(const name of ['icon.svg','world.webp','car-engine.png','car-sleeper.png','car-cafe.png','car-garden.png','car-arcade.png','car-observatory.png'])await copyFile(path.join(root,'assets',name),path.join(dist,'assets',name));for(const name of ['index.html','manifest.webmanifest','sw.js'])await copyFile(path.join(root,name),path.join(dist,name));
+console.log('Built complete static art-driven game at dist/. No runtime network services required.');

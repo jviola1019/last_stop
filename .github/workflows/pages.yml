@@ -1,4 +1,4 @@
-name: Verify and deploy Everline
+name: Everline · Verify and publish game
 on:
   push:
     branches: [main]
@@ -10,10 +10,10 @@ permissions:
   pages: write
   id-token: write
 concurrency:
-  group: pages
+  group: everline-pages
   cancel-in-progress: true
 jobs:
-  test:
+  verify:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,15 +22,15 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci
-      - run: npm test
-      - run: npm run build
+      - run: npm install --no-save --package-lock=false --ignore-scripts typescript@5.8.3
+      - run: npm run verify
       - uses: actions/upload-artifact@v4
         with:
-          name: everline-dist
+          name: everline-website
           path: dist
   deploy:
     if: github.event_name != 'pull_request'
-    needs: test
+    needs: verify
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -38,7 +38,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
-          name: everline-dist
+          name: everline-website
           path: dist
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4

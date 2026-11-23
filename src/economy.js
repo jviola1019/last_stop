@@ -11,13 +11,13 @@ export const initialState = (now=Date.now())=>({
   lastOffline:0
 });
 export function randomStep(seed){const next=(Math.imul(seed,1664525)+1013904223)>>>0;return [next,next/4294967296]}
-export const carCost=(state,type)=> Math.round(CARRIAGES[type].cost*Math.pow(1.24,Math.max(0,state.cars.length-2)));
-export const upgradeCost=(car)=>Math.round((55+CARRIAGES[car.type].cost*.20)*Math.pow(1.67,car.level-1));
+export const carCost=(state,type)=> Math.round(CARRIAGES[type].cost*Math.pow(1.95,Math.max(0,state.cars.length-2)));
+export const upgradeCost=(car)=>Math.round((55+CARRIAGES[car.type].cost*.20)*Math.pow(2.40,car.level-1));
 export function capacity(state){return state.cars.reduce((s,c)=>s+CARRIAGES[c.type].people+(c.level>=4?1:0)+c.staff,0)}
 export function satisfaction(state){const types=new Set(state.cars.map(c=>c.type));return Math.min(100,65+state.comfort*5+types.size*3+Math.floor(state.cars.reduce((a,b)=>a+b.level,0)/6));}
 export function hourlyRate(state){return Math.round(incomeRate(state)*3600)}
 export function incomeRate(state){return state.cars.reduce((sum,car,index)=>{
-  const val=CARRIAGES[car.type].rate*Math.pow(1.42,car.level-1);
+  const val=CARRIAGES[car.type].rate*Math.pow(1.27,car.level-1);
   // Complementary neighbor pairings provide a small, optional reward for rearrangement.
   const neighbors=[state.cars[index-1]?.type,state.cars[index+1]?.type];
   const synergy=(car.type==='cafe'&&neighbors.includes('library'))||(car.type==='garden'&&neighbors.includes('sleeper'))||(car.type==='diner'&&neighbors.includes('observatory'));

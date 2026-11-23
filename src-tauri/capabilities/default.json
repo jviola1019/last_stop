@@ -1,0 +1,1 @@
+{"identifier":"default","description":"Local-only railway game; no native file, shell, network or system permissions","windows":["main"],"permissions":["core:default"]}
