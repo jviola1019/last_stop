@@ -1,0 +1,44 @@
+[
+  {
+    "viewport": "desktop",
+    "width": 1440,
+    "height": 900,
+    "saved": true,
+    "panelNavigation": true,
+    "canvas": {
+      "scrollW": 1440,
+      "viewport": 1440,
+      "canvasW": 1120,
+      "gameH": 665
+    },
+    "errors": []
+  },
+  {
+    "viewport": "iphone",
+    "width": 390,
+    "height": 844,
+    "saved": true,
+    "panelNavigation": true,
+    "canvas": {
+      "scrollW": 390,
+      "viewport": 390,
+      "canvasW": 390,
+      "gameH": 454
+    },
+    "errors": []
+  },
+  {
+    "viewport": "small",
+    "width": 320,
+    "height": 650,
+    "saved": true,
+    "panelNavigation": true,
+    "canvas": {
+      "scrollW": 320,
+      "viewport": 320,
+      "canvasW": 320,
+      "gameH": 291
+    },
+    "errors": []
+  }
+]
