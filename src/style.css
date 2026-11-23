@@ -8,3 +8,269 @@
 @media(max-width:520px){.hud{height:112px}.mobile-brand{top:10px;left:8px}.brand-top{font-size:15px}.brand-sub{font-size:7px}.resource-group{top:45px;right:7px;left:7px;justify-content:space-between}.pill{height:39px}.balance{flex:1;max-width:145px}.stamps{flex:0 0 auto}.countdown{flex:0 0 auto}.settings{position:absolute;right:0;top:-41px;width:35px;height:34px;font-size:24px;line-height:26px}.inspector{max-height:235px}.travel-tip{display:none}.room-earn{font-size:13px}.secondary-tools button{font-size:10px}.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.preview{height:96px}.purchase-card .body{padding:10px}.purchase-card h3{font-size:17px}.purchase-card p{font-size:12px}.purchase-card button{font-size:11px;padding:7px}.journal-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.postcard{padding:6px;border-width:4px;min-height:140px}.postcard .art{height:72px}.postcard h3{font-size:17px}.postcard p{font-size:11px}.tour{bottom:calc(326px + env(safe-area-inset-bottom));font-size:11px}}
 @media(max-width:340px){.brand-top{font-size:13px}.stamp-icon{display:none}.coin-icon{width:22px;height:22px}.pill strong{font-size:14px}.inspector{max-height:205px}.secondary-tools button{min-height:32px}.room-name{font-size:21px}.room-icon{font-size:23px}.nav-choice{font-size:12px}.nav-choice span{font-size:20px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation-duration:.001ms!important;transition-duration:.001ms!important}}
+
+/* ------------------------------------------------------------------------
+   v3 · THE RAILWAY TYPE SYSTEM
+   Two intentional voices: an old-style railway display serif for titles and
+   numbers; a high-legibility contemporary grotesk for UI labels and controls.
+   All fonts are native/system fallbacks: the game stays fully offline.
+   Spatial scale follows the 8px rhythm (4px only for tight labels).
+   ------------------------------------------------------------------------ */
+:root{
+  --type-display:"Iowan Old Style","Palatino Linotype","Baskerville","Noto Serif",Georgia,serif;
+  --type-interface:Inter,"Segoe UI",-apple-system,BlinkMacSystemFont,Arial,sans-serif;
+  --ink:#191820;
+  --ink-raised:#27242d;
+  --gold:#f8cd83;
+  --gold-bright:#ffe0a0;
+  --muted-gold:#cdac81;
+  --paper:#f9e7ca;
+  --border:rgba(245,194,125,.76);
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-5:20px;
+  --space-6:24px;
+  --space-8:32px;
+}
+body{font-family:var(--type-display);font-kerning:normal;text-rendering:optimizeLegibility}
+button,input,textarea{font-family:var(--type-interface)}
+button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+button:focus-visible,canvas:focus-visible{outline:3px solid #ffeaad;outline-offset:4px}
+button:not(:disabled):hover{filter:brightness(1.07)}
+button:disabled{opacity:.56;filter:saturate(.58)}
+
+/* Railway status and inset coin counters, not generic dashboard tiles. */
+.resource-group{gap:clamp(10px,1.6vw,24px);top:20px}
+.pill{height:60px;padding:6px 14px;gap:12px;border:1.5px solid #62566a;background:#1a1726ed;
+  box-shadow:inset 0 2px 1px #ffffff13,0 3px 8px #09081355}
+.pill strong{font-family:var(--type-display);font-size:clamp(23px,2.25vw,32px);font-weight:700;letter-spacing:-.015em;line-height:1.1;
+  font-feature-settings:"tnum";color:#fff1d9}
+.coin-icon{font:700 24px var(--type-display);width:44px;height:44px;border:3px solid #bd771c;
+  background:radial-gradient(circle at 31% 24%,#fff4a0,#f8bb3c 58%,#d9871b);box-shadow:0 0 0 2px #fbe09c,inset 0 0 0 2px #fce294;color:#bf7222}
+.stamp-icon{padding:0;display:grid;place-items:center;transform:rotate(-8deg);background:none;border:0;width:42px;height:44px;flex:0 0 42px}
+.stamp-glyph{width:40px;height:43px;filter:drop-shadow(0 2px 2px #0008)}
+.balance button{font:700 30px var(--type-interface);height:46px;min-width:46px;border-radius:12px;border:1.5px solid #79718c;
+  background:#23212e;color:var(--gold);margin-left:auto}
+.balance button small{top:47px;right:-12px;line-height:1.2;padding:3px 6px;font:700 10px var(--type-interface)}
+.engine-icon{display:grid;place-items:center;width:37px;height:40px;flex-shrink:0}
+.arrival-glyph{width:34px;height:34px;stroke-width:2px;color:#f6dbb2}
+.arrival{font:600 clamp(13px,1.45vw,18px)/1.1 var(--type-display);color:#f2dfc1}
+.countdown{gap:8px}
+.countdown strong{color:#ffd071}
+.settings{width:60px;height:60px;padding:12px;display:grid;place-items:center;font-size:1rem;color:#f8e6c9;
+  border:1.5px solid #655b77;background:#211e2d}
+.settings-glyph{width:100%;height:100%}
+.location-tag{font:700 11px/1.5 var(--type-interface);letter-spacing:.17em;color:#ffe1ad;
+  background:linear-gradient(90deg,transparent,#1817253b);padding:6px 0 7px 20px;max-width:37%;overflow:hidden;text-overflow:ellipsis}
+
+/* Featured carriage = physical brass-edged ticket, compact enough to leave
+   the cutaway environment clearly visible underneath. */
+.inspector{top:22%;width:min(382px,calc(100% - 24px));filter:drop-shadow(0 8px 13px #09091499)}
+.inspector-inner{padding:14px 19px 15px;background:linear-gradient(140deg,#2d2732,#171620 83%);
+  border:1.5px solid #f0bd70;border-radius:20px;box-shadow:inset 0 0 0 2px #5c4140,0 0 0 1px #1c1425,
+    0 0 18px #f8c17622;overflow:visible}
+.inspector-inner:after{width:20px;height:20px;left:calc(50% - 10px);bottom:-11px}
+.room-kicker{font:700 10px/1.3 var(--type-interface);letter-spacing:.16em;color:#d6b789;
+  margin:0 0 5px;text-transform:uppercase}
+.room-title{display:flex;align-items:center;gap:12px;min-height:64px}
+.room-icon{width:64px;height:57px;flex:0 0 64px;font:44px/1 var(--type-display);color:#ffda9c;text-shadow:0 2px 4px #9f5c2399}
+.room-name{font:700 32px/1.09 var(--type-display);letter-spacing:-.025em;color:#fff1dc;margin:0 0 2px}
+.room-earn{display:flex;align-items:center;gap:5px;flex-wrap:wrap;font:600 17px/1.25 var(--type-display);color:#ffda9a}
+.per-hour{white-space:nowrap;color:#f1c588}
+.inline-coin{display:inline-block;vertical-align:middle;width:15px;height:15px;border-radius:100%;flex:0 0 15px;
+  background:radial-gradient(circle at 29% 22%,#fff2a5,#ffd448 56%,#df941a);border:1.5px solid #cd861a;box-shadow:inset 0 0 0 1px #fff09f66}
+.level-line{margin:12px 0 6px;font:700 11px/1.2 var(--type-interface);letter-spacing:.09em;color:#f3e1cc}
+.level-line small{font:500 10px var(--type-interface);color:#d2bdad}
+.level-line strong{font:700 10px/1.3 var(--type-interface);letter-spacing:.07em;color:#f0c787}
+.level-track{height:11px;border:1px solid #8a5b3a;border-radius:7px;background:#211b27}
+.level-track i{background:#27212c;border-right-color:#594034}
+.level-track i.lit{background:linear-gradient(#ffe292,#e9a934)}
+.upgrade{display:flex;align-items:center;justify-content:center;gap:20px;min-height:53px;height:auto;
+  margin-top:12px;padding:9px 14px;font:700 21px/1.2 var(--type-display);border-radius:13px;
+  background:linear-gradient(#ffe5b0,#f3b875);border:1.5px solid #b16d32;
+  box-shadow:inset 0 2px 1px #fff8dbaa,0 3px 0 #7b4927,0 5px 12px #0006;color:#32242a}
+.upgrade strong{display:inline-flex;align-items:center;gap:6px;margin:0;font:700 16px/1.2 var(--type-interface);letter-spacing:-.025em}
+.upgrade:disabled{opacity:.64}
+.secondary-tools{gap:8px;margin-top:12px}
+.secondary-tools button{min-height:44px;padding:9px 12px;font:700 11px/1.2 var(--type-interface);letter-spacing:.025em;
+  border:1px solid #795f60;border-radius:9px;background:#312936;color:#f5d6a6}
+.secondary-tools button:first-child{white-space:normal}
+.secondary-tools .move-btn{flex:0 0 44px;max-width:44px;min-width:44px;font:700 19px/1 var(--type-interface)}
+.train-summary{font:15px/1.5 var(--type-display);color:#f1dfcb}
+
+/* The illustrated world is the interface: navigation is a quiet railway desk. */
+.nav{height:124px;gap:clamp(16px,3vw,46px);padding:12px max(5%,env(safe-area-inset-right)) calc(12px + env(safe-area-inset-bottom));
+  border-top:1px solid #514252;background:linear-gradient(#28242f,#171721 75%);box-shadow:0 -10px 22px #14142266}
+.nav-choice{width:min(29%,350px);max-width:350px;height:78px;border:1.8px solid #9e8c89;
+  border-radius:22px;display:flex;align-items:center;justify-content:center;gap:18px;padding:8px 16px;
+  font:700 clamp(20px,2.2vw,28px)/1.1 var(--type-display);letter-spacing:.015em;color:#f8e4cc;
+  background:#1a1a26;box-shadow:inset 0 1px #ebd4a326}
+.nav-choice.selected{border-color:#ffe2a1;background:#29212c;
+  box-shadow:0 0 0 2px #8b583d,0 0 14px 2px #ffba6d77,inset 0 0 14px #b66a3425}
+.nav-choice .nav-icon{display:grid;place-items:center;flex:0 0 42px;width:42px;height:44px;color:#f5d4a0}
+.nav-choice .nav-glyph{width:42px;height:42px;overflow:visible;filter:drop-shadow(0 2px 0 #7b4a31)}
+.nav-choice .nav-label{font:inherit;white-space:nowrap}
+.nav-choice:focus-visible{outline-offset:3px}
+
+/* Tutorial and utility copy use a consistent small, readable sans scale. */
+.tour{bottom:calc(140px + env(safe-area-inset-bottom));padding:13px 16px;max-width:298px;
+  border-radius:12px;background:#1c1b28ee;font:13px/1.5 var(--type-interface);color:#f3e4d3}
+.tour strong{display:block;margin-bottom:4px;font:700 11px/1.2 var(--type-interface);letter-spacing:.09em;color:#ffddab}
+.tour button{min-height:44px;padding:10px 0 0;font:700 12px var(--type-interface)}
+.travel-tip{bottom:calc(140px + env(safe-area-inset-bottom));font:700 11px var(--type-interface);letter-spacing:.12em}
+.toast{bottom:calc(142px + env(safe-area-inset-bottom));font:600 14px/1.45 var(--type-interface);padding:12px 22px}
+.sighting{font:700 13px/1.3 var(--type-interface);min-height:54px;letter-spacing:.04em}
+.sighting small{font:500 12px/1.25 var(--type-interface)}
+
+/* Shop & Journal: catalog pages, not dashboard cards. */
+.drawer,.settings-dialog{background:#211d29;border:1.5px solid #c9a16f;border-bottom:0;border-radius:24px 24px 0 0}
+.drawer-head{padding:18px clamp(20px,4vw,44px);background:#292230;border-bottom:1px solid #9b7659}
+.drawer-head h2{font:700 clamp(27px,3.2vw,42px)/1.2 var(--type-display);letter-spacing:-.02em}
+.superline,.small-kicker{font:700 10px/1.4 var(--type-interface);letter-spacing:.15em}
+.exit{width:46px;height:46px;flex-shrink:0;border-radius:10px;font:600 21px var(--type-interface)}
+.drawer-body,.settings-body{padding:24px clamp(18px,3.5vw,40px) 36px}
+.subnav{gap:8px;padding:0 1px 8px;margin-bottom:16px}
+.subnav button{min-height:44px;padding:11px 16px;border-radius:7px;font:700 12px/1.2 var(--type-interface);letter-spacing:.055em}
+.cards{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+.purchase-card{background:linear-gradient(#342b34,#211c28);border:1.2px solid #9f755e;border-radius:13px;box-shadow:0 5px 12px #0a0a1552;
+  overflow:hidden;transition:transform .18s ease,border-color .18s ease}
+.purchase-card:hover{transform:translateY(-2px);border-color:#e2b67c}
+.preview{height:150px;background:#26283b;border-bottom:1px solid #9f755e}
+.preview img{width:100%;height:100%;object-fit:contain}
+.purchase-card .body{padding:16px 18px 18px}
+.purchase-card h3{margin:0 0 6px;font:700 23px/1.22 var(--type-display);letter-spacing:-.02em;color:#ffe1ae}
+.purchase-card p{margin-bottom:16px;font:400 13px/1.6 var(--type-interface);color:#e0d2c5}
+.purchase-card button,.gold-btn{min-height:46px;border-radius:9px;padding:10px 12px;
+  font:700 12px/1.35 var(--type-interface);letter-spacing:.025em}
+.journal-grid,.sticker-list{gap:16px}
+.postcard h3{font:700 21px/1.3 var(--type-display)}
+.postcard p,.sticker small{font:400 12px/1.5 var(--type-interface)}
+.sticker strong{font:700 18px/1.3 var(--type-display)}
+.stats-line{font:400 13px/1.65 var(--type-interface)}
+.setting-line{min-height:56px;font:500 14px/1.45 var(--type-interface)}
+.settings-actions button{min-height:46px;font:700 12px var(--type-interface)}
+
+/* Portrait and tablet: keep the illustrated train unobstructed above the
+   ticket inspector; use full-size thumb controls and accommodate the notch. */
+@media(max-width:900px){
+ .hud{height:112px;background:linear-gradient(#151521f2 0%,#171623dc 78%,transparent)}
+ .mobile-brand{top:12px;left:14px}
+ .brand-top{font:700 19px/1.05 var(--type-display);letter-spacing:.015em;color:#ffe6bc}
+ .brand-sub{font:700 9px/1.2 var(--type-interface);letter-spacing:.18em;color:#f3d0a0}
+ .resource-group{left:auto;right:12px;top:16px;gap:8px;width:auto}
+ .pill{height:44px;padding:5px 9px;gap:7px;border-width:1px}
+ .pill strong{font:700 18px/1 var(--type-display)}
+ .coin-icon{width:29px;height:29px;border-width:2px;font-size:15px}
+ .stamp-icon{width:30px;height:32px;flex-basis:30px}
+ .stamp-glyph{width:27px;height:31px}
+ .balance button{min-width:44px;height:44px;border-radius:10px;line-height:1;font-size:25px}
+ .balance button small{top:40px;right:-6px;font-size:9px}
+ .countdown .arrival,.engine-icon{display:none}
+ .countdown strong{font-size:17px}
+ .settings{width:44px;height:44px;padding:9px;line-height:1}
+ .location-tag{display:none}
+ .inspector{top:auto;bottom:calc(88px + env(safe-area-inset-bottom));left:50%;width:min(460px,calc(100% - 22px));max-height:min(255px,38dvh);overflow-y:auto;border-radius:16px}
+ .inspector-inner{padding:12px 16px 13px;border-radius:16px}
+ .inspector-inner:after{display:none}
+ .room-kicker{font-size:10px;margin-bottom:4px;letter-spacing:.12em}
+ .room-title{min-height:49px;gap:8px}
+ .room-icon{font-size:31px;width:43px;height:40px;flex-basis:43px}
+ .room-name{font-size:25px;margin-bottom:2px}
+ .room-earn{font-size:14px}
+ .inline-coin{width:13px;height:13px;flex-basis:13px}
+ .level-line{margin:9px 0 6px;font-size:11px}
+ .level-line strong,.level-line small{font-size:10px}
+ .level-track{height:10px}
+ .upgrade{height:46px;min-height:46px;margin-top:9px;padding:6px 12px;font-size:18px;border-radius:11px}
+ .upgrade strong{font-size:14px}
+ .secondary-tools{margin-top:8px;gap:8px}
+ .secondary-tools button{min-height:44px;font-size:11px;padding:8px 6px}
+ .secondary-tools .move-btn{max-width:44px;flex-basis:44px;min-width:44px}
+ .nav{height:84px;gap:10px;padding:8px 10px calc(10px + env(safe-area-inset-bottom))}
+ .nav-choice{height:59px;max-width:none;width:calc((100% - 20px)/3);gap:9px;padding:7px 9px;border-radius:13px;font-size:15px}
+ .nav-choice .nav-icon{width:26px;height:29px;flex-basis:26px}
+ .nav-choice .nav-glyph{width:28px;height:28px}
+ .travel-tip{bottom:calc(354px + env(safe-area-inset-bottom));font-size:11px}
+ .tour{left:16px;top:122px;bottom:auto;max-width:min(300px,calc(100% - 32px));padding:12px 14px;font-size:12px}
+ .toast{bottom:calc(350px + env(safe-area-inset-bottom));font-size:13px}
+ .drawer-body,.settings-body{padding:18px 20px 28px}
+}
+@media(max-width:520px){
+ .hud{height:112px}
+ .mobile-brand{top:11px;left:11px}
+ .brand-top{font-size:17px}
+ .brand-sub{font-size:8px}
+ .resource-group{top:49px;left:9px;right:9px;gap:7px;justify-content:space-between}
+ .pill{height:42px;padding:4px 7px;gap:6px}
+ .pill strong{font-size:17px}
+ .coin-icon{height:27px;width:27px;font-size:13px}
+ .balance{flex:1 1 126px;max-width:160px;min-width:0}
+ .stamps,.countdown{flex:0 0 auto;min-width:0}
+ .stamp-icon{width:26px;height:28px;flex-basis:26px}
+ .stamp-glyph{width:25px;height:27px}
+ .balance button{min-width:44px;height:44px;margin-right:-7px}
+ .settings{position:absolute;top:-41px;right:0;width:44px;height:44px;padding:9px}
+ .room-name{font-size:25px}
+ .room-earn{font-size:14px}
+ .inspector{max-height:245px;bottom:calc(86px + env(safe-area-inset-bottom))}
+ .inspector-inner{padding:12px 14px}
+ .nav{height:82px;padding:7px 9px calc(8px + env(safe-area-inset-bottom));gap:7px}
+ .nav-choice{height:60px;width:calc((100% - 14px)/3);padding:6px 8px;gap:7px;font:700 14px/1 var(--type-display)}
+ .nav-choice .nav-icon{width:23px;height:25px;flex-basis:23px}
+ .nav-choice .nav-glyph{width:25px;height:25px}
+ .travel-tip{display:none}
+ .tour{top:110px;left:11px;max-width:min(275px,calc(100% - 22px));padding:10px 12px;font-size:12px}
+ .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+ .preview{height:108px}
+ .purchase-card .body{padding:11px 12px 13px}
+ .purchase-card h3{font-size:18px}
+ .purchase-card p{font-size:12px;line-height:1.5}
+ .purchase-card button{font-size:11px;padding:9px 7px}
+ .drawer-head{padding:15px 17px}
+ .drawer-head h2{font-size:28px}
+ .drawer-body,.settings-body{padding:16px 12px 26px}
+ .journal-grid{gap:11px}
+}
+@media(max-width:350px){
+ .brand-top{font-size:16px}
+ .pill{gap:4px;padding:3px 5px}
+ .pill strong{font-size:15px}
+ .balance{max-width:133px}
+ .stamp-icon{display:none}
+ .countdown strong{font-size:15px}
+ .inspector{max-height:min(224px,35dvh)}
+ .room-title{min-height:40px}
+ .room-kicker{font-size:9px}
+ .room-name{font-size:22px}
+ .room-icon{width:36px;flex-basis:36px;font-size:27px}
+ .room-earn{font-size:12px}
+ .level-line{margin:7px 0 4px}
+ .upgrade{margin-top:7px;min-height:44px;height:44px}
+ .secondary-tools{margin-top:6px}
+ .nav-choice{gap:4px;padding:5px;font-size:13px}
+ .nav-choice .nav-icon{width:20px;flex-basis:20px}
+ .nav-choice .nav-glyph{width:21px}
+ .tour{top:105px}
+}
+@media(max-height:700px) and (max-width:900px){
+ .inspector{max-height:calc(100dvh - 220px)}
+ .inspector-inner{padding-top:9px;padding-bottom:9px}
+ .room-title{min-height:39px}
+ .room-kicker{margin-bottom:1px}
+ .level-line{margin:6px 0 4px}
+ .upgrade{margin-top:7px}
+ .secondary-tools{margin-top:6px}
+}
+@media(prefers-reduced-motion:reduce){.purchase-card{transition:none}}
+/* Disabled offers must remain readable: affordability is a state, not fading text. */
+.purchase-card button:disabled,
+.purchase-card button:disabled:hover{
+  opacity:1;
+  filter:none;
+  color:#e2cfb5;
+  background:#493b47;
+  border-color:#8d6f72;
+  box-shadow:none;
+}
