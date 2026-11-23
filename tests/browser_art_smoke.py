@@ -44,12 +44,33 @@ with sync_playwright() as p:
   canvas=page.locator('#world');pix=canvas.evaluate('(el)=>{const ctx=el.getContext("2d");return Array.from(ctx.getImageData(Math.floor(el.width/2),Math.floor(el.height/2),1,1).data)}')
   assert max(pix[:3])>12 and pix[3]==255,(name,pix)
   page.screenshot(path=str(root/'docs'/f'{name}-scene.png'),full_page=True)
+  # Real computed-layout geometry: validate 44px targets, clipping and overlap.
+  layout=page.evaluate("""() => {
+    const box = sel => {const e=document.querySelector(sel),r=e.getBoundingClientRect();
+      return {x:r.x,y:r.y,w:r.width,h:r.height,right:r.right,bottom:r.bottom,
+        font:getComputedStyle(e).fontFamily,fontSize:getComputedStyle(e).fontSize};};
+    const targets=[...document.querySelectorAll('#collect,#settings,.nav-choice,.upgrade,.secondary-tools button')].map(e=>{
+      const r=e.getBoundingClientRect();return {label:e.getAttribute('aria-label')||e.textContent.trim(),w:r.width,h:r.height};
+    });
+    const labels=[...document.querySelectorAll('.nav-label,.room-name,.room-kicker,.room-earn,.pill strong')].map(e=>({
+      value:e.textContent.trim(),scroll:e.scrollWidth,client:e.clientWidth}));
+    return {inspector:box('#inspector'),nav:box('.nav'),tour:box('#tour'),
+      roomTitle:box('.room-name'),navTitle:box('.nav-label'),targets,labels,
+      horizontalOverflow:document.documentElement.scrollWidth>innerWidth+2};
+  }""")
+  assert all(t['w']>=43.5 and t['h']>=43.5 for t in layout['targets']),(name,layout['targets'])
+  assert layout['inspector']['bottom']<=layout['nav']['y']+2,(name,'Inspector overlaps nav',layout)
+  assert layout['tour']['bottom']<layout['inspector']['y'] or name=='desktop',(name,'Tutorial overlaps inspector')
+  assert all(t['scroll']<=t['client']+2 for t in layout['labels']),(name,'Clipped labels',layout['labels'])
+  assert 'serif' in layout['roomTitle']['font'].lower(),(name,layout['roomTitle'])
+  assert not layout['horizontalOverflow'],(name,'horizontal overflow')
   # Dynamic economy and 3-step tutorial
   page.locator('#collect').click();assert page.evaluate('window.__EVERLINE_DIAGNOSTICS__().tutorial')==1
   page.locator('[data-action="upgrade"]').click();assert page.evaluate('window.__EVERLINE_DIAGNOSTICS__().tutorial')==2
   page.locator('[data-action="finish-tutorial"]').click();assert page.evaluate('window.__EVERLINE_DIAGNOSTICS__().tutorial')==3
   # Shop and journal render genuine in-game items and navigation
   page.locator('[data-page="shop"]').click();assert page.locator('#drawer').is_visible();assert page.locator('.purchase-card').count()==8
+  if name in ('desktop','iphone'):page.screenshot(path=str(root/'docs'/f'{name}-shop.png'),full_page=True)
   page.locator('[data-shop-page="paint"]').click();assert page.get_by_text('Old Copper').count()>=1
   page.locator('#close-drawer').click();page.locator('[data-page="journal"]').click();assert page.locator('.postcard').count()==8
   page.locator('[data-journal-page="achievements"]').click();assert page.locator('.sticker').count()==9
@@ -84,7 +105,7 @@ with sync_playwright() as p:
   assert not errors,(name,errors)
   over=page.evaluate('({page:document.documentElement.scrollWidth,view:window.innerWidth})')
   assert over['page']<=over['view']+2,(name,over)
-  result={'viewport':name,'size':wh,'canvas_pixel':pix,'screenshots':f'docs/{name}-scene.png','tutorial':'passed','shop':'passed','journal':'passed','settings':'passed','save_reload':'passed','build_hire_decor':'passed','keyboard':'passed','errors':errors,'horizontal_overflow':over['page']>over['view']}
+  result={'viewport':name,'size':wh,'canvas_pixel':pix,'screenshots':f'docs/{name}-scene.png','tutorial':'passed','shop':'passed','journal':'passed','settings':'passed','save_reload':'passed','build_hire_decor':'passed','keyboard':'passed','errors':errors,'horizontal_overflow':over['page']>over['view'],'layout':layout}
   results.append(result);print(name,'PASS',result['canvas_pixel'])
   context.close()
  browser.close()
