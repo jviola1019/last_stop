@@ -23,3 +23,6 @@ Scope: game simulation and pixel-painted interactive railway at `jviola1019/last
 
 ## V6 release gates
 Run `npm run verify`, all three Playwright smoke scripts and `node scripts/policy-stress.mjs`; preserve actual JSON evidence. Treat emulated viewports and synthetic policies as such. Never claim hardware performance, real retention, or Pages deployment without independent evidence. V6 saves must migrate v3–5, retain progression, and preserve queued refits. Keep the offline build functional.
+
+## V7 release gates
+Keep the V6 save key and additive schema validation. Test independent fleet slots, engine/heritage transactions, manifests, narrative progression, scoped cache and CSP, and the actual standalone HTML. Check browser-origin PWA reload with Chromium and cross-engine gameplay with Firefox/WebKit in CI. Use real screenshot evidence to identify art defects; rerun the checks after visual changes. Compare 25-car performance under isolated workloads and document both sample FPS and paint timing; do not equate a headless result with hardware certification. Do not merge while actual CI gates are unresolved. Keep separately documented human/device acceptance criteria.

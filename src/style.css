@@ -424,3 +424,13 @@ body{font-family:var(--type-display)}
 .cards>.route-note{grid-column:1/-1}.subnav{flex-wrap:wrap}.subnav button{min-height:44px}
 /* Preserve onboarding's visual hierarchy and never cover tutorial text. */
 .stage:has(.tour[data-step]:not([data-step="3"])):not(.scenic-mode) .scenic-controls{display:none}
+
+/* V7 — compact printed railway ephemera; keep the illustrated scene dominant. */
+.story-card,.fleet-panel{border:1px solid #9b7952;border-radius:8px;background:#252a2d;padding:16px;margin:12px 0;color:#f2e6cc}.story-card h3,.fleet-panel h3{font:600 24px/1.15 var(--type-display);margin:6px 0 12px}.story-card p,.fleet-panel p{font:14px/1.55 var(--type-interface);margin:7px 0;color:#e2d4bb}.fleet-panel button{min-height:44px;margin:4px 6px 4px 0;padding:8px 13px;border:1px solid #9b7952;background:#233b3a;color:#f3d6a0;border-radius:5px;font:600 12px var(--type-interface)}.fleet-panel button:disabled{opacity:.55}.setting-line select{background:#25292c;color:#f7e6c9;border:1px solid #b49a69;border-radius:5px;padding:8px;min-height:44px;font:14px var(--type-interface)}.postcard .art{overflow:hidden}.postcard .art img{display:block;width:100%;height:100%;object-fit:cover}.postcard.unknown .art{background:#343338;opacity:.6}.subnav button{min-height:44px}.grade-line span,.crew-roster{font-size:11px;line-height:1.3}.story-card .superline{letter-spacing:.11em}.scenic-controls button:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible,canvas:focus-visible{outline:3px solid #ffe5a6;outline-offset:2px}.subnav button[aria-pressed=true]{border-color:#f5d28e}.setting-line{gap:10px}.setting-line input[type=checkbox]{min-width:24px;min-height:24px}.setting-line label{cursor:pointer}
+@media(max-width:520px){.grade-line span,.crew-roster{font-size:10px}.story-card,.fleet-panel{padding:12px}.story-card h3,.fleet-panel h3{font-size:21px}.story-card p,.fleet-panel p{font-size:13px}.setting-line select{max-width:48%}}
+
+.postcard .art{position:relative}.postcard .art .postcard-station{position:absolute;bottom:0;right:2%;width:62%;height:65%;object-fit:contain;object-position:bottom right;filter:drop-shadow(0 2px 3px #14272d55)}
+
+/* Brand and HUD are real UI; the scenic plate is completely free of navigation chrome. */
+.desktop-brand{position:absolute;left:1.8%;top:12px;width:min(29vw,400px);height:166px;background:url('../assets/brand.png') no-repeat center top/contain;pointer-events:none;filter:drop-shadow(0 2px 4px #171620a0)}
+@media(max-width:900px){.desktop-brand{display:none}}

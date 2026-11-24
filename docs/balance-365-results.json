@@ -42,7 +42,7 @@
     "stops": 31,
     "regions": 2,
     "postcards": 4,
-    "stamps": 17,
+    "stamps": 18,
     "serviceHours": 1,
     "medals": 1,
     "purchases": 60
@@ -58,7 +58,7 @@
     "stops": 556,
     "regions": 5,
     "postcards": 10,
-    "stamps": 19,
+    "stamps": 23,
     "serviceHours": 24,
     "medals": 3,
     "purchases": 207
@@ -74,7 +74,7 @@
     "stops": 3351,
     "regions": 6,
     "postcards": 12,
-    "stamps": 159,
+    "stamps": 164,
     "serviceHours": 168,
     "medals": 4,
     "purchases": 304
@@ -90,7 +90,7 @@
     "stops": 13425,
     "regions": 7,
     "postcards": 14,
-    "stamps": 669,
+    "stamps": 674,
     "serviceHours": 720,
     "medals": 5,
     "purchases": 391
@@ -106,7 +106,7 @@
     "stops": 37442,
     "regions": 8,
     "postcards": 16,
-    "stamps": 1916,
+    "stamps": 1921,
     "serviceHours": 2160,
     "medals": 6,
     "purchases": 457
@@ -122,7 +122,7 @@
     "stops": 142574,
     "regions": 8,
     "postcards": 16,
-    "stamps": 7770,
+    "stamps": 7775,
     "serviceHours": 8760,
     "medals": 8,
     "purchases": 502
@@ -202,7 +202,7 @@
     "stops": 36,
     "regions": 3,
     "postcards": 5,
-    "stamps": 16,
+    "stamps": 18,
     "serviceHours": 57,
     "medals": 3,
     "purchases": 70
@@ -218,7 +218,7 @@
     "stops": 133,
     "regions": 4,
     "postcards": 8,
-    "stamps": 15,
+    "stamps": 18,
     "serviceHours": 245,
     "medals": 4,
     "purchases": 282
@@ -234,7 +234,7 @@
     "stops": 368,
     "regions": 4,
     "postcards": 8,
-    "stamps": 37,
+    "stamps": 41,
     "serviceHours": 735,
     "medals": 5,
     "purchases": 342
@@ -250,7 +250,7 @@
     "stops": 1316,
     "regions": 6,
     "postcards": 12,
-    "stamps": 55,
+    "stamps": 60,
     "serviceHours": 2981,
     "medals": 6,
     "purchases": 470

@@ -1,0 +1,30 @@
+[
+  {
+    "device": "desktop",
+    "engine": "electric",
+    "heritage": true,
+    "stories": 5,
+    "manifest": 25,
+    "season": "Winter",
+    "escapedName": true,
+    "decodedArtAssets": 43,
+    "detachedDiagnostics": true,
+    "cachePixels": 1638144,
+    "paintP95": 7.2000000001862645,
+    "pageErrors": []
+  },
+  {
+    "device": "iphone",
+    "engine": "electric",
+    "heritage": true,
+    "stories": 5,
+    "manifest": 25,
+    "season": "Winter",
+    "escapedName": true,
+    "decodedArtAssets": 43,
+    "detachedDiagnostics": true,
+    "cachePixels": 480192,
+    "paintP95": 2.900000000372529,
+    "pageErrors": []
+  }
+]

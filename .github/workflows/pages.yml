@@ -28,9 +28,17 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install playwright==1.51.0
-      - run: python -m playwright install --with-deps chromium
-      - run: python tests/browser_art_smoke.py && python tests/browser_station_smoke.py && python tests/browser_living_smoke.py
+      - run: python -m playwright install --with-deps chromium firefox webkit
+      - run: python tests/browser_art_smoke.py && python tests/browser_station_smoke.py && python tests/browser_living_smoke.py && python tests/browser_grand_smoke.py && python tests/browser_offline_smoke.py
+      - run: python tests/browser_origin_smoke.py
       - run: node scripts/policy-stress.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: everline-qa-evidence
+          path: |
+            docs/*results.json
+            docs/v7-*.png
       - uses: actions/upload-artifact@v4
         with:
           name: everline-website

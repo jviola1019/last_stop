@@ -1,3 +1,7 @@
+# V7 Grand Journey — current release candidate
+
+See [V7_RELEASE_AUDIT.md](V7_RELEASE_AUDIT.md) for the latest executed results and unresolved gates. Historical results below are not evidence of the current build.
+
 # V6 release candidate
 
 See [V6_GAUNTLET.md](V6_GAUNTLET.md) for current implementation, local verification and outstanding work. The older status below is historical. Do not infer physical-device or deployment verification from local Chromium emulation.

@@ -22,10 +22,10 @@ def module(name):
     urls[name]='data:text/javascript;base64,'+base64.b64encode(text.encode()).decode()
     return urls[name]
 script=module('main.js')
-html=(root/'index.html').read_text()
+html=re.sub(r'<meta http-equiv="Content-Security-Policy"[^>]*>','',(root/'index.html').read_text())
 html=re.sub(r'<link rel="stylesheet"[^>]*>','',html)
 html=re.sub(r'<script type="module"[^>]*></script>','',html)
-css=(root/'src/style.css').read_text()
+css=(root/'src/style.css').read_text().replace("url('../assets/brand.png')",f'url("{images["brand.png"]}")')
 now=int(time.time()*1000)
 proc=subprocess.run(['node','--input-type=module','-e',"import {initialState,journeyDuration} from './src/economy.js'; const s=initialState();s.version=5;s.activeRegion='coast';s.regionsUnlocked=['heartland','coast'];s.lastStationRegion='coast';s.lastStation='harbor';s.stationProgress=journeyDuration(s)-2.2;s.tutorial=3;s.coins=5000;s.lastTime=Date.now();s.cars[0].pendingCrew=[{id:1,name:'Mira',dream:'cafe',craft:'Barista'}];s.hires=1;console.log(JSON.stringify(s));"],cwd=root,capture_output=True,text=True,check=True)
 s=json.loads(proc.stdout)

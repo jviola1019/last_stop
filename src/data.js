@@ -55,7 +55,9 @@ export const RESIDENTS=Object.freeze([
 export const STAMP_PROJECTS=Object.freeze([
  {id:'postcards',name:'Postcard Gallery',cost:3,desc:'Each region passport stamp now gives your train a permanent +2% earning bonus.'},
  {id:'concierge',name:'Concierge Academy',cost:7,desc:'All hired residents earn an additional +5% each.'},
- {id:'souvenirs',name:'Souvenir Counter',cost:10,desc:'Station fares increase by 20%.'}
+ {id:'souvenirs',name:'Souvenir Counter',cost:10,desc:'Station fares increase by 20%.'},
+ {id:'network',name:'Grand Railway Network',cost:35,desc:'An additional 1.8% train-wide income for each distinct carriage type beyond two.'},
+ {id:'archive',name:'Heritage Archive',cost:65,desc:'Establish a permanent archive of the line; station fares increase another 12%.'}
 ]);
 export const DECOR=[
  {id:'lanterns',name:'Amber Lanterns',cost:390,glyph:'✧',desc:'A warm light outside every room after dusk.'},
@@ -123,3 +125,28 @@ export const SERVICE_MILESTONES=[
  {id:'halfy',hours:4380,name:'Six Months of Stories',stamps:6},
  {id:'year',hours:8760,name:'The Everline Yearbook',stamps:8}
 ];
+
+// Locomotive eras are optional cosmetic achievements, never paid content.
+export const ENGINES=Object.freeze([
+ {id:'steam',name:'Heritage Steam',era:'1890 · Age of Steam',asset:'car-engine.png',stops:0,coins:0,stamps:0},
+ {id:'express',name:'Pacific Express',era:'1935 · Streamline Age',asset:'engine-express.svg',stops:60,coins:2500,stamps:2},
+ {id:'diesel',name:'Continental Diesel',era:'1955 · Golden Age',asset:'engine-diesel.svg',stops:250,coins:18000,stamps:6},
+ {id:'electric',name:'Lumen Electric',era:'1985 · Electric Age',asset:'engine-electric.svg',stops:1000,coins:100000,stamps:12},
+ {id:'mountain',name:'Mountaineer',era:'1910 · Mountain Rail',asset:'engine-mountain.svg',stops:20,coins:1200,stamps:1},
+ {id:'artdeco',name:'Silver Arrow',era:'1940 · Art Deco',asset:'engine-artdeco.svg',stops:120,coins:8000,stamps:3},
+ {id:'alpine',name:'Alpine Railcar',era:'1965 · Alpine Electric',asset:'engine-alpine.svg',stops:550,coins:42000,stamps:9},
+ {id:'horizon',name:'Horizon Limited',era:'2040 · Future Rail',asset:'engine-horizon.svg',stops:5000,coins:850000,stamps:30}
+]);
+export const TALES=Object.freeze([
+ {id:'mira',name:'Mira’s first cup',stops:1,lines:['A young barista boards at Willowmere, carrying a silver kettle.','She discovers a new blend at the coast and shares it with her fellow travelers.','Her café becomes a place where strangers write letters to each other.']},
+ {id:'theo',name:'Theo’s blue suitcase',stops:8,lines:['Theo is searching for a village he remembers from childhood.','A postcard from Cloudpine Pass gives him a clue.','He finally recognizes the old station clock and sends a postcard home.']},
+ {id:'pippa',name:'Pippa’s traveling garden',stops:25,lines:['Pippa plants a seed in a tiny terracotta pot.','She collects a cutting from a distant island station.','Her traveling garden flowers beneath the northern lights.']},
+ {id:'orion',name:'Orion’s star atlas',stops:80,lines:['Orion boards with a hand-drawn chart of the stars.','The clear desert sky fills a missing page in his atlas.','He finishes the chart and leaves a copy in the library for the next passenger.']},
+ {id:'sage',name:'The letter that traveled',stops:200,lines:['An unaddressed letter arrives at the station.','Sage follows an old railway stamp to a village by the sea.','The letter finds its home; a reply is left in the postal carriage.']}
+]);
+export const HERITAGE_PROJECTS=Object.freeze([
+ {id:'conservation',name:'Station Conservation',coins:1e6,stamps:15,stops:500},
+ {id:'museum',name:'Railway Museum',coins:5e7,stamps:40,stops:2500},
+ {id:'endowment',name:'The Everline Endowment',coins:5e8,stamps:100,stops:8000}
+]);
+export const SEASONS=['Spring','Summer','Autumn','Winter'];

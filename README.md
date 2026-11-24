@@ -1,3 +1,7 @@
+# V7 — Grand Journey (release candidate)
+
+Start with `npm run verify` (Node 20+ and TypeScript 5.8.3), `npm run dev`, or open the built `THE_EVERLINE_PLAY_OFFLINE.html`. V7 preserves the V6 save key and adds eight engine classes, seasonal artwork, sixteen station illustrations, named passenger manifests, five stories, independent local fleet slots, three optional heritage projects, diversity incentives, volume controls, an independent brand and HUD-free scenic plate, and bounded raster caching. Current evidence and release gates are in [V7_RELEASE_AUDIT.md](docs/V7_RELEASE_AUDIT.md); all earlier sections below are historical. No public deployment or physical-device certification is implied by this source build.
+
 # V6 — Living Railway
 
 The V6 release candidate extends the verified V5 archive. Start with `npm run verify` (Node 20+ and TypeScript 5.8.3); `npm run dev` serves the game, and `npm run build` produces `dist/` and a self-contained offline HTML. See [the V6 gauntlet report](docs/V6_GAUNTLET.md) for actual evidence, limitations, and the outstanding roadmap. V5/V4 notes below are historical.

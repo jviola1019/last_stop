@@ -22,10 +22,10 @@ def module(name):
  urls[name]='data:text/javascript;base64,'+base64.b64encode(text.encode()).decode()
  return urls[name]
 script=module('main.js')
-html=(root/'index.html').read_text()
+html=re.sub(r'<meta http-equiv="Content-Security-Policy"[^>]*>','',(root/'index.html').read_text())
 html=re.sub(r'<link rel="stylesheet"[^>]*>','',html)
 html=re.sub(r'<script type="module"[^>]*></script>','',html)
-css=(root/'src/style.css').read_text().replace("url('../assets/world.webp')",f'url("{images["world.webp"]}")')
+css=(root/'src/style.css').read_text().replace("url('../assets/brand.png')",f'url("{images["brand.png"]}")').replace("url('../assets/world.webp')",f'url("{images["world.webp"]}")')
 results=[]
 with sync_playwright() as p:
  browser=p.chromium.launch(executable_path=__import__('shutil').which('chromium'),headless=True,args=['--no-sandbox','--disable-dev-shm-usage'])
@@ -127,8 +127,8 @@ with sync_playwright() as p:
   new_page.locator('#close-drawer').click()
   new_page.locator('[data-page="shop"]').click()
   new_page.locator('[data-shop-page="stampworks"]').click()
-  assert new_page.locator('[data-action="stamp-project"]').count()==3
-  assert new_page.locator('.purchase-card .preview img').count()==3
+  assert new_page.locator('[data-action="stamp-project"]').count()==5
+  assert new_page.locator('.purchase-card .preview img').count()==5
   new_page.locator('[data-action="stamp-project"][data-type="postcards"]').click()
   saved_new=json.loads(json.loads(new_page.evaluate("localStorage.getItem('everline-save-v6')"))['payload'])
   assert saved_new['stampProjects']==['postcards'], saved_new['stampProjects']

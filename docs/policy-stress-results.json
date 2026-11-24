@@ -37,17 +37,17 @@
       "types": "8–9",
       "level": "18–18",
       "regions": "5–5",
-      "stops": "703–708",
+      "stops": "694–701",
       "rejectedPurchases": 0
     },
     {
       "profile": "regular visits",
       "runs": 6,
       "cars": "25–25",
-      "types": "3–3",
-      "level": "18–18",
+      "types": "8–8",
+      "level": "19–19",
       "regions": "6–6",
-      "stops": "2470–2470",
+      "stops": "2470–2503",
       "rejectedPurchases": 0
     },
     {
@@ -57,17 +57,17 @@
       "types": "8–8",
       "level": "19–19",
       "regions": "6–6",
-      "stops": "3640–3649",
+      "stops": "3636–3638",
       "rejectedPurchases": 0
     },
     {
       "profile": "optimizer",
       "runs": 6,
       "cars": "25–25",
-      "types": "2–2",
-      "level": "19–19",
+      "types": "8–8",
+      "level": "20–20",
       "regions": "6–6",
-      "stops": "7082–7082",
+      "stops": "7090–7090",
       "rejectedPurchases": 0
     }
   ],
@@ -77,7 +77,7 @@
       "seed": 1,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 475,
+      "totalActions": 483,
       "failed": 0,
       "points": [
         {
@@ -87,20 +87,20 @@
           "highestLevel": 2,
           "regions": 1,
           "stops": 3,
-          "coins": 93174,
+          "coins": 93213,
           "stamps": 11,
-          "ratePerMinute": 561
+          "ratePerMinute": 586
         },
         {
           "day": 7,
-          "cars": 7,
+          "cars": 6,
           "types": 5,
-          "highestLevel": 4,
+          "highestLevel": 5,
           "regions": 2,
           "stops": 19,
-          "coins": 3985385,
-          "stamps": 17,
-          "ratePerMinute": 2468
+          "coins": 4685877,
+          "stamps": 18,
+          "ratePerMinute": 3212
         },
         {
           "day": 30,
@@ -109,20 +109,20 @@
           "highestLevel": 11,
           "regions": 3,
           "stops": 71,
-          "coins": 151258409,
-          "stamps": 4,
-          "ratePerMinute": 33257
+          "coins": 185326295,
+          "stamps": 6,
+          "ratePerMinute": 42865
         },
         {
           "day": 90,
           "cars": 23,
           "types": 7,
-          "highestLevel": 15,
+          "highestLevel": 16,
           "regions": 4,
-          "stops": 202,
-          "coins": 189468958,
-          "stamps": 2,
-          "ratePerMinute": 163650
+          "stops": 201,
+          "coins": 17788403,
+          "stamps": 6,
+          "ratePerMinute": 214407
         },
         {
           "day": 365,
@@ -130,10 +130,10 @@
           "types": 8,
           "highestLevel": 18,
           "regions": 5,
-          "stops": 708,
-          "coins": 435608490,
-          "stamps": 20,
-          "ratePerMinute": 320966
+          "stops": 701,
+          "coins": 1304332184,
+          "stamps": 9,
+          "ratePerMinute": 467865
         }
       ]
     },
@@ -142,7 +142,7 @@
       "seed": 2,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 477,
+      "totalActions": 483,
       "failed": 0,
       "points": [
         {
@@ -152,9 +152,9 @@
           "highestLevel": 2,
           "regions": 1,
           "stops": 3,
-          "coins": 93391,
+          "coins": 93445,
           "stamps": 13,
-          "ratePerMinute": 623
+          "ratePerMinute": 651
         },
         {
           "day": 7,
@@ -163,9 +163,9 @@
           "highestLevel": 5,
           "regions": 2,
           "stops": 19,
-          "coins": 3915436,
-          "stamps": 17,
-          "ratePerMinute": 2567
+          "coins": 4484134,
+          "stamps": 11,
+          "ratePerMinute": 3288
         },
         {
           "day": 30,
@@ -174,31 +174,31 @@
           "highestLevel": 11,
           "regions": 3,
           "stops": 71,
-          "coins": 149326729,
-          "stamps": 7,
-          "ratePerMinute": 34095
+          "coins": 189591764,
+          "stamps": 9,
+          "ratePerMinute": 41307
         },
         {
           "day": 90,
           "cars": 23,
-          "types": 8,
+          "types": 7,
           "highestLevel": 16,
           "regions": 4,
-          "stops": 195,
-          "coins": 117092850,
-          "stamps": 13,
-          "ratePerMinute": 198526
+          "stops": 191,
+          "coins": 24093581,
+          "stamps": 5,
+          "ratePerMinute": 213296
         },
         {
           "day": 365,
           "cars": 25,
-          "types": 9,
+          "types": 8,
           "highestLevel": 18,
           "regions": 5,
-          "stops": 704,
-          "coins": 677661371,
-          "stamps": 20,
-          "ratePerMinute": 397949
+          "stops": 694,
+          "coins": 1753470652,
+          "stamps": 9,
+          "ratePerMinute": 450637
         }
       ]
     },
@@ -207,7 +207,7 @@
       "seed": 3,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 475,
+      "totalActions": 486,
       "failed": 0,
       "points": [
         {
@@ -217,9 +217,9 @@
           "highestLevel": 2,
           "regions": 1,
           "stops": 3,
-          "coins": 93904,
+          "coins": 94085,
           "stamps": 11,
-          "ratePerMinute": 504
+          "ratePerMinute": 542
         },
         {
           "day": 7,
@@ -228,42 +228,42 @@
           "highestLevel": 5,
           "regions": 2,
           "stops": 19,
-          "coins": 3960827,
-          "stamps": 17,
-          "ratePerMinute": 2693
+          "coins": 4699681,
+          "stamps": 11,
+          "ratePerMinute": 3481
         },
         {
           "day": 30,
-          "cars": 14,
+          "cars": 13,
           "types": 7,
           "highestLevel": 11,
           "regions": 3,
           "stops": 71,
-          "coins": 152302477,
-          "stamps": 4,
-          "ratePerMinute": 29160
+          "coins": 191242963,
+          "stamps": 6,
+          "ratePerMinute": 43955
         },
         {
           "day": 90,
           "cars": 23,
-          "types": 7,
-          "highestLevel": 15,
+          "types": 8,
+          "highestLevel": 16,
           "regions": 4,
-          "stops": 194,
-          "coins": 147949383,
-          "stamps": 10,
-          "ratePerMinute": 168672
+          "stops": 201,
+          "coins": 174442799,
+          "stamps": 6,
+          "ratePerMinute": 264685
         },
         {
           "day": 365,
           "cars": 25,
-          "types": 8,
+          "types": 9,
           "highestLevel": 18,
           "regions": 5,
-          "stops": 705,
-          "coins": 1301963863,
-          "stamps": 20,
-          "ratePerMinute": 323865
+          "stops": 701,
+          "coins": 1241533659,
+          "stamps": 9,
+          "ratePerMinute": 602635
         }
       ]
     },
@@ -272,7 +272,7 @@
       "seed": 4,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 475,
+      "totalActions": 483,
       "failed": 0,
       "points": [
         {
@@ -282,20 +282,20 @@
           "highestLevel": 2,
           "regions": 1,
           "stops": 3,
-          "coins": 94008,
+          "coins": 94030,
           "stamps": 11,
-          "ratePerMinute": 563
+          "ratePerMinute": 588
         },
         {
           "day": 7,
-          "cars": 7,
+          "cars": 6,
           "types": 5,
-          "highestLevel": 4,
+          "highestLevel": 5,
           "regions": 2,
           "stops": 19,
-          "coins": 3999291,
-          "stamps": 17,
-          "ratePerMinute": 2717
+          "coins": 4497154,
+          "stamps": 11,
+          "ratePerMinute": 3728
         },
         {
           "day": 30,
@@ -304,9 +304,9 @@
           "highestLevel": 11,
           "regions": 3,
           "stops": 71,
-          "coins": 152590043,
-          "stamps": 14,
-          "ratePerMinute": 30178
+          "coins": 190668300,
+          "stamps": 16,
+          "ratePerMinute": 40467
         },
         {
           "day": 90,
@@ -314,10 +314,10 @@
           "types": 7,
           "highestLevel": 16,
           "regions": 4,
-          "stops": 194,
-          "coins": 25439773,
-          "stamps": 10,
-          "ratePerMinute": 157536
+          "stops": 191,
+          "coins": 123550129,
+          "stamps": 5,
+          "ratePerMinute": 204389
         },
         {
           "day": 365,
@@ -325,10 +325,10 @@
           "types": 8,
           "highestLevel": 18,
           "regions": 5,
-          "stops": 703,
-          "coins": 321615823,
-          "stamps": 20,
-          "ratePerMinute": 317346
+          "stops": 694,
+          "coins": 340025496,
+          "stamps": 9,
+          "ratePerMinute": 434173
         }
       ]
     },
@@ -337,7 +337,7 @@
       "seed": 5,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 475,
+      "totalActions": 487,
       "failed": 0,
       "points": [
         {
@@ -347,9 +347,9 @@
           "highestLevel": 2,
           "regions": 1,
           "stops": 3,
-          "coins": 93324,
+          "coins": 93373,
           "stamps": 10,
-          "ratePerMinute": 604
+          "ratePerMinute": 631
         },
         {
           "day": 7,
@@ -358,9 +358,9 @@
           "highestLevel": 4,
           "regions": 2,
           "stops": 19,
-          "coins": 4084963,
-          "stamps": 10,
-          "ratePerMinute": 2632
+          "coins": 4773834,
+          "stamps": 11,
+          "ratePerMinute": 3145
         },
         {
           "day": 30,
@@ -369,31 +369,31 @@
           "highestLevel": 11,
           "regions": 3,
           "stops": 71,
-          "coins": 139855006,
-          "stamps": 7,
-          "ratePerMinute": 31689
+          "coins": 202503169,
+          "stamps": 9,
+          "ratePerMinute": 41728
         },
         {
           "day": 90,
           "cars": 23,
-          "types": 7,
-          "highestLevel": 15,
+          "types": 8,
+          "highestLevel": 16,
           "regions": 4,
-          "stops": 194,
-          "coins": 4523592,
-          "stamps": 10,
-          "ratePerMinute": 158467
+          "stops": 191,
+          "coins": 191529911,
+          "stamps": 5,
+          "ratePerMinute": 263136
         },
         {
           "day": 365,
           "cars": 25,
-          "types": 8,
+          "types": 9,
           "highestLevel": 18,
           "regions": 5,
-          "stops": 705,
-          "coins": 470632415,
-          "stamps": 20,
-          "ratePerMinute": 317744
+          "stops": 694,
+          "coins": 710655017,
+          "stamps": 9,
+          "ratePerMinute": 562659
         }
       ]
     },
@@ -402,7 +402,7 @@
       "seed": 6,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 476,
+      "totalActions": 486,
       "failed": 0,
       "points": [
         {
@@ -423,20 +423,20 @@
           "highestLevel": 4,
           "regions": 2,
           "stops": 19,
-          "coins": 3816233,
-          "stamps": 17,
-          "ratePerMinute": 2589
+          "coins": 4438043,
+          "stamps": 11,
+          "ratePerMinute": 3303
         },
         {
           "day": 30,
-          "cars": 14,
+          "cars": 13,
           "types": 7,
           "highestLevel": 11,
           "regions": 3,
           "stops": 71,
-          "coins": 158059590,
-          "stamps": 7,
-          "ratePerMinute": 28793
+          "coins": 198860455,
+          "stamps": 9,
+          "ratePerMinute": 43274
         },
         {
           "day": 90,
@@ -444,10 +444,10 @@
           "types": 8,
           "highestLevel": 16,
           "regions": 4,
-          "stops": 195,
-          "coins": 2035653,
-          "stamps": 10,
-          "ratePerMinute": 185029
+          "stops": 191,
+          "coins": 35539953,
+          "stamps": 5,
+          "ratePerMinute": 264285
         },
         {
           "day": 365,
@@ -455,10 +455,10 @@
           "types": 9,
           "highestLevel": 18,
           "regions": 5,
-          "stops": 704,
-          "coins": 1493120099,
-          "stamps": 10,
-          "ratePerMinute": 385940
+          "stops": 694,
+          "coins": 880583199,
+          "stamps": 9,
+          "ratePerMinute": 550901
         }
       ]
     },
@@ -467,7 +467,7 @@
       "seed": 1,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 495,
+      "totalActions": 510,
       "failed": 0,
       "points": [
         {
@@ -477,53 +477,53 @@
           "highestLevel": 4,
           "regions": 2,
           "stops": 11,
-          "coins": 434323,
-          "stamps": 17,
-          "ratePerMinute": 1038
+          "coins": 495982,
+          "stamps": 18,
+          "ratePerMinute": 1225
         },
         {
           "day": 7,
           "cars": 13,
-          "types": 3,
+          "types": 7,
           "highestLevel": 11,
           "regions": 3,
           "stops": 67,
-          "coins": 36397141,
-          "stamps": 11,
-          "ratePerMinute": 19824
+          "coins": 57035761,
+          "stamps": 13,
+          "ratePerMinute": 37758
         },
         {
           "day": 30,
-          "cars": 21,
-          "types": 3,
-          "highestLevel": 15,
+          "cars": 23,
+          "types": 7,
+          "highestLevel": 16,
           "regions": 4,
-          "stops": 251,
-          "coins": 16492716,
-          "stamps": 19,
-          "ratePerMinute": 99827
+          "stops": 255,
+          "coins": 8277412,
+          "stamps": 14,
+          "ratePerMinute": 201732
         },
         {
           "day": 90,
           "cars": 25,
-          "types": 3,
-          "highestLevel": 16,
+          "types": 8,
+          "highestLevel": 17,
           "regions": 5,
-          "stops": 684,
-          "coins": 293285845,
-          "stamps": 22,
-          "ratePerMinute": 165810
+          "stops": 690,
+          "coins": 577080943,
+          "stamps": 27,
+          "ratePerMinute": 374894
         },
         {
           "day": 365,
           "cars": 25,
-          "types": 3,
-          "highestLevel": 18,
+          "types": 8,
+          "highestLevel": 19,
           "regions": 6,
-          "stops": 2470,
-          "coins": 858928345,
-          "stamps": 108,
-          "ratePerMinute": 258595
+          "stops": 2503,
+          "coins": 1262167469,
+          "stamps": 25,
+          "ratePerMinute": 671014
         }
       ]
     },
@@ -532,7 +532,7 @@
       "seed": 2,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 497,
+      "totalActions": 509,
       "failed": 0,
       "points": [
         {
@@ -542,53 +542,53 @@
           "highestLevel": 4,
           "regions": 2,
           "stops": 11,
-          "coins": 511674,
-          "stamps": 14,
-          "ratePerMinute": 1250
+          "coins": 477180,
+          "stamps": 15,
+          "ratePerMinute": 1119
         },
         {
           "day": 7,
           "cars": 13,
-          "types": 3,
+          "types": 7,
           "highestLevel": 11,
           "regions": 3,
           "stops": 67,
-          "coins": 42483096,
-          "stamps": 11,
-          "ratePerMinute": 22459
+          "coins": 60877549,
+          "stamps": 13,
+          "ratePerMinute": 36348
         },
         {
           "day": 30,
-          "cars": 21,
-          "types": 3,
-          "highestLevel": 15,
+          "cars": 23,
+          "types": 7,
+          "highestLevel": 16,
           "regions": 4,
           "stops": 251,
-          "coins": 60561470,
-          "stamps": 19,
-          "ratePerMinute": 108731
+          "coins": 114197615,
+          "stamps": 13,
+          "ratePerMinute": 199406
         },
         {
           "day": 90,
           "cars": 25,
-          "types": 3,
+          "types": 8,
           "highestLevel": 17,
           "regions": 5,
           "stops": 684,
-          "coins": 499435804,
-          "stamps": 22,
-          "ratePerMinute": 179187
+          "coins": 17529848,
+          "stamps": 27,
+          "ratePerMinute": 355554
         },
         {
           "day": 365,
           "cars": 25,
-          "types": 3,
-          "highestLevel": 18,
+          "types": 8,
+          "highestLevel": 19,
           "regions": 6,
-          "stops": 2470,
-          "coins": 863576371,
-          "stamps": 108,
-          "ratePerMinute": 293275
+          "stops": 2497,
+          "coins": 5697097911,
+          "stamps": 64,
+          "ratePerMinute": 617240
         }
       ]
     },
@@ -597,63 +597,63 @@
       "seed": 3,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 494,
+      "totalActions": 510,
       "failed": 0,
       "points": [
         {
           "day": 1,
           "cars": 5,
-          "types": 2,
+          "types": 3,
           "highestLevel": 4,
           "regions": 2,
           "stops": 11,
-          "coins": 423377,
-          "stamps": 17,
-          "ratePerMinute": 1050
+          "coins": 461516,
+          "stamps": 18,
+          "ratePerMinute": 1205
         },
         {
           "day": 7,
           "cars": 13,
-          "types": 2,
+          "types": 7,
           "highestLevel": 10,
           "regions": 3,
           "stops": 67,
-          "coins": 37280852,
-          "stamps": 11,
-          "ratePerMinute": 15771
+          "coins": 70062323,
+          "stamps": 13,
+          "ratePerMinute": 33559
         },
         {
           "day": 30,
-          "cars": 21,
-          "types": 3,
-          "highestLevel": 15,
+          "cars": 23,
+          "types": 7,
+          "highestLevel": 16,
           "regions": 4,
-          "stops": 251,
-          "coins": 49136540,
-          "stamps": 19,
-          "ratePerMinute": 90476
+          "stops": 253,
+          "coins": 25182924,
+          "stamps": 14,
+          "ratePerMinute": 195021
         },
         {
           "day": 90,
           "cars": 25,
-          "types": 3,
-          "highestLevel": 16,
+          "types": 8,
+          "highestLevel": 17,
           "regions": 5,
-          "stops": 684,
-          "coins": 153407487,
-          "stamps": 22,
-          "ratePerMinute": 152607
+          "stops": 687,
+          "coins": 490092594,
+          "stamps": 27,
+          "ratePerMinute": 383386
         },
         {
           "day": 365,
           "cars": 25,
-          "types": 3,
-          "highestLevel": 18,
+          "types": 8,
+          "highestLevel": 19,
           "regions": 6,
-          "stops": 2470,
-          "coins": 259787067,
-          "stamps": 108,
-          "ratePerMinute": 246574
+          "stops": 2499,
+          "coins": 5687410879,
+          "stamps": 64,
+          "ratePerMinute": 678856
         }
       ]
     },
@@ -662,7 +662,137 @@
       "seed": 4,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 495,
+      "totalActions": 510,
+      "failed": 0,
+      "points": [
+        {
+          "day": 1,
+          "cars": 5,
+          "types": 3,
+          "highestLevel": 4,
+          "regions": 2,
+          "stops": 11,
+          "coins": 373251,
+          "stamps": 15,
+          "ratePerMinute": 1287
+        },
+        {
+          "day": 7,
+          "cars": 13,
+          "types": 7,
+          "highestLevel": 10,
+          "regions": 3,
+          "stops": 67,
+          "coins": 58163247,
+          "stamps": 13,
+          "ratePerMinute": 32093
+        },
+        {
+          "day": 30,
+          "cars": 22,
+          "types": 7,
+          "highestLevel": 16,
+          "regions": 4,
+          "stops": 251,
+          "coins": 17826575,
+          "stamps": 13,
+          "ratePerMinute": 206301
+        },
+        {
+          "day": 90,
+          "cars": 25,
+          "types": 8,
+          "highestLevel": 17,
+          "regions": 5,
+          "stops": 684,
+          "coins": 43740782,
+          "stamps": 27,
+          "ratePerMinute": 376936
+        },
+        {
+          "day": 365,
+          "cars": 25,
+          "types": 8,
+          "highestLevel": 19,
+          "regions": 6,
+          "stops": 2497,
+          "coins": 2140938030,
+          "stamps": 64,
+          "ratePerMinute": 645728
+        }
+      ]
+    },
+    {
+      "profile": "regular visits",
+      "seed": 5,
+      "firstCar": 1,
+      "firstUpgrade": 1,
+      "totalActions": 510,
+      "failed": 0,
+      "points": [
+        {
+          "day": 1,
+          "cars": 5,
+          "types": 3,
+          "highestLevel": 4,
+          "regions": 2,
+          "stops": 11,
+          "coins": 442402,
+          "stamps": 18,
+          "ratePerMinute": 1373
+        },
+        {
+          "day": 7,
+          "cars": 13,
+          "types": 7,
+          "highestLevel": 11,
+          "regions": 3,
+          "stops": 67,
+          "coins": 62732264,
+          "stamps": 13,
+          "ratePerMinute": 41074
+        },
+        {
+          "day": 30,
+          "cars": 23,
+          "types": 7,
+          "highestLevel": 16,
+          "regions": 4,
+          "stops": 251,
+          "coins": 1661048,
+          "stamps": 13,
+          "ratePerMinute": 212226
+        },
+        {
+          "day": 90,
+          "cars": 25,
+          "types": 8,
+          "highestLevel": 17,
+          "regions": 5,
+          "stops": 684,
+          "coins": 396715300,
+          "stamps": 27,
+          "ratePerMinute": 383617
+        },
+        {
+          "day": 365,
+          "cars": 25,
+          "types": 8,
+          "highestLevel": 19,
+          "regions": 6,
+          "stops": 2497,
+          "coins": 1709328778,
+          "stamps": 64,
+          "ratePerMinute": 692461
+        }
+      ]
+    },
+    {
+      "profile": "regular visits",
+      "seed": 6,
+      "firstCar": 1,
+      "firstUpgrade": 1,
+      "totalActions": 509,
       "failed": 0,
       "points": [
         {
@@ -672,183 +802,53 @@
           "highestLevel": 4,
           "regions": 2,
           "stops": 11,
-          "coins": 385453,
-          "stamps": 14,
-          "ratePerMinute": 1029
+          "coins": 372813,
+          "stamps": 18,
+          "ratePerMinute": 946
         },
         {
           "day": 7,
           "cars": 13,
-          "types": 3,
+          "types": 7,
           "highestLevel": 11,
           "regions": 3,
           "stops": 67,
-          "coins": 36023813,
-          "stamps": 11,
-          "ratePerMinute": 17869
+          "coins": 59082873,
+          "stamps": 13,
+          "ratePerMinute": 36537
         },
         {
           "day": 30,
-          "cars": 21,
-          "types": 3,
+          "cars": 23,
+          "types": 7,
           "highestLevel": 15,
           "regions": 4,
           "stops": 251,
-          "coins": 30069104,
-          "stamps": 19,
-          "ratePerMinute": 102735
+          "coins": 111552875,
+          "stamps": 13,
+          "ratePerMinute": 205776
         },
         {
           "day": 90,
           "cars": 25,
-          "types": 3,
-          "highestLevel": 16,
-          "regions": 5,
-          "stops": 684,
-          "coins": 377887524,
-          "stamps": 22,
-          "ratePerMinute": 166675
-        },
-        {
-          "day": 365,
-          "cars": 25,
-          "types": 3,
-          "highestLevel": 18,
-          "regions": 6,
-          "stops": 2470,
-          "coins": 1488139498,
-          "stamps": 108,
-          "ratePerMinute": 250016
-        }
-      ]
-    },
-    {
-      "profile": "regular visits",
-      "seed": 5,
-      "firstCar": 1,
-      "firstUpgrade": 1,
-      "totalActions": 497,
-      "failed": 0,
-      "points": [
-        {
-          "day": 1,
-          "cars": 5,
-          "types": 3,
-          "highestLevel": 4,
-          "regions": 2,
-          "stops": 11,
-          "coins": 426861,
-          "stamps": 17,
-          "ratePerMinute": 1314
-        },
-        {
-          "day": 7,
-          "cars": 13,
-          "types": 3,
-          "highestLevel": 11,
-          "regions": 3,
-          "stops": 67,
-          "coins": 39211263,
-          "stamps": 11,
-          "ratePerMinute": 22539
-        },
-        {
-          "day": 30,
-          "cars": 21,
-          "types": 3,
-          "highestLevel": 15,
-          "regions": 4,
-          "stops": 251,
-          "coins": 7379280,
-          "stamps": 19,
-          "ratePerMinute": 110991
-        },
-        {
-          "day": 90,
-          "cars": 25,
-          "types": 3,
+          "types": 8,
           "highestLevel": 17,
           "regions": 5,
           "stops": 684,
-          "coins": 525726900,
-          "stamps": 22,
-          "ratePerMinute": 184925
+          "coins": 271299254,
+          "stamps": 27,
+          "ratePerMinute": 367480
         },
         {
           "day": 365,
           "cars": 25,
-          "types": 3,
-          "highestLevel": 18,
+          "types": 8,
+          "highestLevel": 19,
           "regions": 6,
           "stops": 2470,
-          "coins": 1135083475,
-          "stamps": 108,
-          "ratePerMinute": 297602
-        }
-      ]
-    },
-    {
-      "profile": "regular visits",
-      "seed": 6,
-      "firstCar": 1,
-      "firstUpgrade": 1,
-      "totalActions": 496,
-      "failed": 0,
-      "points": [
-        {
-          "day": 1,
-          "cars": 5,
-          "types": 3,
-          "highestLevel": 4,
-          "regions": 2,
-          "stops": 11,
-          "coins": 411505,
-          "stamps": 17,
-          "ratePerMinute": 1314
-        },
-        {
-          "day": 7,
-          "cars": 13,
-          "types": 3,
-          "highestLevel": 11,
-          "regions": 3,
-          "stops": 67,
-          "coins": 42084794,
-          "stamps": 11,
-          "ratePerMinute": 21264
-        },
-        {
-          "day": 30,
-          "cars": 21,
-          "types": 3,
-          "highestLevel": 15,
-          "regions": 4,
-          "stops": 251,
-          "coins": 55089464,
-          "stamps": 19,
-          "ratePerMinute": 103882
-        },
-        {
-          "day": 90,
-          "cars": 25,
-          "types": 3,
-          "highestLevel": 17,
-          "regions": 5,
-          "stops": 684,
-          "coins": 175477476,
-          "stamps": 22,
-          "ratePerMinute": 171243
-        },
-        {
-          "day": 365,
-          "cars": 25,
-          "types": 3,
-          "highestLevel": 18,
-          "regions": 6,
-          "stops": 2470,
-          "coins": 836820893,
-          "stamps": 108,
-          "ratePerMinute": 275845
+          "coins": 5286909452,
+          "stamps": 63,
+          "ratePerMinute": 659195
         }
       ]
     },
@@ -857,19 +857,19 @@
       "seed": 1,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 501,
+      "totalActions": 511,
       "failed": 0,
       "points": [
         {
           "day": 1,
-          "cars": 7,
+          "cars": 6,
           "types": 5,
-          "highestLevel": 4,
+          "highestLevel": 5,
           "regions": 2,
           "stops": 16,
-          "coins": 643640,
-          "stamps": 14,
-          "ratePerMinute": 2227
+          "coins": 637525,
+          "stamps": 15,
+          "ratePerMinute": 3068
         },
         {
           "day": 7,
@@ -878,20 +878,20 @@
           "highestLevel": 13,
           "regions": 3,
           "stops": 97,
-          "coins": 1800436,
-          "stamps": 3,
-          "ratePerMinute": 64208
+          "coins": 1757315,
+          "stamps": 6,
+          "ratePerMinute": 89670
         },
         {
           "day": 30,
-          "cars": 22,
+          "cars": 23,
           "types": 7,
-          "highestLevel": 15,
+          "highestLevel": 16,
           "regions": 4,
-          "stops": 384,
-          "coins": 4330080,
-          "stamps": 9,
-          "ratePerMinute": 161466
+          "stops": 372,
+          "coins": 12567212,
+          "stamps": 12,
+          "ratePerMinute": 214136
         },
         {
           "day": 90,
@@ -899,10 +899,10 @@
           "types": 8,
           "highestLevel": 17,
           "regions": 5,
-          "stops": 1026,
-          "coins": 465113862,
-          "stamps": 23,
-          "ratePerMinute": 276084
+          "stops": 1009,
+          "coins": 533458475,
+          "stamps": 27,
+          "ratePerMinute": 400641
         },
         {
           "day": 365,
@@ -910,10 +910,10 @@
           "types": 8,
           "highestLevel": 19,
           "regions": 6,
-          "stops": 3649,
-          "coins": 5064204338,
-          "stamps": 155,
-          "ratePerMinute": 445695
+          "stops": 3638,
+          "coins": 3664527174,
+          "stamps": 70,
+          "ratePerMinute": 724946
         }
       ]
     },
@@ -922,7 +922,7 @@
       "seed": 2,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 502,
+      "totalActions": 510,
       "failed": 0,
       "points": [
         {
@@ -932,31 +932,31 @@
           "highestLevel": 4,
           "regions": 2,
           "stops": 16,
-          "coins": 629516,
-          "stamps": 14,
-          "ratePerMinute": 2305
+          "coins": 709762,
+          "stamps": 15,
+          "ratePerMinute": 2868
         },
         {
           "day": 7,
-          "cars": 15,
+          "cars": 16,
           "types": 7,
           "highestLevel": 13,
           "regions": 3,
           "stops": 97,
-          "coins": 661627,
-          "stamps": 6,
-          "ratePerMinute": 69803
+          "coins": 443771,
+          "stamps": 9,
+          "ratePerMinute": 85389
         },
         {
           "day": 30,
           "cars": 23,
           "types": 7,
-          "highestLevel": 15,
+          "highestLevel": 16,
           "regions": 4,
-          "stops": 384,
-          "coins": 1081921,
-          "stamps": 9,
-          "ratePerMinute": 156182
+          "stops": 372,
+          "coins": 126728462,
+          "stamps": 12,
+          "ratePerMinute": 205158
         },
         {
           "day": 90,
@@ -964,10 +964,10 @@
           "types": 8,
           "highestLevel": 17,
           "regions": 5,
-          "stops": 1026,
-          "coins": 56784936,
-          "stamps": 23,
-          "ratePerMinute": 286960
+          "stops": 1009,
+          "coins": 573531878,
+          "stamps": 27,
+          "ratePerMinute": 361285
         },
         {
           "day": 365,
@@ -975,10 +975,10 @@
           "types": 8,
           "highestLevel": 19,
           "regions": 6,
-          "stops": 3649,
-          "coins": 425248033,
-          "stamps": 155,
-          "ratePerMinute": 457876
+          "stops": 3638,
+          "coins": 1860916688,
+          "stamps": 70,
+          "ratePerMinute": 650614
         }
       ]
     },
@@ -987,7 +987,7 @@
       "seed": 3,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 500,
+      "totalActions": 511,
       "failed": 0,
       "points": [
         {
@@ -997,31 +997,31 @@
           "highestLevel": 5,
           "regions": 2,
           "stops": 16,
-          "coins": 624955,
-          "stamps": 14,
-          "ratePerMinute": 2543
+          "coins": 715034,
+          "stamps": 15,
+          "ratePerMinute": 3183
         },
         {
           "day": 7,
-          "cars": 16,
+          "cars": 17,
           "types": 7,
           "highestLevel": 13,
           "regions": 3,
           "stops": 97,
-          "coins": 571644,
-          "stamps": 3,
-          "ratePerMinute": 66335
+          "coins": 1852874,
+          "stamps": 6,
+          "ratePerMinute": 90711
         },
         {
           "day": 30,
           "cars": 23,
           "types": 7,
-          "highestLevel": 15,
+          "highestLevel": 16,
           "regions": 4,
-          "stops": 370,
-          "coins": 61742598,
-          "stamps": 8,
-          "ratePerMinute": 152218
+          "stops": 372,
+          "coins": 6969244,
+          "stamps": 12,
+          "ratePerMinute": 202911
         },
         {
           "day": 90,
@@ -1029,10 +1029,10 @@
           "types": 8,
           "highestLevel": 17,
           "regions": 5,
-          "stops": 1015,
-          "coins": 308746924,
-          "stamps": 22,
-          "ratePerMinute": 262682
+          "stops": 1009,
+          "coins": 84213091,
+          "stamps": 27,
+          "ratePerMinute": 400193
         },
         {
           "day": 365,
@@ -1040,10 +1040,10 @@
           "types": 8,
           "highestLevel": 19,
           "regions": 6,
-          "stops": 3640,
-          "coins": 3810615270,
-          "stamps": 155,
-          "ratePerMinute": 423042
+          "stops": 3638,
+          "coins": 2231669103,
+          "stamps": 70,
+          "ratePerMinute": 680020
         }
       ]
     },
@@ -1052,19 +1052,19 @@
       "seed": 4,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 501,
+      "totalActions": 509,
       "failed": 0,
       "points": [
         {
           "day": 1,
-          "cars": 7,
+          "cars": 6,
           "types": 5,
-          "highestLevel": 4,
+          "highestLevel": 5,
           "regions": 2,
           "stops": 16,
-          "coins": 681465,
-          "stamps": 14,
-          "ratePerMinute": 2354
+          "coins": 701136,
+          "stamps": 15,
+          "ratePerMinute": 2926
         },
         {
           "day": 7,
@@ -1073,20 +1073,20 @@
           "highestLevel": 13,
           "regions": 3,
           "stops": 97,
-          "coins": 830050,
-          "stamps": 13,
-          "ratePerMinute": 66735
+          "coins": 848534,
+          "stamps": 16,
+          "ratePerMinute": 88855
         },
         {
           "day": 30,
-          "cars": 23,
+          "cars": 22,
           "types": 7,
-          "highestLevel": 15,
+          "highestLevel": 16,
           "regions": 4,
           "stops": 372,
-          "coins": 13320367,
-          "stamps": 8,
-          "ratePerMinute": 162822
+          "coins": 107902247,
+          "stamps": 12,
+          "ratePerMinute": 188227
         },
         {
           "day": 90,
@@ -1094,10 +1094,10 @@
           "types": 8,
           "highestLevel": 17,
           "regions": 5,
-          "stops": 1013,
-          "coins": 2861475,
-          "stamps": 22,
-          "ratePerMinute": 266913
+          "stops": 1009,
+          "coins": 196959090,
+          "stamps": 27,
+          "ratePerMinute": 371349
         },
         {
           "day": 365,
@@ -1105,10 +1105,10 @@
           "types": 8,
           "highestLevel": 19,
           "regions": 6,
-          "stops": 3640,
-          "coins": 1492054100,
-          "stamps": 155,
-          "ratePerMinute": 450590
+          "stops": 3638,
+          "coins": 4817378875,
+          "stamps": 70,
+          "ratePerMinute": 624118
         }
       ]
     },
@@ -1117,7 +1117,7 @@
       "seed": 5,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 500,
+      "totalActions": 510,
       "failed": 0,
       "points": [
         {
@@ -1127,31 +1127,31 @@
           "highestLevel": 4,
           "regions": 2,
           "stops": 16,
-          "coins": 710428,
-          "stamps": 14,
-          "ratePerMinute": 2261
+          "coins": 805925,
+          "stamps": 15,
+          "ratePerMinute": 2691
         },
         {
           "day": 7,
-          "cars": 16,
+          "cars": 15,
           "types": 7,
           "highestLevel": 13,
           "regions": 3,
           "stops": 97,
-          "coins": 1830691,
-          "stamps": 6,
-          "ratePerMinute": 62783
+          "coins": 518655,
+          "stamps": 9,
+          "ratePerMinute": 86877
         },
         {
           "day": 30,
           "cars": 23,
           "types": 7,
-          "highestLevel": 15,
+          "highestLevel": 16,
           "regions": 4,
-          "stops": 372,
-          "coins": 51976925,
-          "stamps": 8,
-          "ratePerMinute": 147105
+          "stops": 369,
+          "coins": 133159568,
+          "stamps": 12,
+          "ratePerMinute": 206457
         },
         {
           "day": 90,
@@ -1159,10 +1159,10 @@
           "types": 8,
           "highestLevel": 17,
           "regions": 5,
-          "stops": 1013,
-          "coins": 406913611,
-          "stamps": 22,
-          "ratePerMinute": 269236
+          "stops": 1007,
+          "coins": 284569847,
+          "stamps": 26,
+          "ratePerMinute": 369671
         },
         {
           "day": 365,
@@ -1170,10 +1170,10 @@
           "types": 8,
           "highestLevel": 19,
           "regions": 6,
-          "stops": 3640,
-          "coins": 4897681246,
-          "stamps": 155,
-          "ratePerMinute": 437090
+          "stops": 3636,
+          "coins": 2259361857,
+          "stamps": 70,
+          "ratePerMinute": 648872
         }
       ]
     },
@@ -1182,7 +1182,7 @@
       "seed": 6,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 501,
+      "totalActions": 511,
       "failed": 0,
       "points": [
         {
@@ -1192,31 +1192,31 @@
           "highestLevel": 4,
           "regions": 2,
           "stops": 16,
-          "coins": 659489,
-          "stamps": 14,
-          "ratePerMinute": 2355
+          "coins": 767836,
+          "stamps": 15,
+          "ratePerMinute": 2864
         },
         {
           "day": 7,
-          "cars": 16,
+          "cars": 15,
           "types": 7,
           "highestLevel": 13,
           "regions": 3,
           "stops": 97,
-          "coins": 1510005,
-          "stamps": 6,
-          "ratePerMinute": 65766
+          "coins": 1111201,
+          "stamps": 9,
+          "ratePerMinute": 91814
         },
         {
           "day": 30,
           "cars": 22,
           "types": 7,
-          "highestLevel": 15,
+          "highestLevel": 16,
           "regions": 4,
           "stops": 372,
-          "coins": 110429178,
-          "stamps": 8,
-          "ratePerMinute": 148640
+          "coins": 109425609,
+          "stamps": 12,
+          "ratePerMinute": 200423
         },
         {
           "day": 90,
@@ -1224,10 +1224,10 @@
           "types": 8,
           "highestLevel": 17,
           "regions": 5,
-          "stops": 1013,
-          "coins": 129540318,
-          "stamps": 22,
-          "ratePerMinute": 262740
+          "stops": 1009,
+          "coins": 395042434,
+          "stamps": 27,
+          "ratePerMinute": 396610
         },
         {
           "day": 365,
@@ -1235,10 +1235,10 @@
           "types": 8,
           "highestLevel": 19,
           "regions": 6,
-          "stops": 3640,
-          "coins": 338821365,
-          "stamps": 155,
-          "ratePerMinute": 446730
+          "stops": 3638,
+          "coins": 2885563598,
+          "stamps": 70,
+          "ratePerMinute": 697378
         }
       ]
     },
@@ -1247,63 +1247,63 @@
       "seed": 1,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 505,
+      "totalActions": 523,
       "failed": 0,
       "points": [
         {
           "day": 1,
           "cars": 8,
-          "types": 2,
-          "highestLevel": 6,
+          "types": 6,
+          "highestLevel": 7,
           "regions": 2,
           "stops": 31,
-          "coins": 1668028,
-          "stamps": 17,
-          "ratePerMinute": 3840
+          "coins": 2075367,
+          "stamps": 18,
+          "ratePerMinute": 7700
         },
         {
           "day": 7,
           "cars": 20,
-          "types": 2,
+          "types": 7,
           "highestLevel": 14,
           "regions": 4,
           "stops": 180,
-          "coins": 783097,
-          "stamps": 16,
-          "ratePerMinute": 64807
+          "coins": 3271283,
+          "stamps": 19,
+          "ratePerMinute": 133405
         },
         {
           "day": 30,
           "cars": 23,
-          "types": 2,
+          "types": 7,
           "highestLevel": 16,
           "regions": 5,
           "stops": 684,
-          "coins": 87850463,
-          "stamps": 22,
-          "ratePerMinute": 121849
+          "coins": 144703987,
+          "stamps": 27,
+          "ratePerMinute": 232175
         },
         {
           "day": 90,
           "cars": 25,
-          "types": 2,
-          "highestLevel": 17,
+          "types": 8,
+          "highestLevel": 18,
           "regions": 6,
-          "stops": 1873,
-          "coins": 630171952,
-          "stamps": 69,
-          "ratePerMinute": 182641
+          "stops": 1877,
+          "coins": 1107138209,
+          "stamps": 39,
+          "ratePerMinute": 470115
         },
         {
           "day": 365,
           "cars": 25,
-          "types": 2,
-          "highestLevel": 19,
+          "types": 8,
+          "highestLevel": 20,
           "regions": 6,
-          "stops": 7082,
-          "coins": 2700200734,
-          "stamps": 372,
-          "ratePerMinute": 268110
+          "stops": 7090,
+          "coins": 3261437370,
+          "stamps": 222,
+          "ratePerMinute": 766896
         }
       ]
     },
@@ -1312,63 +1312,63 @@
       "seed": 2,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 506,
+      "totalActions": 523,
       "failed": 0,
       "points": [
         {
           "day": 1,
           "cars": 8,
-          "types": 2,
-          "highestLevel": 6,
+          "types": 6,
+          "highestLevel": 7,
           "regions": 2,
           "stops": 31,
-          "coins": 1774104,
-          "stamps": 17,
-          "ratePerMinute": 3975
+          "coins": 2275103,
+          "stamps": 18,
+          "ratePerMinute": 8794
         },
         {
           "day": 7,
           "cars": 20,
-          "types": 2,
+          "types": 7,
           "highestLevel": 14,
           "regions": 4,
           "stops": 180,
-          "coins": 811850,
-          "stamps": 16,
-          "ratePerMinute": 67682
+          "coins": 2223648,
+          "stamps": 19,
+          "ratePerMinute": 143167
         },
         {
           "day": 30,
           "cars": 23,
-          "types": 2,
+          "types": 7,
           "highestLevel": 16,
           "regions": 5,
           "stops": 684,
-          "coins": 22603293,
-          "stamps": 22,
-          "ratePerMinute": 124942
+          "coins": 147332934,
+          "stamps": 27,
+          "ratePerMinute": 233181
         },
         {
           "day": 90,
           "cars": 25,
-          "types": 2,
-          "highestLevel": 17,
+          "types": 8,
+          "highestLevel": 18,
           "regions": 6,
-          "stops": 1873,
-          "coins": 412079170,
-          "stamps": 69,
-          "ratePerMinute": 181472
+          "stops": 1877,
+          "coins": 1179559855,
+          "stamps": 39,
+          "ratePerMinute": 480495
         },
         {
           "day": 365,
           "cars": 25,
-          "types": 2,
-          "highestLevel": 19,
+          "types": 8,
+          "highestLevel": 20,
           "regions": 6,
-          "stops": 7082,
-          "coins": 93569279,
-          "stamps": 372,
-          "ratePerMinute": 280847
+          "stops": 7090,
+          "coins": 5951012122,
+          "stamps": 222,
+          "ratePerMinute": 784321
         }
       ]
     },
@@ -1377,63 +1377,63 @@
       "seed": 3,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 504,
+      "totalActions": 522,
       "failed": 0,
       "points": [
         {
           "day": 1,
           "cars": 8,
-          "types": 2,
-          "highestLevel": 6,
+          "types": 6,
+          "highestLevel": 7,
           "regions": 2,
           "stops": 31,
-          "coins": 1784292,
-          "stamps": 10,
-          "ratePerMinute": 4158
+          "coins": 2201894,
+          "stamps": 11,
+          "ratePerMinute": 8907
         },
         {
           "day": 7,
-          "cars": 19,
-          "types": 2,
+          "cars": 20,
+          "types": 7,
           "highestLevel": 14,
           "regions": 4,
           "stops": 180,
-          "coins": 2283641,
-          "stamps": 11,
-          "ratePerMinute": 60788
+          "coins": 7928993,
+          "stamps": 19,
+          "ratePerMinute": 138114
         },
         {
           "day": 30,
           "cars": 23,
-          "types": 2,
+          "types": 7,
           "highestLevel": 16,
           "regions": 5,
           "stops": 684,
-          "coins": 67864234,
-          "stamps": 22,
-          "ratePerMinute": 119157
+          "coins": 50533308,
+          "stamps": 27,
+          "ratePerMinute": 238514
         },
         {
           "day": 90,
           "cars": 25,
-          "types": 2,
-          "highestLevel": 17,
+          "types": 8,
+          "highestLevel": 18,
           "regions": 6,
-          "stops": 1873,
-          "coins": 359057587,
-          "stamps": 69,
-          "ratePerMinute": 168329
+          "stops": 1877,
+          "coins": 68610617,
+          "stamps": 39,
+          "ratePerMinute": 479377
         },
         {
           "day": 365,
           "cars": 25,
-          "types": 2,
-          "highestLevel": 19,
+          "types": 8,
+          "highestLevel": 20,
           "regions": 6,
-          "stops": 7082,
-          "coins": 4628133232,
-          "stamps": 372,
-          "ratePerMinute": 261340
+          "stops": 7090,
+          "coins": 14147353162,
+          "stamps": 222,
+          "ratePerMinute": 747954
         }
       ]
     },
@@ -1442,63 +1442,63 @@
       "seed": 4,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 505,
+      "totalActions": 522,
       "failed": 0,
       "points": [
         {
           "day": 1,
           "cars": 8,
-          "types": 2,
-          "highestLevel": 6,
+          "types": 6,
+          "highestLevel": 7,
           "regions": 2,
           "stops": 31,
-          "coins": 1688805,
-          "stamps": 17,
-          "ratePerMinute": 3920
+          "coins": 2161110,
+          "stamps": 18,
+          "ratePerMinute": 8429
         },
         {
           "day": 7,
-          "cars": 20,
-          "types": 2,
+          "cars": 19,
+          "types": 7,
           "highestLevel": 14,
           "regions": 4,
           "stops": 180,
-          "coins": 449553,
-          "stamps": 16,
-          "ratePerMinute": 64340
+          "coins": 5544123,
+          "stamps": 14,
+          "ratePerMinute": 132973
         },
         {
           "day": 30,
           "cars": 23,
-          "types": 2,
+          "types": 7,
           "highestLevel": 16,
           "regions": 5,
           "stops": 684,
-          "coins": 125313605,
-          "stamps": 22,
-          "ratePerMinute": 116716
+          "coins": 36279068,
+          "stamps": 27,
+          "ratePerMinute": 241463
         },
         {
           "day": 90,
           "cars": 25,
-          "types": 2,
-          "highestLevel": 17,
+          "types": 8,
+          "highestLevel": 18,
           "regions": 6,
-          "stops": 1873,
-          "coins": 407480558,
-          "stamps": 69,
-          "ratePerMinute": 174591
+          "stops": 1877,
+          "coins": 269740106,
+          "stamps": 39,
+          "ratePerMinute": 475720
         },
         {
           "day": 365,
           "cars": 25,
-          "types": 2,
-          "highestLevel": 19,
+          "types": 8,
+          "highestLevel": 20,
           "regions": 6,
-          "stops": 7082,
-          "coins": 673531419,
-          "stamps": 372,
-          "ratePerMinute": 273749
+          "stops": 7090,
+          "coins": 14323636512,
+          "stamps": 222,
+          "ratePerMinute": 716964
         }
       ]
     },
@@ -1507,63 +1507,63 @@
       "seed": 5,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 505,
+      "totalActions": 522,
       "failed": 0,
       "points": [
         {
           "day": 1,
           "cars": 8,
-          "types": 2,
-          "highestLevel": 6,
+          "types": 6,
+          "highestLevel": 7,
           "regions": 2,
           "stops": 31,
-          "coins": 1730332,
-          "stamps": 17,
-          "ratePerMinute": 3822
+          "coins": 2048315,
+          "stamps": 18,
+          "ratePerMinute": 7832
         },
         {
           "day": 7,
           "cars": 20,
-          "types": 2,
+          "types": 7,
           "highestLevel": 14,
           "regions": 4,
           "stops": 180,
-          "coins": 2297338,
-          "stamps": 16,
-          "ratePerMinute": 66654
+          "coins": 3714322,
+          "stamps": 19,
+          "ratePerMinute": 131996
         },
         {
           "day": 30,
           "cars": 23,
-          "types": 2,
+          "types": 7,
           "highestLevel": 16,
           "regions": 5,
           "stops": 684,
-          "coins": 21822820,
-          "stamps": 22,
-          "ratePerMinute": 123013
+          "coins": 137583240,
+          "stamps": 27,
+          "ratePerMinute": 234292
         },
         {
           "day": 90,
           "cars": 25,
-          "types": 2,
-          "highestLevel": 17,
+          "types": 8,
+          "highestLevel": 18,
           "regions": 6,
-          "stops": 1873,
-          "coins": 148512085,
-          "stamps": 69,
-          "ratePerMinute": 189086
+          "stops": 1877,
+          "coins": 442282324,
+          "stamps": 39,
+          "ratePerMinute": 459732
         },
         {
           "day": 365,
           "cars": 25,
-          "types": 2,
-          "highestLevel": 19,
+          "types": 8,
+          "highestLevel": 20,
           "regions": 6,
-          "stops": 7082,
-          "coins": 3638285225,
-          "stamps": 372,
-          "ratePerMinute": 279392
+          "stops": 7090,
+          "coins": 12716788880,
+          "stamps": 222,
+          "ratePerMinute": 724728
         }
       ]
     },
@@ -1572,63 +1572,63 @@
       "seed": 6,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 505,
+      "totalActions": 523,
       "failed": 0,
       "points": [
         {
           "day": 1,
           "cars": 8,
-          "types": 2,
-          "highestLevel": 6,
+          "types": 6,
+          "highestLevel": 7,
           "regions": 2,
           "stops": 31,
-          "coins": 1778094,
-          "stamps": 17,
-          "ratePerMinute": 3876
+          "coins": 2168852,
+          "stamps": 18,
+          "ratePerMinute": 8397
         },
         {
           "day": 7,
-          "cars": 20,
-          "types": 2,
+          "cars": 19,
+          "types": 7,
           "highestLevel": 14,
           "regions": 4,
           "stops": 180,
-          "coins": 1124367,
-          "stamps": 16,
-          "ratePerMinute": 64117
+          "coins": 17680746,
+          "stamps": 14,
+          "ratePerMinute": 132963
         },
         {
           "day": 30,
           "cars": 23,
-          "types": 2,
+          "types": 7,
           "highestLevel": 16,
           "regions": 5,
           "stops": 684,
-          "coins": 180600377,
-          "stamps": 22,
-          "ratePerMinute": 124557
+          "coins": 241654957,
+          "stamps": 27,
+          "ratePerMinute": 230905
         },
         {
           "day": 90,
           "cars": 25,
-          "types": 2,
-          "highestLevel": 17,
+          "types": 8,
+          "highestLevel": 18,
           "regions": 6,
-          "stops": 1873,
-          "coins": 111809099,
-          "stamps": 69,
-          "ratePerMinute": 185980
+          "stops": 1877,
+          "coins": 1021589003,
+          "stamps": 39,
+          "ratePerMinute": 485520
         },
         {
           "day": 365,
           "cars": 25,
-          "types": 2,
-          "highestLevel": 19,
+          "types": 8,
+          "highestLevel": 20,
           "regions": 6,
-          "stops": 7082,
-          "coins": 3971493871,
-          "stamps": 372,
-          "ratePerMinute": 287238
+          "stops": 7090,
+          "coins": 647802496,
+          "stamps": 222,
+          "ratePerMinute": 750381
         }
       ]
     }

@@ -22,10 +22,10 @@ def module(name):
     urls[name]='data:text/javascript;base64,'+base64.b64encode(text.encode()).decode()
     return urls[name]
 script=module('main.js')
-html=(root/'index.html').read_text()
+html=re.sub(r'<meta http-equiv="Content-Security-Policy"[^>]*>','',(root/'index.html').read_text())
 html=re.sub(r'<link rel="stylesheet"[^>]*>','',html)
 html=re.sub(r'<script type="module"[^>]*></script>','',html)
-css=(root/'src/style.css').read_text()
+css=(root/'src/style.css').read_text().replace("url('../assets/brand.png')",f'url("{images["brand.png"]}")')
 # Max-consist stress and real refit UI. Frame measurements are headless Chromium only.
 proc=subprocess.run(['node','--input-type=module','-e',"import {initialState,journeyDuration} from './src/economy.js';import {TYPE_ORDER,REGIONS} from './src/data.js';const s=initialState();s.cars=Array.from({length:25},(_,i)=>({id:i+1,type:TYPE_ORDER[i%12],level:i%20+1,staff:2,crew:[],pendingCrew:[],riders:2}));s.selected=24;s.coins=1e10;s.stops=s.totalStops=25000;s.regionsUnlocked=REGIONS.map(r=>r.id);s.tutorial=3;s.lastTime=Date.now();s.stationProgress=journeyDuration(s)-22;console.log(JSON.stringify(s))"],cwd=root,capture_output=True,text=True,check=True)
 s=json.loads(proc.stdout); raw=json.dumps(s,ensure_ascii=False,separators=(',',':'));h=2166136261
@@ -50,7 +50,7 @@ with sync_playwright() as pw:
         page.screenshot(path=str(root/'docs'/f'{device}-25-cars.png'));page.keyboard.press('Escape');page.locator('#settings').click();page.locator('#power-setting').check();page.locator('#close-settings').click()
         start=page.evaluate('({t:performance.now(),f:window.__EVERLINE_DIAGNOSTICS__().frames})');page.wait_for_timeout(2000);end=page.evaluate('({t:performance.now(),f:window.__EVERLINE_DIAGNOSTICS__().frames})');low=(end['f']-start['f'])*1000/(end['t']-start['t']);assert 0<low<=35
         page.wait_for_function('window.__EVERLINE_DIAGNOSTICS__().cars[24].type==="lounge"',timeout=35000)
-        final=page.evaluate('window.__EVERLINE_DIAGNOSTICS__()');assert final['cars'][24]['level']==first['cars'][24]['level'];assert final['cars'][24]['staff']==2 and len(final['cars'])==25;assert not errors,errors
-        results.append({'device':device,'cars':25,'fps_sample':round(fps,1),'low_power_fps_sample':round(low,1),'refit_at_station':True,'errors':errors});print(results[-1]);ctx.close()
+        final=page.evaluate('window.__EVERLINE_DIAGNOSTICS__()');assert final['cars'][24]['level']==first['cars'][24]['level'];assert final['cars'][24]['staff']==2 and len(final['cars'])==25;assert not errors,errors;assert final['cachePixels']<=12000000
+        results.append({'device':device,'cars':25,'fps_sample':round(fps,1),'low_power_fps_sample':round(low,1),'refit_at_station':True,'cachePixels':final['cachePixels'],'paintP95':final['paintP95'],'errors':errors});print(results[-1]);ctx.close()
     browser.close()
 (root/'docs'/'living-browser-results.json').write_text(json.dumps(results,indent=2))

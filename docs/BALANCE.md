@@ -1,3 +1,7 @@
+# V7 economy evidence
+
+The positive network service multiplier is 4.5% for each distinct type beyond two; the optional network project adds 1.8%. A unique carriage receives a 9% specialty bonus once at least four types exist. All prior revenue factors remain. Model policies now approximate the marginal train-wide income of a new type and explicitly score affordable refits using the new total rate; no observed player dataset exists. 24 annual synthetic scenarios (8,760 validated day-end states, zero rejected purchases) reached 8 distinct types in regular, collector and optimizer profiles; the optimizer was 2 types in V6. Short visits reached 8–9 types. Peak room levels: 18 / 19 / 19 / 20 respectively. This is a change in policy and rules, not a controlled experiment of actual players. See current `policy-stress-results.json` and `balance-365-results.json`.
+
 # V6 economy evidence
 
 Current deterministic progression results: `balance-365-results.json`. Seeded behavior stress: `policy-stress-results.json` (24 synthetic 365-day runs; not empirical retention). Earlier pre-refit stress evidence: `policy-stress-before-refit.json`. Refit preserves level/crew and consumes coins, completes at a stop, and allows new unlocked categories at the 25-carriage cap.

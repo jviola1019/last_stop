@@ -1,3 +1,7 @@
+# V7 Windows candidate build gate
+
+A separate `.github/workflows/windows.yml` runs on relevant PR changes or manual dispatch, pins the Tauri CLI, builds NSIS and uploads an unsigned candidate installer with SHA-256. It has not been executed successfully in this Linux session (no Cargo/Rust/Windows toolchain). No certificate or secrets were introduced. Do not call an unsigned CI artifact production-certified: install, uninstall, save recovery and WebView2 behavior on actual Windows still require testing.
+
 # Windows `.exe` — optional build target (unverified in this environment)
 
 The browser/PWA is the canonical game because it runs on iPhone, Mac, Windows, Android and static GitHub Pages with one codebase. The desktop wrapper is **not a different graphics engine**: Tauri hosts the exact same illustrated game in Windows WebView2.

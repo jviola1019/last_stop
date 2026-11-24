@@ -1,0 +1,36 @@
+name: Everline · Windows installer candidate
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths: ['src-tauri/**', 'src/**', 'assets/**', 'scripts/build*.mjs', 'index.html', 'manifest.webmanifest', '.github/workflows/windows.yml']
+permissions:
+  contents: read
+concurrency:
+  group: windows-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  windows:
+    runs-on: windows-2022
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: rustup toolchain install stable --profile minimal
+      - run: rustup default stable
+      - run: npx --yes --package=@tauri-apps/cli@2.12.5 tauri build --bundles nsis
+      - name: Validate installer exists and record SHA-256
+        shell: pwsh
+        run: |
+          $files = Get-ChildItem -Path src-tauri/target/release/bundle/nsis -Filter '*.exe'
+          if (!$files -or $files.Count -eq 0) { throw 'No installer generated' }
+          $files | Get-FileHash -Algorithm SHA256 | Format-Table
+      - uses: actions/upload-artifact@v4
+        with:
+          name: everline-windows-unsigned-candidate
+          path: src-tauri/target/release/bundle/nsis/*.exe
+          if-no-files-found: error

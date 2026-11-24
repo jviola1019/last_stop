@@ -18,3 +18,8 @@ export function loadGame(storage,now=Date.now()){
  return {state:null,recovered:false,source:null,failures:failed};
 }
 export function clearGame(storage){for(const key of [STORAGE_KEY,V5_STORAGE_KEY,V4_STORAGE_KEY,LEGACY_STORAGE_KEY,...backupKeys(),...backupKeys(V5_STORAGE_KEY),...backupKeys(V4_STORAGE_KEY)])storage.removeItem(key)}
+
+export const FLEET_SLOTS=3;
+export function storageForSlot(storage,slot=0){if(!Number.isInteger(slot)||slot<0||slot>=FLEET_SLOTS)throw Error('Invalid fleet slot');if(slot===0)return storage;const key=k=>`everline-fleet-${slot}:${k}`;return {getItem:k=>storage.getItem(key(k)),setItem:(k,v)=>storage.setItem(key(k),v),removeItem:k=>storage.removeItem(key(k))};}
+export function canOpenFleet(state){return state.cars.length>=20&&state.regionsUnlocked.length>=3;}
+export function loadBackup(storage,now=Date.now()){for(const key of backupKeys()){try{const raw=storage.getItem(key);if(raw)return {state:unsealState(raw,now),source:key,recovered:true}}catch{}}return {state:null,source:null,recovered:false};}
