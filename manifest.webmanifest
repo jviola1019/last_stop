@@ -5,9 +5,9 @@
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#171620",
-  "theme_color": "#171620",
-  "description": "A lovingly illustrated living train and idle-world game.",
+  "background_color": "#1b2634",
+  "theme_color": "#1b2634",
+  "description": "Build and restore an illustrated railway, meet travelers, and discover the world.",
   "icons": [
     {
       "src": "./assets/icon-192.png",
@@ -34,5 +34,9 @@
       "purpose": "any"
     }
   ],
-  "id": "./"
+  "id": "./",
+  "categories": [
+    "games",
+    "entertainment"
+  ]
 }

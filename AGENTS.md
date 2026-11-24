@@ -26,3 +26,6 @@ Run `npm run verify`, all three Playwright smoke scripts and `node scripts/polic
 
 ## V7 release gates
 Keep the V6 save key and additive schema validation. Test independent fleet slots, engine/heritage transactions, manifests, narrative progression, scoped cache and CSP, and the actual standalone HTML. Check browser-origin PWA reload with Chromium and cross-engine gameplay with Firefox/WebKit in CI. Use real screenshot evidence to identify art defects; rerun the checks after visual changes. Compare 25-car performance under isolated workloads and document both sample FPS and paint timing; do not equate a headless result with hardware certification. Do not merge while actual CI gates are unresolved. Keep separately documented human/device acceptance criteria.
+
+## V8.1 installation gates
+Preserve manifest id/start_url/scope, Tauri identifier, and game save namespace across branding revisions. Use a deterministic SVG master and correctly sized PNG/ICO outputs, separate maskable safe zone, Apple touch icon, and cache revision. Check standalone favicon is embedded. Run all former V8 suites plus branding unit checks and the real-origin Pages-subpath installability/offline-icon check before merge. Browser install UI is platform-specific; do not claim desktop icon placement on physical hardware from CDP or headless tests.

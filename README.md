@@ -1,3 +1,11 @@
+# V8.1 — Heritage Roundel / desktop installation
+
+A custom midnight-blue, brass and sunset locomotive emblem now identifies the web app, native Windows bundle and standalone edition. The existing manifest identity, origin-relative scope, desktop identifier and v6 local save namespace are unchanged. The corrected V8 website and Windows candidate workflows passed on commit `bd855bffedf3401315f8d7dd5a761c523cadb976`.
+
+**Install from the hosted Pages site** (not the standalone file): Settings → The Everline app → Install the Everline when the browser supplies an install prompt. Otherwise, use the Chrome/Edge Install app menu, Safari Share → Add to Home Screen on iPhone/iPad, or supported Mac Safari File → Add to Dock. The new icon appears when the platform applies the manifest; existing installs may retain cached artwork. Export a save before removing an old installation or clearing site data. The standalone HTML remains fully playable without a PWA install. The native Windows build is separate and unsigned; a successful compile is not an actual installation test.
+
+See [release plan](docs/V8_1_RELEASE_PLAN.md), [branding and release audit](docs/V8_1_RELEASE_AUDIT.md), and `tests/branding.test.mjs` / `tests/browser_install_smoke.py`. Earlier release sections below are historical.
+
 # V8 — Masterworks
 
 The V8 edition adds four optional, visible workshop commissions per carriage, exact next-grade batch restoration, ten lifetime service ranks, a refined engine artwork pipeline and responsive rank/room workshop interfaces. Existing saves remain compatible. Run `npm run verify` and `node scripts/policy-stress.mjs`; use `npm run build` for the standalone edition. See [V8 release audit](docs/V8_RELEASE_AUDIT.md) and [execution plan](docs/V8_PLAN.md). Earlier release sections are historical.

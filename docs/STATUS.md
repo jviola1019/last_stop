@@ -1,3 +1,7 @@
+# V8.1 — Heritage Roundel
+
+See [V8.1 release audit](V8_1_RELEASE_AUDIT.md) and [release plan](V8_1_RELEASE_PLAN.md) for current gates. V8 website and Windows workflows both completed successfully; V8.1 has its own source, installability, and production gates. Historical sections below do not certify the current release.
+
 # V8 Masterworks
 
 Local 73-unit-test/type-check/build verification passed. V8 workshop, rank and next-grade features implemented; art and model evidence in V8_RELEASE_AUDIT.md. Corrected V7 CI passed website and Windows, but V8 requires its own remote run.
