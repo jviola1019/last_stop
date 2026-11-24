@@ -15,7 +15,7 @@ def module(name):
   if dep!=name and f"'./{dep}'" in text:text=text.replace(f"'./{dep}'",f"'{module(dep)}'")
  urls[name]='data:text/javascript;base64,'+base64.b64encode(text.encode()).decode();return urls[name]
 script=module('main.js');html=re.sub(r'<link rel="stylesheet"[^>]*>','',re.sub(r'<meta http-equiv="Content-Security-Policy"[^>]*>','',(root/'index.html').read_text()));html=re.sub(r'<script type="module"[^>]*></script>','',html);css=(root/'src/style.css').read_text().replace("url('../assets/brand.png')",f'url("{images["brand.png"]}")').replace("url('../assets/world.webp')",f'url("{images["world.webp"]}")')
-fixture=subprocess.run(['node','--input-type=module','-e',"import {initialState,arrive} from './src/economy.js';import {TYPE_ORDER,REGIONS} from './src/data.js';import {sealState} from './src/save.js';const s=initialState();s.cars=Array.from({length:25},(_,i)=>({id:i+1,type:TYPE_ORDER[i%12],level:i%20+1,staff:0,crew:[],pendingCrew:[],riders:2}));s.coins=1e10;s.stamps=500;s.stops=s.totalStops=25000;s.regionsUnlocked=REGIONS.map(r=>r.id);s.tutorial=3;s.lastTime=Date.now();s.stationProgress=70;s.selected=0;arrive(s);console.log(sealState(s))"],cwd=root,capture_output=True,text=True,check=True).stdout.strip()
+fixture=subprocess.run(['node','--input-type=module','-e',"import {initialState,arrive} from './src/economy.js';import {TYPE_ORDER,REGIONS} from './src/data.js';import {sealState} from './src/save.js';const s=initialState();s.cars=Array.from({length:25},(_,i)=>({id:i+1,type:TYPE_ORDER[i%12],level:i%20+1,staff:0,crew:[],pendingCrew:[],riders:2}));s.coins=1e12;s.stamps=500;s.stops=s.totalStops=25000;s.regionsUnlocked=REGIONS.map(r=>r.id);s.tutorial=3;s.lastTime=Date.now();s.stationProgress=70;s.selected=0;s.cars[0].level=17;arrive(s);console.log(sealState(s))"],cwd=root,capture_output=True,text=True,check=True).stdout.strip()
 results=[]
 with sync_playwright() as pw:
  browser=pw.chromium.launch(executable_path=shutil.which('chromium'),headless=True,args=['--no-sandbox','--disable-dev-shm-usage'])
@@ -32,7 +32,14 @@ with sync_playwright() as pw:
   page.wait_for_function('Array.from(document.querySelectorAll(".purchase-card .preview img")).slice(0,4).every(i=>i.complete&&i.naturalWidth>0)')
   page.screenshot(path=str(root/'docs'/f'v7-{device}-engine-shop.png'))
   page.locator('[data-shop-page="heritage"]').click();assert page.locator('[data-action="heritage"]').count()==3;page.locator('[data-action="heritage"][data-type="conservation"]').click();assert 'conservation' in page.evaluate('window.__EVERLINE_DIAGNOSTICS__().heritageProjects')
-  page.locator('#close-drawer').click();page.locator('[data-page="journal"]').click();page.locator('[data-journal-page="stories"]').click();assert page.locator('.story-card').count()==5;assert 'Mira' in page.locator('.story-card').first.inner_text()
+  page.locator('[data-shop-page="workshop"]').click();assert page.locator('[data-action="workshop"]').count()==4
+  before=page.evaluate('window.__EVERLINE_DIAGNOSTICS__().coins');page.locator('[data-action="workshop"]').first.click();assert page.evaluate('window.__EVERLINE_DIAGNOSTICS__().cars[0].mastery')==1;assert page.evaluate('window.__EVERLINE_DIAGNOSTICS__().coins')<before
+  page.locator('[data-action="next-grade"]').click();assert page.evaluate('window.__EVERLINE_DIAGNOSTICS__().cars[0].level')==20
+  previews=page.locator('.purchase-card .preview img').evaluate_all('(imgs)=>imgs.map(i=>i.src)');assert len(set(previews))==4 and all(x.startswith('data:image/png') for x in previews)
+  page.screenshot(path=str(root/'docs'/f'v8-{device}-workshop.png'))
+  page.locator('#close-drawer').click();page.locator('[data-page="journal"]').click();page.locator('[data-journal-page="ranks"]').click();assert page.locator('.rank-card').count()==10
+  stamps=page.evaluate('window.__EVERLINE_DIAGNOSTICS__().stamps');page.locator('[data-action="claim-rank"][data-type="r1"]').click();assert page.evaluate('window.__EVERLINE_DIAGNOSTICS__().stamps')==stamps+1;assert page.locator('[data-action="claim-rank"][data-type="r1"]').is_disabled();page.screenshot(path=str(root/'docs'/f'v8-{device}-ranks.png'))
+  page.locator('[data-journal-page="stories"]').click();assert page.locator('.story-card').count()==5;assert 'Mira' in page.locator('.story-card').first.inner_text()
   page.locator('[data-journal-page="manifest"]').click();assert page.locator('.story-card').count()==25;assert page.locator('.story-card').first.inner_text().find('ABOARD')>=0
   page.locator('#close-drawer').click();page.locator('#settings').click();page.locator('#season-setting').select_option('Winter');assert page.evaluate('window.__EVERLINE_DIAGNOSTICS__().season')=='Winter'
   page.locator('#train-name').fill('<img src=x onerror=alert(1)>');page.locator('[data-settings-action="rename"]').click();assert '<' not in page.evaluate('window.__EVERLINE_DIAGNOSTICS__().trainName');assert not page.locator('#settings-body img').count();assert page.locator('[data-settings-action="fleet"]').count()==3
@@ -40,6 +47,6 @@ with sync_playwright() as pw:
   page.locator('#world').focus();page.keyboard.press('ArrowRight');assert page.evaluate('window.__EVERLINE_DIAGNOSTICS__().selected')==1
   assert not errors,errors
   diagnostics=page.evaluate('window.__EVERLINE_DIAGNOSTICS__()');assert diagnostics['cachePixels']<=12000000
-  results.append({'device':device,'engine':'electric','heritage':True,'stories':5,'manifest':25,'season':'Winter','escapedName':True,'decodedArtAssets':len(art),'detachedDiagnostics':True,'cachePixels':diagnostics['cachePixels'],'paintP95':diagnostics['paintP95'],'pageErrors':errors});print(results[-1],flush=True);ctx.close()
+  results.append({'device':device,'engine':'electric','heritage':True,'stories':5,'manifest':25,'season':'Winter','escapedName':True,'decodedArtAssets':len(art),'workshop':True,'rankClaim':True,'distinctPreviews':len(set(previews)),'detachedDiagnostics':True,'cachePixels':diagnostics['cachePixels'],'paintP95':diagnostics['paintP95'],'pageErrors':errors});print(results[-1],flush=True);ctx.close()
  browser.close()
 (root/'docs'/'grand-browser-results.json').write_text(json.dumps(results,indent=2))

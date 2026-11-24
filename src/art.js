@@ -1,6 +1,6 @@
 // An asset-led Canvas2D scene. Gameplay state is owned by economy.js, never this render loop.
 import {CARRIAGES,REGIONS,DESTINATIONS,LIVERY_FILTERS,ENGINES} from './data.js';
-import {journeyMotion,roomGrade,nextDestination,visualSeason} from './economy.js';
+import {journeyMotion,roomGrade,nextDestination,visualSeason,workshopRank} from './economy.js';
 const W=1672,H=941,CAR_W=276,ENGINE_W=318;
 const sprites={sleeper:'car-sleeper.png',cafe:'car-cafe.png',garden:'car-garden.png',library:'car-library.svg',diner:'car-diner.svg',arcade:'car-arcade.png',workshop:'car-workshop.svg',observatory:'car-observatory.png',postal:'car-postal.svg',bakery:'car-bakery.svg',cinema:'car-cinema.svg',lounge:'car-lounge.svg'};
 const names={sleeper:'SLEEPER',cafe:'CAFÉ',garden:'GREENHOUSE',library:'LIBRARY',diner:'DINING CAR',arcade:'ARCADE',workshop:'WORKSHOP',observatory:'OBSERVATORY',postal:'POSTAL CAR',bakery:'BAKERY',cinema:'PICTURE HOUSE',lounge:'GRAND LOUNGE'};
@@ -30,7 +30,7 @@ export class LivingScene {
     return this.cached(`${key}:${width}:${height}:${filter}`,width,height,ctx=>{ctx.filter=filter;ctx.drawImage(img,0,0,width,height);});
   }
   background(key,img,w,h,bx,by,scale){const d=this.dpr||1,width=Math.round(w*d),height=Math.round(h*d);return this.cached(`world:${key}:${width}:${height}`,width,height,ctx=>{ctx.scale(d,d);ctx.fillStyle='#29233d';ctx.fillRect(0,0,w,h);ctx.drawImage(img,bx,by,W*scale,H*scale);});}
-  roomRaster(car,s){const img=this.images[car.type];if(!ready(img))return null;const d=this.dpr||1,ww=CAR_W*s,hh=226*s,width=Math.max(1,Math.round(ww*d)),height=Math.max(1,Math.round(hh*d));return this.cached(`room:${car.type}:${car.level}:${width}:${height}`,width,height,ctx=>{ctx.scale(d,d);ctx.drawImage(img,0,0,ww,hh);const sigW=145*s,sigX=(ww-sigW)/2,sigY=169*s;ctx.fillStyle='#1d1a26';rr(ctx,sigX,sigY,sigW,27*s,6*s);ctx.fill();ctx.strokeStyle='#dba354';ctx.lineWidth=2*s;ctx.stroke();ctx.font=`bold ${Math.max(9,15*s)}px Georgia,serif`;ctx.fillStyle='#f7ce80';ctx.textAlign='center';ctx.fillText(names[car.type],ww/2,sigY+18*s);this.roomDetails(ctx,0,0,s,car);});}
+  roomRaster(car,s){const img=this.images[car.type];if(!ready(img))return null;const d=this.dpr||1,ww=CAR_W*s,hh=226*s,width=Math.max(1,Math.round(ww*d)),height=Math.max(1,Math.round(hh*d));return this.cached(`room:${car.type}:${car.level}:${workshopRank(car)}:${width}:${height}`,width,height,ctx=>{ctx.scale(d,d);ctx.drawImage(img,0,0,ww,hh);const sigW=145*s,sigX=(ww-sigW)/2,sigY=169*s;ctx.fillStyle='#1d1a26';rr(ctx,sigX,sigY,sigW,27*s,6*s);ctx.fill();ctx.strokeStyle='#dba354';ctx.lineWidth=2*s;ctx.stroke();ctx.font=`bold ${Math.max(9,15*s)}px Georgia,serif`;ctx.fillStyle='#f7ce80';ctx.textAlign='center';ctx.fillText(names[car.type],ww/2,sigY+18*s);this.roomDetails(ctx,0,0,s,car);});}
   scale(){const isNarrow=this.width<750;return (isNarrow?Math.max(.75,Math.min(1.08,this.height/941)) : Math.max(this.width/W,this.height/H))*this.zoom}
   bound(){if(!this.state)return 0;return Math.max(0,(this.state.cars.length*CAR_W+ENGINE_W)-this.width/this.scale()+120)/2}
   focus(index){if(!this.state)return;const length=this.state.cars.length*CAR_W+ENGINE_W;const selected=(index<0?length-ENGINE_W*.5:index*CAR_W+CAR_W/2)-length/2;
@@ -91,7 +91,7 @@ export class LivingScene {
       c.drawImage(this.raster('engine-'+engineId,engineSprite,ENGINE_W*l.s,226*l.s,LIVERY_FILTERS[this.state.trainPaint]||'none'),ix,iy,ENGINE_W*l.s,226*l.s);
     }
     else if(ix+ENGINE_W*l.s>=0&&ix<=w){c.fillStyle='#1e2934';c.fillRect(ix,iy+54*l.s,ENGINE_W*l.s,140*l.s)}
-    if(ix+ENGINE_W*l.s>=0&&ix<=w){this.wheel(c,ix+73*l.s,iy+197*l.s,24*l.s);this.wheel(c,ix+143*l.s,iy+197*l.s,24*l.s);
+    if(ix+ENGINE_W*l.s>=0&&ix<=w){if(engineId==='steam'){this.wheel(c,ix+73*l.s,iy+197*l.s,24*l.s);this.wheel(c,ix+143*l.s,iy+197*l.s,24*l.s);}else{const modern=['diesel','electric','alpine','horizon'].includes(engineId);for(const axle of modern?[54,99,220,264]:[73,143,252])this.wheel(c,ix+axle*l.s,iy+196*l.s,(modern?15:20)*l.s);}
     if(['steam','express','mountain','artdeco'].includes(engineId))this.steam(c,ix+145*l.s,iy+52*l.s,l.s);}
     if(this.state.decor.includes('pennants')){for(let k=0;k<this.state.cars.length;k++){const x=l.drawX(l.base+k*CAR_W+130);if(x<-20||x>w+20)continue;c.fillStyle=k%2?'#ef9b75':'#f2ca71';c.beginPath();c.moveTo(x,l.trainY+10*l.s);c.lineTo(x+18*l.s,l.trainY+14*l.s);c.lineTo(x,l.trainY+25*l.s);c.fill();}}
     if(this.sighting&&!this.scenic){const xx=l.drawX(this.sighting.x),yy=l.y0+this.sighting.y*l.s;
@@ -114,6 +114,17 @@ export class LivingScene {
     // Each paid tier is visible across its cabin, not just in a menu progress bar.
     if(car.level>1){c.fillStyle='#f9c374';for(let k=0;k<Math.min(car.level,20);k++)c.fillRect(x+(21+k*11)*s,y+45*s,6*s,3*s);}
     if(tier===0)return;
+    // A visible full-frame restoration: material, corner plates and roof lining are tier-dependent.
+    c.save();const frames=['#786e59','#516f65','#376b68','#3c4a72','#753e49'];const metal=['#ac875b','#cba36b','#e0c092','#d5b572','#f3d59b'];
+    const g=c.createLinearGradient(x,y+25*s,x,y+170*s);g.addColorStop(0,metal[tier]);g.addColorStop(.25,frames[tier]);g.addColorStop(.82,frames[tier]);g.addColorStop(1,metal[tier]);c.strokeStyle=g;c.lineWidth=(4+tier)*s;rr(c,x+12*s,y+23*s,252*s,145*s,10*s);c.stroke();
+    c.strokeStyle=metal[tier];c.lineWidth=1.1*s;rr(c,x+17*s,y+28*s,242*s,135*s,8*s);c.stroke();
+    if(tier>=2){c.fillStyle=frames[tier];c.fillRect(x+22*s,y+166*s,233*s,7*s);for(let q=0;q<12;q++){c.fillStyle=metal[tier];c.fillRect(x+(24+q*20)*s,y+168*s,2*s,3*s)}}
+    // Workshop licenses are separate visual commissions: enamel plaques, corner inlays and a master crest.
+    const rank=workshopRank(car);for(let i=0;i<rank;i++){const xx=x+(28+i*18)*s;c.fillStyle='#223a35';rr(c,xx,y+177*s,13*s,13*s,2*s);c.fill();c.strokeStyle=metal[tier];c.lineWidth=s;c.stroke();c.fillStyle=metal[tier];c.beginPath();c.moveTo(xx+6.5*s,y+179*s);c.lineTo(xx+11*s,y+183.5*s);c.lineTo(xx+6.5*s,y+188*s);c.lineTo(xx+2*s,y+183.5*s);c.closePath();c.fill();}
+    if(rank>=2){for(const xx of [23,246]){c.fillStyle='#233c38';rr(c,x+xx*s,y+48*s,9*s,84*s,3*s);c.fill();c.strokeStyle=metal[tier];c.stroke();}}
+    if(rank>=3){c.fillStyle='#f1d9a3';for(const xx of [22,246]){c.beginPath();c.arc(x+xx*s,y+35*s,4*s,0,Math.PI*2);c.fill();}}
+    if(rank===4){c.fillStyle='#722f3d';rr(c,x+125*s,y+12*s,26*s,24*s,7*s);c.fill();c.strokeStyle='#f1d9a3';c.stroke();c.fillStyle='#f1d9a3';c.font=`bold ${14*s}px Georgia,serif`;c.textAlign='center';c.fillText('M',x+138*s,y+29*s);}
+    c.restore();
     c.save();
     // Modular furnishings are rendered on the actual room, with increasingly ornate materials.
     const palettes=[['#6e6953','#af8060'],['#627f72','#d6ba86'],['#356c62','#e9c88c'],['#405069','#e0b979'],['#6e3f42','#f4d99e']];const [cloth,trim]=palettes[tier];

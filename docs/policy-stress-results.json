@@ -34,30 +34,36 @@
       "profile": "short visits",
       "runs": 6,
       "cars": "25–25",
-      "types": "8–9",
+      "types": "9–9",
       "level": "18–18",
+      "workshop": "95–96",
+      "ranks": "6–6",
       "regions": "5–5",
-      "stops": "694–701",
+      "stops": "694–697",
       "rejectedPurchases": 0
     },
     {
       "profile": "regular visits",
       "runs": 6,
       "cars": "25–25",
-      "types": "8–8",
+      "types": "8–9",
       "level": "19–19",
+      "workshop": "99–100",
+      "ranks": "7–7",
       "regions": "6–6",
-      "stops": "2470–2503",
+      "stops": "2470–2470",
       "rejectedPurchases": 0
     },
     {
       "profile": "collector",
       "runs": 6,
       "cars": "25–25",
-      "types": "8–8",
+      "types": "8–9",
       "level": "19–19",
+      "workshop": "99–100",
+      "ranks": "8–8",
       "regions": "6–6",
-      "stops": "3636–3638",
+      "stops": "3626–3656",
       "rejectedPurchases": 0
     },
     {
@@ -66,8 +72,10 @@
       "cars": "25–25",
       "types": "8–8",
       "level": "20–20",
+      "workshop": "100–100",
+      "ranks": "9–9",
       "regions": "6–6",
-      "stops": "7090–7090",
+      "stops": "7082–7082",
       "rejectedPurchases": 0
     }
   ],
@@ -77,7 +85,7 @@
       "seed": 1,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 483,
+      "totalActions": 583,
       "failed": 0,
       "points": [
         {
@@ -85,10 +93,12 @@
           "cars": 4,
           "types": 3,
           "highestLevel": 2,
+          "workshopTotal": 0,
+          "rankClaims": 1,
           "regions": 1,
           "stops": 3,
           "coins": 93213,
-          "stamps": 11,
+          "stamps": 12,
           "ratePerMinute": 586
         },
         {
@@ -96,44 +106,52 @@
           "cars": 6,
           "types": 5,
           "highestLevel": 5,
+          "workshopTotal": 0,
+          "rankClaims": 2,
           "regions": 2,
           "stops": 19,
           "coins": 4685877,
-          "stamps": 18,
+          "stamps": 20,
           "ratePerMinute": 3212
         },
         {
           "day": 30,
-          "cars": 13,
+          "cars": 12,
           "types": 7,
-          "highestLevel": 11,
+          "highestLevel": 10,
+          "workshopTotal": 17,
+          "rankClaims": 4,
           "regions": 3,
           "stops": 71,
-          "coins": 185326295,
-          "stamps": 6,
-          "ratePerMinute": 42865
+          "coins": 195170457,
+          "stamps": 12,
+          "ratePerMinute": 39966
         },
         {
           "day": 90,
           "cars": 23,
-          "types": 7,
+          "types": 8,
           "highestLevel": 16,
+          "workshopTotal": 66,
+          "rankClaims": 5,
           "regions": 4,
-          "stops": 201,
-          "coins": 17788403,
-          "stamps": 6,
-          "ratePerMinute": 214407
+          "stops": 191,
+          "coins": 189262778,
+          "stamps": 14,
+          "ratePerMinute": 373736
         },
         {
           "day": 365,
           "cars": 25,
-          "types": 8,
+          "types": 9,
           "highestLevel": 18,
+          "workshopTotal": 95,
+          "rankClaims": 6,
           "regions": 5,
-          "stops": 701,
-          "coins": 1304332184,
-          "stamps": 9,
-          "ratePerMinute": 467865
+          "stops": 694,
+          "coins": 120171700,
+          "stamps": 12,
+          "ratePerMinute": 840426
         }
       ]
     },
@@ -142,7 +160,7 @@
       "seed": 2,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 483,
+      "totalActions": 583,
       "failed": 0,
       "points": [
         {
@@ -150,10 +168,12 @@
           "cars": 5,
           "types": 3,
           "highestLevel": 2,
+          "workshopTotal": 0,
+          "rankClaims": 1,
           "regions": 1,
           "stops": 3,
           "coins": 93445,
-          "stamps": 13,
+          "stamps": 14,
           "ratePerMinute": 651
         },
         {
@@ -161,44 +181,52 @@
           "cars": 7,
           "types": 5,
           "highestLevel": 5,
+          "workshopTotal": 0,
+          "rankClaims": 2,
           "regions": 2,
           "stops": 19,
           "coins": 4484134,
-          "stamps": 11,
+          "stamps": 13,
           "ratePerMinute": 3288
         },
         {
           "day": 30,
-          "cars": 13,
+          "cars": 12,
           "types": 7,
-          "highestLevel": 11,
+          "highestLevel": 10,
+          "workshopTotal": 16,
+          "rankClaims": 4,
           "regions": 3,
           "stops": 71,
-          "coins": 189591764,
-          "stamps": 9,
-          "ratePerMinute": 41307
+          "coins": 202141668,
+          "stamps": 15,
+          "ratePerMinute": 40140
         },
         {
           "day": 90,
           "cars": 23,
-          "types": 7,
+          "types": 8,
           "highestLevel": 16,
+          "workshopTotal": 66,
+          "rankClaims": 5,
           "regions": 4,
           "stops": 191,
-          "coins": 24093581,
-          "stamps": 5,
-          "ratePerMinute": 213296
+          "coins": 12168355,
+          "stamps": 22,
+          "ratePerMinute": 377523
         },
         {
           "day": 365,
           "cars": 25,
-          "types": 8,
+          "types": 9,
           "highestLevel": 18,
+          "workshopTotal": 95,
+          "rankClaims": 6,
           "regions": 5,
           "stops": 694,
-          "coins": 1753470652,
-          "stamps": 9,
-          "ratePerMinute": 450637
+          "coins": 1771474997,
+          "stamps": 12,
+          "ratePerMinute": 806933
         }
       ]
     },
@@ -207,7 +235,7 @@
       "seed": 3,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 486,
+      "totalActions": 583,
       "failed": 0,
       "points": [
         {
@@ -215,10 +243,12 @@
           "cars": 4,
           "types": 3,
           "highestLevel": 2,
+          "workshopTotal": 0,
+          "rankClaims": 1,
           "regions": 1,
           "stops": 3,
           "coins": 94085,
-          "stamps": 11,
+          "stamps": 12,
           "ratePerMinute": 542
         },
         {
@@ -226,44 +256,52 @@
           "cars": 7,
           "types": 5,
           "highestLevel": 5,
+          "workshopTotal": 0,
+          "rankClaims": 2,
           "regions": 2,
           "stops": 19,
-          "coins": 4699681,
-          "stamps": 11,
+          "coins": 4805584,
+          "stamps": 13,
           "ratePerMinute": 3481
         },
         {
           "day": 30,
-          "cars": 13,
+          "cars": 12,
           "types": 7,
-          "highestLevel": 11,
+          "highestLevel": 10,
+          "workshopTotal": 18,
+          "rankClaims": 4,
           "regions": 3,
           "stops": 71,
-          "coins": 191242963,
-          "stamps": 6,
-          "ratePerMinute": 43955
+          "coins": 202820124,
+          "stamps": 4,
+          "ratePerMinute": 43166
         },
         {
           "day": 90,
           "cars": 23,
           "types": 8,
           "highestLevel": 16,
+          "workshopTotal": 66,
+          "rankClaims": 5,
           "regions": 4,
-          "stops": 201,
-          "coins": 174442799,
-          "stamps": 6,
-          "ratePerMinute": 264685
+          "stops": 196,
+          "coins": 191848330,
+          "stamps": 14,
+          "ratePerMinute": 366306
         },
         {
           "day": 365,
           "cars": 25,
           "types": 9,
           "highestLevel": 18,
+          "workshopTotal": 95,
+          "rankClaims": 6,
           "regions": 5,
-          "stops": 701,
-          "coins": 1241533659,
-          "stamps": 9,
-          "ratePerMinute": 602635
+          "stops": 697,
+          "coins": 1878633173,
+          "stamps": 12,
+          "ratePerMinute": 795570
         }
       ]
     },
@@ -272,7 +310,7 @@
       "seed": 4,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 483,
+      "totalActions": 582,
       "failed": 0,
       "points": [
         {
@@ -280,10 +318,12 @@
           "cars": 4,
           "types": 3,
           "highestLevel": 2,
+          "workshopTotal": 0,
+          "rankClaims": 1,
           "regions": 1,
           "stops": 3,
           "coins": 94030,
-          "stamps": 11,
+          "stamps": 12,
           "ratePerMinute": 588
         },
         {
@@ -291,44 +331,52 @@
           "cars": 6,
           "types": 5,
           "highestLevel": 5,
+          "workshopTotal": 0,
+          "rankClaims": 2,
           "regions": 2,
           "stops": 19,
-          "coins": 4497154,
-          "stamps": 11,
-          "ratePerMinute": 3728
+          "coins": 4539612,
+          "stamps": 13,
+          "ratePerMinute": 3789
         },
         {
           "day": 30,
-          "cars": 14,
+          "cars": 12,
           "types": 7,
-          "highestLevel": 11,
+          "highestLevel": 10,
+          "workshopTotal": 20,
+          "rankClaims": 4,
           "regions": 3,
           "stops": 71,
-          "coins": 190668300,
-          "stamps": 16,
-          "ratePerMinute": 40467
+          "coins": 197945448,
+          "stamps": 12,
+          "ratePerMinute": 40654
         },
         {
           "day": 90,
           "cars": 23,
-          "types": 7,
+          "types": 8,
           "highestLevel": 16,
+          "workshopTotal": 66,
+          "rankClaims": 5,
           "regions": 4,
-          "stops": 191,
-          "coins": 123550129,
-          "stamps": 5,
-          "ratePerMinute": 204389
+          "stops": 196,
+          "coins": 113180699,
+          "stamps": 12,
+          "ratePerMinute": 375251
         },
         {
           "day": 365,
           "cars": 25,
-          "types": 8,
+          "types": 9,
           "highestLevel": 18,
+          "workshopTotal": 95,
+          "rankClaims": 6,
           "regions": 5,
-          "stops": 694,
-          "coins": 340025496,
-          "stamps": 9,
-          "ratePerMinute": 434173
+          "stops": 697,
+          "coins": 1751172077,
+          "stamps": 12,
+          "ratePerMinute": 836523
         }
       ]
     },
@@ -337,7 +385,7 @@
       "seed": 5,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 487,
+      "totalActions": 583,
       "failed": 0,
       "points": [
         {
@@ -345,10 +393,12 @@
           "cars": 5,
           "types": 3,
           "highestLevel": 2,
+          "workshopTotal": 0,
+          "rankClaims": 1,
           "regions": 1,
           "stops": 3,
           "coins": 93373,
-          "stamps": 10,
+          "stamps": 11,
           "ratePerMinute": 631
         },
         {
@@ -356,44 +406,52 @@
           "cars": 7,
           "types": 5,
           "highestLevel": 4,
+          "workshopTotal": 0,
+          "rankClaims": 2,
           "regions": 2,
           "stops": 19,
-          "coins": 4773834,
-          "stamps": 11,
+          "coins": 4964192,
+          "stamps": 13,
           "ratePerMinute": 3145
         },
         {
           "day": 30,
-          "cars": 13,
+          "cars": 12,
           "types": 7,
-          "highestLevel": 11,
+          "highestLevel": 10,
+          "workshopTotal": 16,
+          "rankClaims": 4,
           "regions": 3,
           "stops": 71,
-          "coins": 202503169,
-          "stamps": 9,
-          "ratePerMinute": 41728
+          "coins": 190838268,
+          "stamps": 15,
+          "ratePerMinute": 42134
         },
         {
           "day": 90,
           "cars": 23,
           "types": 8,
           "highestLevel": 16,
+          "workshopTotal": 66,
+          "rankClaims": 5,
           "regions": 4,
           "stops": 191,
-          "coins": 191529911,
-          "stamps": 5,
-          "ratePerMinute": 263136
+          "coins": 13897341,
+          "stamps": 14,
+          "ratePerMinute": 368340
         },
         {
           "day": 365,
           "cars": 25,
           "types": 9,
           "highestLevel": 18,
+          "workshopTotal": 96,
+          "rankClaims": 6,
           "regions": 5,
           "stops": 694,
-          "coins": 710655017,
-          "stamps": 9,
-          "ratePerMinute": 562659
+          "coins": 2131266580,
+          "stamps": 12,
+          "ratePerMinute": 857845
         }
       ]
     },
@@ -402,7 +460,7 @@
       "seed": 6,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 486,
+      "totalActions": 583,
       "failed": 0,
       "points": [
         {
@@ -410,10 +468,12 @@
           "cars": 4,
           "types": 2,
           "highestLevel": 2,
+          "workshopTotal": 0,
+          "rankClaims": 1,
           "regions": 1,
           "stops": 3,
           "coins": 94268,
-          "stamps": 11,
+          "stamps": 12,
           "ratePerMinute": 494
         },
         {
@@ -421,44 +481,52 @@
           "cars": 7,
           "types": 5,
           "highestLevel": 4,
+          "workshopTotal": 0,
+          "rankClaims": 2,
           "regions": 2,
           "stops": 19,
           "coins": 4438043,
-          "stamps": 11,
+          "stamps": 13,
           "ratePerMinute": 3303
         },
         {
           "day": 30,
-          "cars": 13,
+          "cars": 12,
           "types": 7,
-          "highestLevel": 11,
+          "highestLevel": 10,
+          "workshopTotal": 15,
+          "rankClaims": 4,
           "regions": 3,
           "stops": 71,
-          "coins": 198860455,
-          "stamps": 9,
-          "ratePerMinute": 43274
+          "coins": 211198049,
+          "stamps": 15,
+          "ratePerMinute": 42908
         },
         {
           "day": 90,
           "cars": 23,
           "types": 8,
           "highestLevel": 16,
+          "workshopTotal": 66,
+          "rankClaims": 5,
           "regions": 4,
           "stops": 191,
-          "coins": 35539953,
-          "stamps": 5,
-          "ratePerMinute": 264285
+          "coins": 150826456,
+          "stamps": 14,
+          "ratePerMinute": 360844
         },
         {
           "day": 365,
           "cars": 25,
           "types": 9,
           "highestLevel": 18,
+          "workshopTotal": 95,
+          "rankClaims": 6,
           "regions": 5,
           "stops": 694,
-          "coins": 880583199,
-          "stamps": 9,
-          "ratePerMinute": 550901
+          "coins": 1578592385,
+          "stamps": 12,
+          "ratePerMinute": 825321
         }
       ]
     },
@@ -467,7 +535,7 @@
       "seed": 1,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 510,
+      "totalActions": 615,
       "failed": 0,
       "points": [
         {
@@ -475,55 +543,65 @@
           "cars": 5,
           "types": 3,
           "highestLevel": 4,
+          "workshopTotal": 0,
+          "rankClaims": 2,
           "regions": 2,
           "stops": 11,
           "coins": 495982,
-          "stamps": 18,
+          "stamps": 20,
           "ratePerMinute": 1225
         },
         {
           "day": 7,
-          "cars": 13,
-          "types": 7,
-          "highestLevel": 11,
+          "cars": 12,
+          "types": 6,
+          "highestLevel": 10,
+          "workshopTotal": 16,
+          "rankClaims": 4,
           "regions": 3,
           "stops": 67,
-          "coins": 57035761,
-          "stamps": 13,
-          "ratePerMinute": 37758
+          "coins": 71822643,
+          "stamps": 19,
+          "ratePerMinute": 36762
         },
         {
           "day": 30,
           "cars": 23,
           "types": 7,
           "highestLevel": 16,
+          "workshopTotal": 69,
+          "rankClaims": 5,
           "regions": 4,
-          "stops": 255,
-          "coins": 8277412,
-          "stamps": 14,
-          "ratePerMinute": 201732
+          "stops": 251,
+          "coins": 21021249,
+          "stamps": 22,
+          "ratePerMinute": 279804
         },
         {
           "day": 90,
           "cars": 25,
           "types": 8,
           "highestLevel": 17,
+          "workshopTotal": 79,
+          "rankClaims": 6,
           "regions": 5,
-          "stops": 690,
-          "coins": 577080943,
-          "stamps": 27,
-          "ratePerMinute": 374894
+          "stops": 684,
+          "coins": 595150545,
+          "stamps": 40,
+          "ratePerMinute": 544960
         },
         {
           "day": 365,
           "cars": 25,
           "types": 8,
           "highestLevel": 19,
+          "workshopTotal": 99,
+          "rankClaims": 7,
           "regions": 6,
-          "stops": 2503,
-          "coins": 1262167469,
-          "stamps": 25,
-          "ratePerMinute": 671014
+          "stops": 2470,
+          "coins": 4453413599,
+          "stamps": 16,
+          "ratePerMinute": 1002270
         }
       ]
     },
@@ -532,7 +610,7 @@
       "seed": 2,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 509,
+      "totalActions": 618,
       "failed": 0,
       "points": [
         {
@@ -540,55 +618,65 @@
           "cars": 5,
           "types": 3,
           "highestLevel": 4,
+          "workshopTotal": 0,
+          "rankClaims": 2,
           "regions": 2,
           "stops": 11,
           "coins": 477180,
-          "stamps": 15,
+          "stamps": 17,
           "ratePerMinute": 1119
         },
         {
           "day": 7,
-          "cars": 13,
-          "types": 7,
-          "highestLevel": 11,
+          "cars": 11,
+          "types": 6,
+          "highestLevel": 10,
+          "workshopTotal": 16,
+          "rankClaims": 4,
           "regions": 3,
           "stops": 67,
-          "coins": 60877549,
-          "stamps": 13,
-          "ratePerMinute": 36348
+          "coins": 64514727,
+          "stamps": 19,
+          "ratePerMinute": 37078
         },
         {
           "day": 30,
           "cars": 23,
-          "types": 7,
+          "types": 8,
           "highestLevel": 16,
+          "workshopTotal": 69,
+          "rankClaims": 5,
           "regions": 4,
           "stops": 251,
-          "coins": 114197615,
-          "stamps": 13,
-          "ratePerMinute": 199406
+          "coins": 185324978,
+          "stamps": 22,
+          "ratePerMinute": 357908
         },
         {
           "day": 90,
           "cars": 25,
-          "types": 8,
+          "types": 9,
           "highestLevel": 17,
+          "workshopTotal": 84,
+          "rankClaims": 6,
           "regions": 5,
           "stops": 684,
-          "coins": 17529848,
-          "stamps": 27,
-          "ratePerMinute": 355554
+          "coins": 486201891,
+          "stamps": 40,
+          "ratePerMinute": 641208
         },
         {
           "day": 365,
           "cars": 25,
-          "types": 8,
+          "types": 9,
           "highestLevel": 19,
+          "workshopTotal": 100,
+          "rankClaims": 7,
           "regions": 6,
-          "stops": 2497,
-          "coins": 5697097911,
-          "stamps": 64,
-          "ratePerMinute": 617240
+          "stops": 2470,
+          "coins": 5220859724,
+          "stamps": 16,
+          "ratePerMinute": 1268324
         }
       ]
     },
@@ -597,7 +685,7 @@
       "seed": 3,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 510,
+      "totalActions": 615,
       "failed": 0,
       "points": [
         {
@@ -605,55 +693,65 @@
           "cars": 5,
           "types": 3,
           "highestLevel": 4,
+          "workshopTotal": 0,
+          "rankClaims": 2,
           "regions": 2,
           "stops": 11,
           "coins": 461516,
-          "stamps": 18,
+          "stamps": 20,
           "ratePerMinute": 1205
         },
         {
           "day": 7,
-          "cars": 13,
-          "types": 7,
+          "cars": 12,
+          "types": 6,
           "highestLevel": 10,
+          "workshopTotal": 12,
+          "rankClaims": 4,
           "regions": 3,
           "stops": 67,
-          "coins": 70062323,
-          "stamps": 13,
-          "ratePerMinute": 33559
+          "coins": 55009094,
+          "stamps": 19,
+          "ratePerMinute": 29608
         },
         {
           "day": 30,
           "cars": 23,
           "types": 7,
           "highestLevel": 16,
+          "workshopTotal": 69,
+          "rankClaims": 5,
           "regions": 4,
-          "stops": 253,
-          "coins": 25182924,
-          "stamps": 14,
-          "ratePerMinute": 195021
+          "stops": 251,
+          "coins": 110641216,
+          "stamps": 22,
+          "ratePerMinute": 296989
         },
         {
           "day": 90,
           "cars": 25,
           "types": 8,
           "highestLevel": 17,
+          "workshopTotal": 79,
+          "rankClaims": 6,
           "regions": 5,
-          "stops": 687,
-          "coins": 490092594,
-          "stamps": 27,
-          "ratePerMinute": 383386
+          "stops": 684,
+          "coins": 46903604,
+          "stamps": 40,
+          "ratePerMinute": 542726
         },
         {
           "day": 365,
           "cars": 25,
           "types": 8,
           "highestLevel": 19,
+          "workshopTotal": 100,
+          "rankClaims": 7,
           "regions": 6,
-          "stops": 2499,
-          "coins": 5687410879,
-          "stamps": 64,
-          "ratePerMinute": 678856
+          "stops": 2470,
+          "coins": 5323391688,
+          "stamps": 16,
+          "ratePerMinute": 1016628
         }
       ]
     },
@@ -662,7 +760,7 @@
       "seed": 4,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 510,
+      "totalActions": 616,
       "failed": 0,
       "points": [
         {
@@ -670,55 +768,65 @@
           "cars": 5,
           "types": 3,
           "highestLevel": 4,
+          "workshopTotal": 0,
+          "rankClaims": 2,
           "regions": 2,
           "stops": 11,
           "coins": 373251,
-          "stamps": 15,
+          "stamps": 17,
           "ratePerMinute": 1287
         },
         {
           "day": 7,
-          "cars": 13,
+          "cars": 12,
           "types": 7,
           "highestLevel": 10,
+          "workshopTotal": 15,
+          "rankClaims": 4,
           "regions": 3,
           "stops": 67,
-          "coins": 58163247,
-          "stamps": 13,
-          "ratePerMinute": 32093
+          "coins": 63008451,
+          "stamps": 19,
+          "ratePerMinute": 37074
         },
         {
           "day": 30,
-          "cars": 22,
+          "cars": 23,
           "types": 7,
           "highestLevel": 16,
+          "workshopTotal": 69,
+          "rankClaims": 5,
           "regions": 4,
           "stops": 251,
-          "coins": 17826575,
-          "stamps": 13,
-          "ratePerMinute": 206301
+          "coins": 59375240,
+          "stamps": 22,
+          "ratePerMinute": 282296
         },
         {
           "day": 90,
           "cars": 25,
           "types": 8,
           "highestLevel": 17,
+          "workshopTotal": 78,
+          "rankClaims": 6,
           "regions": 5,
           "stops": 684,
-          "coins": 43740782,
-          "stamps": 27,
-          "ratePerMinute": 376936
+          "coins": 890268731,
+          "stamps": 40,
+          "ratePerMinute": 548850
         },
         {
           "day": 365,
           "cars": 25,
           "types": 8,
           "highestLevel": 19,
+          "workshopTotal": 99,
+          "rankClaims": 7,
           "regions": 6,
-          "stops": 2497,
-          "coins": 2140938030,
-          "stamps": 64,
-          "ratePerMinute": 645728
+          "stops": 2470,
+          "coins": 457047255,
+          "stamps": 16,
+          "ratePerMinute": 1038085
         }
       ]
     },
@@ -727,7 +835,7 @@
       "seed": 5,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 510,
+      "totalActions": 619,
       "failed": 0,
       "points": [
         {
@@ -735,55 +843,65 @@
           "cars": 5,
           "types": 3,
           "highestLevel": 4,
+          "workshopTotal": 0,
+          "rankClaims": 2,
           "regions": 2,
           "stops": 11,
           "coins": 442402,
-          "stamps": 18,
+          "stamps": 20,
           "ratePerMinute": 1373
         },
         {
           "day": 7,
-          "cars": 13,
+          "cars": 12,
           "types": 7,
-          "highestLevel": 11,
+          "highestLevel": 10,
+          "workshopTotal": 18,
+          "rankClaims": 4,
           "regions": 3,
           "stops": 67,
-          "coins": 62732264,
-          "stamps": 13,
-          "ratePerMinute": 41074
+          "coins": 76985627,
+          "stamps": 19,
+          "ratePerMinute": 38112
         },
         {
           "day": 30,
           "cars": 23,
-          "types": 7,
+          "types": 8,
           "highestLevel": 16,
+          "workshopTotal": 69,
+          "rankClaims": 5,
           "regions": 4,
           "stops": 251,
-          "coins": 1661048,
-          "stamps": 13,
-          "ratePerMinute": 212226
+          "coins": 22231329,
+          "stamps": 22,
+          "ratePerMinute": 372247
         },
         {
           "day": 90,
           "cars": 25,
-          "types": 8,
+          "types": 9,
           "highestLevel": 17,
+          "workshopTotal": 83,
+          "rankClaims": 6,
           "regions": 5,
           "stops": 684,
-          "coins": 396715300,
-          "stamps": 27,
-          "ratePerMinute": 383617
+          "coins": 867343723,
+          "stamps": 40,
+          "ratePerMinute": 658959
         },
         {
           "day": 365,
           "cars": 25,
-          "types": 8,
+          "types": 9,
           "highestLevel": 19,
+          "workshopTotal": 100,
+          "rankClaims": 7,
           "regions": 6,
-          "stops": 2497,
-          "coins": 1709328778,
-          "stamps": 64,
-          "ratePerMinute": 692461
+          "stops": 2470,
+          "coins": 4913473030,
+          "stamps": 16,
+          "ratePerMinute": 1373920
         }
       ]
     },
@@ -792,7 +910,7 @@
       "seed": 6,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 509,
+      "totalActions": 618,
       "failed": 0,
       "points": [
         {
@@ -800,55 +918,65 @@
           "cars": 5,
           "types": 2,
           "highestLevel": 4,
+          "workshopTotal": 0,
+          "rankClaims": 2,
           "regions": 2,
           "stops": 11,
           "coins": 372813,
-          "stamps": 18,
+          "stamps": 20,
           "ratePerMinute": 946
         },
         {
           "day": 7,
-          "cars": 13,
-          "types": 7,
-          "highestLevel": 11,
+          "cars": 11,
+          "types": 6,
+          "highestLevel": 10,
+          "workshopTotal": 16,
+          "rankClaims": 4,
           "regions": 3,
           "stops": 67,
-          "coins": 59082873,
-          "stamps": 13,
-          "ratePerMinute": 36537
+          "coins": 66963203,
+          "stamps": 19,
+          "ratePerMinute": 36511
         },
         {
           "day": 30,
           "cars": 23,
-          "types": 7,
-          "highestLevel": 15,
+          "types": 8,
+          "highestLevel": 16,
+          "workshopTotal": 69,
+          "rankClaims": 5,
           "regions": 4,
           "stops": 251,
-          "coins": 111552875,
-          "stamps": 13,
-          "ratePerMinute": 205776
+          "coins": 172244157,
+          "stamps": 22,
+          "ratePerMinute": 338941
         },
         {
           "day": 90,
           "cars": 25,
-          "types": 8,
+          "types": 9,
           "highestLevel": 17,
+          "workshopTotal": 83,
+          "rankClaims": 6,
           "regions": 5,
           "stops": 684,
-          "coins": 271299254,
-          "stamps": 27,
-          "ratePerMinute": 367480
+          "coins": 499878297,
+          "stamps": 40,
+          "ratePerMinute": 638372
         },
         {
           "day": 365,
           "cars": 25,
-          "types": 8,
+          "types": 9,
           "highestLevel": 19,
+          "workshopTotal": 100,
+          "rankClaims": 7,
           "regions": 6,
           "stops": 2470,
-          "coins": 5286909452,
-          "stamps": 63,
-          "ratePerMinute": 659195
+          "coins": 3991099393,
+          "stamps": 16,
+          "ratePerMinute": 1272904
         }
       ]
     },
@@ -857,7 +985,7 @@
       "seed": 1,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 511,
+      "totalActions": 617,
       "failed": 0,
       "points": [
         {
@@ -865,55 +993,65 @@
           "cars": 6,
           "types": 5,
           "highestLevel": 5,
+          "workshopTotal": 0,
+          "rankClaims": 2,
           "regions": 2,
           "stops": 16,
           "coins": 637525,
-          "stamps": 15,
+          "stamps": 17,
           "ratePerMinute": 3068
         },
         {
           "day": 7,
-          "cars": 17,
+          "cars": 15,
           "types": 7,
           "highestLevel": 13,
+          "workshopTotal": 25,
+          "rankClaims": 4,
           "regions": 3,
           "stops": 97,
-          "coins": 1757315,
-          "stamps": 6,
-          "ratePerMinute": 89670
+          "coins": 72822723,
+          "stamps": 12,
+          "ratePerMinute": 92918
         },
         {
           "day": 30,
           "cars": 23,
           "types": 7,
           "highestLevel": 16,
+          "workshopTotal": 69,
+          "rankClaims": 5,
           "regions": 4,
-          "stops": 372,
-          "coins": 12567212,
-          "stamps": 12,
-          "ratePerMinute": 214136
+          "stops": 368,
+          "coins": 11878751,
+          "stamps": 11,
+          "ratePerMinute": 285648
         },
         {
           "day": 90,
           "cars": 25,
           "types": 8,
           "highestLevel": 17,
+          "workshopTotal": 79,
+          "rankClaims": 7,
           "regions": 5,
-          "stops": 1009,
-          "coins": 533458475,
-          "stamps": 27,
-          "ratePerMinute": 400641
+          "stops": 1002,
+          "coins": 589960069,
+          "stamps": 44,
+          "ratePerMinute": 588647
         },
         {
           "day": 365,
           "cars": 25,
           "types": 8,
           "highestLevel": 19,
+          "workshopTotal": 99,
+          "rankClaims": 8,
           "regions": 6,
-          "stops": 3638,
-          "coins": 3664527174,
-          "stamps": 70,
-          "ratePerMinute": 724946
+          "stops": 3652,
+          "coins": 5085868505,
+          "stamps": 29,
+          "ratePerMinute": 1112653
         }
       ]
     },
@@ -922,7 +1060,7 @@
       "seed": 2,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 510,
+      "totalActions": 619,
       "failed": 0,
       "points": [
         {
@@ -930,55 +1068,65 @@
           "cars": 7,
           "types": 5,
           "highestLevel": 4,
+          "workshopTotal": 0,
+          "rankClaims": 2,
           "regions": 2,
           "stops": 16,
           "coins": 709762,
-          "stamps": 15,
+          "stamps": 17,
           "ratePerMinute": 2868
         },
         {
           "day": 7,
-          "cars": 16,
+          "cars": 14,
           "types": 7,
           "highestLevel": 13,
+          "workshopTotal": 25,
+          "rankClaims": 4,
           "regions": 3,
           "stops": 97,
-          "coins": 443771,
-          "stamps": 9,
-          "ratePerMinute": 85389
+          "coins": 74699740,
+          "stamps": 15,
+          "ratePerMinute": 95449
         },
         {
           "day": 30,
           "cars": 23,
-          "types": 7,
+          "types": 8,
           "highestLevel": 16,
+          "workshopTotal": 69,
+          "rankClaims": 5,
           "regions": 4,
-          "stops": 372,
-          "coins": 126728462,
-          "stamps": 12,
-          "ratePerMinute": 205158
+          "stops": 368,
+          "coins": 35409998,
+          "stamps": 11,
+          "ratePerMinute": 369533
         },
         {
           "day": 90,
           "cars": 25,
-          "types": 8,
+          "types": 9,
           "highestLevel": 17,
+          "workshopTotal": 84,
+          "rankClaims": 7,
           "regions": 5,
-          "stops": 1009,
-          "coins": 573531878,
-          "stamps": 27,
-          "ratePerMinute": 361285
+          "stops": 1002,
+          "coins": 774383505,
+          "stamps": 44,
+          "ratePerMinute": 683181
         },
         {
           "day": 365,
           "cars": 25,
-          "types": 8,
+          "types": 9,
           "highestLevel": 19,
+          "workshopTotal": 100,
+          "rankClaims": 8,
           "regions": 6,
-          "stops": 3638,
-          "coins": 1860916688,
-          "stamps": 70,
-          "ratePerMinute": 650614
+          "stops": 3652,
+          "coins": 10033166146,
+          "stamps": 29,
+          "ratePerMinute": 1425187
         }
       ]
     },
@@ -987,7 +1135,7 @@
       "seed": 3,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 511,
+      "totalActions": 617,
       "failed": 0,
       "points": [
         {
@@ -995,55 +1143,65 @@
           "cars": 7,
           "types": 5,
           "highestLevel": 5,
+          "workshopTotal": 0,
+          "rankClaims": 2,
           "regions": 2,
           "stops": 16,
-          "coins": 715034,
-          "stamps": 15,
-          "ratePerMinute": 3183
+          "coins": 740960,
+          "stamps": 10,
+          "ratePerMinute": 3318
         },
         {
           "day": 7,
-          "cars": 17,
+          "cars": 14,
           "types": 7,
           "highestLevel": 13,
+          "workshopTotal": 26,
+          "rankClaims": 4,
           "regions": 3,
           "stops": 97,
-          "coins": 1852874,
-          "stamps": 6,
-          "ratePerMinute": 90711
+          "coins": 80104909,
+          "stamps": 4,
+          "ratePerMinute": 90556
         },
         {
           "day": 30,
           "cars": 23,
           "types": 7,
           "highestLevel": 16,
+          "workshopTotal": 69,
+          "rankClaims": 5,
           "regions": 4,
-          "stops": 372,
-          "coins": 6969244,
-          "stamps": 12,
-          "ratePerMinute": 202911
+          "stops": 370,
+          "coins": 187867847,
+          "stamps": 11,
+          "ratePerMinute": 290975
         },
         {
           "day": 90,
           "cars": 25,
           "types": 8,
           "highestLevel": 17,
+          "workshopTotal": 81,
+          "rankClaims": 7,
           "regions": 5,
-          "stops": 1009,
-          "coins": 84213091,
-          "stamps": 27,
-          "ratePerMinute": 400193
+          "stops": 1005,
+          "coins": 82075186,
+          "stamps": 44,
+          "ratePerMinute": 569249
         },
         {
           "day": 365,
           "cars": 25,
           "types": 8,
           "highestLevel": 19,
+          "workshopTotal": 99,
+          "rankClaims": 8,
           "regions": 6,
-          "stops": 3638,
-          "coins": 2231669103,
-          "stamps": 70,
-          "ratePerMinute": 680020
+          "stops": 3626,
+          "coins": 369983218,
+          "stamps": 28,
+          "ratePerMinute": 1125513
         }
       ]
     },
@@ -1052,7 +1210,7 @@
       "seed": 4,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 509,
+      "totalActions": 616,
       "failed": 0,
       "points": [
         {
@@ -1060,55 +1218,65 @@
           "cars": 6,
           "types": 5,
           "highestLevel": 5,
+          "workshopTotal": 0,
+          "rankClaims": 2,
           "regions": 2,
           "stops": 16,
           "coins": 701136,
-          "stamps": 15,
-          "ratePerMinute": 2926
+          "stamps": 10,
+          "ratePerMinute": 3077
         },
         {
           "day": 7,
-          "cars": 16,
+          "cars": 14,
           "types": 7,
           "highestLevel": 13,
+          "workshopTotal": 25,
+          "rankClaims": 4,
           "regions": 3,
           "stops": 97,
-          "coins": 848534,
-          "stamps": 16,
-          "ratePerMinute": 88855
+          "coins": 35364622,
+          "stamps": 12,
+          "ratePerMinute": 100825
         },
         {
           "day": 30,
-          "cars": 22,
+          "cars": 23,
           "types": 7,
           "highestLevel": 16,
+          "workshopTotal": 69,
+          "rankClaims": 5,
           "regions": 4,
-          "stops": 372,
-          "coins": 107902247,
-          "stamps": 12,
-          "ratePerMinute": 188227
+          "stops": 370,
+          "coins": 101616276,
+          "stamps": 11,
+          "ratePerMinute": 284530
         },
         {
           "day": 90,
           "cars": 25,
           "types": 8,
           "highestLevel": 17,
+          "workshopTotal": 80,
+          "rankClaims": 7,
           "regions": 5,
-          "stops": 1009,
-          "coins": 196959090,
-          "stamps": 27,
-          "ratePerMinute": 371349
+          "stops": 1005,
+          "coins": 104011896,
+          "stamps": 44,
+          "ratePerMinute": 535015
         },
         {
           "day": 365,
           "cars": 25,
           "types": 8,
           "highestLevel": 19,
+          "workshopTotal": 99,
+          "rankClaims": 8,
           "regions": 6,
-          "stops": 3638,
-          "coins": 4817378875,
-          "stamps": 70,
-          "ratePerMinute": 624118
+          "stops": 3656,
+          "coins": 6973577988,
+          "stamps": 30,
+          "ratePerMinute": 1002066
         }
       ]
     },
@@ -1117,7 +1285,7 @@
       "seed": 5,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 510,
+      "totalActions": 617,
       "failed": 0,
       "points": [
         {
@@ -1125,55 +1293,65 @@
           "cars": 7,
           "types": 5,
           "highestLevel": 4,
+          "workshopTotal": 0,
+          "rankClaims": 2,
           "regions": 2,
           "stops": 16,
           "coins": 805925,
-          "stamps": 15,
+          "stamps": 17,
           "ratePerMinute": 2691
         },
         {
           "day": 7,
-          "cars": 15,
+          "cars": 14,
           "types": 7,
           "highestLevel": 13,
+          "workshopTotal": 25,
+          "rankClaims": 4,
           "regions": 3,
           "stops": 97,
-          "coins": 518655,
-          "stamps": 9,
-          "ratePerMinute": 86877
+          "coins": 33121047,
+          "stamps": 15,
+          "ratePerMinute": 98945
         },
         {
           "day": 30,
           "cars": 23,
           "types": 7,
           "highestLevel": 16,
+          "workshopTotal": 69,
+          "rankClaims": 5,
           "regions": 4,
-          "stops": 369,
-          "coins": 133159568,
-          "stamps": 12,
-          "ratePerMinute": 206457
+          "stops": 368,
+          "coins": 115943210,
+          "stamps": 11,
+          "ratePerMinute": 300178
         },
         {
           "day": 90,
           "cars": 25,
           "types": 8,
           "highestLevel": 17,
+          "workshopTotal": 81,
+          "rankClaims": 7,
           "regions": 5,
-          "stops": 1007,
-          "coins": 284569847,
-          "stamps": 26,
-          "ratePerMinute": 369671
+          "stops": 1002,
+          "coins": 590630803,
+          "stamps": 44,
+          "ratePerMinute": 535546
         },
         {
           "day": 365,
           "cars": 25,
           "types": 8,
           "highestLevel": 19,
+          "workshopTotal": 100,
+          "rankClaims": 8,
           "regions": 6,
-          "stops": 3636,
-          "coins": 2259361857,
-          "stamps": 70,
-          "ratePerMinute": 648872
+          "stops": 3652,
+          "coins": 819201347,
+          "stamps": 29,
+          "ratePerMinute": 988876
         }
       ]
     },
@@ -1182,7 +1360,7 @@
       "seed": 6,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 511,
+      "totalActions": 617,
       "failed": 0,
       "points": [
         {
@@ -1190,10 +1368,12 @@
           "cars": 7,
           "types": 5,
           "highestLevel": 4,
+          "workshopTotal": 0,
+          "rankClaims": 2,
           "regions": 2,
           "stops": 16,
           "coins": 767836,
-          "stamps": 15,
+          "stamps": 17,
           "ratePerMinute": 2864
         },
         {
@@ -1201,44 +1381,52 @@
           "cars": 15,
           "types": 7,
           "highestLevel": 13,
+          "workshopTotal": 25,
+          "rankClaims": 4,
           "regions": 3,
           "stops": 97,
-          "coins": 1111201,
-          "stamps": 9,
-          "ratePerMinute": 91814
+          "coins": 43864544,
+          "stamps": 15,
+          "ratePerMinute": 98699
         },
         {
           "day": 30,
-          "cars": 22,
+          "cars": 23,
           "types": 7,
           "highestLevel": 16,
+          "workshopTotal": 69,
+          "rankClaims": 5,
           "regions": 4,
-          "stops": 372,
-          "coins": 109425609,
-          "stamps": 12,
-          "ratePerMinute": 200423
+          "stops": 368,
+          "coins": 31524949,
+          "stamps": 11,
+          "ratePerMinute": 305856
         },
         {
           "day": 90,
           "cars": 25,
           "types": 8,
           "highestLevel": 17,
+          "workshopTotal": 80,
+          "rankClaims": 7,
           "regions": 5,
-          "stops": 1009,
-          "coins": 395042434,
-          "stamps": 27,
-          "ratePerMinute": 396610
+          "stops": 1002,
+          "coins": 713210238,
+          "stamps": 44,
+          "ratePerMinute": 560748
         },
         {
           "day": 365,
           "cars": 25,
           "types": 8,
           "highestLevel": 19,
+          "workshopTotal": 99,
+          "rankClaims": 8,
           "regions": 6,
-          "stops": 3638,
-          "coins": 2885563598,
-          "stamps": 70,
-          "ratePerMinute": 697378
+          "stops": 3652,
+          "coins": 6535572987,
+          "stamps": 29,
+          "ratePerMinute": 1072251
         }
       ]
     },
@@ -1247,63 +1435,73 @@
       "seed": 1,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 523,
+      "totalActions": 629,
       "failed": 0,
       "points": [
         {
           "day": 1,
-          "cars": 8,
-          "types": 6,
-          "highestLevel": 7,
+          "cars": 7,
+          "types": 5,
+          "highestLevel": 6,
+          "workshopTotal": 6,
+          "rankClaims": 3,
           "regions": 2,
           "stops": 31,
-          "coins": 2075367,
-          "stamps": 18,
-          "ratePerMinute": 7700
+          "coins": 2271979,
+          "stamps": 15,
+          "ratePerMinute": 7568
         },
         {
           "day": 7,
-          "cars": 20,
+          "cars": 19,
           "types": 7,
           "highestLevel": 14,
+          "workshopTotal": 40,
+          "rankClaims": 5,
           "regions": 4,
           "stops": 180,
-          "coins": 3271283,
-          "stamps": 19,
-          "ratePerMinute": 133405
+          "coins": 5922359,
+          "stamps": 13,
+          "ratePerMinute": 174043
         },
         {
           "day": 30,
-          "cars": 23,
+          "cars": 24,
           "types": 7,
           "highestLevel": 16,
+          "workshopTotal": 72,
+          "rankClaims": 6,
           "regions": 5,
           "stops": 684,
-          "coins": 144703987,
-          "stamps": 27,
-          "ratePerMinute": 232175
+          "coins": 372872578,
+          "stamps": 40,
+          "ratePerMinute": 367509
         },
         {
           "day": 90,
           "cars": 25,
           "types": 8,
           "highestLevel": 18,
+          "workshopTotal": 95,
+          "rankClaims": 7,
           "regions": 6,
-          "stops": 1877,
-          "coins": 1107138209,
-          "stamps": 39,
-          "ratePerMinute": 470115
+          "stops": 1873,
+          "coins": 106631673,
+          "stamps": 57,
+          "ratePerMinute": 690281
         },
         {
           "day": 365,
           "cars": 25,
           "types": 8,
           "highestLevel": 20,
+          "workshopTotal": 100,
+          "rankClaims": 9,
           "regions": 6,
-          "stops": 7090,
-          "coins": 3261437370,
-          "stamps": 222,
-          "ratePerMinute": 766896
+          "stops": 7082,
+          "coins": 9369475921,
+          "stamps": 254,
+          "ratePerMinute": 1165154
         }
       ]
     },
@@ -1312,63 +1510,73 @@
       "seed": 2,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 523,
+      "totalActions": 629,
       "failed": 0,
       "points": [
         {
           "day": 1,
-          "cars": 8,
-          "types": 6,
-          "highestLevel": 7,
+          "cars": 7,
+          "types": 5,
+          "highestLevel": 6,
+          "workshopTotal": 6,
+          "rankClaims": 3,
           "regions": 2,
           "stops": 31,
-          "coins": 2275103,
-          "stamps": 18,
-          "ratePerMinute": 8794
+          "coins": 2504627,
+          "stamps": 15,
+          "ratePerMinute": 7736
         },
         {
           "day": 7,
-          "cars": 20,
+          "cars": 19,
           "types": 7,
           "highestLevel": 14,
+          "workshopTotal": 42,
+          "rankClaims": 5,
           "regions": 4,
           "stops": 180,
-          "coins": 2223648,
-          "stamps": 19,
-          "ratePerMinute": 143167
+          "coins": 8416830,
+          "stamps": 13,
+          "ratePerMinute": 170744
         },
         {
           "day": 30,
-          "cars": 23,
+          "cars": 24,
           "types": 7,
           "highestLevel": 16,
+          "workshopTotal": 72,
+          "rankClaims": 6,
           "regions": 5,
           "stops": 684,
-          "coins": 147332934,
-          "stamps": 27,
-          "ratePerMinute": 233181
+          "coins": 437177618,
+          "stamps": 40,
+          "ratePerMinute": 357051
         },
         {
           "day": 90,
           "cars": 25,
           "types": 8,
           "highestLevel": 18,
+          "workshopTotal": 95,
+          "rankClaims": 7,
           "regions": 6,
-          "stops": 1877,
-          "coins": 1179559855,
-          "stamps": 39,
-          "ratePerMinute": 480495
+          "stops": 1873,
+          "coins": 1521794010,
+          "stamps": 57,
+          "ratePerMinute": 672676
         },
         {
           "day": 365,
           "cars": 25,
           "types": 8,
           "highestLevel": 20,
+          "workshopTotal": 100,
+          "rankClaims": 9,
           "regions": 6,
-          "stops": 7090,
-          "coins": 5951012122,
-          "stamps": 222,
-          "ratePerMinute": 784321
+          "stops": 7082,
+          "coins": 9437431753,
+          "stamps": 254,
+          "ratePerMinute": 1157683
         }
       ]
     },
@@ -1377,63 +1585,73 @@
       "seed": 3,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 522,
+      "totalActions": 629,
       "failed": 0,
       "points": [
         {
           "day": 1,
-          "cars": 8,
-          "types": 6,
-          "highestLevel": 7,
+          "cars": 7,
+          "types": 5,
+          "highestLevel": 6,
+          "workshopTotal": 6,
+          "rankClaims": 3,
           "regions": 2,
           "stops": 31,
-          "coins": 2201894,
-          "stamps": 11,
-          "ratePerMinute": 8907
+          "coins": 2298753,
+          "stamps": 15,
+          "ratePerMinute": 7651
         },
         {
           "day": 7,
-          "cars": 20,
+          "cars": 19,
           "types": 7,
           "highestLevel": 14,
+          "workshopTotal": 40,
+          "rankClaims": 5,
           "regions": 4,
           "stops": 180,
-          "coins": 7928993,
-          "stamps": 19,
-          "ratePerMinute": 138114
+          "coins": 3959716,
+          "stamps": 13,
+          "ratePerMinute": 176363
         },
         {
           "day": 30,
-          "cars": 23,
+          "cars": 24,
           "types": 7,
           "highestLevel": 16,
+          "workshopTotal": 72,
+          "rankClaims": 6,
           "regions": 5,
           "stops": 684,
-          "coins": 50533308,
-          "stamps": 27,
-          "ratePerMinute": 238514
+          "coins": 445152425,
+          "stamps": 40,
+          "ratePerMinute": 361213
         },
         {
           "day": 90,
           "cars": 25,
           "types": 8,
           "highestLevel": 18,
+          "workshopTotal": 95,
+          "rankClaims": 7,
           "regions": 6,
-          "stops": 1877,
-          "coins": 68610617,
-          "stamps": 39,
-          "ratePerMinute": 479377
+          "stops": 1873,
+          "coins": 56642267,
+          "stamps": 57,
+          "ratePerMinute": 673943
         },
         {
           "day": 365,
           "cars": 25,
           "types": 8,
           "highestLevel": 20,
+          "workshopTotal": 100,
+          "rankClaims": 9,
           "regions": 6,
-          "stops": 7090,
-          "coins": 14147353162,
-          "stamps": 222,
-          "ratePerMinute": 747954
+          "stops": 7082,
+          "coins": 12175267139,
+          "stamps": 254,
+          "ratePerMinute": 1145584
         }
       ]
     },
@@ -1442,63 +1660,73 @@
       "seed": 4,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 522,
+      "totalActions": 629,
       "failed": 0,
       "points": [
         {
           "day": 1,
-          "cars": 8,
-          "types": 6,
-          "highestLevel": 7,
+          "cars": 7,
+          "types": 5,
+          "highestLevel": 6,
+          "workshopTotal": 6,
+          "rankClaims": 3,
           "regions": 2,
           "stops": 31,
-          "coins": 2161110,
-          "stamps": 18,
-          "ratePerMinute": 8429
+          "coins": 2442966,
+          "stamps": 15,
+          "ratePerMinute": 7428
         },
         {
           "day": 7,
           "cars": 19,
           "types": 7,
           "highestLevel": 14,
+          "workshopTotal": 41,
+          "rankClaims": 5,
           "regions": 4,
           "stops": 180,
-          "coins": 5544123,
-          "stamps": 14,
-          "ratePerMinute": 132973
+          "coins": 4611359,
+          "stamps": 13,
+          "ratePerMinute": 167611
         },
         {
           "day": 30,
-          "cars": 23,
+          "cars": 24,
           "types": 7,
           "highestLevel": 16,
+          "workshopTotal": 72,
+          "rankClaims": 6,
           "regions": 5,
           "stops": 684,
-          "coins": 36279068,
-          "stamps": 27,
-          "ratePerMinute": 241463
+          "coins": 425390059,
+          "stamps": 40,
+          "ratePerMinute": 361322
         },
         {
           "day": 90,
           "cars": 25,
           "types": 8,
           "highestLevel": 18,
+          "workshopTotal": 95,
+          "rankClaims": 7,
           "regions": 6,
-          "stops": 1877,
-          "coins": 269740106,
-          "stamps": 39,
-          "ratePerMinute": 475720
+          "stops": 1873,
+          "coins": 1673160186,
+          "stamps": 57,
+          "ratePerMinute": 682606
         },
         {
           "day": 365,
           "cars": 25,
           "types": 8,
           "highestLevel": 20,
+          "workshopTotal": 100,
+          "rankClaims": 9,
           "regions": 6,
-          "stops": 7090,
-          "coins": 14323636512,
-          "stamps": 222,
-          "ratePerMinute": 716964
+          "stops": 7082,
+          "coins": 10142681785,
+          "stamps": 254,
+          "ratePerMinute": 1175499
         }
       ]
     },
@@ -1507,63 +1735,73 @@
       "seed": 5,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 522,
+      "totalActions": 629,
       "failed": 0,
       "points": [
         {
           "day": 1,
-          "cars": 8,
-          "types": 6,
-          "highestLevel": 7,
+          "cars": 7,
+          "types": 5,
+          "highestLevel": 6,
+          "workshopTotal": 6,
+          "rankClaims": 3,
           "regions": 2,
           "stops": 31,
-          "coins": 2048315,
-          "stamps": 18,
-          "ratePerMinute": 7832
+          "coins": 2125584,
+          "stamps": 22,
+          "ratePerMinute": 6759
         },
         {
           "day": 7,
-          "cars": 20,
+          "cars": 19,
           "types": 7,
           "highestLevel": 14,
+          "workshopTotal": 44,
+          "rankClaims": 5,
           "regions": 4,
           "stops": 180,
-          "coins": 3714322,
-          "stamps": 19,
-          "ratePerMinute": 131996
+          "coins": 2080933,
+          "stamps": 13,
+          "ratePerMinute": 173269
         },
         {
           "day": 30,
-          "cars": 23,
+          "cars": 24,
           "types": 7,
           "highestLevel": 16,
+          "workshopTotal": 72,
+          "rankClaims": 6,
           "regions": 5,
           "stops": 684,
-          "coins": 137583240,
-          "stamps": 27,
-          "ratePerMinute": 234292
+          "coins": 456757019,
+          "stamps": 40,
+          "ratePerMinute": 350733
         },
         {
           "day": 90,
           "cars": 25,
           "types": 8,
           "highestLevel": 18,
+          "workshopTotal": 95,
+          "rankClaims": 7,
           "regions": 6,
-          "stops": 1877,
-          "coins": 442282324,
-          "stamps": 39,
-          "ratePerMinute": 459732
+          "stops": 1873,
+          "coins": 1339681112,
+          "stamps": 57,
+          "ratePerMinute": 658570
         },
         {
           "day": 365,
           "cars": 25,
           "types": 8,
           "highestLevel": 20,
+          "workshopTotal": 100,
+          "rankClaims": 9,
           "regions": 6,
-          "stops": 7090,
-          "coins": 12716788880,
-          "stamps": 222,
-          "ratePerMinute": 724728
+          "stops": 7082,
+          "coins": 9727027306,
+          "stamps": 254,
+          "ratePerMinute": 1105839
         }
       ]
     },
@@ -1572,63 +1810,73 @@
       "seed": 6,
       "firstCar": 1,
       "firstUpgrade": 1,
-      "totalActions": 523,
+      "totalActions": 629,
       "failed": 0,
       "points": [
         {
           "day": 1,
-          "cars": 8,
-          "types": 6,
-          "highestLevel": 7,
+          "cars": 7,
+          "types": 5,
+          "highestLevel": 6,
+          "workshopTotal": 6,
+          "rankClaims": 3,
           "regions": 2,
           "stops": 31,
-          "coins": 2168852,
-          "stamps": 18,
-          "ratePerMinute": 8397
+          "coins": 2253614,
+          "stamps": 15,
+          "ratePerMinute": 6998
         },
         {
           "day": 7,
           "cars": 19,
           "types": 7,
           "highestLevel": 14,
+          "workshopTotal": 41,
+          "rankClaims": 5,
           "regions": 4,
           "stops": 180,
-          "coins": 17680746,
-          "stamps": 14,
-          "ratePerMinute": 132963
+          "coins": 5932882,
+          "stamps": 13,
+          "ratePerMinute": 169296
         },
         {
           "day": 30,
-          "cars": 23,
+          "cars": 24,
           "types": 7,
           "highestLevel": 16,
+          "workshopTotal": 72,
+          "rankClaims": 6,
           "regions": 5,
           "stops": 684,
-          "coins": 241654957,
-          "stamps": 27,
-          "ratePerMinute": 230905
+          "coins": 357175108,
+          "stamps": 40,
+          "ratePerMinute": 361917
         },
         {
           "day": 90,
           "cars": 25,
           "types": 8,
           "highestLevel": 18,
+          "workshopTotal": 95,
+          "rankClaims": 7,
           "regions": 6,
-          "stops": 1877,
-          "coins": 1021589003,
-          "stamps": 39,
-          "ratePerMinute": 485520
+          "stops": 1873,
+          "coins": 73922771,
+          "stamps": 57,
+          "ratePerMinute": 686099
         },
         {
           "day": 365,
           "cars": 25,
           "types": 8,
           "highestLevel": 20,
+          "workshopTotal": 100,
+          "rankClaims": 9,
           "regions": 6,
-          "stops": 7090,
-          "coins": 647802496,
-          "stamps": 222,
-          "ratePerMinute": 750381
+          "stops": 7082,
+          "coins": 11195127953,
+          "stamps": 254,
+          "ratePerMinute": 1156470
         }
       ]
     }

@@ -1,11 +1,11 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
   "productName": "Last Stop The Everline",
-  "version": "7.0.0",
+  "version": "8.0.0",
   "identifier": "com.laststop.everline",
   "build": {
     "beforeDevCommand": "npm run dev",
-    "devUrl": "http://127.0.0.1:4173",
+    "devUrl": "http://128.0.0.1:4173",
     "beforeBuildCommand": "npm run build",
     "frontendDist": "../dist"
   },

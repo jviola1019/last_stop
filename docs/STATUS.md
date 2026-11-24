@@ -1,3 +1,7 @@
+# V8 Masterworks
+
+Local 73-unit-test/type-check/build verification passed. V8 workshop, rank and next-grade features implemented; art and model evidence in V8_RELEASE_AUDIT.md. Corrected V7 CI passed website and Windows, but V8 requires its own remote run.
+
 # V7 Grand Journey — current release candidate
 
 See [V7_RELEASE_AUDIT.md](V7_RELEASE_AUDIT.md) for the latest executed results and unresolved gates. Historical results below are not evidence of the current build.

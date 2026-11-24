@@ -15,7 +15,7 @@ for p in sorted(root.glob('*.svg')):
  if 'data:image/png;base64' in svg:continue # idempotent, regenerate geometry for a new pass
  m=re.search(r'viewBox="0 0 (\d+) (\d+)"',svg)
  if not m:raise ValueError(p)
- w,h=map(int,m.groups());ratio=2;sw,sh=round(w/ratio),round(h/ratio)
+ w,h=map(int,m.groups());ratio=1 if p.name.startswith('engine-') else 2;sw,sh=round(w/ratio),round(h/ratio)
  # Raster art at the actual pixel grid, followed by subtle, deterministic dither and a warm/cool shadow script.
  raw=cairosvg.svg2png(bytestring=svg.encode(),output_width=sw,output_height=sh)
  im=Image.open(io.BytesIO(raw)).convert('RGBA');a=np.array(im,dtype=np.float32);rgb=a[:,:,:3];alpha=a[:,:,3]

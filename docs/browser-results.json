@@ -29,9 +29,9 @@
         "x": 24,
         "y": 270,
         "w": 305,
-        "h": 333.078125,
+        "h": 337.265625,
         "right": 329,
-        "bottom": 603.078125,
+        "bottom": 607.265625,
         "font": "Baskerville, \"Iowan Old Style\", \"Book Antiqua\", \"Palatino Linotype\", Georgia, serif",
         "fontSize": "16px"
       },
@@ -87,9 +87,9 @@
           "h": 60
         },
         {
-          "label": "Upgrade room 99",
+          "label": "Upgrade room +1,286/hr 99",
           "w": 275,
-          "h": 53
+          "h": 57.1875
         },
         {
           "label": "HIRE NELL \u00b7 167",
@@ -134,7 +134,7 @@
           "client": 16
         },
         {
-          "value": "01:18",
+          "value": "01:19",
           "scroll": 72,
           "client": 72
         },
@@ -260,7 +260,7 @@
           "h": 44
         },
         {
-          "label": "Upgrade room 99",
+          "label": "Upgrade room +1,286/hr 99",
           "w": 426,
           "h": 46
         },
@@ -433,7 +433,7 @@
           "h": 44
         },
         {
-          "label": "Upgrade room 99",
+          "label": "Upgrade room +1,286/hr 99",
           "w": 342,
           "h": 46
         },
@@ -606,7 +606,7 @@
           "h": 44
         },
         {
-          "label": "Upgrade room 99",
+          "label": "Upgrade room +1,286/hr 99",
           "w": 272,
           "h": 45
         },

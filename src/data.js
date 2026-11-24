@@ -150,3 +150,23 @@ export const HERITAGE_PROJECTS=Object.freeze([
  {id:'endowment',name:'The Everline Endowment',coins:5e8,stamps:100,stops:8000}
 ]);
 export const SEASONS=['Spring','Summer','Autumn','Winter'];
+
+// Optional workshop licenses: four individually visible service improvements per carriage.
+export const WORKSHOP_STAGES=Object.freeze([
+ {level:5,name:'Craft finish',detail:'Solid wood and hand-set brass',bonus:.12},
+ {level:9,name:'Signature service',detail:'Tailored furnishings and illuminated service plaque',bonus:.12},
+ {level:13,name:'Grand commission',detail:'Ornamental carriage fascia and commissioned fittings',bonus:.12},
+ {level:17,name:'Master certificate',detail:'Heritage enamel and illuminated masterwork crest',bonus:.12}
+]);
+export const SERVICE_RANKS=Object.freeze([
+ {id:'r1',stops:1,name:'First Departure',stamps:1},
+ {id:'r2',stops:5,name:'Local Service',stamps:1},
+ {id:'r3',stops:20,name:'Branch Line',stamps:2},
+ {id:'r4',stops:60,name:'Regional Express',stamps:2},
+ {id:'r5',stops:150,name:'Grand Touring',stamps:3},
+ {id:'r6',stops:400,name:'Continental Service',stamps:4},
+ {id:'r7',stops:1000,name:'International Railway',stamps:5},
+ {id:'r8',stops:2500,name:'Heritage Line',stamps:6},
+ {id:'r9',stops:5000,name:'Railway of Distinction',stamps:8},
+ {id:'r10',stops:10000,name:'Everline Master',stamps:10}
+]);

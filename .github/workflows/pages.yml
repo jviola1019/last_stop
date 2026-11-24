@@ -39,6 +39,7 @@ jobs:
           path: |
             docs/*results.json
             docs/v7-*.png
+            docs/v8-*.png
       - uses: actions/upload-artifact@v4
         with:
           name: everline-website

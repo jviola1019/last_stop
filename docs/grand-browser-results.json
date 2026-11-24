@@ -8,9 +8,12 @@
     "season": "Winter",
     "escapedName": true,
     "decodedArtAssets": 43,
+    "workshop": true,
+    "rankClaim": true,
+    "distinctPreviews": 4,
     "detachedDiagnostics": true,
     "cachePixels": 1638144,
-    "paintP95": 7.2000000001862645,
+    "paintP95": 3.900000000372529,
     "pageErrors": []
   },
   {
@@ -22,9 +25,12 @@
     "season": "Winter",
     "escapedName": true,
     "decodedArtAssets": 43,
+    "workshop": true,
+    "rankClaim": true,
+    "distinctPreviews": 4,
     "detachedDiagnostics": true,
     "cachePixels": 480192,
-    "paintP95": 2.900000000372529,
+    "paintP95": 2.7999999998137355,
     "pageErrors": []
   }
 ]
