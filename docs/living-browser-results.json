@@ -1,0 +1,18 @@
+[
+  {
+    "device": "desktop",
+    "cars": 25,
+    "fps_sample": 34.6,
+    "low_power_fps_sample": 25.7,
+    "refit_at_station": true,
+    "errors": []
+  },
+  {
+    "device": "iphone",
+    "cars": 25,
+    "fps_sample": 56.6,
+    "low_power_fps_sample": 28.2,
+    "refit_at_station": true,
+    "errors": []
+  }
+]

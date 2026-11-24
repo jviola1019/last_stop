@@ -1,65 +1,65 @@
-> **Visual refresh · v3.0** — The art-driven railway interface now has a defined serif/sans typography system, original railway iconography, 44px interaction minimums, a compact responsive carriage ticket, and measured four-viewport layout checks. See [`docs/TYPOGRAPHY_QA.md`](docs/TYPOGRAPHY_QA.md).
+# V6 — Living Railway
 
-# LAST STOP: THE EVERLINE — Illustrated Railway Edition
+The V6 release candidate extends the verified V5 archive. Start with `npm run verify` (Node 20+ and TypeScript 5.8.3); `npm run dev` serves the game, and `npm run build` produces `dist/` and a self-contained offline HTML. See [the V6 gauntlet report](docs/V6_GAUNTLET.md) for actual evidence, limitations, and the outstanding roadmap. V5/V4 notes below are historical.
 
-**Version 2.0 · Illustrated, functional idle train game**
+# LAST STOP: THE EVERLINE — The Longline Edition v5
 
-A dramatic art-led rebuild based on the original *Sunset Journey on the Everline* reference scene. The train is a series of **individual illustrated room sprites**, not a pre-rendered picture with fake buttons. An independent clock advances the idle economy, while Canvas 2D renders locomotive movement, changing lights, weather, wheel spokes, smoke, resident movement and room decorations.
+An **illustrated, functioning, offline-first idle railway game**. The original painted sunset, individually illustrated cutaway carriages, brass-ticket inspector, and Tiny Tower-like collect → upgrade → explore loop are preserved. There is no login, advertising, real-money purchase, energy cap, or required daily streak.
 
-## Run it
+## Play and install
 
-Requirements: Node.js 20+ (no runtime dependencies and no third-party npm installs).
-
-```bash
-npm run dev
-# Open http://127.0.0.1:4173
-```
-
-To build files for any static website:
+**Browser / iPhone / tablet / desktop:** deploy the `dist/` folder to GitHub Pages (workflow included). Safari users can add the deployed site to the Home Screen where supported. This is **not** a compiled iOS app. The self-contained `THE_EVERLINE_PLAY_OFFLINE.html` can be opened as a file on a computer; for reliable offline caching and local saves, the HTTPS website is preferred. File-URL browser storage varies by platform.
 
 ```bash
-npm run verify
-# Copy dist/ to a web host, including GitHub Pages.
+node --version   # Node.js 20+
+npm run dev      # http://127.0.0.1:4173 in a normal local environment
+npm run verify   # TypeScript checkJs + unit tests + static build + offline HTML
+node scripts/balance.mjs
+node scripts/balance.mjs --long
+python tests/browser_art_smoke.py
+python tests/browser_station_smoke.py
 ```
 
-The ZIP also includes a **single-file, self-contained desktop browser edition** (`THE_EVERLINE_PLAY_OFFLINE.html`) with all game images and scripts embedded. Double-click it in a modern browser; save-file export is available if local storage is restricted by the `file://` origin.
+No third-party production runtime dependencies, no API keys. A separate optional Tauri scaffold is present; a Windows `.exe` has **not** been compiled.
 
-## The actual controls
+## What is new in v5
 
-- **Collect:** press `+` beside the coin balance to transfer pending earnings.
-- **Upgrade:** press the gold Upgrade button for the active room.
-- **Explore:** drag / swipe the train or focus the canvas and press left/right arrow keys to select a room. Clicking any room changes its inspector.
-- **Build:** open Shop > Carriages. The new carriage appears as an individual painted wagon in the moving scene.
-- **Hire:** the secondary resident button adds an animated person and increases earnings.
-- **Rearrange:** the inspector arrows change a room's physical position and neighbor bonuses.
-- **Decorate:** purchase window planters, amber lanterns and pennants. The scene reflects ownership.
-- **Collect memories:** reach stations, earn stamps, discover postcards, earn achievements and tap rare sightings.
-- **Personalize:** use Settings to reduce animation, export/import validated saves or intentionally reset progress.
+### The long-distance economy
 
-## Technical structure
+- **20 carriage levels**, with five visibly distinct furnishing grades: Heritage (level 1), Refined (5), Grand (9), Royal (13), Legendary (17). Every level adds a visible brass trim detail and boosts actual revenue. Costs beyond level 5 rise faster; the final upgrade on a Sleeper exceeds 1 billion Coins. Rooms remain useful before completion.
+- **Service Ledger:** eight automatic, non-streak medals from 1 hour to **8,760 hours** of credited service, with optional Stamp rewards. No claiming chores. Offline service and earnings are bounded to eight hours per absence.
+- **Passengers really change at stops**, not on animation frames. The simulated manifest tracks rider counts per room. Paying to hire crew reserves them; they board and start their income bonus at the following station. Station fares reflect passenger turnover.
+- **Determinism:** economy advances using elapsed wall time with fractional-cent carry. Arrival and sighting random streams are separate; station receipts, rider counts, and earnings match across 1-second or 600-second simulation steps.
 
-- `src/art.js`: illustrated canvas world, train textures, responsive camera, touch and keyboard selection, weather, decorated carriages and animation
-- `src/economy.js`: bounded state transitions, atomic purchases, income, arrivals, seeded random events and offline credit
-- `src/main.js`: DOM controls and accessibility, modal menus, real-time HUD, save import/export and renderer wiring
-- `src/data.js`: independently owned train and travel content
-- `assets/source-reference.png`: user's reference illustration, retained for reproducible sprite extraction
-- `scripts/make_art.py` and `scripts/clean_world.py`: deterministic sprite extraction and compositing from reference
-- `tests/economy.test.mjs` and `tests/browser_art_smoke.py`: economy and real Chromium interaction tests
-- `src-tauri/`: **optional, unbuilt Windows wrapper scaffold**, not a compiled `.exe`
-- `.github/workflows/pages.yml`: GitHub Actions build, test and Pages deployment workflow
+### Illustrated journeys and stations
 
-## Why it is not an `.exe` by default
+- Preserve `assets/world.webp` as the original painterly starting valley. Seven additional **self-contained original SVG panoramas** provide actual distinct backgrounds for coast, highlands, desert, metropolis, frontier, archipelago, and beyond. They are illustrations, not photographs or new hand-painted image-generation outputs.
+- **Scenic Autopilot** is on by default after more regions are unlocked. The train spends six stops within each region, then changes scenery. The Journal lets you travel to a selected route and stay there, or restart roaming.
+- Over the final **16 seconds** before a scheduled arrival, wheel and foreground movement ease down. The train remains stopped for seven seconds while passengers and crew board/alight, then accelerates during the next twelve seconds. Station nameplates appear in the painted scene.
+- Original cutaway car sprites continue to show rooms and staff, while three formerly duplicated room skins (Library, Dining Car, Workshop) now have separate authored illustrations.
+- Every Shop category has visual image previews for items; the Journal offers eight scenic regional image previews.
 
-The game is visual and cross-device. A Windows executable only changes the *distribution container*; it does not improve illustration quality. The main target is an installable Progressive Web App. The same frontend can later be packaged via Tauri v2 for Windows (`src-tauri` included) without maintaining a second game engine. Building a genuine Windows installer requires Windows/Rust/WebView2 prerequisites and has **not** been verified here.
+### Save compatibility
 
-See `docs/STATUS.md`, `docs/QA.md`, `docs/BALANCE.md`, and `docs/ART_DIRECTION.md` for evidence, constraints and art direction.
+**Existing v3 and v4 trains are migrated to v5 automatically.** Previous rooms, levels, purchases, decorations, region permits, Stamps, and named crew are retained. V5 introduces passengers, pending crew, service hours, a separate sighting RNG, and scenic-autopilot mode. New saves use `everline-save-v5`, checksum envelopes, three rolling local backups, explicit import/export, and cross-tab warnings. Saved progress remains **per browser profile and website origin**, not cloud-synced between devices. Clearing site data can erase all local backups. Use Settings → Export Save to carry progress to another device.
 
----
+## Technical modules
 
-## v4 · Railway chapters, residents, and persistent saves
+- `src/data.js`: progression limits, 8 regions, 16 destinations, 8 Service Ledger milestones.
+- `src/economy.js`: deterministic simulation, 20-level prices, passengers/station changes, region cycling, upgrades, crew and medals.
+- `src/save.js`: strict JSON migration/validation, checked local backups and imports.
+- `src/art.js`: original illustrated train, multi-layer scenery, speed-dependent animation, stop signboards, rendered occupants, visual upgrades.
+- `src/main.js`: accessible HUD, Shop (including item photos), Journal, menus, saves and viewport adaptation.
+- `assets/car-*.png`, `assets/car-*.svg`, `assets/region-*.svg`: runtime visual assets. The original reference artwork remains included for provenance.
+- `scripts/paint_regions.py`, `scripts/paint_rooms.py`: reproducible authoring of region/room SVGs.
+- `tests/longline.test.mjs`: deterministic passenger, economy, migration, motion, and upgrade safety tests.
+- `tests/browser_art_smoke.py`, `tests/browser_station_smoke.py`: Chromium interaction and timed station-screen regression including screenshot artifacts.
 
-This release preserves the original illustrated train but makes its economy and exploration materially deeper. Eight railway regions contain sixteen destinations. Every region has a precise lifetime-stop, train-length, and Postcard Stamp unlock gate. Players can freely revisit unlocked lines. The Shop shows all room unlock gates, a new **Stamp Works** tab and three permanent souvenir projects. Named crew members have dream jobs that influence actual carriage earnings; satisfaction now changes rate and passenger fares. An optional **New Timetable** (20 carriages, three unlocked regions) resets the current train in exchange for a permanent +16% income bonus while keeping discoveries and collectibles.
+## Scope and known limits
 
-**On-device save behavior:** the game automatically stores a validated version-4 save in the current browser's `localStorage` plus three rotating local recovery snapshots. Existing v3 saves are migrated rather than wiped. Saves are scoped to an origin and browser profile, not synchronized to other devices. Clearing browsing data can delete them; **Settings → Export Save** is the recommended portable backup, and Import Save can restore it on another device. Eight-hour offline earnings remain capped, and stations do not advance during offline credit. Opening multiple tabs triggers a warning to prevent a stale tab silently overwriting progress.
+- This version has a **25-carriage** performance cap and **20 levels per carriage**. “Endless” means repeatable routes, long-term mastery, and voluntary timetables—not unlimited browser canvas sprites. The final service medal alone requires 8,760 credited hours and is optional. It is not evidence of retention.
+- The starting scene is the original painted reference; new regions are detailed SVG illustrations with a different media texture. Human art direction and physical iPhone/Safari review remain outstanding.
+- V5 is static/browser-local, with **no authoritative server or cross-device sync**. Browser clocks and local saves can be edited. No game currency has financial value.
+- Local automated Chromium tests run with exact source and embedded assets because this environment's browser blocks direct localhost navigation (`net::ERR_BLOCKED_BY_ADMINISTRATOR`). They do not validate a physically installed app or live GitHub Pages network response.
 
-Production code has **no runtime package dependencies**. Run `npm run verify`, `node scripts/balance.mjs`, `python tests/browser_art_smoke.py`, and `node scripts/build-singlefile.mjs` after changing the economy. See `docs/MASTER_EXECUTION_PROMPT.md`, `docs/BALANCE.md`, `docs/STATUS.md`, and `AGENTS.md` for conventions, limitations, and the formal acceptance plan.
+See `docs/STATUS.md`, `docs/BALANCE.md`, `docs/QA.md`, `docs/ART_DIRECTION.md`, and `AGENTS.md` for precise tests, evidence, and future improvement priorities.

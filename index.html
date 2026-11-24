@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/><meta name="theme-color" content="#191824"/><meta name="description" content="An illustrated living train: build little rooms, meet travelers, discover worlds."/>
-<title>LAST STOP: THE EVERLINE — Illustrated Railway Edition</title><link rel="manifest" href="./manifest.webmanifest"/><link rel="icon" type="image/svg+xml" href="./assets/icon.svg"/><link rel="stylesheet" href="./src/style.css"/></head>
+<title>LAST STOP: THE EVERLINE — The Living Railway Edition</title><link rel="manifest" href="./manifest.webmanifest"/><link rel="icon" type="image/svg+xml" href="./assets/icon.svg"/><link rel="stylesheet" href="./src/style.css"/></head>
 <body><main class="stage" id="game">
   <canvas id="world" tabindex="0" aria-label="Living cutaway train. Swipe to browse rooms; tap a carriage to upgrade it. Left and right arrow keys move the view."></canvas>
   <header class="hud" aria-label="Train status">
@@ -10,7 +10,7 @@
     <div class="pill countdown"><span class="engine-icon" aria-hidden="true"><svg class="arrival-glyph" viewBox="0 0 56 48" fill="none" aria-hidden="true"><path d="M8 14h24v19H8zM13 8h6v6M6 33h34M35 19h9l7 8v6H35" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><circle cx="14" cy="38" r="4" stroke="currentColor" stroke-width="3"/><circle cx="31" cy="38" r="4" stroke="currentColor" stroke-width="3"/><circle cx="46" cy="38" r="4" stroke="currentColor" stroke-width="3"/><path d="M13 19h6M23 19h5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span><span class="arrival">Arrival in</span><strong id="eta">01:25</strong></div>
     <button class="settings" id="settings" title="Settings" aria-label="Open settings"><svg viewBox="0 0 48 48" aria-hidden="true" class="settings-glyph"><path d="m20 4 8 0 2 5 5 2 5-2 4 7-4 4v8l4 4-4 7-5-2-5 2-2 5h-8l-2-5-5-2-5 2-4-7 4-4v-8l-4-4 4-7 5 2 5-2Z" fill="currentColor"/><circle cx="24" cy="24" r="8" fill="#292431"/></svg></button></div>
   </header>
-  <div class="location-tag" id="location">ROSEWATER VALE · SUNSET EXPRESS</div>
+  <div class="scenic-controls" aria-label="Scenic controls"><button id="scenic" type="button" aria-pressed="false" title="Watch the train without menus"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8V3h5m8 0h5v5m0 8v5h-5m-8 0H3v-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Scenic view</span></button><button id="photo" type="button" hidden>Save postcard</button><button id="zoom-out" type="button" aria-label="Zoom out" hidden>−</button><button id="zoom-in" type="button" aria-label="Zoom in" hidden>+</button></div><div class="journey-ribbon" id="journey-status" role="status" aria-live="off">ON THE OPEN RAIL</div><div class="location-tag" id="location">ROSEWATER VALE · SUNSET EXPRESS</div>
   <section id="inspector" class="inspector" aria-label="Selected carriage and its upgrades"><div class="inspector-inner" id="inspector-inner"></div></section>
   <button class="sighting" id="sighting" hidden aria-label="Claim rare event reward">✦ A RARE SIGHTING <small>Tap to collect a postcard stamp</small></button>
   <p class="travel-tip" id="travel-tip">↔ DRAG THE TRAIN TO EXPLORE</p>

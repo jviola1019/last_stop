@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="276" height="226" viewBox="0 0 276 226"><defs><linearGradient id="room" x2="0" y2="1"><stop stop-color="#526575"/><stop offset="1" stop-color="#2c2838"/></linearGradient><linearGradient id="floor" x2="0" y2="1"><stop stop-color="#514a43"/><stop offset="1" stop-color="#2c242c"/></linearGradient></defs>
+<rect x="6" y="22" width="264" height="170" rx="17" fill="#16242c" stroke="#dcb27e" stroke-width="5"/><path d="M15 37Q138 9 261 37V170H15Z" fill="url(#room)"/><path d="M16 152H260v39H16Z" fill="url(#floor)"/>
+<path d="M28 31H248M24 47H252" stroke="#efc382" stroke-opacity=".56" stroke-width="3"/><path d="M20 184h236" stroke="#e8b67c" stroke-width="5"/>
+<path d="M32 35v24m102-24v24m104-24v24" stroke="#e6bc82" stroke-width="2"/><circle cx="32" cy="63" r="6" fill="#ffe9af"/><circle cx="134" cy="63" r="6" fill="#ffe9af"/><circle cx="238" cy="63" r="6" fill="#ffe9af"/>
+<path d="M12 193h252" stroke="#33313b" stroke-width="13"/><path d="M24 207h230" stroke="#d8a25f" stroke-width="5"/><circle cx="53" cy="207" r="12" fill="#35303a" stroke="#dba965" stroke-width="5"/><circle cx="220" cy="207" r="12" fill="#35303a" stroke="#dba965" stroke-width="5"/>
+<rect x="23" y="78" width="62" height="83" rx="3" fill="#34485a" stroke="#d6a971" stroke-width="3"/><path d="M29 85h51v9H29m0 12h51m-51 12h51" stroke="#859c99" stroke-width="4"/>
+<rect x="178" y="80" width="70" height="80" fill="#43566a" stroke="#cda16e" stroke-width="3"/>
+<circle cx="187" cy="96" r="5" fill="#ccac7b" stroke="#506477" stroke-width="3"/>
+<circle cx="199" cy="118" r="6" fill="#ccac7b" stroke="#506477" stroke-width="3"/>
+<circle cx="211" cy="96" r="7" fill="#ccac7b" stroke="#506477" stroke-width="3"/>
+<circle cx="223" cy="118" r="5" fill="#ccac7b" stroke="#506477" stroke-width="3"/>
+<circle cx="235" cy="96" r="6" fill="#ccac7b" stroke="#506477" stroke-width="3"/>
+<path d="M88 140h86v9H88Z" fill="#d3a36e"/><path d="M96 149v27m69-27v27" stroke="#bd875e" stroke-width="5"/><path d="M114 131l24-30 22 30Z" fill="#9bb7bd" stroke="#e4c596" stroke-width="3"/><circle cx="131" cy="115" r="11" fill="#e1b68e"/><path d="M118 126h27v31h-27Z" fill="#8baba5"/>
+<rect x="19" y="36" width="238" height="7" fill="#e7bc84" opacity=".6"/><path d="M0 204H276" stroke="#463a39" stroke-width="9"/></svg>

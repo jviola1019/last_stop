@@ -1,7 +1,7 @@
 import {readFile,writeFile} from 'node:fs/promises';import path from 'node:path';import{fileURLToPath}from'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),read=p=>readFile(path.join(root,p));
-const assetNames=['world.webp','car-engine.png','car-sleeper.png','car-cafe.png','car-garden.png','car-arcade.png','car-observatory.png'];
-const urls={};for(const name of assetNames){const b=await read('assets/'+name);urls[name]=`data:${name.endsWith('webp')?'image/webp':'image/png'};base64,`+b.toString('base64')}
+const assetNames=['world.webp','car-engine.png','car-sleeper.png','car-cafe.png','car-garden.png','car-arcade.png','car-observatory.png','car-library.svg','car-diner.svg','car-workshop.svg','car-postal.svg','car-bakery.svg','car-cinema.svg','car-lounge.svg',...['coast','highland','desert','metropolis','frontier','archipelago','beyond'].map(r=>'region-'+r+'.svg')];
+const urls={};for(const name of assetNames){const b=await read('assets/'+name);urls[name]=`data:${name.endsWith('webp')?'image/webp':name.endsWith('.svg')?'image/svg+xml':'image/png'};base64,`+b.toString('base64')}
 const modules=new Map();async function moduleUrl(file){if(modules.has(file))return modules.get(file);let text=(await read('src/'+file)).toString();
  if(file==='art.js')text=text.replace("const src=n=>new URL('../assets/'+n,import.meta.url).href;","const src=n=>window.__assetUrls[n];");
  if(file==='main.js')text=text.replace("const path=name=>new URL('../assets/'+name,import.meta.url).href;","const path=name=>window.__assetUrls[name];");

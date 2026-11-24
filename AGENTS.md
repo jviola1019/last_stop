@@ -11,3 +11,15 @@ Scope: game simulation and pixel-painted interactive railway at `jviola1019/last
 7. Never claim cross-device automatic sync: `localStorage` is browser-local. Account sync needs a separate authenticated backend and privacy/security design.
 8. Do not claim simulated estimates are real-user telemetry, or a successful source build is a successful deployment.
 9. Commit changes to a feature branch, open a PR, and use GitHub Actions before merge. After merge, verify Pages deployment and report known limitations.
+
+## v5 architecture and release gates
+
+10. Do not add additional generic UI panels. Keep the original painted scene as the hero and use image-led regional artwork, illustrated miniature rooms, a brass ticket inspector, and the Baskerville/Avenir Next system fallback pair.
+11. `src/economy.js` owns **all** boarding, passenger occupancy, fare calculation, seeded event RNG, wall-time accounting, long-term service medals, and station phase timing. `src/art.js` may only read these states for painting; neither animation nor button rendering should mint coins or people.
+12. Staffing is reserved immediately but physically boards at the following stop. Never mutate rider counts outside `arrive` (except initial population and validated imports). Test this at the economy layer and in an independent browser station scenario.
+13. Use `src/data.js` caps of 25 cars and 20 levels; resist extending an unrealistic cost curve without a 30/90/365-day simulation and buyback/pacing review.
+14. Never remove old `everline-save-v3`/`everline-save-v4` migration support; preserve region permits, staff identity, Stamps, postcard collections, cosmetics and balances when changing schema. The product is browser-local and must not claim automatic device sync.
+15. Required gates: `npm run verify`, both deterministic economic policies (30-day, optionally 365-day), four Chromium viewport interaction checks, two timed arrival/departure Chromium tests, visual screenshot inspection, then GitHub Actions PR verification before merge. Document excluded physical devices and deployment check separately.
+
+## V6 release gates
+Run `npm run verify`, all three Playwright smoke scripts and `node scripts/policy-stress.mjs`; preserve actual JSON evidence. Treat emulated viewports and synthetic policies as such. Never claim hardware performance, real retention, or Pages deployment without independent evidence. V6 saves must migrate v3–5, retain progression, and preserve queued refits. Keep the offline build functional.
