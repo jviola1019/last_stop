@@ -36,7 +36,7 @@ mark='''<defs><clipPath id="roundel"><circle cx="256" cy="256" r="181"/></clipPa
 <path d="M184 367H328L344 390H168Z" fill="#dbad70" stroke="#192630" stroke-width="8" stroke-linejoin="round"/>
 <path d="M210 371V388M239 371V388M273 371V388M302 371V388" stroke="#543b35" stroke-width="7"/>
 '''
-svg=lambda background: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">'+background+mark+'</svg>\n'
+svg=lambda background: '<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">'+background+mark+'</svg>\n'
 regular=svg('<rect x="12" y="12" width="488" height="488" rx="108" fill="#1b2634"/>')
 maskable=svg('<rect width="512" height="512" fill="#1b2634"/>')
 (assets/'icon.svg').write_text(regular)
