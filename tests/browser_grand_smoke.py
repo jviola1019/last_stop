@@ -42,7 +42,7 @@ with sync_playwright() as pw:
   page.locator('[data-journal-page="stories"]').click();assert page.locator('.story-card').count()==5;assert 'Mira' in page.locator('.story-card').first.inner_text()
   page.locator('[data-journal-page="manifest"]').click();assert page.locator('.story-card').count()==25;assert page.locator('.story-card').first.inner_text().find('ABOARD')>=0
   page.locator('#close-drawer').click();page.locator('#settings').click();page.locator('#season-setting').select_option('Winter');assert page.evaluate('window.__EVERLINE_DIAGNOSTICS__().season')=='Winter'
-  page.locator('#train-name').fill('<img src=x onerror=alert(1)>');page.locator('[data-settings-action="rename"]').click();assert '<' not in page.evaluate('window.__EVERLINE_DIAGNOSTICS__().trainName');assert not page.locator('#settings-body img').count();assert page.locator('[data-settings-action="fleet"]').count()==3
+  page.locator('#train-name').fill('<img src=x onerror=alert(1)>');page.locator('[data-settings-action="rename"]').click();assert '<' not in page.evaluate('window.__EVERLINE_DIAGNOSTICS__().trainName');assert page.locator('#settings-body img').count()==1;assert page.locator('#settings-body .install-panel img').get_attribute('src')==page.evaluate('window.__assetUrls["icon.svg"]');assert not page.locator('#settings-body [onerror],#settings-body [onload]').count();assert page.locator('[data-settings-action="fleet"]').count()==3
   page.locator('#close-settings').click();page.locator('#scenic').click();page.screenshot(path=str(root/'docs'/f'v7-{device}-scenic.png'));page.keyboard.press('Escape')
   page.locator('#world').focus();page.keyboard.press('ArrowRight');assert page.evaluate('window.__EVERLINE_DIAGNOSTICS__().selected')==1
   assert not errors,errors
