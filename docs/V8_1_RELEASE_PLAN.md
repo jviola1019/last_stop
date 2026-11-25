@@ -1,0 +1,10 @@
+# V8.1 Railway roundel / installation release plan
+
+Baseline: V8 commit bd855bffedf3401315f8d7dd5a761c523cadb976. Website run 45339137487 and unsigned Windows run 45339137468 succeeded. Preserve V8 gameplay and all local save keys, storage envelopes, manifest id/start_url/scope, Tauri identifier and original game artwork. See V8_RELEASE_AUDIT.md, V7_RELEASE_AUDIT.md, MASTER_EXECUTION_PROMPT.md and AGENTS.md.
+
+1. Define a small-size readable mark: front-facing locomotive, sunset and twin rails inside heritage roundel, navy/brass/ivory palette, no lettering or remote assets. SVG master, opaque maskable variant with all meaningful artwork inside the radius-0.4 safe circle, Apple 180, 192/512 PNG, 32 favicon, native PNG and multi-size ICO.
+2. Integrate all assets in manifest, head, service worker and distribution build. Keep existing manifest identity (avoid duplicate app or save loss). Embed favicon in standalone game without external fetch. Fix Tauri dev URL typo. Update install guidance for Chromium, Safari/iOS; browser installation support varies; standalone HTML is not a PWA.
+3. Validate exact pixel sizes, alpha/mask bounds, favicon, desktop ICO directory, packaged assets, cache scope and installability via real-origin Chromium CDP (in CI). Exercise offline app start, persistence, cache updates; preserve all prior regression tests. No weakening CSP or deleting unrelated caches. Physical desktop install, signed installer, real phone battery and human playtesting remain independent checks.
+4. Run local verification and browser checks, inspect icons at 16–512px, document results and upload exact changed source/artwork. Require remote CI success before production merge, verify Pages separately. Existing installed app icons can be retained by the OS until browser update/reinstall; export saves before any uninstall/clear-data operation.
+
+Research: MDN Making PWAs installable and Define your app icons; web.dev Adaptive icon support; Tauri App Icons (links in release audit). No economics change; preserve the V8 balance suite.

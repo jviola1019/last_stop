@@ -1,3 +1,7 @@
+# V7 artwork update
+
+The original approved reference remains immutable. `scripts/refine_heartland.py` reconstructs a HUD-free scenery plate and transparent `brand.png` using the source and a deterministic pixel-scale forest layer; no old nav is painted beneath scenic mode. Seven region, seven room, seven engine and sixteen station SVG assets have an authored pixel-texture finishing pass (`scripts/finish_pixel_art.py`), retaining the original five room PNGs and steam locomotive. 43 runtime scene images were decoded and inspected for visible pixels by Chromium. Procedural vector/raster art is not equivalent to a professionally commissioned full painterly asset set; inherited flattened-source approximations, baked decorative figures and visual style differences remain, disclosed in V7 audit.
+
 # Art Direction — From screenshot-like dashboard to living diorama
 
 ## Reference matching

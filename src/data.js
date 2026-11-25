@@ -7,7 +7,11 @@ export const CARRIAGES = Object.freeze({
  diner:{name:'Dining Car',label:'The midnight special',icon:'fork',cost:1020,rate:5.2,color:'#af664f',accent:'#f0ca93',people:5,unlock:14,minCars:4,desc:'A three-course journey through the countryside.'},
  arcade:{name:'Arcade',label:'Play all the way',icon:'star',cost:1650,rate:7.7,color:'#7a6095',accent:'#f2bf74',people:4,unlock:30,minCars:5,desc:'Little victories, big grins.'},
  workshop:{name:'Workshop',label:'The busy little makers',icon:'gear',cost:2450,rate:10.1,color:'#698293',accent:'#edc78f',people:3,unlock:65,minCars:7,desc:'Every journey needs a little tinkering.'},
- observatory:{name:'Observatory',label:'Above the clouds',icon:'sparkle',cost:3700,rate:14.5,color:'#476b81',accent:'#badfe0',people:3,unlock:120,minCars:9,desc:'The universe has the best window seats.'}
+ observatory:{name:'Observatory',label:'Above the clouds',icon:'sparkle',cost:3700,rate:14.5,color:'#476b81',accent:'#badfe0',people:3,unlock:120,minCars:9,desc:'The universe has the best window seats.'},
+ postal:{name:'Postal Car',label:'Letters along the line',icon:'mail',cost:4800,rate:17.6,color:'#4e6b6a',accent:'#d7b386',people:3,unlock:200,minCars:10,desc:'Sort parcels and letters between the villages.'},
+ bakery:{name:'Bakery',label:'Fresh from the oven',icon:'bread',cost:5900,rate:21.4,color:'#7c5745',accent:'#e0bc81',people:4,unlock:350,minCars:12,desc:'Warm bread and pastries for the next station.'},
+ cinema:{name:'Picture House',label:'Silver-screen journeys',icon:'film',cost:7200,rate:26.1,color:'#53435a',accent:'#c7a377',people:5,unlock:700,minCars:15,desc:'A tiny moving picture house for travelers.'},
+ lounge:{name:'Grand Lounge',label:'A quiet place to watch',icon:'sofa',cost:8700,rate:31.8,color:'#455c58',accent:'#ddc08b',people:4,unlock:1500,minCars:18,desc:'Velvet seats and broad panoramic windows.'}
 });
 export const TYPE_ORDER=Object.keys(CARRIAGES);
 export const REGIONS=Object.freeze([
@@ -46,12 +50,14 @@ export const RESIDENTS=Object.freeze([
  {name:'Luca',dream:'garden',craft:'Florist'}, {name:'Faye',dream:'cafe',craft:'Baker'},
  {name:'Kit',dream:'diner',craft:'Host'}, {name:'Ada',dream:'workshop',craft:'Inventor'},
  {name:'Ivy',dream:'library',craft:'Storyteller'}, {name:'Rowan',dream:'sleeper',craft:'Conductor'},
- {name:'Sol',dream:'observatory',craft:'Navigator'}, {name:'Iris',dream:'arcade',craft:'Artist'}
+ {name:'Sol',dream:'observatory',craft:'Navigator'}, {name:'Iris',dream:'arcade',craft:'Artist'}, {name:'Sage',dream:'postal',craft:'Postmaster'}, {name:'Cora',dream:'bakery',craft:'Pastry chef'}, {name:'Ellis',dream:'cinema',craft:'Projectionist'}, {name:'Mae',dream:'lounge',craft:'Host'}
 ]);
 export const STAMP_PROJECTS=Object.freeze([
  {id:'postcards',name:'Postcard Gallery',cost:3,desc:'Each region passport stamp now gives your train a permanent +2% earning bonus.'},
  {id:'concierge',name:'Concierge Academy',cost:7,desc:'All hired residents earn an additional +5% each.'},
- {id:'souvenirs',name:'Souvenir Counter',cost:10,desc:'Station fares increase by 20%.'}
+ {id:'souvenirs',name:'Souvenir Counter',cost:10,desc:'Station fares increase by 20%.'},
+ {id:'network',name:'Grand Railway Network',cost:35,desc:'An additional 1.8% train-wide income for each distinct carriage type beyond two.'},
+ {id:'archive',name:'Heritage Archive',cost:65,desc:'Establish a permanent archive of the line; station fares increase another 12%.'}
 ]);
 export const DECOR=[
  {id:'lanterns',name:'Amber Lanterns',cost:390,glyph:'✧',desc:'A warm light outside every room after dusk.'},
@@ -62,14 +68,21 @@ export const PAINTS=[
  {id:'midnight',name:'Midnight Blue',color:'#344857',cost:0,stampCost:0},
  {id:'copper',name:'Old Copper',color:'#98613e',cost:450,stampCost:0},
  {id:'sage',name:'Forest Sage',color:'#507867',cost:1050,stampCost:0},
- {id:'plum',name:'Night Plum',color:'#745b7d',cost:0,stampCost:7}
+ {id:'plum',name:'Night Plum',color:'#745b7d',cost:0,stampCost:7},
+ {id:'claret',name:'Claret Express',color:'#8f4448',cost:2400,stampCost:0},
+ {id:'ivory',name:'Ivory Pullman',color:'#d8c39c',cost:6500,stampCost:0},
+ {id:'teal',name:'Ocean Teal',color:'#397d81',cost:18000,stampCost:3},
+ {id:'royal',name:'Royal Ochre',color:'#b79142',cost:65000,stampCost:8}
 ];
+export const LIVERY_FILTERS=Object.freeze({midnight:'none',copper:'sepia(.52) saturate(1.35)',sage:'sepia(.25) hue-rotate(54deg) saturate(.8)',plum:'sepia(.25) hue-rotate(233deg) saturate(.9)',claret:'sepia(.6) hue-rotate(315deg) saturate(1.4)',ivory:'sepia(.6) saturate(.45) brightness(1.3)',teal:'sepia(.6) hue-rotate(115deg) saturate(1.5)',royal:'sepia(.85) saturate(1.65) brightness(1.12)'});
 export const SIGHTINGS=[
  {id:'fox',name:'Moonlit Fox',emoji:'✦',text:'A fox raced alongside the Everline.'},
  {id:'whale',name:'Silver Whale',emoji:'◈',text:'A distant whale surfaced by the rails.'},
  {id:'balloon',name:'Wayward Balloon',emoji:'✧',text:'A striped balloon floated past the dining car.'},
  {id:'comet',name:'Falling Star',emoji:'★',text:'A falling star kept pace with the train.'},
- {id:'owl',name:'Clockwork Owl',emoji:'✦',text:'A curious owl landed on the signal box.'}
+ {id:'owl',name:'Clockwork Owl',emoji:'✦',text:'A curious owl landed on the signal box.'},
+ {id:'deer',name:'Silver Stag',emoji:'✧',text:'A stag paused at the forest edge.'},
+ {id:'festival',name:'Village Lanterns',emoji:'✦',text:'A village festival lit the valley.'}
 ];
 export const ACHIEVEMENTS=[
  {id:'hello',title:'All Aboard',detail:'Collect your first earnings.',reward:1},
@@ -85,7 +98,75 @@ export const ACHIEVEMENTS=[
  {id:'magnate',title:'All Your Carriages',detail:'Build 20 carriages.',reward:5},
  {id:'season',title:'A Timetable Renewed',detail:'Begin a new railway season.',reward:5}
 ];
-export const STORAGE_KEY='everline-save-v4';
+// Local-save migrations preserve the player's original rooms, region permits, currency and crew.
+export const STORAGE_KEY='everline-save-v6';
+export const V5_STORAGE_KEY='everline-save-v5';
+export const V4_STORAGE_KEY='everline-save-v4';
 export const LEGACY_STORAGE_KEY='everline-save-v3';
 export const MAX_OFFLINE_SECONDS=8*60*60;
 export const MAX_CARRIAGES=25;
+export const MAX_ROOM_LEVEL=20;
+export const ROOM_GRADES=[
+ {level:1,name:'Heritage',detail:'Original warm interior'},
+ {level:5,name:'Refined',detail:'Polished brass and fresh upholstery'},
+ {level:9,name:'Grand',detail:'Extra lighting, plants and room flourishes'},
+ {level:13,name:'Royal',detail:'Ornate trim, custom signage and stained glass'},
+ {level:17,name:'Legendary',detail:'Signature illuminated carriage and prestige crest'}
+];
+// Optional long-tail milestones reward cumulative service, not compulsory daily check-ins.
+// Since offline service is capped at eight hours per absence, the final medals take real months/years.
+export const SERVICE_MILESTONES=[
+ {id:'first-shift',hours:1,name:'First Shift',stamps:1},
+ {id:'first-night',hours:8,name:'Night Express',stamps:1},
+ {id:'daylong',hours:24,name:'Day and Night',stamps:2},
+ {id:'weeklong',hours:168,name:'Silver Timetable',stamps:3},
+ {id:'monthlong',hours:720,name:'Golden Timetable',stamps:4},
+ {id:'quarterlong',hours:2160,name:'The Hundred Bridges',stamps:5},
+ {id:'halfy',hours:4380,name:'Six Months of Stories',stamps:6},
+ {id:'year',hours:8760,name:'The Everline Yearbook',stamps:8}
+];
+
+// Locomotive eras are optional cosmetic achievements, never paid content.
+export const ENGINES=Object.freeze([
+ {id:'steam',name:'Heritage Steam',era:'1890 · Age of Steam',asset:'car-engine.png',stops:0,coins:0,stamps:0},
+ {id:'express',name:'Pacific Express',era:'1935 · Streamline Age',asset:'engine-express.svg',stops:60,coins:2500,stamps:2},
+ {id:'diesel',name:'Continental Diesel',era:'1955 · Golden Age',asset:'engine-diesel.svg',stops:250,coins:18000,stamps:6},
+ {id:'electric',name:'Lumen Electric',era:'1985 · Electric Age',asset:'engine-electric.svg',stops:1000,coins:100000,stamps:12},
+ {id:'mountain',name:'Mountaineer',era:'1910 · Mountain Rail',asset:'engine-mountain.svg',stops:20,coins:1200,stamps:1},
+ {id:'artdeco',name:'Silver Arrow',era:'1940 · Art Deco',asset:'engine-artdeco.svg',stops:120,coins:8000,stamps:3},
+ {id:'alpine',name:'Alpine Railcar',era:'1965 · Alpine Electric',asset:'engine-alpine.svg',stops:550,coins:42000,stamps:9},
+ {id:'horizon',name:'Horizon Limited',era:'2040 · Future Rail',asset:'engine-horizon.svg',stops:5000,coins:850000,stamps:30}
+]);
+export const TALES=Object.freeze([
+ {id:'mira',name:'Mira’s first cup',stops:1,lines:['A young barista boards at Willowmere, carrying a silver kettle.','She discovers a new blend at the coast and shares it with her fellow travelers.','Her café becomes a place where strangers write letters to each other.']},
+ {id:'theo',name:'Theo’s blue suitcase',stops:8,lines:['Theo is searching for a village he remembers from childhood.','A postcard from Cloudpine Pass gives him a clue.','He finally recognizes the old station clock and sends a postcard home.']},
+ {id:'pippa',name:'Pippa’s traveling garden',stops:25,lines:['Pippa plants a seed in a tiny terracotta pot.','She collects a cutting from a distant island station.','Her traveling garden flowers beneath the northern lights.']},
+ {id:'orion',name:'Orion’s star atlas',stops:80,lines:['Orion boards with a hand-drawn chart of the stars.','The clear desert sky fills a missing page in his atlas.','He finishes the chart and leaves a copy in the library for the next passenger.']},
+ {id:'sage',name:'The letter that traveled',stops:200,lines:['An unaddressed letter arrives at the station.','Sage follows an old railway stamp to a village by the sea.','The letter finds its home; a reply is left in the postal carriage.']}
+]);
+export const HERITAGE_PROJECTS=Object.freeze([
+ {id:'conservation',name:'Station Conservation',coins:1e6,stamps:15,stops:500},
+ {id:'museum',name:'Railway Museum',coins:5e7,stamps:40,stops:2500},
+ {id:'endowment',name:'The Everline Endowment',coins:5e8,stamps:100,stops:8000}
+]);
+export const SEASONS=['Spring','Summer','Autumn','Winter'];
+
+// Optional workshop licenses: four individually visible service improvements per carriage.
+export const WORKSHOP_STAGES=Object.freeze([
+ {level:5,name:'Craft finish',detail:'Solid wood and hand-set brass',bonus:.12},
+ {level:9,name:'Signature service',detail:'Tailored furnishings and illuminated service plaque',bonus:.12},
+ {level:13,name:'Grand commission',detail:'Ornamental carriage fascia and commissioned fittings',bonus:.12},
+ {level:17,name:'Master certificate',detail:'Heritage enamel and illuminated masterwork crest',bonus:.12}
+]);
+export const SERVICE_RANKS=Object.freeze([
+ {id:'r1',stops:1,name:'First Departure',stamps:1},
+ {id:'r2',stops:5,name:'Local Service',stamps:1},
+ {id:'r3',stops:20,name:'Branch Line',stamps:2},
+ {id:'r4',stops:60,name:'Regional Express',stamps:2},
+ {id:'r5',stops:150,name:'Grand Touring',stamps:3},
+ {id:'r6',stops:400,name:'Continental Service',stamps:4},
+ {id:'r7',stops:1000,name:'International Railway',stamps:5},
+ {id:'r8',stops:2500,name:'Heritage Line',stamps:6},
+ {id:'r9',stops:5000,name:'Railway of Distinction',stamps:8},
+ {id:'r10',stops:10000,name:'Everline Master',stamps:10}
+]);

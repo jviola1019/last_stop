@@ -10,11 +10,11 @@ permissions:
   pages: write
   id-token: write
 concurrency:
-  group: everline-pages
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -24,18 +24,31 @@ jobs:
       - run: npm ci
       - run: npm install --no-save --package-lock=false --ignore-scripts typescript@5.8.3
       - run: npm run verify
-      - name: Build standalone offline edition for Pages
-        run: |
-          node scripts/build-singlefile.mjs
-          cp THE_EVERLINE_PLAY_OFFLINE.html dist/THE_EVERLINE_PLAY_OFFLINE.html
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install playwright==1.51.0
+      - run: python -m playwright install --with-deps chromium firefox webkit
+      - run: python tests/browser_art_smoke.py && python tests/browser_station_smoke.py && python tests/browser_living_smoke.py && python tests/browser_grand_smoke.py && python tests/browser_offline_smoke.py
+      - run: python tests/browser_origin_smoke.py
+      - run: python tests/browser_install_smoke.py
+      - run: node scripts/policy-stress.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: everline-qa-evidence
+          path: |
+            docs/*results.json
+            docs/v7-*.png
+            docs/v8-*.png
       - uses: actions/upload-artifact@v4
         with:
           name: everline-website
           path: dist
   deploy:
-    if: github.event_name != 'pull_request'
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     needs: verify
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

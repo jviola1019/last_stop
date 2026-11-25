@@ -1,0 +1,5 @@
+# V8 — Masterworks release plan
+
+Baseline: V7 commit 1a7145f5a1547a62ef7eb7fcdbcfdb240a04dc2a and exact local package. Prior plan/audit files retained. Review failed CI before new code; repair the test harness, not production CSP. Work in a copy; keep save schema additive and currency cap. Sequence: repair CI → unit/model invariants → workshop and service rank mechanics → renderer/material/engine artwork → responsive, CSP and accessibility checks → seeded annual stress → source integrity and remote CI. No release assertion without actual passing evidence.
+
+Acceptance: all 12 room types can reach level 20 and four commissions without violating economy caps; no duplicated rewards, partial charges, or refit loss; rank rewards remain claim-once across reload and prestige; the new UI uses the real renderer for preview; all old tests continue to pass. Run real-origin Chromium/Firefox/WebKit with strict CSP and the updated PWA cache. Keep human-player, hardware, signed installer and independent compliance gates explicit.

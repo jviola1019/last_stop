@@ -1,43 +1,23 @@
-# QA evidence and test scope
+# v5 test plan and evidence
 
-From the packaged root:
+Run `npm run verify`, `node scripts/balance.mjs`, `node scripts/balance.mjs --long`, `python tests/browser_art_smoke.py`, and `python tests/browser_station_smoke.py` against the final sources. Results are recorded in `docs/browser-results.json` and `docs/station-results.json`. Screenshots are in `docs/desktop-scene.png`, `docs/iphone-scene.png`, `docs/desktop-regions.png`, `docs/iphone-regions.png`, and the new approach/stop/departure frames.
 
-```bash
-npm run verify
-python tests/browser_art_smoke.py
-node scripts/balance.mjs
-```
+### Scope
 
-Executed locally:
+- Unit tests cover pricing, 20-level cap, five visual tiers, purchases, income accrual, offline 8h bound, passenger count changes on stops only, deterministic seeded arrivals and rare events, upgrades, Stamp projects, optional prestige, service medals, and v3/v4→v5 save validation.
+- Chromium tests cover responsive layout at **1440×900**, **820×1180**, **390×844**, **320×650**; Shop previews and purchases, route and Journal navigation, collect/hire/decorate actions, export/settings, keyboard selection, and same-origin save restoration.
+- Station checks on desktop and iPhone-sized viewports approach a station at measured speed < 0.1, stop at zero speed for boarding, and depart with increasing speed while a queued crew member joins exactly at the stop.
+- Build includes seven local SVG regional panorama files and three room interior SVG files; these ship in static and offline editions. Service worker precaches all game-critical source/assets.
 
-| Check | Result |
-|---|---|
-| JavaScript `tsc --checkJs` | Pass |
-| Node built-in economy unit suite | 15/15 pass |
-| Static dependency-free build | Pass |
-| Chromium source-inlined interaction checks: 1440×900 | Pass |
-| Chromium source-inlined interaction checks: 820×1180 | Pass |
-| Chromium source-inlined interaction checks: 390×844 | Pass |
-| Chromium source-inlined interaction checks: 320×650 | Pass |
-| Save serialization / rehydration (new runtime) | Pass |
-| Build greenhouse, hire resident, install window planters | Pass |
-| Keyboard room selection and focus | Pass |
-| Network-served navigation / deployed Pages | Not run: blocked |
-| Physical device / WebKit | Not run |
-| Windows/Tauri installer compilation | Not run |
+### Honest limitations
 
-The browser harness transparently replaces relative module and asset URLs with base64 data URLs. **Source JavaScript logic is unmodified** except that the resolver points to the same exact locally extracted image bytes. The tests therefore confirm real Chromium rendering and interactions, but they do not prove that GitHub Pages configured the correct MIME types and paths. Sample screenshots are in `docs/*-scene.png` and `docs/*-expanded.png`.
+The browser administrator blocks direct localhost requests from Chromium even though Python HTTP requests succeed. Browser tests therefore embed the exact locally built source modules and images into data URLs; this is a real Chromium rendering and interaction check but not proof that Pages web hosting is reachable. An independent public URL load, WebKit/Safari, Android and physical-phone touch/scroll review are still required.
 
 ### Security review
 
-- No auth, backend, outbound API calls, tracking, client secrets, runtime remote assets or downloadable code.
-- Save imports are limited to 200 KB and parsed as strict JSON; the versioned validator whitelists all mutable state, rejects negative/non-finite balances, duplicate carriage IDs, invalid types and excessive levels/staff.
-- Purchases and upgrades validate funds, costs and progression in one state transition. A repeated click after spending is rejected.
-- UI labels from stored logs are entity-escaped prior to HTML insertion; fixed data is locally authored.
-- Local save data can be edited with developer tools. Without a server, user tampering is unavoidable. There is no financial exposure or competitive leaderboard.
-- The service worker only caches same-origin GET requests. No elevated Tauri permissions are requested.
-- HTTP request smuggling, login brute force, server-side injection, JWT, CORS and SQL attacks are inapplicable: this release has no server, database or authentication paths.
-
-## v3 computed-layout regression
-
-The Chromium smoke test now verifies real 44px hit targets, inspector-navigation separation, non-overlapping tutorial, room-label font stack, label overflow and document width at four viewports. Refer to `TYPOGRAPHY_QA.md` for the measured dimensions and screenshot review.
+- Client-only economy: no accounts, external APIs, server endpoints, credit cards, purchases or secrets.
+- JSON import limited to 200 KB, strict whitelisted state and version, checksum-checked envelope/backups, safe resetting/recovery, and no executable save parsing.
+- No unsanitized user string may enter HTML unescaped; SVG assets are authored locally and contain no scripts or external references.
+- Typed and bounded coin, staff, level, rider, seed and region values; spending is single-action validated; repeated purchases cannot duplicate rewards.
+- `document.hidden` stops time accrual in a backgrounded tab. Returning credits at most eight hours once; offline time cannot advance stops or board people. Existing browser-clock manipulation remains possible without a backend.
+- Multi-tab stale-save warning listens to both current v5 and legacy v4 writes; the current tab pauses saving rather than silently overriding an external update.

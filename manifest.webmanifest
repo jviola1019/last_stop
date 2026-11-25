@@ -1,1 +1,42 @@
-{"name":"Last Stop: The Everline","short_name":"The Everline","start_url":"./","scope":"./","display":"standalone","orientation":"any","background_color":"#171620","theme_color":"#171620","description":"A lovingly illustrated living train and idle-world game.","icons":[{"src":"./assets/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
+{
+  "name": "Last Stop: The Everline",
+  "short_name": "The Everline",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#1b2634",
+  "theme_color": "#1b2634",
+  "description": "Build and restore an illustrated railway, meet travelers, and discover the world.",
+  "icons": [
+    {
+      "src": "./assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icon-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "id": "./",
+  "categories": [
+    "games",
+    "entertainment"
+  ]
+}

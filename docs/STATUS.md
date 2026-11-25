@@ -1,27 +1,51 @@
-# Everline v4 — implemented vs validated
+# V8.1 — Heritage Roundel
 
-## Implemented
-- Regional chapter progression: **8 regions**, **16 destinations/postcards**; stops + carriage-count + paid Stamp gates; repeat visits are free
-- Slower eight-carriage-category unlock curve and explicit gate messages
-- Economy: satisfaction affects revenue and fares, named residents/dream roles affect earnings, wall-time accrual with cent carry independent of tick cadence
-- Stamp projects: Postcard Gallery, Concierge Academy, Souvenir Counter; permanent paid bonuses; milestone stamps every 18 station arrivals
-- Optional new timetable: 20 cars + 3 regions, +16% permanent revenue/season (maximum 10), preserves progress categories documented in prompt
-- Save version 4: migrates v3, validates imports, rotating 3-backup local snapshots with checksum, conflict warning for multiple tabs, export/import/reset/recover
-- Region-driven painted atmospheric color/motifs, existing original illustrated room sprites and v3 typography preserved
-- Self-contained offline HTML and GitHub Pages static build; no third-party production runtime packages
+See [V8.1 release audit](V8_1_RELEASE_AUDIT.md) and [release plan](V8_1_RELEASE_PLAN.md) for current gates. V8 website and Windows workflows both completed successfully; V8.1 has its own source, installability, and production gates. Historical sections below do not certify the current release.
 
-## Executed locally in the build session
-- `npm run verify`: TypeScript check of JavaScript sources, **27 unit tests**, static build — passed
-- `python tests/browser_art_smoke.py`: Chromium at desktop 1440×900, tablet 820×1180, phone 390×844, compact 320×650 — passed after testing actual route unlock, Stamp project, resident purchase, save reload, Shop, Journal and original tutorial
-- `node scripts/balance.mjs`: 1m, 10m, 1h, 1d, 7d, 30d deterministic active/casual policy simulations — completed
-- Source file sanitizer/validator: save import rejects invalid negative currencies, unknown residents/carriage identities, corrupted envelope checksums, duplicate IDs and unsupported schema versions
+# V8 Masterworks
 
-## Known limits — not hidden
-- 25 carriages is a performance and economy cap, not an infinitely long physical consist. New timetables are voluntary; old progress is preserved by migration.
-- Region scenery currently reuses the hand-painted world asset with distinct layered color and weather motifs, not 8 independent large art panoramas.
-- Real-player long-term retention and enjoyment are not established by economic simulation.
-- Browser saves remain local per origin+browser. No cloud account sync; clearing browser data can remove all backups. Users can manually export/import across devices.
-- A checksum protects against accidental corruption, not player cheating. Browser clock manipulation remains possible in an offline-only economy.
-- Physical iPhone/Safari, Android, Firefox and direct live Pages browser acceptance are not claimed without separate tests.
-- No Windows executable compiled. The existing Tauri scaffold remains optional.
-- Attempted direct HTTP navigation to local preview using Chromium: `net::ERR_BLOCKED_BY_ADMINISTRATOR`. The four-viewport browser tests therefore use production-source ES modules and bundled asset bytes injected into a local document, as disclosed in the browser test header. This is useful interaction evidence but not an independent network deployment test.
+Local 73-unit-test/type-check/build verification passed. V8 workshop, rank and next-grade features implemented; art and model evidence in V8_RELEASE_AUDIT.md. Corrected V7 CI passed website and Windows, but V8 requires its own remote run.
+
+# V7 Grand Journey — current release candidate
+
+See [V7_RELEASE_AUDIT.md](V7_RELEASE_AUDIT.md) for the latest executed results and unresolved gates. Historical results below are not evidence of the current build.
+
+# V6 release candidate
+
+See [V6_GAUNTLET.md](V6_GAUNTLET.md) for current implementation, local verification and outstanding work. The older status below is historical. Do not infer physical-device or deployment verification from local Chromium emulation.
+
+# LAST STOP: THE EVERLINE — v5 implementation and verification
+
+## Completed in the current implementation
+
+- Versioned v4/v3 → v5 save migration; preserves all existing ownership/crew/collectibles; three rotating backups; explicit manual export/import/reset.
+- Passenger manifest per carriage with deterministic boarding/alighting **only on station arrival**; queued residents start bonuses after boarding.
+- Journey speed derived from the **same station timer** as arrivals (16s approach, 7s dwell, 12s departure); wheel/foreground motion scale with speed.
+- Eight region portraits: original painted sunset plus seven locally authored SVG panoramas; new unique cutaway visuals for Library, Diner and Workshop; all Shop groups use actual item preview images.
+- Scenic autopilot changes to a different unlocked regional backdrop after six station arrivals; manual stay-on-route mode; transition crossfade on departure.
+- Eight long-term service medals (1–8,760 credited hours), five furnishing grades and 20-level rooms with high-tier coin costs.
+- Separate seeded passenger and rare-event RNG streams and fractional-cent income accounting; reproducible economy across tick frequencies.
+- Branded poster/railway display typography with local fallback stacks; universal interface font pairing, consistent spacing and tactile tap targets.
+- Updated Pages static build, self-contained offline file, service-worker cache asset list and project docs.
+
+## Verification commands
+
+```
+npm run verify
+node scripts/balance.mjs
+node scripts/balance.mjs --long
+python tests/browser_art_smoke.py
+python tests/browser_station_smoke.py
+```
+
+Final local verification: 39/39 Node unit tests, TypeScript check, production static build, four Chromium viewport interaction tests, and two Chromium approach/dwell/departure checks. A deterministic 365-day balance simulation was executed. GitHub CI and physical-device verification must be stated separately.
+
+## Important known constraints
+
+- The original heartland world is painterly image artwork; new regional panoramas are intricate vector illustrations. They are visibly distinct but not the same hand-painted medium; dedicated painterly concept-to-runtime asset production is a future art task.
+- Pre-existing room imagery includes painted figures. Dynamic Canvas rider sprites and real passenger numbers are overlaid; the original painted silhouettes cannot magically be removed at station changes. V5 tracks *actual gameplay rider state*, but individual background silhouettes are still decorative.
+- Maximum cars: 25, maximum room level: 20. Beyond-the-Last-Bridge requires 23,000 cumulative stops. New Service Ledger takes 8,760 credited hours at maximum. There is no punitive login streak.
+- Income and service time continue with a **single 8-hour cap per absence**; station movement and boarding do not advance offline.
+- Local save integrity is not cheat prevention. Legacy imports are whitelisted and checksum-verified when wrapped. There is no authentication/backend/cloud sync.
+- Direct localhost browser navigation is blocked in this runtime, so Playwright tests use exact production ES modules with their image bytes embedded into a local HTML page. Live GitHub Pages and actual Safari hardware are separate checks.
+- Tauri Windows scaffold exists, but no native executable is built.

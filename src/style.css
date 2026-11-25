@@ -289,3 +289,159 @@ button:disabled{opacity:.56;filter:saturate(.58)}
 @media(max-width:600px){.region-grid{grid-template-columns:1fr;gap:10px}.region-ticket{padding:11px 12px}.region-ticket p{min-height:0;margin-bottom:9px}.crew-roster{font-size:9px}}
 
 @media(max-width:600px){.subnav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;overflow:visible}.subnav button{min-width:0;white-space:normal;padding:10px 7px}}
+
+/* V5 · The Longline edition — typographic and spatial system.
+ * Characterful railway-book typography; all fallback faces are local system fonts.
+ * No network font dependency and no downloadable font payloads. */
+:root{
+  --type-display:"Baskerville","Iowan Old Style","Book Antiqua","Palatino Linotype",Georgia,serif;
+  --type-interface:"Avenir Next","Trebuchet MS","Segoe UI",Arial,sans-serif;
+  --linen:#f8e7c7;--ticket:#221c29;--brass:#c89e62;--cap-letter:.13em;
+}
+body{font-family:var(--type-display)}
+.drawer-head h2,.room-name,.purchase-card h3,.postcard h3,.region-ticket h3,.ledger-medal h3,
+.nav-label,.toast,.room-earn,.pill strong,.train-summary{font-family:var(--type-display)}
+.superline,.room-kicker,.small-kicker,.region-mini,.level-line,.ledger-medal small,
+.purchase-card button,.subnav button,.setting-line,.travel-tip,.location-tag,.tour,.settings-actions button{
+  font-family:var(--type-interface)}
+.drawer-head h2{letter-spacing:-.035em;font-weight:700}
+.drawer-head{gap:20px}
+.drawer-body{scrollbar-gutter:stable;overscroll-behavior:contain}
+.subnav button{min-height:46px;letter-spacing:.12em;font-size:11px;white-space:nowrap}
+.purchase-card{border:1px solid #9d785d;border-radius:11px;background:#282331;box-shadow:inset 0 1px #f4d09c25,0 6px 15px #0c0b174d}
+.purchase-card .body{padding:16px;gap:3px}
+.purchase-card h3{font-size:clamp(21px,1.9vw,26px);line-height:1.16;letter-spacing:-.02em;color:#ffe3b1}
+.purchase-card p{font-family:var(--type-interface);font-size:13px;line-height:1.48;color:#e5d5c5;min-height:3.5em}
+.purchase-card button{line-height:1.35;min-height:48px;font-size:12px;letter-spacing:.025em}
+.preview{height:158px;background:linear-gradient(165deg,#233d4e,#161d2a 80%);border-bottom:1px solid #ad8162}
+.preview img{padding:8px;object-fit:contain;image-rendering:auto;filter:drop-shadow(0 6px 8px #06080a80)}
+.purchase-card.locked .preview{opacity:.83}
+.grade-line{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  margin:8px 0 3px;font:700 10px/1.3 var(--type-interface);letter-spacing:.05em;color:#e5c196}
+.grade-line span{font-size:9px;font-weight:500;color:#bba89f;letter-spacing:.03em;text-align:right}
+.crew-roster{font:600 10px/1.35 var(--type-interface);letter-spacing:.035em;color:#e5ca9f}
+.level-track{height:11px}
+.level-track i{border-right:1px solid #503b32}
+.room-kicker{font-size:10px;letter-spacing:.12em}
+.room-name{font-weight:700}
+.inspector-inner{padding-bottom:13px}
+.journey-ribbon{position:absolute;top:calc(13% + 43px);right:4%;z-index:2;
+ color:#fff1ce;font:800 10px/1.4 var(--type-interface);letter-spacing:.22em;
+ text-shadow:0 2px 6px #11132d;pointer-events:none}
+.journey-ribbon[data-phase="approaching"]{color:#ffd993}
+.journey-ribbon[data-phase="platform"]{color:#a8f2c7}
+.journey-ribbon[data-phase="departing"]{color:#fff0c1}
+.region-grid{gap:16px}
+.region-ticket{overflow:hidden;display:flex;flex-direction:column;padding-top:0}
+.region-preview{height:142px;position:relative;overflow:hidden;margin:0 -15px 14px;
+ background:#313e55;border-bottom:1px solid #d5aa7c6c}
+.region-preview img{width:100%;height:100%;object-fit:cover;object-position:center 55%}
+.region-preview:after{content:"";position:absolute;inset:0;border-top:4px solid var(--region-accent);pointer-events:none}
+.region-ticket h3{font-size:23px;line-height:1.1;margin:2px 0 6px}
+.region-ticket p{font-family:var(--type-interface);font-size:13px;line-height:1.48}
+.region-ticket button{margin-top:auto;min-height:46px}
+.service-intro{border:1px solid #a88a64;padding:20px 24px;background:#302832;max-width:860px;margin:0 0 18px;border-radius:12px}
+.service-intro h3{font:700 31px/1.1 var(--type-display);margin:8px 0;color:#ffe7b6}
+.service-intro p{font:14px/1.6 var(--type-interface);color:#e3d3c4;margin:5px 0}
+.ledger-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(265px,100%),1fr));gap:14px}
+.ledger-medal{display:flex;align-items:center;gap:16px;background:#2e2933;
+ padding:16px;border:1px solid #8f735c;border-radius:13px;min-height:132px}
+.ledger-medal>div:last-child{flex:1;min-width:0}
+.medal-symbol{flex:0 0 52px;display:grid;place-items:center;width:52px;height:52px;border-radius:50%;
+ border:2px solid #b49572;color:#efd5aa;background:#554251;font-size:28px}
+.ledger-medal.complete .medal-symbol{color:#503321;background:#f0c879}
+.ledger-medal h3{margin:4px 0 9px;font-size:21px;line-height:1.2;color:#f9deb6}
+.ledger-medal small{display:block;margin-top:6px;color:#d6c5b1}
+.ledger-track{height:7px;border-radius:7px;background:#1a1724;overflow:hidden}
+.ledger-track i{display:block;height:100%;background:#e9b76c;border-radius:7px}
+/* A station is a physical interaction in the scenery; keep menus secondary. */
+@media(max-width:950px){
+ .journey-ribbon{top:121px;right:13px;font-size:9px;letter-spacing:.1em}
+ .region-preview{height:126px}
+ .grade-line{font-size:9px}
+}
+@media(max-width:520px){
+ .journey-ribbon{top:88px;right:10px;max-width:53%;text-align:right;font-size:8px;letter-spacing:.1em}
+ .location-tag{display:none}
+ .inspector{max-height:min(32dvh,270px);bottom:calc(79px + env(safe-area-inset-bottom));overflow-y:auto;scrollbar-width:none}
+ .inspector-inner{padding:9px 12px 10px}
+ .room-title{min-height:39px}
+ .room-name{font-size:24px}
+ .room-icon{width:36px;flex-basis:36px;font-size:29px;height:36px}
+ .room-earn{font-size:13px}
+ .level-line{margin:7px 0 5px;font-size:9px;letter-spacing:.02em}
+ .level-line strong{font-size:9px}
+ .grade-line{margin-top:5px;font-size:8px;gap:6px}
+ .grade-line span{font-size:8px;max-width:56%}
+ .crew-roster{font-size:9px;line-height:1.2}
+ .upgrade{min-height:45px;margin-top:7px;padding:6px 10px;font-size:17px}
+ .secondary-tools{gap:5px;margin-top:6px}
+ .secondary-tools button{min-height:44px;font-size:9px;padding:6px 5px;letter-spacing:0}
+ .secondary-tools .move-btn{max-width:44px;min-width:44px}
+ .drawer-body{padding:13px 11px 20px}
+ .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .purchase-card .body{padding:10px;gap:2px}
+ .purchase-card h3{font-size:18px}
+ .purchase-card p{font-size:11px;line-height:1.36;margin-bottom:9px}
+ .purchase-card button{min-height:44px;font-size:10px;line-height:1.3;overflow-wrap:anywhere}
+ .preview{height:104px}
+ .region-grid{grid-template-columns:repeat(1,minmax(0,1fr));gap:12px}
+ .region-preview{height:120px}
+ .ledger-grid{grid-template-columns:repeat(1,minmax(0,1fr));gap:10px}
+ .service-intro{padding:13px 14px}
+ .service-intro h3{font-size:24px}
+ .service-intro p{font-size:12px}
+ .ledger-medal{min-height:104px;padding:10px}
+ .medal-symbol{flex-basis:43px;width:43px;height:43px;font-size:24px}
+ .ledger-medal h3{font-size:19px}
+}
+@media(max-width:340px){.grade-line span{display:none}.inspector{max-height:220px}.room-kicker{font-size:8px}}
+/* Verified lower safe-area clearance: no inspector may touch the navigation rail. */
+@media(max-width:520px){.inspector{bottom:calc(93px + env(safe-area-inset-bottom))}}
+
+/* Separate station status from the destination stamp at panoramic widths. */
+@media(min-width:951px){.journey-ribbon{top:calc(16% + 28px)}}
+
+.route-policy{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 16px;border:1px solid #a98567;background:#2b2531;border-radius:10px;margin:12px 0 17px;font:700 11px var(--type-interface);letter-spacing:.1em;color:#f0d8b1}
+.route-policy button{padding:9px 13px;min-height:44px;border:1px solid #dfb477;background:#f0c78d;color:#302333;border-radius:8px;font:700 11px var(--type-interface)}
+@media(max-width:520px){.route-policy{flex-direction:column;align-items:stretch;font-size:10px}.route-policy button{width:100%}}
+
+@media(max-width:520px){.journey-ribbon{display:none}.toast{max-width:calc(100% - 36px);padding:8px 13px;line-height:1.25;bottom:calc(329px + env(safe-area-inset-bottom));font-size:12px}}
+
+/* Living Railway — restrained utility controls over the existing illustrated stage. */
+.scenic-controls{position:absolute;z-index:8;top:180px;left:24px;display:flex;gap:8px;align-items:center;pointer-events:auto}
+.scenic-controls button{display:flex;align-items:center;gap:8px;min-height:44px;min-width:44px;padding:8px 14px;background:#202d30ee;color:#f2dfb9;border:1px solid #b69c69;border-radius:5px;font:600 12px/1.3 var(--type-interface);letter-spacing:.04em}
+.scenic-controls button[hidden]{display:none}.scenic-controls svg{width:20px;height:20px}.scenic-mode .hud,.scenic-mode .nav,.scenic-mode .inspector,.scenic-mode .tour,.scenic-mode .travel-tip,.scenic-mode .sighting,.scenic-mode .location-tag,.scenic-mode .journey-ribbon{display:none!important}.scenic-mode .scenic-controls{top:calc(12px + env(safe-area-inset-top));left:12px}.scenic-mode .toast{bottom:16px}
+.setting-line input:not([type=checkbox]){min-width:0;max-width:48%;min-height:44px;padding:8px;color:#f3e1c5;background:#23232c;border:1px solid #9f8965;border-radius:4px}.setting-line button{min-height:44px;background:#e7c78d;border:1px solid #9b794e;color:#292521;padding:5px 10px;border-radius:4px;font-size:11px}.setting-line label{flex:1}.setting-line{gap:8px;flex-wrap:wrap}.route-map{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:16px 0;padding:12px;background:#201f27;border:1px solid #987b54;border-radius:6px}.route-stop{min-height:56px;background:#34352e;color:#e9d6af;border:1px solid #9a875f;border-radius:4px;padding:8px;font:600 12px/1.3 var(--type-interface);text-align:left}.route-stop span{display:block;font-size:10px;color:#e3c180}.route-stop.here{background:#d8bc80;color:#201f23}.route-stop.here span{color:#201f23}.route-stop:disabled:not(.here){opacity:.65}.room-name{overflow-wrap:anywhere}.room-kicker,.small-kicker{letter-spacing:.085em}.nav-choice,.purchase-card,.inspector{border-radius:8px}.nav-choice.selected{box-shadow:inset 0 0 0 1px #d3b17a,0 0 8px #0008}.nav-choice{background:#242a2b}.nav{background:linear-gradient(#29302e,#1b2221)}
+@media(max-width:900px){.scenic-controls{left:12px;top:106px}.scenic-controls button{padding:6px 10px}.route-map{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.scenic-controls{top:100px;left:8px}.scenic-controls button{font-size:11px}.scenic-controls svg{width:17px;height:17px}.setting-line input:not([type=checkbox]){max-width:100%;flex:1}.setting-line label{min-width:100px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+@media(min-width:1200px) and (min-height:700px){.inspector{left:24px;top:30%;width:min(305px,24vw);transform:none}.inspector-inner{padding:14px}.room-name{font-size:29px}.room-icon{width:39px;flex-basis:39px;font-size:35px}.secondary-tools{gap:5px}.secondary-tools button{padding:7px 8px}.tour{max-width:270px}.scenic-controls{top:180px}}
+
+.scenic-controls{flex-wrap:wrap;max-width:calc(100% - 24px)}#zoom-in,#zoom-out{justify-content:center;font-size:19px;padding:0 10px}
+
+.cards>.route-note{grid-column:1/-1}.subnav{flex-wrap:wrap}.subnav button{min-height:44px}
+/* Preserve onboarding's visual hierarchy and never cover tutorial text. */
+.stage:has(.tour[data-step]:not([data-step="3"])):not(.scenic-mode) .scenic-controls{display:none}
+
+/* V7 — compact printed railway ephemera; keep the illustrated scene dominant. */
+.story-card,.fleet-panel{border:1px solid #9b7952;border-radius:8px;background:#252a2d;padding:16px;margin:12px 0;color:#f2e6cc}.story-card h3,.fleet-panel h3{font:600 24px/1.15 var(--type-display);margin:6px 0 12px}.story-card p,.fleet-panel p{font:14px/1.55 var(--type-interface);margin:7px 0;color:#e2d4bb}.fleet-panel button{min-height:44px;margin:4px 6px 4px 0;padding:8px 13px;border:1px solid #9b7952;background:#233b3a;color:#f3d6a0;border-radius:5px;font:600 12px var(--type-interface)}.fleet-panel button:disabled{opacity:.55}.setting-line select{background:#25292c;color:#f7e6c9;border:1px solid #b49a69;border-radius:5px;padding:8px;min-height:44px;font:14px var(--type-interface)}.postcard .art{overflow:hidden}.postcard .art img{display:block;width:100%;height:100%;object-fit:cover}.postcard.unknown .art{background:#343338;opacity:.6}.subnav button{min-height:44px}.grade-line span,.crew-roster{font-size:11px;line-height:1.3}.story-card .superline{letter-spacing:.11em}.scenic-controls button:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible,canvas:focus-visible{outline:3px solid #ffe5a6;outline-offset:2px}.subnav button[aria-pressed=true]{border-color:#f5d28e}.setting-line{gap:10px}.setting-line input[type=checkbox]{min-width:24px;min-height:24px}.setting-line label{cursor:pointer}
+@media(max-width:520px){.grade-line span,.crew-roster{font-size:10px}.story-card,.fleet-panel{padding:12px}.story-card h3,.fleet-panel h3{font-size:21px}.story-card p,.fleet-panel p{font-size:13px}.setting-line select{max-width:48%}}
+
+.postcard .art{position:relative}.postcard .art .postcard-station{position:absolute;bottom:0;right:2%;width:62%;height:65%;object-fit:contain;object-position:bottom right;filter:drop-shadow(0 2px 3px #14272d55)}
+
+/* Brand and HUD are real UI; the scenic plate is completely free of navigation chrome. */
+.desktop-brand{position:absolute;left:1.8%;top:12px;width:min(29vw,400px);height:166px;background:url('../assets/brand.png') no-repeat center top/contain;pointer-events:none;filter:drop-shadow(0 2px 4px #171620a0)}
+@media(max-width:900px){.desktop-brand{display:none}}
+
+/* V8: railway workshop and rank ledger; use existing ticket palette and minimum hit targets. */
+.workshop-note,.rank-hero{grid-column:1/-1;background:#232e2c;border:1px solid #ad9160;color:#f5e5c4;padding:16px 18px;line-height:1.5}.workshop-note p,.rank-hero p{margin:6px 0 0;font-size:13px}.rank-hero h3{font:700 clamp(21px,3vw,30px)/1.2 var(--type-display);margin:8px 0}.rank-hero progress{width:100%;height:12px;accent-color:#d4ab69}.rank-card{display:flex;flex-direction:column;gap:8px}.rank-claim{border:1px solid #bf9e68;background:#e8c78d;color:#222720;font-weight:700;min-height:44px;border-radius:4px;padding:8px}.rank-claim:disabled{background:#34312e;color:#d4c6b3;cursor:default}.workshop-owned{border-color:#8ea98e}.upgrade-gain{display:block;font:600 10px/1.2 var(--type-interface);color:#573b22;white-space:nowrap}.upgrade:disabled .upgrade-gain{color:inherit}.workshop-note b{font-size:17px}.rank-card .small-kicker{color:#d9b677}
+
+/* Keep tab navigation available after a long catalogue scroll. */
+.drawer-body .subnav{position:sticky;top:0;z-index:3;background:#211d29;padding-top:5px;padding-bottom:10px;box-shadow:0 5px 8px #211d29;scrollbar-gutter:auto}.workshop-note,.rank-hero{max-width:none}.purchase-card.workshop-owned .preview img{opacity:1}.purchase-card.locked .preview{filter:saturate(.7);opacity:.85}
+
+.rank-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:16px}.rank-grid .rank-card{margin:0;min-height:150px;padding:16px}.rank-grid .rank-card h3{margin:4px 0}.rank-grid .rank-card p{margin:0 0 6px;flex:1}.grade-advance{margin-top:12px;width:100%;font-size:13px}.nav-choice.has-rank-reward{position:relative}.nav-choice.has-rank-reward:after{content:'';position:absolute;right:12px;top:9px;width:9px;height:9px;background:#f0c67d;border:1px solid #3c3020;border-radius:50%}.rank-card .rank-claim{font-size:12px}.rank-hero{max-width:none}@media(max-width:550px){.rank-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.rank-grid .rank-card{min-height:145px;padding:10px}.rank-grid .rank-card h3{font-size:17px;line-height:1.2}.rank-grid .rank-card p{font-size:11px}.rank-grid .rank-claim{font-size:10px}}
+
+/* App identity: the same roundel used by the OS, not a decorative web-only logo. */
+.install-heading{display:flex;gap:14px;align-items:center}.install-heading img{width:56px;height:56px;flex:0 0 56px}.install-heading h3{margin:0}.install-heading p{margin:4px 0 0}.install-panel .install-note{font-size:12px;color:#d5bc95}.install-panel button{min-height:44px}

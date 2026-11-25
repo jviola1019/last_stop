@@ -6,9 +6,9 @@
       900
     ],
     "canvas_pixel": [
-      126,
-      71,
-      46,
+      135,
+      80,
+      49,
       255
     ],
     "screenshots": "docs/desktop-scene.png",
@@ -19,17 +19,20 @@
     "save_reload": "passed",
     "build_hire_decor": "passed",
     "keyboard": "passed",
+    "scenic_capture": "passed",
+    "train_name": "passed",
+    "low_power_setting": "passed",
     "errors": [],
     "horizontal_overflow": false,
     "layout": {
       "inspector": {
-        "x": 529,
-        "y": 198,
-        "w": 382,
-        "h": 297.1875,
-        "right": 911,
-        "bottom": 495.1875,
-        "font": "\"Iowan Old Style\", \"Palatino Linotype\", Baskerville, \"Noto Serif\", Georgia, serif",
+        "x": 24,
+        "y": 270,
+        "w": 305,
+        "h": 337.265625,
+        "right": 329,
+        "bottom": 607.265625,
+        "font": "Baskerville, \"Iowan Old Style\", \"Book Antiqua\", \"Palatino Linotype\", Georgia, serif",
         "fontSize": "16px"
       },
       "nav": {
@@ -39,37 +42,37 @@
         "h": 124,
         "right": 1440,
         "bottom": 900,
-        "font": "\"Iowan Old Style\", \"Palatino Linotype\", Baskerville, \"Noto Serif\", Georgia, serif",
+        "font": "Baskerville, \"Iowan Old Style\", \"Book Antiqua\", \"Palatino Linotype\", Georgia, serif",
         "fontSize": "16px"
       },
       "tour": {
         "x": 24,
-        "y": 651.3125,
-        "w": 297.234375,
-        "h": 108.6875,
-        "right": 321.234375,
+        "y": 631.8125,
+        "w": 270,
+        "h": 128.1875,
+        "right": 294,
         "bottom": 760,
-        "font": "Inter, \"Segoe UI\", -apple-system, BlinkMacSystemFont, Arial, sans-serif",
+        "font": "\"Avenir Next\", \"Trebuchet MS\", \"Segoe UI\", Arial, sans-serif",
         "fontSize": "13px"
       },
       "roomTitle": {
-        "x": 625,
-        "y": 233.9375,
-        "w": 150.421875,
-        "h": 34.875,
-        "right": 775.421875,
-        "bottom": 268.8125,
-        "font": "\"Iowan Old Style\", \"Palatino Linotype\", Baskerville, \"Noto Serif\", Georgia, serif",
-        "fontSize": "32px"
+        "x": 90,
+        "y": 307.5625,
+        "w": 137.703125,
+        "h": 31.609375,
+        "right": 227.703125,
+        "bottom": 339.171875,
+        "font": "Baskerville, \"Iowan Old Style\", \"Book Antiqua\", \"Palatino Linotype\", Georgia, serif",
+        "fontSize": "29px"
       },
       "navTitle": {
-        "x": 309.53125,
+        "x": 310.640625,
         "y": 823.09375,
-        "w": 94.5625,
+        "w": 92.34375,
         "h": 30.796875,
-        "right": 404.09375,
+        "right": 402.984375,
         "bottom": 853.890625,
-        "font": "\"Iowan Old Style\", \"Palatino Linotype\", Baskerville, \"Noto Serif\", Georgia, serif",
+        "font": "Baskerville, \"Iowan Old Style\", \"Book Antiqua\", \"Palatino Linotype\", Georgia, serif",
         "fontSize": "28px"
       },
       "targets": [
@@ -84,13 +87,13 @@
           "h": 60
         },
         {
-          "label": "Upgrade 99",
-          "w": 342,
-          "h": 53
+          "label": "Upgrade room +1,286/hr 99",
+          "w": 275,
+          "h": 57.1875
         },
         {
-          "label": "HIRE IVY \u00b7 167",
-          "w": 238,
+          "label": "HIRE NELL \u00b7 167",
+          "w": 177,
           "h": 44
         },
         {
@@ -122,43 +125,43 @@
       "labels": [
         {
           "value": "160",
-          "scroll": 52,
-          "client": 52
+          "scroll": 47,
+          "client": 47
         },
         {
           "value": "0",
-          "scroll": 17,
-          "client": 17
+          "scroll": 16,
+          "client": 16
         },
         {
-          "value": "01:24",
-          "scroll": 79,
-          "client": 79
+          "value": "01:19",
+          "scroll": 72,
+          "client": 72
         },
         {
           "value": "CARRIAGE 01 \u00b7 RESTFUL ROOMS",
-          "scroll": 342,
-          "client": 342
+          "scroll": 275,
+          "client": 275
         },
         {
           "value": "Sleeper",
-          "scroll": 150,
-          "client": 150
+          "scroll": 138,
+          "client": 138
         },
         {
-          "value": "Earns  5,220 / hr",
-          "scroll": 150,
-          "client": 150
+          "value": "Earns  4,763 / hr",
+          "scroll": 138,
+          "client": 138
         },
         {
           "value": "TRAIN",
-          "scroll": 95,
-          "client": 95
+          "scroll": 92,
+          "client": 92
         },
         {
           "value": "SHOP",
-          "scroll": 81,
-          "client": 81
+          "scroll": 78,
+          "client": 78
         },
         {
           "value": "JOURNAL",
@@ -177,7 +180,7 @@
     ],
     "canvas_pixel": [
       66,
-      46,
+      47,
       31,
       255
     ],
@@ -189,6 +192,9 @@
     "save_reload": "passed",
     "build_hire_decor": "passed",
     "keyboard": "passed",
+    "scenic_capture": "passed",
+    "train_name": "passed",
+    "low_power_setting": "passed",
     "errors": [],
     "horizontal_overflow": false,
     "layout": {
@@ -199,7 +205,7 @@
         "h": 255,
         "right": 640,
         "bottom": 1092,
-        "font": "\"Iowan Old Style\", \"Palatino Linotype\", Baskerville, \"Noto Serif\", Georgia, serif",
+        "font": "Baskerville, \"Iowan Old Style\", \"Book Antiqua\", \"Palatino Linotype\", Georgia, serif",
         "fontSize": "16px"
       },
       "nav": {
@@ -209,37 +215,37 @@
         "h": 84,
         "right": 820,
         "bottom": 1180,
-        "font": "\"Iowan Old Style\", \"Palatino Linotype\", Baskerville, \"Noto Serif\", Georgia, serif",
+        "font": "Baskerville, \"Iowan Old Style\", \"Book Antiqua\", \"Palatino Linotype\", Georgia, serif",
         "fontSize": "16px"
       },
       "tour": {
         "x": 16,
         "y": 122,
-        "w": 272.984375,
+        "w": 254.484375,
         "h": 105.1875,
-        "right": 288.984375,
+        "right": 270.484375,
         "bottom": 227.1875,
-        "font": "Inter, \"Segoe UI\", -apple-system, BlinkMacSystemFont, Arial, sans-serif",
+        "font": "\"Avenir Next\", \"Trebuchet MS\", \"Segoe UI\", Arial, sans-serif",
         "fontSize": "12px"
       },
       "roomTitle": {
         "x": 248,
         "y": 868.125,
-        "w": 127.171875,
+        "w": 116.6875,
         "h": 27.25,
-        "right": 375.171875,
+        "right": 364.6875,
         "bottom": 895.375,
-        "font": "\"Iowan Old Style\", \"Palatino Linotype\", Baskerville, \"Noto Serif\", Georgia, serif",
+        "font": "Baskerville, \"Iowan Old Style\", \"Book Antiqua\", \"Palatino Linotype\", Georgia, serif",
         "fontSize": "25px"
       },
       "navTitle": {
-        "x": 132.171875,
+        "x": 132.765625,
         "y": 1129.25,
-        "w": 50.65625,
+        "w": 49.46875,
         "h": 16.5,
-        "right": 182.828125,
+        "right": 182.234375,
         "bottom": 1145.75,
-        "font": "\"Iowan Old Style\", \"Palatino Linotype\", Baskerville, \"Noto Serif\", Georgia, serif",
+        "font": "Baskerville, \"Iowan Old Style\", \"Book Antiqua\", \"Palatino Linotype\", Georgia, serif",
         "fontSize": "15px"
       },
       "targets": [
@@ -254,12 +260,12 @@
           "h": 44
         },
         {
-          "label": "Upgrade 99",
+          "label": "Upgrade room +1,286/hr 99",
           "w": 426,
           "h": 46
         },
         {
-          "label": "HIRE IVY \u00b7 167",
+          "label": "HIRE NELL \u00b7 167",
           "w": 322,
           "h": 44
         },
@@ -292,18 +298,18 @@
       "labels": [
         {
           "value": "160",
-          "scroll": 29,
-          "client": 29
+          "scroll": 26,
+          "client": 26
         },
         {
           "value": "0",
-          "scroll": 10,
-          "client": 10
+          "scroll": 9,
+          "client": 9
         },
         {
-          "value": "01:24",
-          "scroll": 42,
-          "client": 42
+          "value": "01:19",
+          "scroll": 38,
+          "client": 38
         },
         {
           "value": "CARRIAGE 01 \u00b7 RESTFUL ROOMS",
@@ -312,23 +318,23 @@
         },
         {
           "value": "Sleeper",
-          "scroll": 127,
-          "client": 127
+          "scroll": 117,
+          "client": 117
         },
         {
-          "value": "Earns  5,220 / hr",
-          "scroll": 127,
-          "client": 127
+          "value": "Earns  4,763 / hr",
+          "scroll": 117,
+          "client": 117
         },
         {
           "value": "TRAIN",
-          "scroll": 51,
-          "client": 51
+          "scroll": 49,
+          "client": 49
         },
         {
           "value": "SHOP",
-          "scroll": 43,
-          "client": 43
+          "scroll": 42,
+          "client": 42
         },
         {
           "value": "JOURNAL",
@@ -346,9 +352,9 @@
       844
     ],
     "canvas_pixel": [
-      246,
+      244,
       190,
-      150,
+      149,
       255
     ],
     "screenshots": "docs/iphone-scene.png",
@@ -359,17 +365,20 @@
     "save_reload": "passed",
     "build_hire_decor": "passed",
     "keyboard": "passed",
+    "scenic_capture": "passed",
+    "train_name": "passed",
+    "low_power_setting": "passed",
     "errors": [],
     "horizontal_overflow": false,
     "layout": {
       "inspector": {
         "x": 11,
-        "y": 513,
+        "y": 491.796875,
         "w": 368,
-        "h": 245,
+        "h": 259.203125,
         "right": 379,
-        "bottom": 758,
-        "font": "\"Iowan Old Style\", \"Palatino Linotype\", Baskerville, \"Noto Serif\", Georgia, serif",
+        "bottom": 751,
+        "font": "Baskerville, \"Iowan Old Style\", \"Book Antiqua\", \"Palatino Linotype\", Georgia, serif",
         "fontSize": "16px"
       },
       "nav": {
@@ -379,37 +388,37 @@
         "h": 82,
         "right": 390,
         "bottom": 844,
-        "font": "\"Iowan Old Style\", \"Palatino Linotype\", Baskerville, \"Noto Serif\", Georgia, serif",
+        "font": "Baskerville, \"Iowan Old Style\", \"Book Antiqua\", \"Palatino Linotype\", Georgia, serif",
         "fontSize": "16px"
       },
       "tour": {
         "x": 11,
         "y": 110,
-        "w": 268.984375,
+        "w": 250.484375,
         "h": 101.1875,
-        "right": 279.984375,
+        "right": 261.484375,
         "bottom": 211.1875,
-        "font": "Inter, \"Segoe UI\", -apple-system, BlinkMacSystemFont, Arial, sans-serif",
+        "font": "\"Avenir Next\", \"Trebuchet MS\", \"Segoe UI\", Arial, sans-serif",
         "fontSize": "12px"
       },
       "roomTitle": {
-        "x": 77,
-        "y": 544.125,
-        "w": 127.171875,
-        "h": 27.25,
-        "right": 204.171875,
-        "bottom": 571.375,
-        "font": "\"Iowan Old Style\", \"Palatino Linotype\", Baskerville, \"Noto Serif\", Georgia, serif",
-        "fontSize": "25px"
+        "x": 68,
+        "y": 518.796875,
+        "w": 110.359375,
+        "h": 26.15625,
+        "right": 178.359375,
+        "bottom": 544.953125,
+        "font": "Baskerville, \"Iowan Old Style\", \"Book Antiqua\", \"Palatino Linotype\", Georgia, serif",
+        "fontSize": "24px"
       },
       "navTitle": {
-        "x": 60.015625,
+        "x": 60.578125,
         "y": 796,
-        "w": 47.28125,
+        "w": 46.171875,
         "h": 14,
-        "right": 107.296875,
+        "right": 106.75,
         "bottom": 810,
-        "font": "\"Iowan Old Style\", \"Palatino Linotype\", Baskerville, \"Noto Serif\", Georgia, serif",
+        "font": "Baskerville, \"Iowan Old Style\", \"Book Antiqua\", \"Palatino Linotype\", Georgia, serif",
         "fontSize": "14px"
       },
       "targets": [
@@ -424,13 +433,13 @@
           "h": 44
         },
         {
-          "label": "Upgrade 99",
-          "w": 338,
+          "label": "Upgrade room +1,286/hr 99",
+          "w": 342,
           "h": 46
         },
         {
-          "label": "HIRE IVY \u00b7 167",
-          "w": 234,
+          "label": "HIRE NELL \u00b7 167",
+          "w": 244,
           "h": 44
         },
         {
@@ -462,43 +471,43 @@
       "labels": [
         {
           "value": "160",
-          "scroll": 28,
-          "client": 28
+          "scroll": 25,
+          "client": 25
         },
         {
           "value": "0",
-          "scroll": 9,
-          "client": 9
+          "scroll": 8,
+          "client": 8
         },
         {
-          "value": "01:24",
-          "scroll": 42,
-          "client": 42
+          "value": "01:19",
+          "scroll": 38,
+          "client": 38
         },
         {
           "value": "CARRIAGE 01 \u00b7 RESTFUL ROOMS",
-          "scroll": 338,
-          "client": 338
+          "scroll": 342,
+          "client": 342
         },
         {
           "value": "Sleeper",
-          "scroll": 127,
-          "client": 127
+          "scroll": 110,
+          "client": 110
         },
         {
-          "value": "Earns  5,220 / hr",
-          "scroll": 127,
-          "client": 127
+          "value": "Earns  4,763 / hr",
+          "scroll": 110,
+          "client": 110
         },
         {
           "value": "TRAIN",
-          "scroll": 47,
-          "client": 47
+          "scroll": 46,
+          "client": 46
         },
         {
           "value": "SHOP",
-          "scroll": 40,
-          "client": 40
+          "scroll": 39,
+          "client": 39
         },
         {
           "value": "JOURNAL",
@@ -516,9 +525,9 @@
       650
     ],
     "canvas_pixel": [
-      53,
-      30,
-      16,
+      116,
+      84,
+      52,
       255
     ],
     "screenshots": "docs/small-scene.png",
@@ -529,17 +538,20 @@
     "save_reload": "passed",
     "build_hire_decor": "passed",
     "keyboard": "passed",
+    "scenic_capture": "passed",
+    "train_name": "passed",
+    "low_power_setting": "passed",
     "errors": [],
     "horizontal_overflow": false,
     "layout": {
       "inspector": {
         "x": 11,
-        "y": 335.15625,
+        "y": 337,
         "w": 298,
-        "h": 228.84375,
+        "h": 220,
         "right": 309,
-        "bottom": 564,
-        "font": "\"Iowan Old Style\", \"Palatino Linotype\", Baskerville, \"Noto Serif\", Georgia, serif",
+        "bottom": 557,
+        "font": "Baskerville, \"Iowan Old Style\", \"Book Antiqua\", \"Palatino Linotype\", Georgia, serif",
         "fontSize": "16px"
       },
       "nav": {
@@ -549,37 +561,37 @@
         "h": 82,
         "right": 320,
         "bottom": 650,
-        "font": "\"Iowan Old Style\", \"Palatino Linotype\", Baskerville, \"Noto Serif\", Georgia, serif",
+        "font": "Baskerville, \"Iowan Old Style\", \"Book Antiqua\", \"Palatino Linotype\", Georgia, serif",
         "fontSize": "16px"
       },
       "tour": {
         "x": 11,
         "y": 105,
-        "w": 268.984375,
+        "w": 250.484375,
         "h": 101.1875,
-        "right": 279.984375,
+        "right": 261.484375,
         "bottom": 206.1875,
-        "font": "Inter, \"Segoe UI\", -apple-system, BlinkMacSystemFont, Arial, sans-serif",
+        "font": "\"Avenir Next\", \"Trebuchet MS\", \"Segoe UI\", Arial, sans-serif",
         "fontSize": "12px"
       },
       "roomTitle": {
-        "x": 70,
-        "y": 357.84375,
-        "w": 113,
-        "h": 23.96875,
-        "right": 183,
-        "bottom": 381.8125,
-        "font": "\"Iowan Old Style\", \"Palatino Linotype\", Baskerville, \"Noto Serif\", Georgia, serif",
-        "fontSize": "22px"
+        "x": 68,
+        "y": 358.390625,
+        "w": 110.359375,
+        "h": 26.15625,
+        "right": 178.359375,
+        "bottom": 384.546875,
+        "font": "Baskerville, \"Iowan Old Style\", \"Book Antiqua\", \"Palatino Linotype\", Georgia, serif",
+        "fontSize": "24px"
       },
       "navTitle": {
-        "x": 47.046875,
+        "x": 47.5625,
         "y": 602.5,
-        "w": 43.90625,
+        "w": 42.875,
         "h": 13,
-        "right": 90.953125,
+        "right": 90.4375,
         "bottom": 615.5,
-        "font": "\"Iowan Old Style\", \"Palatino Linotype\", Baskerville, \"Noto Serif\", Georgia, serif",
+        "font": "Baskerville, \"Iowan Old Style\", \"Book Antiqua\", \"Palatino Linotype\", Georgia, serif",
         "fontSize": "13px"
       },
       "targets": [
@@ -594,13 +606,13 @@
           "h": 44
         },
         {
-          "label": "Upgrade 99",
-          "w": 268,
-          "h": 44
+          "label": "Upgrade room +1,286/hr 99",
+          "w": 272,
+          "h": 45
         },
         {
-          "label": "HIRE IVY \u00b7 167",
-          "w": 164,
+          "label": "HIRE NELL \u00b7 167",
+          "w": 174,
           "h": 44
         },
         {
@@ -632,43 +644,43 @@
       "labels": [
         {
           "value": "160",
-          "scroll": 24,
-          "client": 24
+          "scroll": 22,
+          "client": 22
         },
         {
           "value": "0",
-          "scroll": 8,
-          "client": 8
+          "scroll": 7,
+          "client": 7
         },
         {
-          "value": "01:24",
-          "scroll": 37,
-          "client": 37
+          "value": "01:19",
+          "scroll": 34,
+          "client": 34
         },
         {
           "value": "CARRIAGE 01 \u00b7 RESTFUL ROOMS",
-          "scroll": 268,
-          "client": 268
+          "scroll": 272,
+          "client": 272
         },
         {
           "value": "Sleeper",
-          "scroll": 113,
-          "client": 113
+          "scroll": 110,
+          "client": 110
         },
         {
-          "value": "Earns  5,220 / hr",
-          "scroll": 113,
-          "client": 113
+          "value": "Earns  4,763 / hr",
+          "scroll": 110,
+          "client": 110
         },
         {
           "value": "TRAIN",
-          "scroll": 44,
-          "client": 44
+          "scroll": 43,
+          "client": 43
         },
         {
           "value": "SHOP",
-          "scroll": 38,
-          "client": 38
+          "scroll": 36,
+          "client": 36
         },
         {
           "value": "JOURNAL",
