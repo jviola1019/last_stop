@@ -7,13 +7,13 @@
     "manifest": 25,
     "season": "Winter",
     "escapedName": true,
-    "decodedArtAssets": 43,
+    "decodedArtAssets": 59,
     "workshop": true,
     "rankClaim": true,
     "distinctPreviews": 4,
     "detachedDiagnostics": true,
     "cachePixels": 1638144,
-    "paintP95": 3.900000000372529,
+    "paintP95": 1.2999999999301508,
     "pageErrors": []
   },
   {
@@ -24,13 +24,13 @@
     "manifest": 25,
     "season": "Winter",
     "escapedName": true,
-    "decodedArtAssets": 43,
+    "decodedArtAssets": 59,
     "workshop": true,
     "rankClaim": true,
     "distinctPreviews": 4,
     "detachedDiagnostics": true,
-    "cachePixels": 480192,
-    "paintP95": 2.7999999998137355,
+    "cachePixels": 0,
+    "paintP95": 0.6999999999534339,
     "pageErrors": []
   }
 ]

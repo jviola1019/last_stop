@@ -1,3 +1,7 @@
+# V9 Service Railway — candidate
+
+86 local tests and local build pass; see [V9 release audit](V9_RELEASE_AUDIT.md). Remote CI and real-device validation are separate.
+
 # V8.1 — Heritage Roundel
 
 See [V8.1 release audit](V8_1_RELEASE_AUDIT.md) and [release plan](V8_1_RELEASE_PLAN.md) for current gates. V8 website and Windows workflows both completed successfully; V8.1 has its own source, installability, and production gates. Historical sections below do not certify the current release.

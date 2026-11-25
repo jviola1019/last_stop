@@ -71,7 +71,7 @@ with sync_playwright() as p:
   page.locator('[data-action="upgrade"]').click();assert page.evaluate('window.__EVERLINE_DIAGNOSTICS__().tutorial')==2
   page.locator('[data-action="finish-tutorial"]').click();assert page.evaluate('window.__EVERLINE_DIAGNOSTICS__().tutorial')==3
   # Shop and journal render genuine in-game items and navigation
-  page.locator('[data-page="shop"]').click();assert page.locator('#drawer').is_visible();assert page.locator('.purchase-card').count()==12
+  page.locator('[data-page="shop"]').click();assert page.locator('#drawer').is_visible();assert page.locator('.purchase-card').count()==28
   if name in ('desktop','iphone'):page.screenshot(path=str(root/'docs'/f'{name}-shop.png'),full_page=True)
   page.locator('[data-shop-page="paint"]').click();assert page.get_by_text('Old Copper').count()>=1
   page.locator('#close-drawer').click();page.locator('[data-page="journal"]').click();assert page.locator('.postcard').count()==16
@@ -97,7 +97,7 @@ with sync_playwright() as p:
   payload=json.dumps(prep,separators=(',',':'),ensure_ascii=False);h=2166136261
   for ch in payload:h=((h^ord(ch))*16777619)&0xffffffff
   prep_envelope=json.dumps({'schema':1,'checksum':f'{h:08x}','payload':payload})
-  new_page=context.new_page();new_errors=[];new_page.on('pageerror',lambda error:new_errors.append(str(error)))
+  new_page=context.new_page();new_page.clock.install();new_errors=[];new_page.on('pageerror',lambda error:new_errors.append(str(error)))
   new_page.set_content(html,wait_until='domcontentloaded');new_page.add_style_tag(content=css)
   new_page.evaluate("""(save) => {const m=new Map([['everline-save-v6',save]]);Object.defineProperty(window,'localStorage',{value:{getItem:k=>m.get(k)||null,setItem:(k,v)=>m.set(k,String(v)),removeItem:k=>m.delete(k)}})}""",prep_envelope)
   new_page.evaluate('(a)=>window.__assetUrls=a',images)
@@ -111,6 +111,9 @@ with sync_playwright() as p:
   new_page.locator('[data-action="hire"]').click()
   assert new_page.evaluate('window.__EVERLINE_DIAGNOSTICS__().cars[2].staff')==0
   assert len(new_page.evaluate('window.__EVERLINE_DIAGNOSTICS__().cars[2].pendingCrew'))==1
+  assert new_page.evaluate('window.__EVERLINE_DIAGNOSTICS__().cars[2].buildRemaining')>0
+  new_page.clock.fast_forward(95000)
+  assert new_page.evaluate('window.__EVERLINE_DIAGNOSTICS__().cars[2].buildRemaining')==0
   new_page.locator('[data-page="shop"]').click();new_page.locator('[data-shop-page="decoration"]').click()
   new_page.locator('[data-action="decor"][data-type="flowers"]').click()
   assert 'flowers' in json.loads(json.loads(new_page.evaluate("localStorage.getItem('everline-save-v6')"))['payload'])['decor']

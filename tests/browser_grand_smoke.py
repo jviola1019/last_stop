@@ -34,7 +34,7 @@ with sync_playwright() as pw:
   page.locator('[data-shop-page="heritage"]').click();assert page.locator('[data-action="heritage"]').count()==3;page.locator('[data-action="heritage"][data-type="conservation"]').click();assert 'conservation' in page.evaluate('window.__EVERLINE_DIAGNOSTICS__().heritageProjects')
   page.locator('[data-shop-page="workshop"]').click();assert page.locator('[data-action="workshop"]').count()==4
   before=page.evaluate('window.__EVERLINE_DIAGNOSTICS__().coins');page.locator('[data-action="workshop"]').first.click();assert page.evaluate('window.__EVERLINE_DIAGNOSTICS__().cars[0].mastery')==1;assert page.evaluate('window.__EVERLINE_DIAGNOSTICS__().coins')<before
-  page.locator('[data-action="next-grade"]').click();assert page.evaluate('window.__EVERLINE_DIAGNOSTICS__().cars[0].level')==20
+  page.locator('[data-action="next-grade"]').click();assert page.evaluate('window.__EVERLINE_DIAGNOSTICS__().cars[0].level')==17;assert page.evaluate('window.__EVERLINE_DIAGNOSTICS__().cars[0].upgradeTarget')==20
   previews=page.locator('.purchase-card .preview img').evaluate_all('(imgs)=>imgs.map(i=>i.src)');assert len(set(previews))==4 and all(x.startswith('data:image/png') for x in previews)
   page.screenshot(path=str(root/'docs'/f'v8-{device}-workshop.png'))
   page.locator('#close-drawer').click();page.locator('[data-page="journal"]').click();page.locator('[data-journal-page="ranks"]').click();assert page.locator('.rank-card').count()==10

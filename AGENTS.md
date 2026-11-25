@@ -29,3 +29,6 @@ Keep the V6 save key and additive schema validation. Test independent fleet slot
 
 ## V8.1 installation gates
 Preserve manifest id/start_url/scope, Tauri identifier, and game save namespace across branding revisions. Use a deterministic SVG master and correctly sized PNG/ICO outputs, separate maskable safe zone, Apple touch icon, and cache revision. Check standalone favicon is embedded. Run all former V8 suites plus branding unit checks and the real-origin Pages-subpath installability/offline-icon check before merge. Browser install UI is platform-specific; do not claim desktop icon placement on physical hardware from CDP or headless tests.
+
+## V9 service economy gates
+Keep the 28 unique blueprints and preserve existing legacy duplicates; no new duplicate construction/refit. Construction, restoration, stock and staff transitions belong in the deterministic economy layer. Run `tests/browser_service_smoke.py`, both policy scripts and prior CI gates. Test legacy saves and exact timer boundaries; no pay-to-skip.

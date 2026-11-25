@@ -11,9 +11,310 @@ export const CARRIAGES = Object.freeze({
  postal:{name:'Postal Car',label:'Letters along the line',icon:'mail',cost:4800,rate:17.6,color:'#4e6b6a',accent:'#d7b386',people:3,unlock:200,minCars:10,desc:'Sort parcels and letters between the villages.'},
  bakery:{name:'Bakery',label:'Fresh from the oven',icon:'bread',cost:5900,rate:21.4,color:'#7c5745',accent:'#e0bc81',people:4,unlock:350,minCars:12,desc:'Warm bread and pastries for the next station.'},
  cinema:{name:'Picture House',label:'Silver-screen journeys',icon:'film',cost:7200,rate:26.1,color:'#53435a',accent:'#c7a377',people:5,unlock:700,minCars:15,desc:'A tiny moving picture house for travelers.'},
- lounge:{name:'Grand Lounge',label:'A quiet place to watch',icon:'sofa',cost:8700,rate:31.8,color:'#455c58',accent:'#ddc08b',people:4,unlock:1500,minCars:18,desc:'Velvet seats and broad panoramic windows.'}
+ lounge:{name:'Grand Lounge',label:'A quiet place to watch',icon:'sofa',cost:8700,rate:31.8,color:'#455c58',accent:'#ddc08b',people:4,unlock:1500,minCars:18,desc:'Velvet seats and broad panoramic windows.'},
+ quarters:{name:"Crew Quarters",label:"Housing",icon:'star',cost:340,rate:1.4,color:'#64546b',accent:'#e8b77e',people:4,unlock:0,minCars:2,desc:"A bunkhouse for the people who keep the railway running."},
+ newsstand:{name:"Newsstand",label:"Retail",icon:'star',cost:510,rate:2.6,color:'#537783',accent:'#e9b96f',people:3,unlock:3,minCars:3,desc:"Daily papers and pocket maps for passengers."},
+ tea:{name:"Tea Salon",label:"Food",icon:'star',cost:770,rate:3.4,color:'#8b6a58',accent:'#d9bba2',people:4,unlock:10,minCars:4,desc:"Porcelain cups, tea tins and a quiet ceremony."},
+ barber:{name:"Barber Shop",label:"Service",icon:'star',cost:1150,rate:4.8,color:'#884b54',accent:'#e5c796',people:3,unlock:18,minCars:4,desc:"A travelling barber with polished mirrors and leather chairs."},
+ florist:{name:"Flower Market",label:"Retail",icon:'star',cost:1550,rate:6.5,color:'#547b64',accent:'#e5afbd',people:3,unlock:28,minCars:5,desc:"Buckets of cut flowers and seasonal bouquets."},
+ music:{name:"Music Room",label:"Culture",icon:'star',cost:2050,rate:8.0,color:'#65557c',accent:'#edd096',people:4,unlock:45,minCars:6,desc:"Piano recitals and late-night jazz on the rails."},
+ apothecary:{name:"Apothecary",label:"Service",icon:'star',cost:2750,rate:10.2,color:'#536e5f',accent:'#edcc8b',people:3,unlock:70,minCars:7,desc:"A cabinet of botanical soaps, balms and remedies."},
+ photography:{name:"Photo Studio",label:"Creative",icon:'star',cost:3250,rate:12.0,color:'#5b6074',accent:'#dfad81',people:3,unlock:95,minCars:8,desc:"A darkroom and portrait studio for railway memories."},
+ tailor:{name:"Tailor Atelier",label:"Creative",icon:'star',cost:4050,rate:15.0,color:'#84565c',accent:'#e8bf87',people:3,unlock:150,minCars:9,desc:"Patterns, bolts of fabric and beautifully cut jackets."},
+ aquarium:{name:"Aquarium",label:"Culture",icon:'star',cost:5200,rate:17.5,color:'#347b82',accent:'#a7d5b6',people:4,unlock:240,minCars:10,desc:"A miniature underwater garden with shimmering fish."},
+ cheese:{name:"Cheese Pantry",label:"Food",icon:'star',cost:6200,rate:21.0,color:'#9a7047',accent:'#f1d59c',people:3,unlock:380,minCars:12,desc:"A cool pantry of farmhouse cheeses and tasting boards."},
+ museum:{name:"Railway Museum Car",label:"Culture",icon:'star',cost:7100,rate:23.5,color:'#766650',accent:'#d9be83',people:4,unlock:550,minCars:13,desc:"Old signals, model trains and a treasured station clock."},
+ pottery:{name:"Pottery Studio",label:"Creative",icon:'star',cost:7950,rate:26.0,color:'#a0634d',accent:'#e8c8a4',people:3,unlock:850,minCars:15,desc:"A small kiln and shelves of handmade ceramics."},
+ bookshop:{name:"Bookshop",label:"Retail",icon:'star',cost:9000,rate:29.0,color:'#555a78',accent:'#e5c28e',people:3,unlock:1200,minCars:16,desc:"New novels, travel journals and first editions."},
+ suite:{name:"Pullman Suite",label:"Housing",icon:'star',cost:9800,rate:18.0,color:'#6d475b',accent:'#efd09d',people:3,unlock:1800,minCars:18,desc:"A private compartment with upholstered beds and a writing desk."},
+ planetarium:{name:"Planetarium",label:"Culture",icon:'star',cost:11600,rate:35.0,color:'#34445e',accent:'#bfd3e6',people:4,unlock:2500,minCars:20,desc:"A miniature dome projecting constellations over velvet seats."}
 });
 export const TYPE_ORDER=Object.keys(CARRIAGES);
+export const SERVICE_CATALOG=Object.freeze({
+ "sleeper": {
+  "category": "Housing",
+  "products": [
+   "Room rent",
+   "Linen",
+   "Concierge"
+  ],
+  "duration": 2400,
+  "lead": 90
+ },
+ "cafe": {
+  "category": "Food",
+  "products": [
+   "Espresso",
+   "Pastries",
+   "Coffee flights"
+  ],
+  "duration": 2880,
+  "lead": 120
+ },
+ "garden": {
+  "category": "Creative",
+  "products": [
+   "Seedlings",
+   "Terrariums",
+   "Rare orchids"
+  ],
+  "duration": 3360,
+  "lead": 150
+ },
+ "library": {
+  "category": "Culture",
+  "products": [
+   "Reading passes",
+   "Book loans",
+   "Literary salons"
+  ],
+  "duration": 3840,
+  "lead": 180
+ },
+ "diner": {
+  "category": "Food",
+  "products": [
+   "Breakfast",
+   "Lunch",
+   "Dinner service"
+  ],
+  "duration": 4320,
+  "lead": 210
+ },
+ "arcade": {
+  "category": "Culture",
+  "products": [
+   "Game tokens",
+   "Prize tickets",
+   "Tournament passes"
+  ],
+  "duration": 2400,
+  "lead": 240
+ },
+ "workshop": {
+  "category": "Creative",
+  "products": [
+   "Repairs",
+   "Model kits",
+   "Custom machinery"
+  ],
+  "duration": 2880,
+  "lead": 90
+ },
+ "observatory": {
+  "category": "Culture",
+  "products": [
+   "Star maps",
+   "Telescope sessions",
+   "Astronomy talks"
+  ],
+  "duration": 3360,
+  "lead": 120
+ },
+ "postal": {
+  "category": "Service",
+  "products": [
+   "Letters",
+   "Parcels",
+   "Express dispatch"
+  ],
+  "duration": 3840,
+  "lead": 150
+ },
+ "bakery": {
+  "category": "Food",
+  "products": [
+   "Bread",
+   "Pastries",
+   "Celebration cakes"
+  ],
+  "duration": 4320,
+  "lead": 180
+ },
+ "cinema": {
+  "category": "Culture",
+  "products": [
+   "Matinees",
+   "Evening shows",
+   "Private screenings"
+  ],
+  "duration": 2400,
+  "lead": 210
+ },
+ "lounge": {
+  "category": "Service",
+  "products": [
+   "Day passes",
+   "Cocktail service",
+   "Private events"
+  ],
+  "duration": 2880,
+  "lead": 240
+ },
+ "quarters": {
+  "category": "Housing",
+  "products": [
+   "Bunks",
+   "Laundry",
+   "Lockers"
+  ],
+  "duration": 3360,
+  "lead": 90
+ },
+ "newsstand": {
+  "category": "Retail",
+  "products": [
+   "Morning papers",
+   "Maps",
+   "Travel guides"
+  ],
+  "duration": 3840,
+  "lead": 120
+ },
+ "tea": {
+  "category": "Food",
+  "products": [
+   "Green tea",
+   "Cream tea",
+   "Afternoon service"
+  ],
+  "duration": 4320,
+  "lead": 150
+ },
+ "barber": {
+  "category": "Service",
+  "products": [
+   "Trims",
+   "Shaves",
+   "Grooming kits"
+  ],
+  "duration": 2400,
+  "lead": 180
+ },
+ "florist": {
+  "category": "Retail",
+  "products": [
+   "Posies",
+   "Bouquets",
+   "Wedding flowers"
+  ],
+  "duration": 2880,
+  "lead": 210
+ },
+ "music": {
+  "category": "Culture",
+  "products": [
+   "Sheet music",
+   "Recitals",
+   "Private concerts"
+  ],
+  "duration": 3360,
+  "lead": 240
+ },
+ "apothecary": {
+  "category": "Service",
+  "products": [
+   "Soap",
+   "Herbal balms",
+   "Bath kits"
+  ],
+  "duration": 3840,
+  "lead": 90
+ },
+ "photography": {
+  "category": "Creative",
+  "products": [
+   "Prints",
+   "Portraits",
+   "Albums"
+  ],
+  "duration": 4320,
+  "lead": 120
+ },
+ "tailor": {
+  "category": "Creative",
+  "products": [
+   "Alterations",
+   "Waistcoats",
+   "Bespoke suits"
+  ],
+  "duration": 2400,
+  "lead": 150
+ },
+ "aquarium": {
+  "category": "Culture",
+  "products": [
+   "Viewing passes",
+   "Guided tours",
+   "Sea journals"
+  ],
+  "duration": 2880,
+  "lead": 180
+ },
+ "cheese": {
+  "category": "Food",
+  "products": [
+   "Cheese rolls",
+   "Tasting boards",
+   "Hampers"
+  ],
+  "duration": 3360,
+  "lead": 210
+ },
+ "museum": {
+  "category": "Culture",
+  "products": [
+   "Admission",
+   "Model kits",
+   "Archive tours"
+  ],
+  "duration": 3840,
+  "lead": 240
+ },
+ "pottery": {
+  "category": "Creative",
+  "products": [
+   "Cups",
+   "Vases",
+   "Custom ceramics"
+  ],
+  "duration": 4320,
+  "lead": 90
+ },
+ "bookshop": {
+  "category": "Retail",
+  "products": [
+   "Paperbacks",
+   "Journals",
+   "First editions"
+  ],
+  "duration": 2400,
+  "lead": 120
+ },
+ "suite": {
+  "category": "Housing",
+  "products": [
+   "Room rent",
+   "Linen",
+   "Concierge"
+  ],
+  "duration": 2880,
+  "lead": 150
+ },
+ "planetarium": {
+  "category": "Culture",
+  "products": [
+   "Star charts",
+   "Dome shows",
+   "Night lectures"
+  ],
+  "duration": 3360,
+  "lead": 180
+ }
+});
+export const NEW_BLUEPRINTS=["quarters", "newsstand", "tea", "barber", "florist", "music", "apothecary", "photography", "tailor", "aquarium", "cheese", "museum", "pottery", "bookshop", "suite", "planetarium"];
+export const ROOM_CATEGORIES=["Housing","Food","Service","Retail","Creative","Culture"];
+export const ECONOMY_RATE_SCALE=.14;
 export const REGIONS=Object.freeze([
  {id:'heartland',name:'The Green Line',subtitle:'Fern valleys & sleepy towns',stops:0,cars:2,stamps:0,accent:'#88ad8a',biome:'forest'},
  {id:'coast',name:'Saltwind Coast',subtitle:'Harbors & lantern-lit quays',stops:8,cars:3,stamps:2,accent:'#79b6c0',biome:'coast'},
@@ -50,7 +351,8 @@ export const RESIDENTS=Object.freeze([
  {name:'Luca',dream:'garden',craft:'Florist'}, {name:'Faye',dream:'cafe',craft:'Baker'},
  {name:'Kit',dream:'diner',craft:'Host'}, {name:'Ada',dream:'workshop',craft:'Inventor'},
  {name:'Ivy',dream:'library',craft:'Storyteller'}, {name:'Rowan',dream:'sleeper',craft:'Conductor'},
- {name:'Sol',dream:'observatory',craft:'Navigator'}, {name:'Iris',dream:'arcade',craft:'Artist'}, {name:'Sage',dream:'postal',craft:'Postmaster'}, {name:'Cora',dream:'bakery',craft:'Pastry chef'}, {name:'Ellis',dream:'cinema',craft:'Projectionist'}, {name:'Mae',dream:'lounge',craft:'Host'}
+ {name:'Sol',dream:'observatory',craft:'Navigator'}, {name:'Iris',dream:'arcade',craft:'Artist'}, {name:'Sage',dream:'postal',craft:'Postmaster'}, {name:'Cora',dream:'bakery',craft:'Pastry chef'}, {name:'Ellis',dream:'cinema',craft:'Projectionist'}, {name:'Mae',dream:'lounge',craft:'Host'},
+ {name:"Ellie",dream:'quarters',craft:"Crew Quarters"}, {name:"Hugo",dream:'newsstand',craft:"Newsstand"}, {name:"Min",dream:'tea',craft:"Tea Salon"}, {name:"Alfie",dream:'barber',craft:"Barber Shop"}, {name:"Violet",dream:'florist',craft:"Flower Market"}, {name:"Felix",dream:'music',craft:"Music Room"}, {name:"Rose",dream:'apothecary',craft:"Apothecary"}, {name:"Niko",dream:'photography',craft:"Photo Studio"}, {name:"Tess",dream:'tailor',craft:"Tailor Atelier"}, {name:"Coral",dream:'aquarium',craft:"Aquarium"}, {name:"Otto",dream:'cheese',craft:"Cheese Pantry"}, {name:"Arthur",dream:'museum',craft:"Railway Museum Car"}, {name:"Clay",dream:'pottery',craft:"Pottery Studio"}, {name:"Opal",dream:'bookshop',craft:"Bookshop"}, {name:"Lena",dream:'suite',craft:"Pullman Suite"}, {name:"Nova",dream:'planetarium',craft:"Planetarium"}
 ]);
 export const STAMP_PROJECTS=Object.freeze([
  {id:'postcards',name:'Postcard Gallery',cost:3,desc:'Each region passport stamp now gives your train a permanent +2% earning bonus.'},
