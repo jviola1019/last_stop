@@ -43,13 +43,13 @@ with sync_playwright() as pw:
         page.evaluate('(s)=>{const script=document.createElement("script");script.type="module";script.src=s;document.body.appendChild(script)}',script)
         page.wait_for_function('window.__EVERLINE_DIAGNOSTICS__?.().cars.length===25')
         page.wait_for_timeout(600);first=page.evaluate('window.__EVERLINE_DIAGNOSTICS__()');assert first['selected']==24
-        page.locator('[data-page="shop"]').click();page.locator('[data-shop-page="refit"]').click();page.locator('[data-action="refit"][data-type="lounge"]').click()
-        queued=page.evaluate('window.__EVERLINE_DIAGNOSTICS__()');assert queued['cars'][24]['pendingRefit']=='lounge' and queued['cars'][24]['type']=='sleeper';assert queued['coins']<first['coins']
+        page.locator('[data-page="shop"]').click();page.locator('[data-shop-page="refit"]').click();page.locator('[data-action="refit"][data-type="quarters"]').click()
+        queued=page.evaluate('window.__EVERLINE_DIAGNOSTICS__()');assert queued['cars'][24]['pendingRefit']=='quarters' and queued['cars'][24]['type']=='sleeper';assert queued['coins']<first['coins']
         page.locator('#close-drawer').click();page.locator('#scenic').click();page.locator('#zoom-out').click()
         start=page.evaluate('({t:performance.now(),f:window.__EVERLINE_DIAGNOSTICS__().frames})');page.wait_for_timeout(2000);end=page.evaluate('({t:performance.now(),f:window.__EVERLINE_DIAGNOSTICS__().frames})');fps=(end['f']-start['f'])*1000/(end['t']-start['t']);assert fps>0
         page.screenshot(path=str(root/'docs'/f'{device}-25-cars.png'));page.keyboard.press('Escape');page.locator('#settings').click();page.locator('#power-setting').check();page.locator('#close-settings').click()
         start=page.evaluate('({t:performance.now(),f:window.__EVERLINE_DIAGNOSTICS__().frames})');page.wait_for_timeout(2000);end=page.evaluate('({t:performance.now(),f:window.__EVERLINE_DIAGNOSTICS__().frames})');low=(end['f']-start['f'])*1000/(end['t']-start['t']);assert 0<low<=35
-        page.wait_for_function('window.__EVERLINE_DIAGNOSTICS__().cars[24].type==="lounge"',timeout=35000)
+        page.wait_for_function('window.__EVERLINE_DIAGNOSTICS__().cars[24].type==="quarters"',timeout=35000)
         final=page.evaluate('window.__EVERLINE_DIAGNOSTICS__()');assert final['cars'][24]['level']==first['cars'][24]['level'];assert final['cars'][24]['staff']==2 and len(final['cars'])==25;assert not errors,errors;assert final['cachePixels']<=12000000
         results.append({'device':device,'cars':25,'fps_sample':round(fps,1),'low_power_fps_sample':round(low,1),'refit_at_station':True,'cachePixels':final['cachePixels'],'paintP95':final['paintP95'],'errors':errors});print(results[-1]);ctx.close()
     browser.close()

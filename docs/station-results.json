@@ -1,18 +1,18 @@
 [
   {
     "device": "desktop",
-    "approach_speed": 0.03598704454736257,
+    "approach_speed": 0.03986288014306638,
     "stop_speed": 0,
-    "departure_speed": 0.21296203656134535,
+    "departure_speed": 0.18657876933217477,
     "boarded_crew": 1,
     "boarding": 0,
     "alighting": 3
   },
   {
     "device": "iphone",
-    "approach_speed": 0.03693915224999933,
+    "approach_speed": 0.0395857425312498,
     "stop_speed": 0,
-    "departure_speed": 0.1630535680000003,
+    "departure_speed": 0.1390905789386589,
     "boarded_crew": 1,
     "boarding": 0,
     "alighting": 3

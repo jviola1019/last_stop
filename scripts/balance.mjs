@@ -6,21 +6,22 @@
  * --long evaluates purchases every 15 minutes after day 30 (published as a changed policy).
  * No ads, real purchases, login streaks, or paid boosts.
  */
-import {initialState,tick,collect,buildCar,carCost,upgradeCar,upgradeCost,hireResident,hireCost,incomeRate,unlockRegion,regionGate,buyStampProject,carIncomeRate} from '../src/economy.js';
+import {roomBusy,carriageGate,supplyQuote,orderSupply,orderTrainSupplies,crewHireGate,initialState,tick,collect,buildCar,carCost,upgradeCar,upgradeCost,hireResident,hireCost,incomeRate,unlockRegion,regionGate,buyStampProject,carIncomeRate} from '../src/economy.js';
 import {TYPE_ORDER,CARRIAGES,REGIONS,MAX_ROOM_LEVEL,MAX_CARRIAGES} from '../src/data.js';
 const long=process.argv.includes('--long');
 const fmt=n=>Number.isFinite(n)?Math.round(n):null;
 function choose(s){const choices=[];
  for(const [index,c] of s.cars.entries()){
-  if(c.level<MAX_ROOM_LEVEL){const price=upgradeCost(c);const val=carIncomeRate(s,index)*.27;choices.push({cost:price,ratio:val/price,fn:()=>upgradeCar(s,c.id)})}
-  if(c.staff+(c.pendingCrew||[]).length<2){const price=hireCost({...c,staff:c.staff+(c.pendingCrew||[]).length});const val=carIncomeRate(s,index)*.18;choices.push({cost:price,ratio:val/price,fn:()=>hireResident(s,c.id)})}
+  if(c.level<MAX_ROOM_LEVEL&&!roomBusy(c)){const price=upgradeCost(c);const val=carIncomeRate(s,index)*.18;choices.push({cost:price,ratio:val/price,fn:()=>upgradeCar(s,c.id)})}
+  for(let i=0;i<3;i++){const q=supplyQuote(s,c.id,i);if(q.ok)choices.push({cost:q.cost,ratio:CARRIAGES[c.type].rate*.05/q.cost,fn:()=>orderSupply(s,c.id,i)})}
+  if(crewHireGate(s,c.id).ok){const price=hireCost({...c,staff:c.staff+(c.pendingCrew||[]).length});const val=carIncomeRate(s,index)*.18;choices.push({cost:price,ratio:val/price,fn:()=>hireResident(s,c.id)})}
  }
- for(const type of TYPE_ORDER){const c=CARRIAGES[type];if(s.stops<c.unlock||s.cars.length<c.minCars||s.cars.length>=MAX_CARRIAGES)continue;const cost=carCost(s,type);choices.push({cost,ratio:c.rate/cost,fn:()=>buildCar(s,type)})}
+ for(const type of TYPE_ORDER){const c=CARRIAGES[type];if(!carriageGate(s,type).ok)continue;const cost=carCost(s,type);choices.push({cost,ratio:c.rate/cost,fn:()=>buildCar(s,type)})}
  choices.sort((a,b)=>b.ratio-a.ratio);return choices.find(c=>c.cost<=s.coins);
 }
 function play(policy){const s=initialState(0),points=[],marks=long?[1,10,60,1440,10080,43200,129600,525600]:[1,10,60,1440,10080,43200];const max=marks.at(-1);let purchases=0;
  for(let minute=1;minute<=max;minute++){
-  if(policy==='casual'&&minute>10&&minute%1440===0){tick(s,8*3600,{offline:true});collect(s)}
+  if(policy==='casual'&&minute>10&&minute%1440===0){tick(s,8*3600,{offline:true});collect(s);orderTrainSupplies(s)}
   const present=policy==='active'||(minute%1440<10);
   if(present){tick(s,60);collect(s);
    if(!long||minute<=43200||minute%15===0){

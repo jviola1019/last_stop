@@ -29,9 +29,9 @@
         "x": 24,
         "y": 270,
         "w": 305,
-        "h": 337.265625,
+        "h": 382.265625,
         "right": 329,
-        "bottom": 607.265625,
+        "bottom": 652.265625,
         "font": "Baskerville, \"Iowan Old Style\", \"Book Antiqua\", \"Palatino Linotype\", Georgia, serif",
         "fontSize": "16px"
       },
@@ -58,9 +58,9 @@
       "roomTitle": {
         "x": 90,
         "y": 307.5625,
-        "w": 137.703125,
+        "w": 124.953125,
         "h": 31.609375,
-        "right": 227.703125,
+        "right": 214.953125,
         "bottom": 339.171875,
         "font": "Baskerville, \"Iowan Old Style\", \"Book Antiqua\", \"Palatino Linotype\", Georgia, serif",
         "fontSize": "29px"
@@ -87,7 +87,7 @@
           "h": 60
         },
         {
-          "label": "Upgrade room +1,286/hr 99",
+          "label": "Upgrade room +96/hr 99",
           "w": 275,
           "h": 57.1875
         },
@@ -117,7 +117,7 @@
           "h": 78
         },
         {
-          "label": "JOURNAL",
+          "label": "Journal",
           "w": 350,
           "h": 78
         }
@@ -145,13 +145,13 @@
         },
         {
           "value": "Sleeper",
-          "scroll": 138,
-          "client": 138
+          "scroll": 125,
+          "client": 125
         },
         {
-          "value": "Earns  4,763 / hr",
-          "scroll": 138,
-          "client": 138
+          "value": "Earns  533 / hr",
+          "scroll": 125,
+          "client": 125
         },
         {
           "value": "TRAIN",
@@ -231,9 +231,9 @@
       "roomTitle": {
         "x": 248,
         "y": 868.125,
-        "w": 116.6875,
+        "w": 106.1875,
         "h": 27.25,
-        "right": 364.6875,
+        "right": 354.1875,
         "bottom": 895.375,
         "font": "Baskerville, \"Iowan Old Style\", \"Book Antiqua\", \"Palatino Linotype\", Georgia, serif",
         "fontSize": "25px"
@@ -260,7 +260,7 @@
           "h": 44
         },
         {
-          "label": "Upgrade room +1,286/hr 99",
+          "label": "Upgrade room +96/hr 99",
           "w": 426,
           "h": 46
         },
@@ -290,7 +290,7 @@
           "h": 59
         },
         {
-          "label": "JOURNAL",
+          "label": "Journal",
           "w": 260,
           "h": 59
         }
@@ -318,13 +318,13 @@
         },
         {
           "value": "Sleeper",
-          "scroll": 117,
-          "client": 117
+          "scroll": 106,
+          "client": 106
         },
         {
-          "value": "Earns  4,763 / hr",
-          "scroll": 117,
-          "client": 117
+          "value": "Earns  533 / hr",
+          "scroll": 106,
+          "client": 106
         },
         {
           "value": "TRAIN",
@@ -373,9 +373,9 @@
     "layout": {
       "inspector": {
         "x": 11,
-        "y": 491.796875,
+        "y": 459,
         "w": 368,
-        "h": 259.203125,
+        "h": 292,
         "right": 379,
         "bottom": 751,
         "font": "Baskerville, \"Iowan Old Style\", \"Book Antiqua\", \"Palatino Linotype\", Georgia, serif",
@@ -403,11 +403,11 @@
       },
       "roomTitle": {
         "x": 68,
-        "y": 518.796875,
-        "w": 110.359375,
+        "y": 486,
+        "w": 100.609375,
         "h": 26.15625,
-        "right": 178.359375,
-        "bottom": 544.953125,
+        "right": 168.609375,
+        "bottom": 512.15625,
         "font": "Baskerville, \"Iowan Old Style\", \"Book Antiqua\", \"Palatino Linotype\", Georgia, serif",
         "fontSize": "24px"
       },
@@ -433,7 +433,7 @@
           "h": 44
         },
         {
-          "label": "Upgrade room +1,286/hr 99",
+          "label": "Upgrade room +96/hr 99",
           "w": 342,
           "h": 46
         },
@@ -463,7 +463,7 @@
           "h": 60
         },
         {
-          "label": "JOURNAL",
+          "label": "Journal",
           "w": 119.328125,
           "h": 60
         }
@@ -491,13 +491,13 @@
         },
         {
           "value": "Sleeper",
-          "scroll": 110,
-          "client": 110
+          "scroll": 101,
+          "client": 101
         },
         {
-          "value": "Earns  4,763 / hr",
-          "scroll": 110,
-          "client": 110
+          "value": "Earns  533 / hr",
+          "scroll": 101,
+          "client": 101
         },
         {
           "value": "TRAIN",
@@ -546,9 +546,9 @@
     "layout": {
       "inspector": {
         "x": 11,
-        "y": 337,
+        "y": 329.5,
         "w": 298,
-        "h": 220,
+        "h": 227.5,
         "right": 309,
         "bottom": 557,
         "font": "Baskerville, \"Iowan Old Style\", \"Book Antiqua\", \"Palatino Linotype\", Georgia, serif",
@@ -576,11 +576,11 @@
       },
       "roomTitle": {
         "x": 68,
-        "y": 358.390625,
-        "w": 110.359375,
+        "y": 350.890625,
+        "w": 100.609375,
         "h": 26.15625,
-        "right": 178.359375,
-        "bottom": 384.546875,
+        "right": 168.609375,
+        "bottom": 377.046875,
         "font": "Baskerville, \"Iowan Old Style\", \"Book Antiqua\", \"Palatino Linotype\", Georgia, serif",
         "fontSize": "24px"
       },
@@ -606,7 +606,7 @@
           "h": 44
         },
         {
-          "label": "Upgrade room +1,286/hr 99",
+          "label": "Upgrade room +96/hr 99",
           "w": 272,
           "h": 45
         },
@@ -636,7 +636,7 @@
           "h": 60
         },
         {
-          "label": "JOURNAL",
+          "label": "Journal",
           "w": 96,
           "h": 60
         }
@@ -664,13 +664,13 @@
         },
         {
           "value": "Sleeper",
-          "scroll": 110,
-          "client": 110
+          "scroll": 101,
+          "client": 101
         },
         {
-          "value": "Earns  4,763 / hr",
-          "scroll": 110,
-          "client": 110
+          "value": "Earns  533 / hr",
+          "scroll": 101,
+          "client": 101
         },
         {
           "value": "TRAIN",

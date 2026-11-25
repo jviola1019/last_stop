@@ -34,7 +34,7 @@ try:
    # Workers are independently verified on real Chromium origin; WebKit/Firefox gameplay also tested.
    offline=False
    if engine=='chromium':
-    wait_condition(page,'!!navigator.serviceWorker.controller',timeout=30000);cache_names=page.evaluate('caches.keys()');assert any('living-v8.1-' in k for k in cache_names)
+    wait_condition(page,'!!navigator.serviceWorker.controller',timeout=30000);cache_names=page.evaluate('caches.keys()');assert any('living-v9-service-' in k for k in cache_names)
     ctx.set_offline(True);page.reload(wait_until='load');wait_condition(page,'window.__EVERLINE_DIAGNOSTICS__?.().trainName==="Origin Verified"');assert page.evaluate('window.__EVERLINE_DIAGNOSTICS__().cars.length')==20;offline=True;ctx.set_offline(False)
    assert not errors,errors;results.append({'browser':engine,'origin':True,'fleetRoundTrip':True,'workshopAndRankRoundTrip':True,'decodedInstallIcon':[192,192],'offlineReload':offline,'pageErrors':errors});print(results[-1],flush=True);ctx.close();browser.close()
 finally:server.shutdown();server.server_close()

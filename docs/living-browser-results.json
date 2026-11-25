@@ -2,21 +2,21 @@
   {
     "device": "desktop",
     "cars": 25,
-    "fps_sample": 60.5,
-    "low_power_fps_sample": 28.7,
+    "fps_sample": 58.7,
+    "low_power_fps_sample": 29.4,
     "refit_at_station": true,
     "cachePixels": 1706727,
-    "paintP95": 1.2000000001862645,
+    "paintP95": 0.8000000000465661,
     "errors": []
   },
   {
     "device": "iphone",
     "cars": 25,
-    "fps_sample": 59.8,
-    "low_power_fps_sample": 30.4,
+    "fps_sample": 59.9,
+    "low_power_fps_sample": 30.3,
     "refit_at_station": true,
-    "cachePixels": 568592,
-    "paintP95": 0.599999999627471,
+    "cachePixels": 518248,
+    "paintP95": 0.5,
     "errors": []
   }
 ]

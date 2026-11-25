@@ -1,0 +1,20 @@
+[
+  {
+    "device": "desktop",
+    "serviceDelivery": true,
+    "uniqueCatalog": 28,
+    "construction": true,
+    "timedRenovation": true,
+    "blueprintCollection": true,
+    "errors": []
+  },
+  {
+    "device": "iphone",
+    "serviceDelivery": true,
+    "uniqueCatalog": 28,
+    "construction": true,
+    "timedRenovation": true,
+    "blueprintCollection": true,
+    "errors": []
+  }
+]

@@ -105,9 +105,9 @@ test('all seven added regional backdrops and three new rooms are self-contained 
 
 test('freshly constructed carriages remain empty until passengers board at a station',()=>{
  const s=initialState();s.coins=100000;
- const result=buildCar(s,'sleeper');assert.equal(result.ok,true);
+ const result=buildCar(s,'quarters');assert.equal(result.ok,true);
  const next=s.cars.at(-1);assert.equal(next.riders,0);
- tick(s,10);assert.equal(next.riders,0);
+ tick(s,10);assert.equal(next.riders,0);assert.ok(next.buildRemaining>0);arrive(s);assert.equal(next.riders,0);tick(s,next.buildRemaining,{offline:true});assert.equal(next.riders,0);
  let hadBoarding=false;for(let i=0;i<12;i++){arrive(s);hadBoarding ||= next.riders>0;}
  assert.ok(hadBoarding,'passengers can fill a new carriage at a stop');
 });

@@ -1,3 +1,7 @@
+# V9 — Service Railway
+
+28 unique blueprints, timed construction and restoration, staff housing, finite commercial inventory and a one-tap restock system. Existing saves preserved. See [plan](docs/V9_PLAN.md), [release audit](docs/V9_RELEASE_AUDIT.md) and [balance results](docs/balance-v9-results.json). V9 is a candidate until remote release gates pass.
+
 # V8.1 — Heritage Roundel / desktop installation
 
 A custom midnight-blue, brass and sunset locomotive emblem now identifies the web app, native Windows bundle and standalone edition. The existing manifest identity, origin-relative scope, desktop identifier and v6 local save namespace are unchanged. The corrected V8 website and Windows candidate workflows passed on commit `bd855bffedf3401315f8d7dd5a761c523cadb976`.
